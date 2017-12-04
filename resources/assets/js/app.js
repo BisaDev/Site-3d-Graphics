@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 
+import router from './routes'
+
 Vue.component('navbar', require('./components/Navbar.vue'));
 
 /**
@@ -16,5 +18,6 @@ Vue.component('navbar', require('./components/Navbar.vue'));
 
 
 const app = new Vue({
-  el: '#app'
+  el: '#app',
+  router
 });

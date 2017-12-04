@@ -10,7 +10,7 @@
         </div>
         <div class="row">
           <div class="col-4 col-no-padding">
-            <a href="" class="featured featured-plateiq reveal" data-color="#FCFCFD" data-text="The first driving simulator of its kind.">
+          <router-link to="project">  <a href="" class="featured featured-plateiq reveal" data-color="#FCFCFD" data-text="The first driving simulator of its kind.">
               <div class="featured-title">
                 <h5>Plate IQ</h5>
                 <h6>Restaurant Management</h6>
@@ -18,7 +18,7 @@
                   <p>Read more.</p>
                 </div>
               </div>
-            </a>
+            </a></router-link>
           </div>
           <div class="col-4 col-no-padding">
             <a href="" class="featured featured-volkswagen text-dark reveal" data-color="#FCFCFD" data-text="The first driving simulator of its kind.">
@@ -50,7 +50,7 @@
 </template>
 <script>
 export default {
-  
+
 }
 
 </script>
