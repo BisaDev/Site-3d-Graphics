@@ -1,0 +1,9 @@
+.work {
+  &-list--left {
+  }
+  &-list--right {
+    &.list {
+      margin-top: 200px;
+    }
+  }
+}

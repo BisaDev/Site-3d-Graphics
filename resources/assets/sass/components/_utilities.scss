@@ -1,0 +1,26 @@
+.text-dark { color: $stone !important; }
+.text-white { color: $light-gray !important; }
+
+.text-white-50 { color: rgba($light-gray, .5) !important; }
+
+
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+
+.pull-left { float: left !important; }
+.pull-right { float: right !important; }
+
+.no-padding {padding: 0 !important; }
+.no-margin {margin: 0 !important; }
+
+
+.clearfix:after,
+.clearfix:before {
+    content: " ";
+    display: table
+}
+.clearfix:after { clear: both }
+
+
+.margin-bottom--60 { margin-bottom: 60px; }

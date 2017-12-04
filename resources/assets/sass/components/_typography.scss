@@ -1,0 +1,96 @@
+body {
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-m;
+  color: $light-gray;
+
+  text-rendering: geometricPrecision;
+  -webkit-text-rendering: geometricPrecision;
+  -moz-text-rendering: geometricPrecision;
+  -o-text-rendering: geometricPrecision;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: $font-size-xxxl;
+  line-height: $line-height-m;
+  font-weight: $font-weight-regular;
+}
+h2 {
+  font-size: $font-size-xxl;
+  line-height: $line-height-l;
+  font-weight: $font-weight-regular;
+
+  b,
+  strong {
+    font-weight: $font-weight-semibold;
+  }
+}
+h3 {
+  font-size: $font-size-xl;
+  line-height: $line-height-m;
+  font-weight: $font-weight-regular;
+}
+h4 {
+  font-size: $font-size-l;
+  line-height: $line-height-l;
+  font-weight: $font-weight-semibold;
+}
+h5 {
+  font-size: $font-size-m;
+  line-height: $line-height-m;
+  font-weight: $font-weight-semibold;
+}
+h6 {
+  font-size: $font-size-m;
+  line-height: $line-height-m;
+  font-weight: $font-weight-regular;
+}
+p {
+  font-size: $font-size-m;
+  line-height: $line-height-l;
+  font-weight: $font-weight-regular;
+}
+
+.font-size-s {
+  font-size: $font-size-s !important;
+}
+.font-size-m {
+  font-size: $font-size-m !important;
+}
+.font-size-l {
+  font-size: $font-size-l !important;
+}
+.font-size-xl {
+  font-size: $font-size-xl !important;
+}
+.font-size-xxl {
+  font-size: $font-size-xxl !important;
+}
+.font-size-xxxl {
+  font-size: $font-size-xxxl !important;
+}
+
+.font-weight-lignt {
+  font-weight: $font-weight-light !important;
+}
+.font-weight-regular {
+  font-weight: $font-weight-regular !important;
+}
+.font-weight-semibold {
+  font-weight: $font-weight-semibold !important;
+}

@@ -1,0 +1,20 @@
+section {
+  min-height: 100vh;
+  padding: 120px 0 140px;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &.section-dark {
+    background-color: $stone;
+    color: $light-gray;
+  }
+  &.section-light {
+    background-color: $light-gray;
+    color: $stone;
+  }
+  &.align-center {
+    display: flex;
+    align-items: center;
+  }
+}

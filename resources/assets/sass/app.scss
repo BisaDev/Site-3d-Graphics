@@ -1,3 +1,25 @@
 
 @tailwind preflight;
 @tailwind utilities;
+
+
+@import "components/fonts";
+@import "components/variables";
+@import "components/mixins";
+@import "components/typography";
+@import "components/grid";
+@import "components/base";
+@import "components/button";
+@import "components/links";
+@import "components/utilities";
+@import "components/navbar";
+@import "components/sections";
+@import "components/revealer";
+@import "components/featured";
+@import "components/visuals";
+@import "components/lists";
+@import "components/hamburger";
+@import "partials/landing";
+@import "partials/work";
+@import "partials/preloader";
+@import "partials/footer";

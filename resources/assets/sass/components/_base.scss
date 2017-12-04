@@ -1,0 +1,14 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: $stone;
+}
+
+* {
+  @include box-sizing(border-box);
+}
+
+h1, h2, h3, h4, p, section, blockquote, label {
+  margin: 0;
+}

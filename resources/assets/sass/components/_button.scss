@@ -1,0 +1,19 @@
+.btn {
+  @include btn-interaction();
+  display: inline-block;
+  height: 1.875rem;
+  line-height: 1.875rem;
+  padding: 0 0.5rem;
+  font-size: $font-size-s;
+  font-weight: $font-weight-regular;
+  color: $light-gray;
+  border: none;
+}
+
+.scroll-btn {
+  display: block;
+  overflow: hidden;
+  span {
+    display: block;
+  }
+}
