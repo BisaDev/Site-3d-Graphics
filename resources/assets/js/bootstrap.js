@@ -1,9 +1,12 @@
 window._ = require('lodash');
 window.Vue = require('vue');
+window.$ = require('jquery');
 import Router from 'vue-router';
+import Revealer from './Revealer.js';
 
 window.Router = Router;
-
+window.Revealer = Revealer;
+window.anime = require('animejs');
 Vue.use(Router);
 
 /**

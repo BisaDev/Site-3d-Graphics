@@ -14,7 +14,7 @@
         </div>
         <div class="row">
           <div class="col-4 col-no-padding">
-          <router-link to="project">  <a href="" class="featured featured-plateiq reveal" data-color="#FCFCFD" data-text="The first driving simulator of its kind.">
+          <a @click="showProject()" class="featured featured-plateiq reveal" data-color="#FCFCFD" data-text="The first driving simulator of its kind.">
               <div class="featured-title">
                 <h5>Plate IQ</h5>
                 <h6>Restaurant Management</h6>
@@ -22,7 +22,7 @@
                   <p>Read more.</p>
                 </div>
               </div>
-            </a></router-link>
+            </a>
           </div>
           <div class="col-4 col-no-padding">
             <a href="" class="featured featured-volkswagen text-dark reveal" data-color="#FCFCFD" data-text="The first driving simulator of its kind.">
@@ -66,7 +66,15 @@ export default {
           headerhome,
           infomaniak,
           footerhome
-        }
+        },
+          methods:{
+            showProject(project){
+              const overlay = new Revealer();
+              overlay.reveal('example');
+              this.$router.push('/project');
+
+            }
+          }
 
 }
 
