@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/{any?}/{any2?}', function () {
+    return view('home');
+})->where('vue_capture', '[\/\w\.-]*');
+
+Route::group(['prefix'=>'api/v1'], function () {
+    Route::resource('projects', 'ProjectController');
+});
