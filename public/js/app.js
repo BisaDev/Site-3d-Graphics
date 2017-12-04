@@ -33007,6 +33007,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Info___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Info__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Footer__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Footer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Footer__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_api_js__ = __webpack_require__(69);
 //
 //
 //
@@ -33039,30 +33040,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 
 
 
@@ -33076,14 +33055,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     infomaniak: __WEBPACK_IMPORTED_MODULE_1__components_Info___default.a,
     footerhome: __WEBPACK_IMPORTED_MODULE_2__components_Footer___default.a
   },
+  data: function data() {
+    return {
+      projects: []
+    };
+  },
+
   methods: {
     showProject: function showProject(project) {
       var overlay = new Revealer();
       overlay.reveal('example');
       this.$router.push('/project');
+    },
+    updateData: function updateData(response) {
+      this.projects = response.data;
     }
-  }
+  },
+  mounted: function mounted() {
+    var _this = this;
 
+    var maniak = new __WEBPACK_IMPORTED_MODULE_3__utils_api_js__["a" /* default */]();
+    maniak.getProjects().then(function (response) {
+      return _this.updateData(response);
+    });
+  }
 });
 
 /***/ }),
@@ -33103,35 +33098,38 @@ var render = function() {
       _vm._v(" "),
       _c(
         "section",
-        { staticClass: "section-dark", attrs: { id: "featured" } },
+        { staticClass: "section-dark component", attrs: { id: "featured" } },
         [
           _c("div", { staticClass: "container" }, [
-            _vm._m(0, false, false),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-4 col-no-padding" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "featured featured-plateiq reveal",
-                    attrs: {
-                      "data-color": "#FCFCFD",
-                      "data-text": "The first driving simulator of its kind."
-                    },
-                    on: {
-                      click: function($event) {
-                        _vm.showProject()
+            _c(
+              "div",
+              { staticClass: "row" },
+              _vm._l(_vm.projects, function(project) {
+                return _c("div", { staticClass: "col-4 col-no-padding" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "featured featured-wolverine reveal",
+                      attrs: { "data-color": "#FCFCFD" },
+                      on: {
+                        click: function($event) {
+                          _vm.showProject(project)
+                        }
                       }
-                    }
-                  },
-                  [_vm._m(1, false, false)]
-                )
-              ]),
-              _vm._v(" "),
-              _vm._m(2, false, false),
-              _vm._v(" "),
-              _vm._m(3, false, false)
-            ])
+                    },
+                    [
+                      _c("div", { staticClass: "featured-title" }, [
+                        _c("h5", [_vm._v(_vm._s(project.name))]),
+                        _vm._v(" "),
+                        _c("h6", [_vm._v(_vm._s(project.description))]),
+                        _vm._v(" "),
+                        _vm._m(0, true, false)
+                      ])
+                    ]
+                  )
+                ])
+              })
+            )
           ])
         ]
       ),
@@ -33146,90 +33144,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row row-align-bottom margin-bottom--60" },
-      [
-        _c("h4", { staticClass: "col-3" }, [
-          _vm._v("Some of the projects we are most proud of.")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-9 text-right" }, [
-          _c("button", { staticClass: "btn" }, [_vm._v("See all")])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "featured-title" }, [
-      _c("h5", [_vm._v("Plate IQ")]),
-      _vm._v(" "),
-      _c("h6", [_vm._v("Restaurant Management")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "featured-title-description" }, [
-        _c("p", [_vm._v("Read more.")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-4 col-no-padding" }, [
-      _c(
-        "a",
-        {
-          staticClass: "featured featured-volkswagen text-dark reveal",
-          attrs: {
-            href: "",
-            "data-color": "#FCFCFD",
-            "data-text": "The first driving simulator of its kind."
-          }
-        },
-        [
-          _c("div", { staticClass: "featured-title" }, [
-            _c("h5", [_vm._v("Volkswagen 4DX")]),
-            _vm._v(" "),
-            _c("h6", [_vm._v("VR Driving Simulator")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "featured-title-description" }, [
-              _c("p", [_vm._v("Read more.")])
-            ])
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-4 col-no-padding" }, [
-      _c(
-        "a",
-        {
-          staticClass: "featured featured-wolverine reveal",
-          attrs: {
-            href: "",
-            "data-color": "#FCFCFD",
-            "data-text": "The first driving simulator of its kind."
-          }
-        },
-        [
-          _c("div", { staticClass: "featured-title" }, [
-            _c("h5", [_vm._v("Wolverine")]),
-            _vm._v(" "),
-            _c("h6", [_vm._v("Mobile Configurator")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "featured-title-description" }, [
-              _c("p", [_vm._v("Read more.")])
-            ])
-          ])
-        ]
-      )
+    return _c("div", { staticClass: "featured-title-description" }, [
+      _c("p", [_vm._v("Read more.")])
     ])
   }
 ]
@@ -44326,6 +44242,37 @@ d:A.apply($jscomp$this,d)}}(f)),f={type:f.type};return b}(),ha={css:function(a,c
 function(a){a=P(a);for(var c=v.length;c--;)for(var d=v[c],b=d.animations,f=b.length;f--;)u(a,b[f].animatable.target)&&(b.splice(f,1),b.length||d.pause())};q.getValue=K;q.path=function(a,c){var d=h.str(a)?e(a)[0]:a,b=c||100;return function(a){return{el:d,property:a,totalLength:N(d)*(b/100)}}};q.setDashoffset=function(a){var c=N(a);a.setAttribute("stroke-dasharray",c);return c};q.bezier=A;q.easings=Q;q.timeline=function(a){var c=q(a);c.pause();c.duration=0;c.add=function(d){c.children.forEach(function(a){a.began=
 !0;a.completed=!0});m(d).forEach(function(b){var d=z(b,D(S,a||{}));d.targets=d.targets||a.targets;b=c.duration;var e=d.offset;d.autoplay=!1;d.direction=c.direction;d.offset=h.und(e)?b:L(e,b);c.began=!0;c.completed=!0;c.seek(d.offset);d=q(d);d.began=!0;d.completed=!0;d.duration>b&&(c.duration=d.duration);c.children.push(d)});c.seek(0);c.reset();c.autoplay&&c.restart();return c};return c};q.random=function(a,c){return Math.floor(Math.random()*(c-a+1))+a};return q});
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 69 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ApiManiak = function () {
+  function ApiManiak() {
+    _classCallCheck(this, ApiManiak);
+  }
+
+  _createClass(ApiManiak, [{
+    key: 'getProjects',
+    value: function getProjects() {
+      return axios.get('/api/v1/projects');
+    }
+  }, {
+    key: 'getProject',
+    value: function getProject(id) {
+      return axios.get('/api/v1/projects/' + id);
+    }
+  }]);
+
+  return ApiManiak;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (ApiManiak);
 
 /***/ })
 /******/ ]);
