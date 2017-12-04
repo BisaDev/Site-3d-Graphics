@@ -20,6 +20,7 @@
 
       <navbar></navbar>
       <router-view></router-view>
+      <reveal></reveal>
 
     </div>
 
