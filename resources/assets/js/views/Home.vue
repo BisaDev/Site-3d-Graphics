@@ -1,5 +1,9 @@
 <template>
   <div>
+
+    <headerhome></headerhome>
+    <infomaniak></infomaniak>
+
     <section id="featured" class="section-dark">
       <div class="container">
         <div class="row row-align-bottom margin-bottom--60">
@@ -46,10 +50,23 @@
       </div>
     </section>
 
+    <footerhome></footerhome>
+
 </div>
 </template>
 <script>
+
+import headerhome from '../components/Header';
+import infomaniak from '../components/Info';
+import footerhome from '../components/Footer';
+
 export default {
+
+        components:{
+          headerhome,
+          infomaniak,
+          footerhome
+        }
 
 }
 

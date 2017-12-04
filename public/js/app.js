@@ -32997,6 +32997,18 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Header__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Header___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Header__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Info__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Info___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Info__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Footer__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Footer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Footer__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -33048,7 +33060,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+  components: {
+    headerhome: __WEBPACK_IMPORTED_MODULE_0__components_Header___default.a,
+    infomaniak: __WEBPACK_IMPORTED_MODULE_1__components_Info___default.a,
+    footerhome: __WEBPACK_IMPORTED_MODULE_2__components_Footer___default.a
+  }
+
+});
 
 /***/ }),
 /* 53 */
@@ -33058,51 +33083,68 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("section", { staticClass: "section-dark", attrs: { id: "featured" } }, [
-      _c("div", { staticClass: "container" }, [
-        _vm._m(0, false, false),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            { staticClass: "col-4 col-no-padding" },
-            [
-              _c("router-link", { attrs: { to: "project" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "featured featured-plateiq reveal",
-                    attrs: {
-                      href: "",
-                      "data-color": "#FCFCFD",
-                      "data-text": "The first driving simulator of its kind."
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "featured-title" }, [
-                      _c("h5", [_vm._v("Plate IQ")]),
-                      _vm._v(" "),
-                      _c("h6", [_vm._v("Restaurant Management")]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "featured-title-description" }, [
-                        _c("p", [_vm._v("Read more.")])
-                      ])
-                    ])
-                  ]
-                )
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _vm._m(1, false, false),
-          _vm._v(" "),
-          _vm._m(2, false, false)
-        ])
-      ])
-    ])
-  ])
+  return _c(
+    "div",
+    [
+      _c("headerhome"),
+      _vm._v(" "),
+      _c("infomaniak"),
+      _vm._v(" "),
+      _c(
+        "section",
+        { staticClass: "section-dark", attrs: { id: "featured" } },
+        [
+          _c("div", { staticClass: "container" }, [
+            _vm._m(0, false, false),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col-4 col-no-padding" },
+                [
+                  _c("router-link", { attrs: { to: "project" } }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "featured featured-plateiq reveal",
+                        attrs: {
+                          href: "",
+                          "data-color": "#FCFCFD",
+                          "data-text":
+                            "The first driving simulator of its kind."
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "featured-title" }, [
+                          _c("h5", [_vm._v("Plate IQ")]),
+                          _vm._v(" "),
+                          _c("h6", [_vm._v("Restaurant Management")]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "featured-title-description" },
+                            [_c("p", [_vm._v("Read more.")])]
+                          )
+                        ])
+                      ]
+                    )
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(1, false, false),
+              _vm._v(" "),
+              _vm._m(2, false, false)
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("footerhome")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -33316,6 +33358,464 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-afe850d4", module.exports)
+  }
+}
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(37)
+/* script */
+var __vue_script__ = __webpack_require__(58)
+/* template */
+var __vue_template__ = __webpack_require__(59)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Header.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1d126904", Component.options)
+  } else {
+    hotAPI.reload("data-v-1d126904", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    {
+      staticClass: "no-padding section-dark align-center component",
+      attrs: { id: "hero" }
+    },
+    [
+      _c("div", { staticClass: "visual-wrapper" }, [
+        _c("div", { staticClass: "visual visual-left" }, [
+          _c(
+            "svg",
+            {
+              staticClass: "blob-left",
+              attrs: {
+                width: "100%",
+                height: "100vh",
+                preserveAspectRatio: "none",
+                viewBox: "0 0 1440 800",
+                "xmlns:pathdata": "http://www.maniak.com.mx/"
+              }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M729,525 C641.445394,525 543.054311,432.281878 559,343 C574.227322,253.239988 632.640768,227.143946 713,204 C792.502363,180.784885 889.554319,263.112183 865,350 C840.796532,437.596273 817.140745,525 729,525 Z",
+                  "pathdata:id":
+                    "M783,617 C695.904077,617 598.143706,524.852451 614,436 C629.11689,346.912358 687.155891,320.976906 767,298 C845.992732,274.903132 942.42256,356.7238 918,443 C893.977324,530.134142 870.473176,617 783,617 Z;M729,525 C641.445394,525 543.054311,432.281878 559,343 C574.227322,253.239988 632.640768,227.143946 713,204 C792.502363,180.784885 889.554319,263.112183 865,350 C840.796532,437.596273 817.140745,525 729,525 Z;M816,587 C718.377118,587 609.579286,484.582136 627,386 C644.049442,286.80971 708.641233,257.98362 797,232 C885.411267,206.774688 992.728333,297.714688 966,394 C938.813473,490.452498 912.655631,587 816,587 Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M783,617 C695.904077,617 598.143706,524.852451 614,436 C629.11689,346.912358 687.155891,320.976906 767,298 C845.992732,274.903132 942.42256,356.7238 918,443 C893.977324,530.134142 870.473176,617 783,617 Z",
+                  "pathdata:id":
+                    "M816,587 C718.377118,587 609.579286,484.582136 627,386 C644.049442,286.80971 708.641233,257.98362 797,232 C885.411267,206.774688 992.728333,297.714688 966,394 C938.813473,490.452498 912.655631,587 816,587 Z;M783,617 C695.904077,617 598.143706,524.852451 614,436 C629.11689,346.912358 687.155891,320.976906 767,298 C845.992732,274.903132 942.42256,356.7238 918,443 C893.977324,530.134142 870.473176,617 783,617 Z;M729,525 C641.445394,525 543.054311,432.281878 559,343 C574.227322,253.239988 632.640768,227.143946 713,204 C792.502363,180.784885 889.554319,263.112183 865,350 C840.796532,437.596273 817.140745,525 729,525 Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M816,587 C718.377118,587 609.579286,484.582136 627,386 C644.049442,286.80971 708.641233,257.98362 797,232 C885.411267,206.774688 992.728333,297.714688 966,394 C938.813473,490.452498 912.655631,587 816,587 Z",
+                  "pathdata:id":
+                    "M729,525 C641.445394,525 543.054311,432.281878 559,343 C574.227322,253.239988 632.640768,227.143946 713,204 C792.502363,180.784885 889.554319,263.112183 865,350 C840.796532,437.596273 817.140745,525 729,525 Z;M816,587 C718.377118,587 609.579286,484.582136 627,386 C644.049442,286.80971 708.641233,257.98362 797,232 C885.411267,206.774688 992.728333,297.714688 966,394 C938.813473,490.452498 912.655631,587 816,587 Z;M783,617 C695.904077,617 598.143706,524.852451 614,436 C629.11689,346.912358 687.155891,320.976906 767,298 C845.992732,274.903132 942.42256,356.7238 918,443 C893.977324,530.134142 870.473176,617 783,617 Z"
+                }
+              })
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "visual visual-right" }, [
+          _c(
+            "svg",
+            {
+              staticClass: "blob-right",
+              attrs: {
+                width: "100%",
+                height: "100vh",
+                preserveAspectRatio: "none",
+                viewBox: "0 0 1440 800",
+                "xmlns:pathdata": "http://www.maniak.com.mx/"
+              }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M729,525 C641.445394,525 543.054311,432.281878 559,343 C574.227322,253.239988 632.640768,227.143946 713,204 C792.502363,180.784885 889.554319,263.112183 865,350 C840.796532,437.596273 817.140745,525 729,525 Z",
+                  "pathdata:id":
+                    "M783,617 C695.904077,617 598.143706,524.852451 614,436 C629.11689,346.912358 687.155891,320.976906 767,298 C845.992732,274.903132 942.42256,356.7238 918,443 C893.977324,530.134142 870.473176,617 783,617 Z;M729,525 C641.445394,525 543.054311,432.281878 559,343 C574.227322,253.239988 632.640768,227.143946 713,204 C792.502363,180.784885 889.554319,263.112183 865,350 C840.796532,437.596273 817.140745,525 729,525 Z;M816,587 C718.377118,587 609.579286,484.582136 627,386 C644.049442,286.80971 708.641233,257.98362 797,232 C885.411267,206.774688 992.728333,297.714688 966,394 C938.813473,490.452498 912.655631,587 816,587 Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M783,617 C695.904077,617 598.143706,524.852451 614,436 C629.11689,346.912358 687.155891,320.976906 767,298 C845.992732,274.903132 942.42256,356.7238 918,443 C893.977324,530.134142 870.473176,617 783,617 Z",
+                  "pathdata:id":
+                    "M816,587 C718.377118,587 609.579286,484.582136 627,386 C644.049442,286.80971 708.641233,257.98362 797,232 C885.411267,206.774688 992.728333,297.714688 966,394 C938.813473,490.452498 912.655631,587 816,587 Z;M783,617 C695.904077,617 598.143706,524.852451 614,436 C629.11689,346.912358 687.155891,320.976906 767,298 C845.992732,274.903132 942.42256,356.7238 918,443 C893.977324,530.134142 870.473176,617 783,617 Z;M729,525 C641.445394,525 543.054311,432.281878 559,343 C574.227322,253.239988 632.640768,227.143946 713,204 C792.502363,180.784885 889.554319,263.112183 865,350 C840.796532,437.596273 817.140745,525 729,525 Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M816,587 C718.377118,587 609.579286,484.582136 627,386 C644.049442,286.80971 708.641233,257.98362 797,232 C885.411267,206.774688 992.728333,297.714688 966,394 C938.813473,490.452498 912.655631,587 816,587 Z",
+                  "pathdata:id":
+                    "M729,525 C641.445394,525 543.054311,432.281878 559,343 C574.227322,253.239988 632.640768,227.143946 713,204 C792.502363,180.784885 889.554319,263.112183 865,350 C840.796532,437.596273 817.140745,525 729,525 Z;M816,587 C718.377118,587 609.579286,484.582136 627,386 C644.049442,286.80971 708.641233,257.98362 797,232 C885.411267,206.774688 992.728333,297.714688 966,394 C938.813473,490.452498 912.655631,587 816,587 Z;M783,617 C695.904077,617 598.143706,524.852451 614,436 C629.11689,346.912358 687.155891,320.976906 767,298 C845.992732,274.903132 942.42256,356.7238 918,443 C893.977324,530.134142 870.473176,617 783,617 Z"
+                }
+              })
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(0, false, false)
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("h2", { staticClass: "text-center" }, [
+        _c("b", [_vm._v("Let us blow your mind.")])
+      ]),
+      _vm._v(" "),
+      _c("h2", { staticClass: "text-center" }, [
+        _vm._v("Lorem ipsum dolor sit amet.")
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn scroll-btn" }, [
+        _c("span", [_vm._v("Scroll down")]),
+        _c("span", [_vm._v("Scroll down")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1d126904", module.exports)
+  }
+}
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(37)
+/* script */
+var __vue_script__ = __webpack_require__(61)
+/* template */
+var __vue_template__ = __webpack_require__(62)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Info.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-17dc0336", Component.options)
+  } else {
+    hotAPI.reload("data-v-17dc0336", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0, false, false)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "section",
+      {
+        staticClass: "no-padding section-light align-center component",
+        attrs: { id: "whoweare" }
+      },
+      [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("h3", { staticClass: "col-8 col-offset-2 text-center" }, [
+              _vm._v(
+                "Maniak is a creative studio in Guadalajara, Mexico. We build websites, applications and interactive experiences."
+              )
+            ])
+          ])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-17dc0336", module.exports)
+  }
+}
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(37)
+/* script */
+var __vue_script__ = __webpack_require__(64)
+/* template */
+var __vue_template__ = __webpack_require__(65)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Footer.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-083ff5dc", Component.options)
+  } else {
+    hotAPI.reload("data-v-083ff5dc", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0, false, false)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", [
+      _c(
+        "a",
+        { staticClass: "container", attrs: { href: "mailto:hola@maniak.co" } },
+        [
+          _c("div", { staticClass: "row section-light" }, [
+            _c("h4", { staticClass: "col-12 text-center" }, [
+              _c("span", [_vm._v("Lets blow minds together.")]),
+              _c("span", [_vm._v("👉  hello@maniak.co  👈")])
+            ])
+          ])
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-083ff5dc", module.exports)
   }
 }
 
