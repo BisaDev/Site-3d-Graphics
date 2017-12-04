@@ -4,7 +4,8 @@
     <headerhome></headerhome>
     <infomaniak></infomaniak>
 
-    <section id="featured" class="section-dark component">
+
+  <section id="featured" class="section-dark component">
   <div class="container">
     <div class="row">
       <div class="col-4 col-no-padding" v-for="project in projects">
@@ -26,20 +27,28 @@
 </div>
 </section>
 
-    <footerhome></footerhome>
+
+<footerhome></footerhome>
+
+
+
 
 </div>
 </template>
+
+
+
 <script>
 
 import headerhome from '../components/Header';
 import infomaniak from '../components/Info';
 import footerhome from '../components/Footer';
 
+
+import Menu from '../utils/menu.js';
 import ApiManiak from '../utils/api.js';
 
-export default {
-
+      export default {
         components:{
           headerhome,
           infomaniak,
@@ -53,19 +62,25 @@ export default {
           methods:{
             showProject(project){
               const overlay = new Revealer();
-              overlay.reveal('example');
-              this.$router.push('/project');
+              overlay.reveal(project.preloader);
+              this.$router.push({name:"project", params: {id:project.id,animation: true }});
 
             },
             updateData(response){
+
               this.projects=response.data;
+
+
+
             }
           },
             mounted(){
               let maniak=new ApiManiak;
               maniak.getProjects().then(response => this.updateData(response));
+              Menu.run();
+
             }
 
-}
 
+      }
 </script>

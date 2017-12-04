@@ -23,3 +23,26 @@
 @import "partials/work";
 @import "partials/preloader";
 @import "partials/footer";
+
+
+.menu-white .menu li a
+{
+  color:#FFF;
+}
+
+.menu-white .menu li a:hover
+{
+  color:#1c202a;
+  background-color: #FFF;
+}
+
+.menu-dark .menu li a
+{
+  color:#1c202a;
+}
+
+.menu-dark .menu li a:hover
+{
+  color:#FFF;
+  background-color:#1c202a;
+}

@@ -6,8 +6,9 @@ let routes = [{
   },
   {
     name: 'project',
-    path: '/project',
-    component: require('./views/Project')
+    path: '/project/:id',
+    component: require('./views/Project'),
+    props: true
   }
 
 ]
