@@ -997,7 +997,6 @@ var app = new Vue({
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
 window._ = __webpack_require__(12);
 
 /**
@@ -1005,12 +1004,6 @@ window._ = __webpack_require__(12);
  * for JavaScript based Bootstrap features such as modals and tabs. This
  * code may be modified to fit the specific needs of your application.
  */
-
-try {
-  window.$ = window.jQuery = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"jquery\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-  __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"bootstrap-sass\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-} catch (e) {}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
