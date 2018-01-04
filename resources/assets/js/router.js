@@ -3,12 +3,12 @@ import Router from 'vue-router';
 let routes = [
     {
         path: '/',
-        component: require('./views/Home')
+        component: require('./components/home/Home')
     },
     {
         name: 'project',
         path: '/project/:id',
-        component: require('./views/Project'),
+        component: require('./components/projects/Project'),
         props: true
     }
 ];

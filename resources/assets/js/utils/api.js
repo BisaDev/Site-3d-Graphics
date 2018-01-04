@@ -1,8 +1,11 @@
-export default class ApiManiak {
-  getProjects() {
-    return axios.get('/api/v1/projects');
-  }
-  getProject(id) {
-    return axios.get('/api/v1/projects/' + id);
-  }
+export default {
+    api: '/api/v1',
+
+    getProjects() {
+        return axios.get(this.api + '/projects');
+    },
+
+    getProject(id) {
+        return axios.get(this.api + '/projects/' + id);
+    }
 }
