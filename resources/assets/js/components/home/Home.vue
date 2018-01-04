@@ -13,7 +13,7 @@
                                 <h6>{{project.description}}</h6>
 
                                 <div class="featured-title-description">
-                                    <p> Read more.</p>
+                                    <p>Read more.</p>
                                 </div>
                             </div>
                         </a>

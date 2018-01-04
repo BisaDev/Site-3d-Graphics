@@ -1,186 +1,184 @@
 export default class Revealer {
-  constructor() {
-    this.elm = $(".revealer-overlays");;
-    this.path = $("path", this.elm);
-    this.title = $(".revealer-title-text", this.elm);
-    this.numPoints = 3;
-    this.layerDuration = 750;
-    this.titleDuration = 750;
-    this.delayPointsArray = [];
-    this.delayPointsMax = 200;
-    this.delayPerPath = 50;
-    this.delayTitle = 100;
-    this.isOpened = false;
-    this.isAnimating = false;
-    this.setPaths();
-    this.calculateMiddlePath();
-  }
-  toggle(value) {
-    this.reveal(value);
-  }
-  reveal(value) {
-    this.isAnimating = true;
-    this.setPaths();
-    this.animateLayersIn(value);
-
-    // for (var i = 0; i < this.path.length; i++) {
-    //   this.animateLayersIn(
-    //     this.path[i],
-    //     this.delayPerPath * (i + 1),
-    //     i,
-    //     this.path.length
-    //   );
-    // }
-  }
-  close() {
-    this.isOpened = false;
-    //this.reveal(this.path, 500);
-  }
-  setPaths() {
-    this.pointsIn = {};
-    this.pointsOut = {};
-
-    this.pointsIn.end =
-      "M 0 100 C 25 100 25 100 50 100 C 75 100 75 100 100 100 V 0 H 0";
-    this.pointsIn.start = "M 0 0 C 25 0 25 0 50 0 C 75 0 75 0 100 0 V 0 H 0";
-    this.pointsOut.start =
-      "M 100 0 C 75 0 75 0 50 0 C 25 0 25 0 0 0 V 100 H 100";
-    this.pointsOut.end =
-      "M 100 100 C 75 100 75 100 50 100 C 25 100 25 100 0 100 V 100 H 100";
-
-    this.calculateMiddlePath();
-  }
-  calculateMiddlePath() {
-    const range = Math.random() * Math.PI * 2;
-    for (var i = 0; i < this.numPoints; i++) {
-      const radian = i / (this.numPoints - 1) * Math.PI * 2;
-      this.delayPointsArray[i] =
-        (Math.sin(radian + range) + 1) / 2 * this.delayPointsMax;
-    }
-    const points = [];
-    // This is to make the path morph more drastically for faster durations
-    for (var i = 0; i < this.numPoints; i++) {
-      points[i] =
-        Math.min(
-          Math.max(this.layerDuration / 2 - this.delayPointsArray[i], 0) /
-          this.layerDuration,
-          1
-        ) * 100;
+    constructor() {
+        this.elm = $(".revealer-overlays");
+        this.path = $("path", this.elm);
+        this.title = $(".revealer-title-text", this.elm);
+        this.numPoints = 3;
+        this.layerDuration = 750;
+        this.titleDuration = 750;
+        this.delayPointsArray = [];
+        this.delayPointsMax = 200;
+        this.delayPerPath = 50;
+        this.delayTitle = 100;
+        this.isOpened = false;
+        this.isAnimating = false;
+        this.setPaths();
+        this.calculateMiddlePath();
     }
 
-    this.pointsIn.middle = "";
-    this.pointsOut.middle = "";
-
-    this.pointsIn.middle += `M 0 ${points[0]} `;
-    this.pointsOut.middle += `M 100 ${100 - points[0]} `;
-
-    for (var i = 0; i < this.numPoints - 1; i++) {
-      const p = (i + 1) / (this.numPoints - 1) * 100;
-      const cp = p - 1 / (this.numPoints - 1) * 100 / 2;
-      this.pointsIn.middle += `C ${cp} ${points[i]} ${cp} ${points[i + 1]} ${
-          p
-        } ${points[i + 1]} `;
-    }
-    for (var i = 0; i < this.numPoints - 1; i++) {
-      const p = (i + 1) / (this.numPoints - 1) * 100;
-      const cp = p - 1 / (this.numPoints - 1) * 100 / 2;
-      this.pointsOut.middle += `C ${100 - cp} ${100 - points[i]} ${100 -
-          cp} ${100 - points[i + 1]} ${100 - p} ${100 - points[i + 1]} `;
+    toggle(value) {
+        this.reveal(value);
     }
 
-    this.pointsIn.middle += `V 0 H 0`;
-    this.pointsOut.middle += `V 100 H 100`;
-  }
+    reveal(value) {
+        this.isAnimating = true;
+        this.setPaths();
+        this.animateLayersIn(value);
 
-  animateLayersIn(value) {
-    const revealer = this;
+        // for (var i = 0; i < this.path.length; i++) {
+        //   this.animateLayersIn(
+        //     this.path[i],
+        //     this.delayPerPath * (i + 1),
+        //     i,
+        //     this.path.length
+        //   );
+        // }
+    }
 
-    $(".revealer-title-text").html(value);
+    close() {
+        this.isOpened = false;
+        //this.reveal(this.path, 500);
+    }
+
+    setPaths() {
+        this.pointsIn = {};
+        this.pointsOut = {};
+
+        this.pointsIn.end = "M 0 100 C 25 100 25 100 50 100 C 75 100 75 100 100 100 V 0 H 0";
+        this.pointsIn.start = "M 0 0 C 25 0 25 0 50 0 C 75 0 75 0 100 0 V 0 H 0";
+        this.pointsOut.start = "M 100 0 C 75 0 75 0 50 0 C 25 0 25 0 0 0 V 100 H 100";
+        this.pointsOut.end = "M 100 100 C 75 100 75 100 50 100 C 25 100 25 100 0 100 V 100 H 100";
+
+        this.calculateMiddlePath();
+    }
+
+    calculateMiddlePath() {
+        const range = Math.random() * Math.PI * 2;
+
+        for (var i = 0; i < this.numPoints; i++) {
+            const radian = i / (this.numPoints - 1) * Math.PI * 2;
+            this.delayPointsArray[i] = (Math.sin(radian + range) + 1) / 2 * this.delayPointsMax;
+        }
+
+        const points = [];
+
+        // This is to make the path morph more drastically for faster durations
+        for (var i = 0; i < this.numPoints; i++) {
+            points[i] = Math.min(Math.max(this.layerDuration / 2 - this.delayPointsArray[i], 0) / this.layerDuration, 1) * 100;
+        }
+
+        this.pointsIn.middle = "";
+        this.pointsOut.middle = "";
+
+        this.pointsIn.middle += `M 0 ${points[0]} `;
+        this.pointsOut.middle += `M 100 ${100 - points[0]} `;
+
+        for (var i = 0; i < this.numPoints - 1; i++) {
+            const p = (i + 1) / (this.numPoints - 1) * 100;
+            const cp = p - 1 / (this.numPoints - 1) * 100 / 2;
+            this.pointsIn.middle += `C ${cp} ${points[i]} ${cp} ${points[i + 1]} ${p} ${points[i + 1]} `;
+        }
+
+        for (var i = 0; i < this.numPoints - 1; i++) {
+            const p = (i + 1) / (this.numPoints - 1) * 100;
+            const cp = p - 1 / (this.numPoints - 1) * 100 / 2;
+            this.pointsOut.middle += `C ${100 - cp} ${100 - points[i]} ${100 - cp} ${100 - points[i + 1]} ${100 - p} ${100 - points[i + 1]} `;
+        }
+
+        this.pointsIn.middle += `V 0 H 0`;
+        this.pointsOut.middle += `V 100 H 100`;
+    }
+
+    animateLayersIn(value) {
+        const revealer = this;
+
+        $(".revealer-title-text").html(value);
 
 
-    this.path.attr("d", this.pointsIn.start);
-    var change = this.end
-    let tl_animateLayersIn = anime.timeline({
-      complete: function() {
-        //revealer.loadNewContents();
+        this.path.attr("d", this.pointsIn.start);
+        var change = this.end
 
-      }
-    });
-    for (var i = 0; i < this.path.length; i++) {
-      tl_animateLayersIn
-        .add({
-          targets: $(this.path[i])[0],
-          d: [this.pointsIn.start, this.pointsIn.middle],
-          duration: this.layerDuration / 2,
-          offset: this.delayPerPath * i,
-          easing: "easeInCubic"
-        })
-        .add({
-          targets: $(this.path[i])[0],
-          d: this.pointsIn.end,
-          duration: this.layerDuration / 2,
-          offset: this.layerDuration / 2 + this.delayPerPath * i,
-          easing: "easeOutCubic"
+        let tl_animateLayersIn = anime.timeline({
+            complete: function () {
+                //revealer.loadNewContents();
+                console.log('animation ends');
+            }
+        });
+
+        for (var i = 0; i < this.path.length; i++) {
+            tl_animateLayersIn.add({
+                    targets: $(this.path[i])[0],
+                    d: [this.pointsIn.start, this.pointsIn.middle],
+                    duration: this.layerDuration / 2,
+                    offset: this.delayPerPath * i,
+                    easing: "easeInCubic"
+                }).add({
+                    targets: $(this.path[i])[0],
+                    d: this.pointsIn.end,
+                    duration: this.layerDuration / 2,
+                    offset: this.layerDuration / 2 + this.delayPerPath * i,
+                    easing: "easeOutCubic"
+                });
+        }
+
+        tl_animateLayersIn.add({
+            targets: ".revealer-title-text",
+            translateY: ["100%", "0%"],
+            duration: this.titleDuration,
+            offset: "-=" + this.delayTitle + "",
+            easing: "easeOutCirc"
         });
     }
 
-    tl_animateLayersIn.add({
-      targets: ".revealer-title-text",
-      translateY: ["100%", "0%"],
-      duration: this.titleDuration,
-      offset: "-=" + this.delayTitle + "",
-      easing: "easeOutCirc"
-    });
-  }
-
-  animateLayersOut() {
-    const revealer = this;
-    this.path.attr("d", this.pointsOut.start);
-    let tl_animateLayersIn = anime.timeline({
-      complete: function() {
-        revealer.animationFinished();
-      }
-    });
-    tl_animateLayersIn.add({
-      targets: ".revealer-title-text",
-      translateY: ["0%", "-100%"],
-      duration: this.titleDuration,
-      easing: "easeInCirc"
-    });
-
-    for (var i = 0; i < this.path.length; i++) {
-      tl_animateLayersIn
-        .add({
-          targets: $(this.path[i])[0],
-          d: [this.pointsOut.start, this.pointsOut.middle],
-          duration: this.layerDuration / 2,
-          offset: this.titleDuration -
-            this.delayTitle +
-            this.delayPerPath * (this.path.length - i - 1),
-          easing: "easeInCubic"
-        })
-        .add({
-          targets: $(this.path[i])[0],
-          d: this.pointsOut.end,
-          duration: this.layerDuration / 2,
-          offset: this.titleDuration -
-            this.delayTitle +
-            this.layerDuration / 2 +
-            this.delayPerPath * (this.path.length - i - 1),
-          easing: "easeOutCubic"
+    animateLayersOut() {
+        const revealer = this;
+        this.path.attr("d", this.pointsOut.start);
+        let tl_animateLayersIn = anime.timeline({
+            complete: function () {
+                revealer.animationFinished();
+            }
         });
+        tl_animateLayersIn.add({
+            targets: ".revealer-title-text",
+            translateY: ["0%", "-100%"],
+            duration: this.titleDuration,
+            easing: "easeInCirc"
+        });
+
+        for (var i = 0; i < this.path.length; i++) {
+            tl_animateLayersIn
+                .add({
+                    targets: $(this.path[i])[0],
+                    d: [this.pointsOut.start, this.pointsOut.middle],
+                    duration: this.layerDuration / 2,
+                    offset: this.titleDuration -
+                    this.delayTitle +
+                    this.delayPerPath * (this.path.length - i - 1),
+                    easing: "easeInCubic"
+                })
+                .add({
+                    targets: $(this.path[i])[0],
+                    d: this.pointsOut.end,
+                    duration: this.layerDuration / 2,
+                    offset: this.titleDuration -
+                    this.delayTitle +
+                    this.layerDuration / 2 +
+                    this.delayPerPath * (this.path.length - i - 1),
+                    easing: "easeOutCubic"
+                });
+        }
     }
-  }
 
-  loadNewContents() {
-    let revealer = this;
+    loadNewContents() {
+        let revealer = this;
 
-    setTimeout(function() {
-      revealer.animateLayersOut();
-    }, 1500);
-  }
-  animationFinished() {
-    //revealLinks.removeClass("animating");
-    this.isAnimating = false;
-  }
+        setTimeout(function () {
+            revealer.animateLayersOut();
+        }, 1500);
+    }
+
+    animationFinished() {
+        //revealLinks.removeClass("animating");
+        this.isAnimating = false;
+    }
 }

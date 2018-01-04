@@ -8,7 +8,10 @@
         <div class="revealer-title container text-dark">
             <div class="row">
                 <h3 class="revealer-title-text col-3">
-                    The first driving simulator of its kind.
+                    <!--
+                    Content is added on Revealer.animateLayersIn(...)
+                    See: Revealer.js
+                    -->
                 </h3>
             </div>
         </div>
