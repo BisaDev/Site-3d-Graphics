@@ -6,11 +6,9 @@
 
 require('./bootstrap');
 
-import router from './routes'
-
-Vue.component('navbar', require('./components/Navbar.vue'));
-
-Vue.component('reveal', require('./components/Reveal.vue'));
+import router from './router';
+import reveal from './components/Reveal.vue';
+import navbar from './components/Navbar.vue';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -18,8 +16,8 @@ Vue.component('reveal', require('./components/Reveal.vue'));
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
-const app = new Vue({
-  el: '#app',
-  router
+new Vue({
+    el: '#app',
+    router,
+    components: {navbar, reveal},
 });

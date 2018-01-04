@@ -11,5 +11,5 @@
 |
 */
 
-// Routing is handled by Vue Router, see: resources/assets/js/routes.js
+// Routing is handled by Vue Router, see: resources/assets/js/router.js
 Route::view('{any}', 'home')->where('any', '.*');
