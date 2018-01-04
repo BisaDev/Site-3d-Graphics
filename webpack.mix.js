@@ -21,5 +21,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 
 mix.browserSync({
-    proxy: 'maniak2018.dev'
+    proxy: 'maniak-website-2018.test'
 });
