@@ -1,7 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
-
-    <h1>Hello</h1>
-
+    <div id="app">
+        <navbar></navbar>
+        <router-view></router-view>
+        <reveal></reveal>
+    </div>
 @endsection
