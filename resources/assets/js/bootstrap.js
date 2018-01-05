@@ -6,7 +6,6 @@ import Router from 'vue-router';
 import Revealer from './Revealer.js';
 
 window.Revealer = Revealer;
-window.anime = require('animejs');
 Vue.use(Router);
 
 /**

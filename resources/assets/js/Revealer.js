@@ -1,3 +1,5 @@
+import anime from 'animejs';
+
 export default class Revealer {
     constructor() {
         this.elm = $(".revealer-overlays");
