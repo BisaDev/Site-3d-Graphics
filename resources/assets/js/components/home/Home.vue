@@ -36,7 +36,18 @@
     import apiManiak from '../../utils/api';
 
     export default {
-        components: {homeHeader, homeInfo, homeFooter},
+        props: {
+            reveal: {
+                default: false,
+                type: Boolean
+            }
+        },
+
+        components: {
+            homeHeader,
+            homeInfo,
+            homeFooter
+        },
 
         data() {
             return {
@@ -51,20 +62,23 @@
 
         methods: {
             showProject(project) {
-                const overlay = new Revealer();
-                overlay.reveal(project.preloader);
-
-                this.$router.push({
-                    name: "project",
-                    params: {
-                        id: project.id,
-                        animation: true
-                    }
+                new Revealer().reveal(project.preloader).then(() => {
+                    this.$router.push({
+                        name: 'project',
+                        params: {
+                            id: project.id,
+                            reveal: true
+                        }
+                    });
                 });
             },
 
             updateData(response) {
                 this.projects = response.data;
+
+                if (this.$props.reveal) {
+                    new Revealer().animateLayersOut();
+                }
             }
         }
     }

@@ -18,32 +18,48 @@
 
     export default {
 
-        props: ["animation", "id"],
+        props: {
+            id: {
+                required: true,
+                type: Number
+            },
+
+            reveal: {
+                default: false,
+                type: Boolean
+            }
+        },
 
         data() {
             return {
-                project: []
+                project: {}
             }
         },
 
         mounted() {
-            apiManiak.getProject(this.$route.params.id).then(this.updateData);
+            apiManiak.getProject(this.$props.id).then(this.updateData);
         },
 
         methods: {
             updateData(response) {
                 this.project = response.data;
-                if (this.$props.animation) {
-                    const overlay = new Revealer();
-                    overlay.loadNewContents();
+
+                if (this.$props.reveal) {
+                    const revealer = new Revealer();
+                    revealer.animateLayersOut();
                 }
             },
 
             close() {
-                const overlay = new Revealer();
-                overlay.reveal(this.project.preloader);
-                overlay.loadNewContents();
-                this.$router.push('/');
+                const revealer = new Revealer();
+                revealer.reveal(this.project.preloader).then(() => {
+                    this.$router.push({
+                        name: 'home',
+                        params: {
+                            reveal: true
+                        }
+                    });
+                });
             }
         }
     }

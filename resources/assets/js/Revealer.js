@@ -23,7 +23,7 @@ export default class Revealer {
     reveal(value) {
         this.isAnimating = true;
         this.setPaths();
-        this.animateLayersIn(value);
+        return this.animateLayersIn(value);
 
         // for (var i = 0; i < this.path.length; i++) {
         //   this.animateLayersIn(
@@ -89,24 +89,27 @@ export default class Revealer {
         this.pointsOut.middle += `V 100 H 100`;
     }
 
-    animateLayersIn(value) {
-        const revealer = this;
+    /**
+     * Perform the animation to cover the page. Returns a promise which resolves
+     * when the animation is finished (when entire page is covered).
+     *
+     * @param preloaderMessage
+     * @returns {Promise<any>}
+     */
+    animateLayersIn(preloaderMessage) {
+        return new Promise(resolve => {
+            $(".revealer-title-text").html(preloaderMessage);
 
-        $(".revealer-title-text").html(value);
+            this.path.attr("d", this.pointsIn.start);
 
+            let tl_animateLayersIn = anime.timeline({
+                complete: function () {
+                    resolve();
+                }
+            });
 
-        this.path.attr("d", this.pointsIn.start);
-        var change = this.end
-
-        let tl_animateLayersIn = anime.timeline({
-            complete: function () {
-                //revealer.loadNewContents();
-                console.log('animation ends');
-            }
-        });
-
-        for (var i = 0; i < this.path.length; i++) {
-            tl_animateLayersIn.add({
+            for (var i = 0; i < this.path.length; i++) {
+                tl_animateLayersIn.add({
                     targets: $(this.path[i])[0],
                     d: [this.pointsIn.start, this.pointsIn.middle],
                     duration: this.layerDuration / 2,
@@ -119,25 +122,30 @@ export default class Revealer {
                     offset: this.layerDuration / 2 + this.delayPerPath * i,
                     easing: "easeOutCubic"
                 });
-        }
+            }
 
-        tl_animateLayersIn.add({
-            targets: ".revealer-title-text",
-            translateY: ["100%", "0%"],
-            duration: this.titleDuration,
-            offset: "-=" + this.delayTitle + "",
-            easing: "easeOutCirc"
+            tl_animateLayersIn.add({
+                targets: ".revealer-title-text",
+                translateY: ["100%", "0%"],
+                duration: this.titleDuration,
+                offset: "-=" + this.delayTitle + "",
+                easing: "easeOutCirc"
+            });
+
         });
     }
 
     animateLayersOut() {
         const revealer = this;
+
         this.path.attr("d", this.pointsOut.start);
+
         let tl_animateLayersIn = anime.timeline({
             complete: function () {
                 revealer.animationFinished();
             }
         });
+
         tl_animateLayersIn.add({
             targets: ".revealer-title-text",
             translateY: ["0%", "-100%"],

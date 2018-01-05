@@ -2,8 +2,10 @@ import Router from 'vue-router';
 
 let routes = [
     {
+        name: 'home',
         path: '/',
-        component: require('./components/home/Home')
+        component: require('./components/home/Home'),
+        props: true
     },
     {
         name: 'project',
