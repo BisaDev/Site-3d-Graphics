@@ -21,7 +21,6 @@
         props: {
             id: {
                 required: true,
-                type: Number
             },
 
             reveal: {
