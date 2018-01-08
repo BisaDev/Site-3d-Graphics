@@ -1,16 +1,32 @@
 <template>
-    <section id="whoweare" class="no-padding section-dark align-center component">
-        <div id="myNav" class="overlay">
-            <!-- Button to close the overlay navigation -->
-            <a href="#" class="closebtn" @click.prevent="close">&times;</a>
-        </div>
-        <div class="container">
-            <div class="row">
-                <h1>{{project.name}}</h1>
-                <h3 class="col-8 col-offset-2 text-center">{{project.description}}.</h3>
+    <div>
+        <!-- Hero Information -->
+        <section id="whoweare" class="no-padding section-dark align-center component">
+            <div id="myNav" class="overlay">
+                <!-- Button to close the overlay navigation -->
+                <a href="#" class="closebtn" @click.prevent="close">&times;</a>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <h1>{{project.name}}</h1>
+                    <h3 class="col-8 col-offset-2 text-center">{{project.description}}.</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Information -->
+        <div class="bg-white text-black py-8">
+            <div class="container flex">
+                <div class="flex-1">
+                    <strong>{{ project.info_title }}</strong>
+                    <p>{{ project.info_description }}</p>
+                </div>
+                <div class="flex-1">
+                    Services
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>
