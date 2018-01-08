@@ -23,6 +23,7 @@ class CreateProjectsTable extends Migration
             $table->string('description', 50);
             $table->string('preloader', 50);
             $table->string('hero_image');
+            $table->string('hero_color', 7); // HEX Color, including the #
 
             /*
              * Main description
