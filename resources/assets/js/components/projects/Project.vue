@@ -34,7 +34,7 @@
                 </div>
                 <div class="flex-1">
                     <p>Services</p>
-                    <div v-for="service in prject.services">
+                    <div v-for="service in project.services">
                         <!-- TODO: Define the URL for the services icons. -->
                         <img :src="service.icon" alt="Icon">
                         {{service.name}}
@@ -42,11 +42,21 @@
                 </div>
             </div>
         </div>
+
+        <!--
+            Loop through project sections and inject the needed components.
+            Don't forget to define your components on the Vue instance, see below.
+         -->
+        <component v-for="section in project.sections"
+                :key="section.id"
+                :is="section.component"
+                :model="section.model"/>
     </div>
 </template>
 
 <script>
     import apiManiak from '../../utils/api.js';
+    import ProjectTextInformation from './ProjectTextInformation';
 
     export default {
 
@@ -59,6 +69,10 @@
                 default: false,
                 type: Boolean
             }
+        },
+
+        components: {
+            ProjectTextInformation,
         },
 
         data() {

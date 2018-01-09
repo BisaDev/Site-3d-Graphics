@@ -49,7 +49,11 @@ class ProjectsController extends Controller
      */
     public function show(Project $project)
     {
-        $project->load('client', 'services');
+        $project->load(
+            'client',
+            'services',
+            'sections'
+        );
 
         return response()->json($project, 200);
     }
