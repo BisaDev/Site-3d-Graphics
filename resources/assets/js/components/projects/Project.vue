@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="project !== null">
         <!-- Hero Information -->
         <section id="whoweare" class="no-padding section-dark align-center component">
             <div id="myNav" class="overlay">
@@ -15,14 +15,30 @@
         </section>
 
         <!-- Main Information -->
-        <div class="bg-white text-black py-8">
-            <div class="container flex">
+        <div class="bg-white text-black p-8">
+            <div class="flex">
                 <div class="flex-1">
-                    <strong>{{ project.info_title }}</strong>
-                    <p>{{ project.info_description }}</p>
+                    <strong>{{project.info_title}}</strong>
+                    <p>{{project.info_description}}</p>
                 </div>
                 <div class="flex-1">
-                    Services
+                    <p>Client</p>
+                    <p>{{project.client.name}}</p>
+
+                    <p>Year</p>
+                    <p>{{project.info_year}}</p>
+
+                    <p>Country</p>
+                    <!-- TODO: Use an image that represents the country, something like "usa.png" -->
+                    <p>{{project.info_country}}</p>
+                </div>
+                <div class="flex-1">
+                    <p>Services</p>
+                    <div v-for="service in prject.services">
+                        <!-- TODO: Define the URL for the services icons. -->
+                        <img :src="service.icon" alt="Icon">
+                        {{service.name}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -47,7 +63,7 @@
 
         data() {
             return {
-                project: {}
+                project: null,
             }
         },
 

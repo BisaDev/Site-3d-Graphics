@@ -49,6 +49,8 @@ class ProjectsController extends Controller
      */
     public function show(Project $project)
     {
+        $project->load('client', 'services');
+
         return response()->json($project, 200);
     }
 
