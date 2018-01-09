@@ -21,9 +21,6 @@ class CreateProjectSectionsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            // Vue component name
-            $table->string('component');
-
             // FQCN for the model and ID of the record in the table.
             $table->string('model_class');
             $table->string('model_id');

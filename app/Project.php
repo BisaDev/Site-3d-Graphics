@@ -31,14 +31,12 @@ class Project extends Model
      *
      * @param  string $modelClass
      * @param  int $modelId
-     * @param  string $component
      */
-    public function addSection($modelClass, $modelId, $component)
+    public function addSection($modelClass, $modelId)
     {
         $this->sections()->save(
             new ProjectSection([
                 'model_id' => $modelId,
-                'component' => $component,
                 'model_class' => $modelClass,
             ])
         );

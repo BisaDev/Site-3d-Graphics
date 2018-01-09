@@ -1,6 +1,6 @@
 <template>
     <div class="bg-white text-black p-8">
-        <h2>{{model.title}}</h2>
+        <strong>{{model.title}}</strong>
         <p>{{model.body}}</p>
     </div>
 </template>

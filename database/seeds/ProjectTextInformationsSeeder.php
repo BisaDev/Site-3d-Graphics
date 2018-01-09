@@ -18,7 +18,7 @@ class ProjectTextInformationsSeeder extends Seeder
                 'project_id' => $project->id,
             ]);
 
-            $project->addSection(ProjectTextInformation::class, $textInformation->id, 'ProjectTextInformation');
+            $project->addSection(ProjectTextInformation::class, $textInformation->id);
         });
     }
 }

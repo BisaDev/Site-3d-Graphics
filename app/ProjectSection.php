@@ -25,7 +25,7 @@ class ProjectSection extends Model
      *
      * @var array
      */
-    protected $appends = ['model'];
+    protected $appends = ['component', 'model'];
 
     /**
      * Get the model instance associated to this project section, the instance
@@ -40,6 +40,17 @@ class ProjectSection extends Model
         }
 
         return $this->model;
+    }
+
+    /**
+     * Get the name for the Vue Component that display the information of this
+     * section.
+     *
+     * @return  string
+     */
+    public function getComponentAttribute()
+    {
+        return class_basename($this->model_class);
     }
 
     /**
