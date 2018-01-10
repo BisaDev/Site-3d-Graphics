@@ -57,6 +57,7 @@
 <script>
     import apiManiak from '../../utils/api.js';
     import ProjectTextInformation from './ProjectTextInformation';
+    import ProjectGallery from './ProjectGallery';
 
     export default {
 
@@ -73,6 +74,7 @@
 
         components: {
             ProjectTextInformation,
+            ProjectGallery,
         },
 
         data() {
