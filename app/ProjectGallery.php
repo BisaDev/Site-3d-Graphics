@@ -14,6 +14,16 @@ class ProjectGallery extends Model
     protected $with = ['images'];
 
     /**
+     * Gallery's Project.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+
+    /**
      * Images for this gallery.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
