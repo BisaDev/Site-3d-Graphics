@@ -1,6 +1,5 @@
 window._ = require('lodash');
 window.Vue = require('vue');
-window.$ = require('jquery');
 
 import Router from 'vue-router';
 import Revealer from './Revealer.js';
