@@ -1,7 +1,7 @@
 <template>
 <nav class="nav-dark menu-white" id="sticky">
   <div class="container-fluid">
-    <a class="logo pull-left" href="">
+    <a class="logo pull-left" href="/">
       <img :src="logo" id="logomaniak" alt="MANIAK">
     </a>
     <ul class="menu pull-right">
