@@ -1,0 +1,16 @@
+#project {
+
+  .project-header {
+
+    .container {
+      height: 100%;
+    }
+
+    &-title {
+
+    }
+    &-subtitle {
+      opacity: 0.5;
+    }
+  }
+}
