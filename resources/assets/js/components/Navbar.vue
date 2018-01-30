@@ -1,10 +1,11 @@
 <template>
-<nav class="nav-dark menu-white" id="sticky">
-  <div class="container-fluid">
-    <router-link class="logo pull-left" to="/">
-      <img :src="logo" id="logomaniak" alt="MANIAK">
+<nav class="navbar dark">
+  <div class="container">
+    <div class="grid">
+    <router-link class="navbar-logo" to="/">
+      <img :src="logo" class="logo-maniak" alt="MANIAK">
     </router-link>
-    <ul class="menu pull-right">
+    <ul class="navbar-menu">
       <li><router-link to="/work">Work</router-link></li>
       <li><router-link to="/studio">Studio</router-link></li>
       <li><router-link to="/contact">Contact</router-link></li>
@@ -17,7 +18,7 @@
 export default {
   data() {
     return {
-      logo: require('../../img/logos/maniak/logo-maniak-white.svg'),
+      logo: require('../../img/logos/maniak/logo-maniak-dark.svg'),
     }
   },
 }

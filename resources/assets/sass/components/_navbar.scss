@@ -1,74 +1,81 @@
-nav {
-  @include transform(translateY(15px));
-  @include transition-duration-m();
-  height: 60px;
+$navbar-height: 80px;
+$navbar-offset: 10px;
+
+.navbar {
   width: 100%;
-  padding: 0 30px;
-  overflow: hidden;
-  border-bottom: 1px solid transparent;
-
+  height: $navbar-height;
   position: fixed;
-  top: 0;
-  z-index: 100;
+  top: $navbar-offset;
+  z-index: 10;
+  display: flex;
+  align-items: center;
 
-  .container-fluid {
+  .grid {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    height: 100%;
   }
-  .logo {
-    padding: 23px 0;
-    img {
-      height: 14px;
-    }
+
+  &.scrolled {
+    top: 0;
   }
-  .menu {
+
+  &-logo {
+    width: 100px;
+  }
+  &-menu {
     margin: 0;
     padding: 0;
-    list-style-type: none;
-
     li {
-      float: left;
-      display: block;
-      position: relative;
+      display: inline-block;
+      list-style-type: none;
+      margin-left: 1rem;
 
       a {
-        @include btn-interaction();
-        display: block;
-        line-height: 1.875rem;
-        padding: 0 0.5rem;
-        font-size: $font-size-s;
         text-decoration: none;
-        color: rgba($light-gray, 0.5);
-        margin-left: 1rem;
+        background: transparent;
+        display: block;
+        height: $button-height;
+        line-height: $button-height;
+        padding: 0 1rem;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-regular;
+        border: none;
+        outline: none !important;
+        cursor: pointer;
+        border-radius: $border-radius;
+        color: rgba($base-font-color-dark, 0.5);
+
         &:hover,
         &:focus {
-          color: $light-gray;
+          background: $light-gray-dark;
+          color: $base-font-color-dark;
         }
-      }
+        &:active {
+          background: $light-gray-darker;
+        }
 
-      // &:last-of-type a {
-      //   padding-right: 0;
-      // }
+      }
     }
   }
+}
 
-  &.nav-scrolled {
-    @include transform(translateY(0));
-    background-color: $stone;
-    border-bottom-color: $stone-dark;
-    color: white;
+.navbar.dark {
+  .navbar-menu {
+    li {
+      a {
+        background: transparent;
+        color: rgba($base-font-color-light, 0.5);
 
-    &.nav-white {
-      background-color: $light-gray;
-      border-bottom-color: rgba($stone, 0.1);
-      color: $stone;
+        &:hover,
+        &:focus {
+          background: $stone-dark;
+          color: $base-font-color-light;
+        }
+        &:active {
+          background: $stone-darker;
+        }
 
-      .menu li a {
-        color: rgba($stone, 0.5);
-      }
-      .menu li a:hover {
-        color: $stone;
       }
     }
   }

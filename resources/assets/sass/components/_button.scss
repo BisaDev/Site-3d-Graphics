@@ -1,19 +1,60 @@
-.btn {
-  @include btn-interaction();
+.button {
+  background: transparent;
   display: inline-block;
-  height: 1.875rem;
-  line-height: 1.875rem;
-  padding: 0 0.5rem;
-  font-size: $font-size-s;
+  height: $button-height;
+  line-height: $button-height;
+  padding: 0 $button-padding-h;
+  font-size: $font-size-sm;
   font-weight: $font-weight-regular;
-  color: $light-gray;
   border: none;
+  outline: none !important;
+  cursor: pointer;
+  border-radius: $border-radius;
+  color: $base-font-color-dark;
+  text-decoration: none;
+  @include transition('sm');
+
+  &:hover,
+  &:focus {
+    background: $light-gray-dark;
+  }
+  &:active {
+    background: $light-gray-darker;
+  }
+
+
+  .dark &,
+  &.dark {
+    color: $base-font-color-light;
+
+    &:hover,
+    &:focus {
+      background: $stone-dark;
+      @include transition('none');
+    }
+    &:active {
+      background: $stone-darker;
+    }
+  }
 }
 
-.scroll-btn {
+.button-scroll {
   display: block;
   overflow: hidden;
+  position: absolute;
+  bottom: 5rem;
+
   span {
     display: block;
+    animation-name: button-label-scroll;
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.75, 0, 0.66, 1.2);
+    animation-iteration-count: infinite;
   }
+}
+
+@keyframes button-label-scroll {
+  0%, 66% {transform: translateY(0%)}
+  100% {transform: translateY(-100%)}
+
 }

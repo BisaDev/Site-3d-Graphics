@@ -1,16 +1,18 @@
 <template>
-    <section id="whoweare" class="no-padding section-light align-center component">
-        <div class="container">
-            <div class="row">
-                <h3 class="col-8 col-offset-2 text-center">
-                    Maniak is a creative studio in Guadalajara, Mexico. We build
-                    websites, applications and interactive experiences.
-                </h3>
-            </div>
-        </div>
-    </section>
+  <section class="dark align-center no-padding fullscreen">
+    <div class="container">
+      <div class="grid">
+        <h4 class="text-center info">
+          Maniak is a creative studio in Guadalajara, Mexico. We build
+          websites, applications and interactive experiences.
+        </h4>
+        <button class="button">Learn more about us</button>
+      </div>
+
+    </div>
+  </section>
 </template>
 
 <script>
-export default {}
+export default {};
 </script>

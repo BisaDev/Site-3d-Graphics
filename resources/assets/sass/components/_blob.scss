@@ -1,0 +1,122 @@
+$color:#fff;
+$color2:#5048A0;
+$color3:#000;
+$color4:#48098b;
+$move-offset: 100px;
+$color-left: $light-gray-dark;
+$color-right: $light-gray-dark;
+
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+  @return $randomNum;
+}
+
+
+.blob-visual {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.75;
+}
+.blob-wrapper {
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  mix-blend-mode: multiply;
+  opacity: 1;
+  &.blob-left {
+    left: 0;
+    .blob div {
+      background:$color-left;
+      box-shadow:0px 0px 50px $color-left;
+
+    }
+  }
+  &.blob-right {
+    right: 0;
+    transform: scale(-1, 1);
+    .blob div {
+      background:$color-right;
+      box-shadow:0px 0px 50px $color-right;
+
+    }
+  }
+}
+
+.blob-rotate {
+  width: 300px;
+  height: 300px;
+  animation: rotate 80s infinite;
+  animation-timing-function: linear;
+
+  position:absolute;
+  left: calc(100% - 150px);
+  top:calc(50% - 150px);
+
+}
+
+.blob {
+  position:absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-75px,-75px);
+  filter: url('#goo');
+  div {
+    width:100px;
+    height: 100px;
+    border-radius: 500px;
+    display: inline-block;
+    position:absolute;
+    $top-collection: 0;
+    $left-collection: 0;
+
+    @for $i from 1 to 17 {
+      $left: randomNum(-150px, 150px);
+      $top: randomNum(-120px, 120px);
+      $randWH : randomNum(20px, 120px);
+      &:nth-child(#{$i}) {
+        width:$randWH;
+        height: $randWH;
+        left:$left;
+      }
+
+      $left-collection: append($left-collection,$left);
+      $top-collection: append($top-collection,$top);
+    }
+
+    @for $i from 2 to length($top-collection) {
+      &:nth-child(#{$i}) {
+        top: 0;
+        left: 0;
+        animation: anim-#{$i} 30s ease-in-out infinite;
+        @if($i == 1) {
+          animation-delay: 0s;
+        }
+        @else {
+          animation-delay: randomNum(1s,4s);
+        }
+      }
+      /**keyframes **/
+      @keyframes anim-#{$i} {
+        0%{left:0;top:0}
+        50% { left:nth($left-collection, $i+1);top:nth($top-collection, $i)}
+        100%{left:0;top:0}
+
+      }
+    } //end of collection loop
+  } //end of div
+
+} //end of glowby-blob
+
+
+.blob-svg {
+  position: absolute;
+}
+
+@keyframes rotate {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
+
+}
