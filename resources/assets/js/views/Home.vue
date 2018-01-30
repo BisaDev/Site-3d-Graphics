@@ -21,19 +21,16 @@
                 </div>
             </div>
         </section>
-
-        <home-footer />
     </div>
 </template>
 
 
 <script>
-    import homeHeader from './Header';
-    import homeInfo from './Info';
-    import homeFooter from './Footer';
+    import homeHeader from '../components/home/Header';
+    import homeInfo from '../components/home/Info';
 
-    import Menu from '../../utils/menu';
-    import apiManiak from '../../utils/api';
+    import Menu from '../utils/menu';
+    import apiManiak from '../utils/api';
 
     export default {
         props: {
@@ -46,7 +43,6 @@
         components: {
             homeHeader,
             homeInfo,
-            homeFooter
         },
 
         data() {

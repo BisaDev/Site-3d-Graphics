@@ -4,13 +4,13 @@ let routes = [
     {
         name: 'home',
         path: '/',
-        component: require('./components/home/Home'),
+        component: require('./views/Home'),
         props: true
     },
     {
         name: 'project',
         path: '/project/:id',
-        component: require('./components/projects/Project'),
+        component: require('./views/Project'),
         props: true
     }
 ];

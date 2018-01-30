@@ -1,14 +1,8 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-require('./bootstrap');
-
 import router from './router';
-import reveal from './components/Reveal.vue';
+import reveal from './components/Reveal/Reveal.vue';
 import navbar from './components/Navbar.vue';
+import './bootstrap';
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

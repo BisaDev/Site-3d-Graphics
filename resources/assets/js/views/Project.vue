@@ -55,9 +55,9 @@
 </template>
 
 <script>
-    import apiManiak from '../../utils/api.js';
-    import ProjectTextInformation from './ProjectTextInformation';
-    import ProjectGallery from './ProjectGallery';
+    import apiManiak from '../utils/api.js';
+    import ProjectTextInformation from '../components/project/ProjectTextInformation';
+    import ProjectGallery from '../components/project/ProjectGallery';
 
     export default {
 
@@ -92,7 +92,8 @@
                 this.project = response.data;
 
                 if (this.$props.reveal) {
-                    const revealer = new Revealer();
+                    const revealer = new
+                    Revealer();
                     revealer.animateLayersOut();
                 }
             },

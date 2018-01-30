@@ -12,7 +12,17 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    @yield('content')
+    <div id="app">
+
+        <navbar></navbar>
+
+        @yield('content')
+
+        @include('layouts.footer')
+
+        <reveal ref="reveal"></reveal>
+
+    </div>
     <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

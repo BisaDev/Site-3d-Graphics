@@ -26,20 +26,10 @@ export default class Revealer {
     this.isAnimating = true;
     this.setPaths();
     return this.animateLayersIn(value);
-
-    // for (var i = 0; i < this.path.length; i++) {
-    //   this.animateLayersIn(
-    //     this.path[i],
-    //     this.delayPerPath * (i + 1),
-    //     i,
-    //     this.path.length
-    //   );
-    // }
   }
 
   close() {
     this.isOpened = false;
-    //this.reveal(this.path, 500);
   }
 
   setPaths() {
