@@ -1,7 +1,6 @@
 <template>
 <nav class="navbar dark">
   <div class="container">
-    <div class="grid">
     <router-link class="navbar-logo" to="/">
       <img :src="logo" class="logo-maniak" alt="MANIAK">
     </router-link>
@@ -15,11 +14,13 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      logo: require('../../img/logos/maniak/logo-maniak-dark.svg'),
+  export default {
+    data(){
+      return {
+        logo:require('../../img/logos/maniak/logo-maniak-dark.svg'),
+      }
+},
     }
-  },
-}
+
+
 </script>

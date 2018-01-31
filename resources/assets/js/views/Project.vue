@@ -1,112 +1,116 @@
 <template>
-    <div id="project" v-if="project !== null">
-        <!-- Hero Information -->
-        <section class="project-header dark align-center no-padding">
-           <!-- <div id="myNav" class="overlay">
-                <a href="#" class="closebtn" @click.prevent="close">&times;</a>
-            </div>-->
-            <div class="container">
-                    <h1 class="project-header-title">{{project.name}}</h1>
-                    <h1 class="project-header-subtitle">{{project.description}}.</h1>
-                    <button class="button button-scroll"><span>Read more</span><span>Read more</span></button>
-            </div>
-        </section>
-
-        <!-- Main Information -->
-        <section>
-            <div class="container">
-                <div class="grid">
-                    <div class="project-info-description">
-                        <h4>{{project.info_title}}</h4>
-                        <p>{{project.info_description}}</p>
-                    </div>
-                    <div class="project-info-facts">
-                        <div class="project-info-facts-left">
-                            <h5>Client</h5>
-                            <p>{{project.client.name}}</p>
-                            <h5>Year</h5>
-                            <p>{{project.info_year}}</p>
-                            <h5>Country</h5>
-                            <p>{{project.info_country}}</p>
-                        </div>
-                        <div class="project-info-facts-right">
-                            <h5>Services</h5>
-                            <ul>
-                                <li v-for="service in project.services">
-                                    {{service.name}}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-           <!-- <div class="flex">
-                <div class="flex-1">
-                    <strong>{{project.info_title}}</strong>
-                    <p>{{project.info_description}}</p>
-                </div>
-                <div class="flex-1">
-                    <p>Client</p>
-                    <p>{{project.client.name}}</p>
-
-                    <p>Year</p>
-                    <p>{{project.info_year}}</p>
-
-                    <p>Country</p>
-                    <p>{{project.info_country}}</p>
-                </div>
-                <div class="flex-1">
-                    <p>Services</p>
-                    <div v-for="service in project.services">
-                        <img :src="service.icon" alt="Icon">
-                        {{service.name}}
-                    </div>
-                </div>
-            </div>-->
-        </section>
-        <section class="project-quote dark text-center">
-            <div class="container">
-                <div class="grid">
-                    <div class="project-quote-statement">
-                        <h3>The smartest way to<br>automate your restaurant's<br>accounts payable.</h3>
-                    </div>
-                    <div class="project-quote-author">
-                        <h5>John Doe</h5>
-                        <h6>CEO at lorem ipsum</h6>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="project-copy">
-            <div class="container">
-                <div class="grid">
-                    <h4>Maniak teamed up with PlateIQ to help them scale their development team.</h4>
-                    <p>Plate IQ is an innovative SAAS platform that empowers restaurants to have a birds eye view of everything that its going on with their business, from variations in cost of ingredients to projections of how item price changes could affect their revenue.</p>
-                </div>
-            </div>
-        </section>
-        <section class="project-gallery">
-            <div class="container">
-                <div class="grid">
-
-                </div>
-            </div>
-        </section>
-        <!--
-            Loop through project sections and inject the needed components.
-            Don't forget to define your components on the Vue instance, see below.
-         -->
-        <component v-for="section in project.sections"
-                :key="section.id"
-                :is="section.component"
-                :model="section.model"/>
+  <div id="project" v-if="project !== null">
+    <!-- Hero Information -->
+    <section class="project-header dark align-center no-padding">
+      <!-- <div id="myNav" class="overlay">
+      <a href="#" class="closebtn" @click.prevent="close">&times;</a>
+    </div>-->
+    <div class="container">
+        <h1 class="project-header-title">{{project.name}}</h1>
+        <h1 class="project-header-subtitle">{{project.description}}.</h1>
+        <button class="button button-scroll"><span>Read more</span><span>Read more</span></button>
     </div>
+  </section>
+
+  <!-- Main Information -->
+  <section>
+    <div class="container">
+      <div class="grid">
+        <div class="project-intro-description">
+          <h4>{{project.info_title}}</h4>
+          <p>{{project.info_description}}</p>
+        </div>
+        <div class="project-intro-facts">
+          <div class="grid">
+          <div class="project-intro-facts-left">
+            <h5>Client</h5>
+            <p>{{project.client.name}}</p>
+            <h5>Year</h5>
+            <p>{{project.info_year}}</p>
+            <h5>Country</h5>
+            <p>{{project.info_country}}</p>
+          </div>
+          <div class="project-intro-facts-right">
+            <h5>Services</h5>
+            <ul>
+              <li v-for="service in project.services">
+                {{service.name}}
+              </li>
+            </ul>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="flex">
+    <div class="flex-1">
+    <strong>{{project.info_title}}</strong>
+    <p>{{project.info_description}}</p>
+  </div>
+  <div class="flex-1">
+  <p>Client</p>
+  <p>{{project.client.name}}</p>
+
+  <p>Year</p>
+  <p>{{project.info_year}}</p>
+
+  <p>Country</p>
+  <p>{{project.info_country}}</p>
+</div>
+<div class="flex-1">
+<p>Services</p>
+<div v-for="service in project.services">
+<img :src="service.icon" alt="Icon">
+{{service.name}}
+</div>
+</div>
+</div>-->
+</section>
+<section class="project-quote dark text-center">
+  <div class="project-quote-bg"></div>
+  <div class="container">
+      <div class="project-quote-statement">
+        <h3>The smartest way to<br>automate your restaurant's<br>accounts payable.</h3>
+      </div>
+      <div class="project-quote-author">
+        <h5>John Doe</h5>
+        <h6>CEO at lorem ipsum</h6>
+      </div>
+  </div>
+</section>
+<section class="project-copy">
+  <div class="container">
+    <div class="grid">
+      <div class="project-copy-text">
+        <h4>Maniak teamed up with PlateIQ to help them scale their development team.</h4>
+        <p>Plate IQ is an innovative SAAS platform that empowers restaurants to have a birds eye view of everything that its going on with their business, from variations in cost of ingredients to projections of how item price changes could affect their revenue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="project-gallery">
+  <div class="container">
+    <div class="grid">
+    </div>
+  </div>
+</section>
+<!--
+Loop through project sections and inject the needed components.
+Don't forget to define your components on the Vue instance, see below.
+-->
+<component v-for="section in project.sections"
+:key="section.id"
+:is="section.component"
+:model="section.model"/>
+</div>
 </template>
 
 <script>
-import apiManiak from '../utils/api.js'
-import ProjectTextInformation from '../components/project/ProjectTextInformation'
-import ProjectGallery from '../components/project/ProjectGallery'
+import apiManiak from '../../utils/api.js';
+import ProjectTextInformation from './ProjectTextInformation';
+import ProjectGallery from './ProjectGallery';
+import PhotoSwipe from 'photoswipe';
+import PhotoSwipeUI_Default from 'photoswipe';
 
 export default {
   beforeRouteLeave(to, from, next) {
@@ -135,9 +139,11 @@ export default {
     }
   },
 
-  mounted() {
-    apiManiak.getProject(this.$props.id).then(this.updateData)
-  },
+        mounted() {
+            apiManiak.getProject(this.$props.id).then(this.updateData)
+      var test = new PhotoSwipe()
+    console.log(test)
+        },
 
   methods: {
     updateData(response) {

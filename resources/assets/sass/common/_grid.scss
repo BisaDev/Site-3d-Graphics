@@ -1,3 +1,5 @@
+$grid-margin-gutters: 3rem;
+
 .container {
   //@include xy-grid-container;
   // width: 100%;
@@ -7,10 +9,12 @@
   // padding: 0 $grid-gutter;
   @include xy-grid-container;
   width: 100%;
+  position: relative;
 }
 
 .grid {
   @include xy-grid;
+  @include xy-gutters($gutters: 3rem, $negative:'true');
   // margin: -$grid-gutter;
   // margin-top: 0;
   // margin-bottom: 0;
@@ -28,11 +32,11 @@
 // home
 #home {
   .info {
-    width: 60%;
-    margin-left: 20%;
+    @include xy-cell(8 of 12);
+    @include xy-cell-offset(2 of 12);
   }
-  .project {
-    width: 33.333333%;
+  .project-preview {
+    min-width: 33.333333%;
     flex: 1;
     // @include xy-cell-breakpoints((small: full, medium: 4));
   }
@@ -40,15 +44,19 @@
 
 // project detail
 #project {
-  .project-info {
-    &-description {
-      @include xy-cell(7 of 12);
+  .project-intro-description {
+    @include xy-cell(7 of 12);
+  }
+  .project-intro-facts {
+    @include xy-cell(4 of 12);
+    @include xy-cell-offset(1 of 12);
+    .project-intro-facts-left,
+    .project-intro-facts-right {
+      @include xy-cell(6 of 12);
     }
-    &-facts {
-      @include xy-cell(4 of 12);
-      @include xy-cell-offset(1 of 12);
-      display: flex;
-    }
+  }
+  .project-copy-text {
+    @include xy-cell(7 of 12);
   }
 }
 

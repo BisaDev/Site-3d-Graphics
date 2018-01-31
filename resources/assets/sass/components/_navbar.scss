@@ -10,10 +10,9 @@ $navbar-offset: 10px;
   display: flex;
   align-items: center;
 
-  .grid {
+  .container {
     display: flex;
     justify-content: space-between;
-    height: 100%;
   }
 
   &.scrolled {

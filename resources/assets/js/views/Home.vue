@@ -3,13 +3,13 @@
     <home-header />
     <home-info />
 
-        <section >
-            <div class="container">
-                <div class="grid grid-space-between grid-align-bottom margin-bottom--80">
+    <section class="home-featured">
+      <div class="container">
+        <div class="home-featured-title">
           <h3>Some of the projects<br>we are most proud of.</h3>
-                    <button class="button">See all projects</button>
+          <button class="button">See all projects</button>
         </div>
-        <div class="grid">
+        <div class="home-featured-list">
             <router-link :to="`/project/${project.id}`" class="project-preview dark reveal" v-for="project in projects">
                 <div class="project-preview-title">
                     <h5>{{project.name}}</h5>
