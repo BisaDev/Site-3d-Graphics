@@ -106,14 +106,11 @@ Don't forget to define your components on the Vue instance, see below.
 </template>
 
 <script>
-import apiManiak from '../utils/api.js';
+import apiManiak from '../../utils/api.js';
 import PhotoSwipe from 'photoswipe';
 import PhotoSwipeUI_Default from 'photoswipe';
 
 export default {
-  beforeRouteLeave(to, from, next) {
-    this.$root.$refs.revealer.reveal().then(() => next())
-  },
 
   props: {
     id: {
@@ -122,10 +119,14 @@ export default {
 
     reveal: {
       default: false,
-      type: Boolean,
-    },
+      type: Boolean
+    }
   },
 
+  components: {
+    ProjectTextInformation,
+    ProjectGallery,
+  },
 
   data() {
     return {
@@ -133,31 +134,36 @@ export default {
     }
   },
 
-        mounted() {
-            apiManiak.getProject(this.$props.id).then(this.updateData)
-      var test = new PhotoSwipe()
+  mounted() {
+    apiManiak.getProject(this.$props.id).then(this.updateData);
+
+    var test = new PhotoSwipe()
     console.log(test)
-        },
+
+  },
 
   methods: {
     updateData(response) {
-      this.project = response.data
-      const revealer = this.$root.$refs.revealer
-      revealer.close()
+      this.project = response.data;
+
+      if (this.$props.reveal) {
+        const revealer = new Revealer();
+        revealer.animateLayersOut();
+      }
     },
 
     close() {
-      const revealer = this.$root.$refs.revealer
+      const revealer = new Revealer();
       revealer.reveal(this.project.preloader).then(() => {
         this.$router.push({
           name: 'home',
           params: {
-            reveal: true,
-          },
-        })
-      })
-    },
-  },
+            reveal: true
+          }
+        });
+      });
+    }
+  }
 }
 </script>
 
@@ -167,7 +173,7 @@ export default {
   top: 100px;
   right: 45px;
   font-size: 60px;
-  color: #fff;
+  color: #FFF;
   text-decoration: none;
 }
 </style>
