@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -9,6 +10,13 @@ html, body {
   @include box-sizing(border-box);
 }
 
-h1, h2, h3, h4, p, section, blockquote, label {
+h1,
+h2,
+h3,
+h4,
+p,
+section,
+blockquote,
+label {
   margin: 0;
 }

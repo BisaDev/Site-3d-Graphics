@@ -26,56 +26,56 @@
 
 
 <script>
-    import homeHeader from '../components/home/Header';
-    import homeInfo from '../components/home/Info';
+import homeHeader from '../components/home/Header'
+import homeInfo from '../components/home/Info'
 
-    import Menu from '../utils/menu';
-    import apiManiak from '../utils/api';
+import Menu from '../utils/menu'
+import apiManiak from '../utils/api'
 
-    export default {
-        props: {
-            reveal: {
-                default: false,
-                type: Boolean
-            }
-        },
+export default {
+  props: {
+    reveal: {
+      default: false,
+      type: Boolean,
+    },
+  },
 
-        components: {
-            homeHeader,
-            homeInfo,
-        },
+  components: {
+    homeHeader,
+    homeInfo,
+  },
 
-        data() {
-            return {
-                projects: []
-            }
-        },
-
-        mounted() {
-            apiManiak.getProjects().then(this.updateData);
-            Menu.run();
-        },
-
-        methods: {
-            showProject(project) {
-                new Revealer().reveal(project.preloader).then(() => {
-                    this.$router.push({
-                        name: 'project',
-                        params: {
-                            id: project.id,
-                            reveal: true
-                        }
-                    });
-                });
-            },
-
-            updateData(response) {
-                this.projects = response.data;
-
-                if (this.$props.reveal) {
-                    new Revealer().animateLayersOut();
-                }
-            }
-        }
+  data() {
+    return {
+      projects: [],
     }
+  },
+
+  mounted() {
+    apiManiak.getProjects().then(this.updateData)
+    Menu.run()
+  },
+
+  methods: {
+    showProject(project) {
+      this.$root.$refs.revealer.reveal().then(() => {
+        this.$router.push({
+          name: 'project',
+          params: {
+            id: project.id,
+            reveal: true,
+          },
+        })
+      })
+    },
+
+    updateData(response) {
+      this.projects = response.data
+
+      if (this.$props.reveal) {
+        this.$root.$refs.revealer.close()
+      }
+    },
+  },
+}
 </script>

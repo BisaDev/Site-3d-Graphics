@@ -55,71 +55,69 @@
 </template>
 
 <script>
-    import apiManiak from '../utils/api.js';
-    import ProjectTextInformation from '../components/project/ProjectTextInformation';
-    import ProjectGallery from '../components/project/ProjectGallery';
+import apiManiak from '../utils/api.js'
+import ProjectTextInformation from '../components/project/ProjectTextInformation'
+import ProjectGallery from '../components/project/ProjectGallery'
 
-    export default {
+export default {
+  props: {
+    id: {
+      required: true,
+    },
 
-        props: {
-            id: {
-                required: true,
-            },
+    reveal: {
+      default: false,
+      type: Boolean,
+    },
+  },
 
-            reveal: {
-                default: false,
-                type: Boolean
-            }
-        },
+  components: {
+    ProjectTextInformation,
+    ProjectGallery,
+  },
 
-        components: {
-            ProjectTextInformation,
-            ProjectGallery,
-        },
-
-        data() {
-            return {
-                project: null,
-            }
-        },
-
-        mounted() {
-            apiManiak.getProject(this.$props.id).then(this.updateData);
-        },
-
-        methods: {
-            updateData(response) {
-                this.project = response.data;
-
-                if (this.$props.reveal) {
-                    const revealer = new
-                    Revealer();
-                    revealer.animateLayersOut();
-                }
-            },
-
-            close() {
-                const revealer = new Revealer();
-                revealer.reveal(this.project.preloader).then(() => {
-                    this.$router.push({
-                        name: 'home',
-                        params: {
-                            reveal: true
-                        }
-                    });
-                });
-            }
-        }
+  data() {
+    return {
+      project: null,
     }
+  },
+
+  mounted() {
+    apiManiak.getProject(this.$props.id).then(this.updateData)
+  },
+
+  methods: {
+    updateData(response) {
+      this.project = response.data
+
+      if (this.$props.reveal) {
+        const revealer = new Revealer()
+        revealer.animateLayersOut()
+      }
+    },
+
+    close() {
+      const revealer = new Revealer()
+      revealer.reveal(this.project.preloader).then(() => {
+        this.$router.push({
+          name: 'home',
+          params: {
+            reveal: true,
+          },
+        })
+      })
+    },
+  },
+}
 </script>
 
 <style scoped>
-    .overlay .closebtn {
-        position: absolute;
-        top: 100px;
-        right: 45px;
-        font-size: 60px;
-        color: #FFF;
-        text-decoration: none;
-    }
+.overlay .closebtn {
+  position: absolute;
+  top: 100px;
+  right: 45px;
+  font-size: 60px;
+  color: #fff;
+  text-decoration: none;
+}
 </style>

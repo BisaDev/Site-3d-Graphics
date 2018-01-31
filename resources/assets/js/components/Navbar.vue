@@ -14,14 +14,11 @@
 </template>
 
 <script>
-  export default {
-    data(){
-      return {
-        logo:require('../../img/logos/maniak/logo-maniak-white.svg')
-      }
-
+export default {
+  data() {
+    return {
+      logo: require('../../img/logos/maniak/logo-maniak-white.svg'),
     }
-
-  }
-
+  },
+}
 </script>

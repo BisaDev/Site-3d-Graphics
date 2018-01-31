@@ -13,7 +13,7 @@
 
   &:after,
   &:before {
-    content: " ";
+    content: ' ';
     display: table;
   }
   &:after {
@@ -26,7 +26,7 @@
   }
 }
 
-[class*="col-"] {
+[class*='col-'] {
   float: left;
   position: relative;
   padding: 0 $gutter;

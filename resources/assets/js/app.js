@@ -1,8 +1,7 @@
-import router from './router';
-import reveal from './components/Reveal/Reveal.vue';
-import navbar from './components/Navbar.vue';
-import './bootstrap';
-
+import router from './router'
+import reveal from './components/Reveal/Reveal.vue'
+import navbar from './components/Navbar.vue'
+import './bootstrap'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -11,7 +10,10 @@ import './bootstrap';
  */
 
 new Vue({
-    el: '#app',
-    router,
-    components: {navbar, reveal},
-});
+  el: '#app',
+  router,
+  components: { navbar, reveal },
+  mounted() {
+    console.log(this.$refs)
+  }
+})

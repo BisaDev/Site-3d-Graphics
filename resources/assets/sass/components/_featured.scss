@@ -15,19 +15,19 @@
 
   &.featured-volkswagen {
     background-color: #fcfcfd;
-    background-image: url("../img/featured/volkswagen.png");
+    background-image: url('../img/featured/volkswagen.png');
   }
   &.featured-brightfox {
     background-color: #ff7244;
-    background-image: url("../img/featured/brightfox.png");
+    background-image: url('../img/featured/brightfox.png');
   }
   &.featured-plateiq {
     background-color: $stone-dark;
-    background-image: url("../img/featured/plateiq.png");
+    background-image: url('../img/featured/plateiq.png');
   }
   &.featured-wolverine {
     background-color: $stone-dark;
-    background-image: url("../img/featured/wolverine.png");
+    background-image: url('../img/featured/wolverine.png');
   }
 
   .featured-title {
@@ -57,7 +57,7 @@
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     display: block;
     width: 100%;
     height: 100%;

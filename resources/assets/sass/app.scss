@@ -1,48 +1,41 @@
-
 @tailwind preflight;
 @tailwind utilities;
 
+@import 'components/fonts';
+@import 'components/variables';
+@import 'components/mixins';
+@import 'components/typography';
+@import 'components/grid';
+@import 'components/base';
+@import 'components/button';
+@import 'components/links';
+@import 'components/utilities';
+@import 'components/navbar';
+@import 'components/sections';
+@import 'components/revealer';
+@import 'components/featured';
+@import 'components/visuals';
+@import 'components/lists';
+@import 'components/hamburger';
+@import 'partials/landing';
+@import 'partials/work';
+@import 'partials/preloader';
+@import 'partials/footer';
 
-@import "components/fonts";
-@import "components/variables";
-@import "components/mixins";
-@import "components/typography";
-@import "components/grid";
-@import "components/base";
-@import "components/button";
-@import "components/links";
-@import "components/utilities";
-@import "components/navbar";
-@import "components/sections";
-@import "components/revealer";
-@import "components/featured";
-@import "components/visuals";
-@import "components/lists";
-@import "components/hamburger";
-@import "partials/landing";
-@import "partials/work";
-@import "partials/preloader";
-@import "partials/footer";
-
-
-.menu-white .menu li a
-{
-  color:#FFF;
+.menu-white .menu li a {
+  color: #fff;
 }
 
-.menu-white .menu li a:hover
-{
-  color:#1c202a;
-  background-color: #FFF;
+.menu-white .menu li a:hover {
+  color: #1c202a;
+  background-color: #fff;
 }
 
-.menu-dark .menu li a
-{
-  color:#1c202a;
+.menu-dark .menu li a {
+  color: #1c202a;
 }
 
-.menu-dark .menu li a:hover
-{
-  color:#FFF;
-  background-color:#1c202a;
+.menu-dark .menu li a:hover {
+  color: #fff;
+  background-color: #1c202a;
 }
