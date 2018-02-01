@@ -66,18 +66,9 @@
 </div>
 </div>-->
 </section>
-<section class="project-quote dark text-center">
-  <div class="project-quote-bg"></div>
-  <div class="container">
-      <div class="project-quote-statement">
-        <h3>The smartest way to<br>automate your restaurant's<br>accounts payable.</h3>
-      </div>
-      <div class="project-quote-author">
-        <h5>John Doe</h5>
-        <h6>CEO at lorem ipsum</h6>
-      </div>
-  </div>
-</section>
+
+<project-quote></project-quote>
+
 <section class="project-copy">
   <div class="container">
     <div class="grid">
@@ -88,12 +79,64 @@
     </div>
   </div>
 </section>
-<section class="project-gallery">
+<section class="project-gallery no-padding">
   <div class="container">
     <div class="grid">
+      <a class="project-gallery-image" href="">
+        <img src="../../img/featured/plateiq.png" alt="Image description" />
+      </a>
+      <a class="project-gallery-image" href="">
+        <img src="../../img/featured/plateiq.png" alt="Image description" />
+      </a>
+      <a class="project-gallery-image" href="">
+        <img src="../../img/featured/plateiq.png" alt="Image description" />
+      </a>
+      <a class="project-gallery-image" href="">
+        <img src="../../img/featured/plateiq.png" alt="Image description" />
+      </a>
     </div>
   </div>
 </section>
+<section class="project-copy">
+  <div class="container">
+    <div class="grid">
+      <div class="project-copy-sticky">
+        <h4>Maniak teamed up with PlateIQ to help them scale their development team.</h4>
+        <p>Plate IQ is an innovative SAAS platform that empowers restaurants to have a birds eye view of everything that its going on with their business, from variations in cost of ingredients to projections of how item price changes could affect their revenue.</p>
+      </div>
+      <div class="project-screenshot-long">
+        <img src="../../img/projectimages/screenshot-long.png" alt="Image description" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="project-image-full"></section>
+
+<section class="project-copy">
+  <div class="container">
+    <div class="grid">
+      <div class="project-copy-text">
+        <h4>Maniak teamed up with PlateIQ to help them scale their development team.</h4>
+        <p>Plate IQ is an innovative SAAS platform that empowers restaurants to have a birds eye view of everything that its going on with their business, from variations in cost of ingredients to projections of how item price changes could affect their revenue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="project-gallery no-padding">
+  <div class="container">
+    <div class="grid">
+      <a class="project-gallery-image" href="">
+        <img src="../../img/featured/plateiq.png" alt="Image description" />
+      </a>
+      <a class="project-gallery-image" href="">
+        <img src="../../img/featured/plateiq.png" alt="Image description" />
+      </a>
+    </div>
+  </div>
+</section>
+
 <!--
 Loop through project sections and inject the needed components.
 Don't forget to define your components on the Vue instance, see below.
@@ -109,6 +152,8 @@ Don't forget to define your components on the Vue instance, see below.
 import apiManiak from '../utils/api.js';
 import PhotoSwipe from 'photoswipe';
 import PhotoSwipeUI_Default from 'photoswipe';
+import parallax from '../components/parallax';
+import ProjectQuote from '../components/project/ProjectQuote';
 
 export default {
   beforeRouteLeave(to, from, next) {
@@ -125,7 +170,10 @@ export default {
       type: Boolean,
     },
   },
-
+  components: {
+      parallax,
+      ProjectQuote
+  },
 
   data() {
     return {
@@ -133,11 +181,9 @@ export default {
     }
   },
 
-        mounted() {
-            apiManiak.getProject(this.$props.id).then(this.updateData)
-      var test = new PhotoSwipe()
-    console.log(test)
-        },
+  mounted() {
+    apiManiak.getProject(this.$props.id).then(this.updateData)
+  },
 
   methods: {
     updateData(response) {
