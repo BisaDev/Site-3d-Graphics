@@ -1,16 +1,18 @@
 import Router from 'vue-router'
+import Home from './views/Home'
+import Project from './views/Project'
 
 let routes = [
   {
     name: 'home',
     path: '/',
-    component: require('./views/Home'),
+    component: Home,
     props: true,
   },
   {
     name: 'project',
     path: '/project/:id',
-    component: require('./views/Project'),
+    component: Project,
     props: true,
   },
 ]

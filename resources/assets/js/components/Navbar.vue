@@ -1,13 +1,13 @@
 <template>
 <nav class="nav-dark menu-white" id="sticky">
   <div class="container-fluid">
-    <a class="logo pull-left" href="/">
+    <router-link class="logo pull-left" to="/">
       <img :src="logo" id="logomaniak" alt="MANIAK">
-    </a>
+    </router-link>
     <ul class="menu pull-right">
-      <li><a href="">Work</a></li>
-      <li><a href="">Studio</a></li>
-      <li><a href="">Contact</a></li>
+      <li><router-link to="/work">Work</router-link></li>
+      <li><router-link to="/studio">Studio</router-link></li>
+      <li><router-link to="/contact">Contact</router-link></li>
     </ul>
   </div>
 </nav>

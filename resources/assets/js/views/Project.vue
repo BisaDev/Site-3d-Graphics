@@ -1,57 +1,57 @@
 <template>
-    <div v-if="project !== null">
-        <!-- Hero Information -->
-        <section id="whoweare" class="no-padding section-dark align-center component">
-            <div id="myNav" class="overlay">
-                <!-- Button to close the overlay navigation -->
-                <a href="#" class="closebtn" @click.prevent="close">&times;</a>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <h1>{{project.name}}</h1>
-                    <h3 class="col-8 col-offset-2 text-center">{{project.description}}.</h3>
-                </div>
-            </div>
-        </section>
-
-        <!-- Main Information -->
-        <div class="bg-white text-black p-8">
-            <div class="flex">
-                <div class="flex-1">
-                    <strong>{{project.info_title}}</strong>
-                    <p>{{project.info_description}}</p>
-                </div>
-                <div class="flex-1">
-                    <p>Client</p>
-                    <p>{{project.client.name}}</p>
-
-                    <p>Year</p>
-                    <p>{{project.info_year}}</p>
-
-                    <p>Country</p>
-                    <!-- TODO: Use an image that represents the country, something like "usa.png" -->
-                    <p>{{project.info_country}}</p>
-                </div>
-                <div class="flex-1">
-                    <p>Services</p>
-                    <div v-for="service in project.services">
-                        <!-- TODO: Define the URL for the services icons. -->
-                        <img :src="service.icon" alt="Icon">
-                        {{service.name}}
-                    </div>
-                </div>
-            </div>
+  <div v-if="project !== null">
+    <!-- Hero Information -->
+    <section id="whoweare" class="no-padding section-dark align-center component">
+      <div id="myNav" class="overlay">
+        <!-- Button to close the overlay navigation -->
+        <a href="#" class="closebtn" @click.prevent="close">&times;</a>
+      </div>
+      <div class="container">
+        <div class="row">
+          <h1>{{project.name}}</h1>
+          <h3 class="col-8 col-offset-2 text-center">{{project.description}}.</h3>
         </div>
+      </div>
+    </section>
 
-        <!--
-            Loop through project sections and inject the needed components.
-            Don't forget to define your components on the Vue instance, see below.
-         -->
-        <component v-for="section in project.sections"
-                :key="section.id"
-                :is="section.component"
-                :model="section.model"/>
+    <!-- Main Information -->
+    <div class="bg-white text-black p-8">
+      <div class="flex">
+        <div class="flex-1">
+          <strong>{{project.info_title}}</strong>
+          <p>{{project.info_description}}</p>
+        </div>
+        <div class="flex-1">
+          <p>Client</p>
+          <p>{{project.client.name}}</p>
+
+          <p>Year</p>
+          <p>{{project.info_year}}</p>
+
+          <p>Country</p>
+          <!-- TODO: Use an image that represents the country, something like "usa.png" -->
+          <p>{{project.info_country}}</p>
+        </div>
+        <div class="flex-1">
+          <p>Services</p>
+          <div v-for="service in project.services">
+            <!-- TODO: Define the URL for the services icons. -->
+            <img :src="service.icon" alt="Icon">
+            {{service.name}}
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!--
+        Loop through project sections and inject the needed components.
+        Don't forget to define your components on the Vue instance, see below.
+     -->
+    <component v-for="section in project.sections"
+               :key="section.id"
+               :is="section.component"
+               :model="section.model"/>
+  </div>
 </template>
 
 <script>
@@ -60,6 +60,10 @@ import ProjectTextInformation from '../components/project/ProjectTextInformation
 import ProjectGallery from '../components/project/ProjectGallery'
 
 export default {
+  beforeRouteLeave(to, from, next) {
+    this.$root.$refs.revealer.reveal().then(() => next())
+  },
+
   props: {
     id: {
       required: true,
@@ -83,21 +87,19 @@ export default {
   },
 
   mounted() {
+    console.log('mounted')
     apiManiak.getProject(this.$props.id).then(this.updateData)
   },
 
   methods: {
     updateData(response) {
       this.project = response.data
-
-      if (this.$props.reveal) {
-        const revealer = new Revealer()
-        revealer.animateLayersOut()
-      }
+      const revealer = this.$root.$refs.revealer
+      revealer.close()
     },
 
     close() {
-      const revealer = new Revealer()
+      const revealer = this.$root.$refs.revealer
       revealer.reveal(this.project.preloader).then(() => {
         this.$router.push({
           name: 'home',

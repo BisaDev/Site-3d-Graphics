@@ -1,27 +1,27 @@
 <template>
-    <div>
-        <home-header />
-        <home-info />
+  <div>
+    <home-header/>
+    <home-info/>
 
-        <section id="featured" class="section-dark component">
-            <div class="container">
-                <div class="row">
-                    <div class="col-4 col-no-padding" v-for="project in projects">
-                        <a href="#" @click.prevent="showProject(project)" class="featured featured-wolverine reveal" data-color="#FCFCFD">
-                            <div class="featured-title">
-                                <h5>{{project.name}}</h5>
-                                <h6>{{project.description}}</h6>
+    <section id="featured" class="section-dark component">
+      <div class="container">
+        <div class="row">
+          <div class="col-4 col-no-padding" v-for="project in projects">
+            <router-link :to="`/project/${project.id}`" class="featured featured-wolverine reveal" data-color="#FCFCFD">
+              <div class="featured-title">
+                <h5>{{project.name}}</h5>
+                <h6>{{project.description}}</h6>
 
-                                <div class="featured-title-description">
-                                    <p>Read more.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                <div class="featured-title-description">
+                  <p>Read more.</p>
                 </div>
-            </div>
-        </section>
-    </div>
+              </div>
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 
@@ -33,6 +33,10 @@ import Menu from '../utils/menu'
 import apiManiak from '../utils/api'
 
 export default {
+  beforeRouteLeave(to, from, next) {
+    this.$root.$refs.revealer.reveal().then(() => next())
+  },
+
   props: {
     reveal: {
       default: false,
@@ -57,24 +61,9 @@ export default {
   },
 
   methods: {
-    showProject(project) {
-      this.$root.$refs.revealer.reveal().then(() => {
-        this.$router.push({
-          name: 'project',
-          params: {
-            id: project.id,
-            reveal: true,
-          },
-        })
-      })
-    },
-
     updateData(response) {
       this.projects = response.data
-
-      if (this.$props.reveal) {
-        this.$root.$refs.revealer.close()
-      }
+      this.$root.$refs.revealer.close()
     },
   },
 }

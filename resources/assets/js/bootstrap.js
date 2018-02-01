@@ -1,11 +1,9 @@
 import Vue from 'vue'
 import Axios from 'axios'
 import Router from 'vue-router'
-import Revealer from './Revealer.js'
 
 Vue.use(Router)
 window.Vue = Vue
-window.Revealer = Revealer
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

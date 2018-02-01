@@ -13,7 +13,4 @@ new Vue({
   el: '#app',
   router,
   components: { navbar, reveal },
-  mounted() {
-    console.log(this.$refs)
-  }
 })

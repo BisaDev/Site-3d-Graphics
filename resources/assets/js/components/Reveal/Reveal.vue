@@ -17,25 +17,31 @@
 import anime from 'animejs'
 
 export default {
+  beforeRouteLeave(to, from, next) {
+    this.$root.$refs.revealer.reveal().then(next())
+  },
+
   props: {
     title: {
       type: String,
       default: '',
     },
+    phrases: {
+      type: Array,
+      default: () => [
+        'Adding Randomly Mispeled Words Into Text',
+        'Untying developers',
+        'Tying developers',
+        'Thinking about cool transition phrases',
+      ],
+    },
   },
   data() {
-    const phrases = [
-      'Adding Randomly Mispeled Words Into Text',
-      'Untying developers',
-      'Tying developers',
-      'Thinking about cool transition phrases',
-    ]
     return {
-      phrases: phrases,
       paths: [
-        { d: 'M 0 0 C 25 0 25 0 50 0 C 75 0 75 0 100 0 V 0 H 0' },
-        { d: 'M 0 0 C 25 0 25 0 50 0 C 75 0 75 0 100 0 V 0 H 0' },
-        { d: 'M 0 0 C 25 0 25 0 50 0 C 75 0 75 0 100 0 V 0 H 0' },
+        { d: 'M 0 100 C 25 100 25 100 50 100 C 75 100 75 100 100 100 V 0 H 0' },
+        { d: 'M 0 100 C 25 100 25 100 50 100 C 75 100 75 100 100 100 V 0 H 0' },
+        { d: 'M 0 100 C 25 100 25 100 50 100 C 75 100 75 100 100 100 V 0 H 0' },
       ],
       pointsIn: {
         start: 'M 0 0 C 25 0 25 0 50 0 C 75 0 75 0 100 0 V 0 H 0',
@@ -47,8 +53,8 @@ export default {
         middle: '',
         end: 'M 100 100 C 75 100 75 100 50 100 C 25 100 25 100 0 100 V 100 H 100',
       },
-      phrase: this.getPhrase(phrases),
-      numPoints: 3,
+      phrase: this.getPhrase(),
+      numPoints: 8,
       layerDuration: 750,
       titleDuration: 750,
       delayPointsArray: [],
@@ -59,6 +65,7 @@ export default {
       isAnimating: false,
     }
   },
+
   methods: {
     toggle() {
       // TODO
@@ -74,6 +81,7 @@ export default {
 
     close() {
       this.isAnimating = true
+      this.calculateMiddlePath()
       this.resetPoints()
       this.animateLayersOut()
     },
@@ -198,9 +206,8 @@ export default {
       })
     },
 
-    getPhrase(array) {
-      const phrases = array || this.phrases
-      return this.title ? this.title : phrases[Math.floor(Math.random() * phrases.length)]
+    getPhrase() {
+      return this.title ? this.title : this.phrases[Math.floor(Math.random() * this.phrases.length)]
     },
 
     animationFinished() {
