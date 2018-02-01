@@ -2,6 +2,7 @@
   <div id="home">
     <home-header />
     <home-info />
+    <photo-swipe :images="['../../img/featured/brightfox.png', '../../img/featured/plateiq.png']"/>
 
     <section class="home-featured">
       <div class="container">
@@ -29,8 +30,9 @@
 
 
 <script>
-import homeHeader from '../components/home/Header'
-import homeInfo from '../components/home/Info'
+    import homeHeader from '../components/home/Header';
+    import homeInfo from '../components/home/Info';
+    import photoSwipe from '../components/PhotoSwipe';
 
 import Menu from '../utils/menu'
 import apiManiak from '../utils/api'
@@ -47,14 +49,15 @@ export default {
   },
 
   components: {
-    homeHeader,
-    homeInfo,
+      homeHeader,
+      homeInfo,
+      photoSwipe,
   },
 
   data() {
     return {
-      projects: [],
-    }
+      projects: []
+    };
   },
 
   mounted() {
@@ -64,7 +67,7 @@ export default {
 
   methods: {
     updateData(response) {
-      this.projects = response.data
+      this.projects = response.data;
       this.$root.$refs.revealer.close()
     },
   },
