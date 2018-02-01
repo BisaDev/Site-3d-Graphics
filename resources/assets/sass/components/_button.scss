@@ -23,7 +23,6 @@
     background: rgba($black, 0.125);
   }
 
-
   .dark &,
   &.dark {
     color: $base-font-color-light;
@@ -54,7 +53,11 @@
 }
 
 @keyframes button-label-scroll {
-  0%, 66% {transform: translateY(0%)}
-  100% {transform: translateY(-100%)}
-
+  0%,
+  66% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }

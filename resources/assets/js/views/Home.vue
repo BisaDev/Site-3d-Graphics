@@ -10,7 +10,7 @@
           <button class="button">See all projects</button>
         </div>
         <div class="home-featured-list">
-            <router-link :to="`/project/${project.id}`" class="project-preview dark reveal" v-for="project in projects">
+            <router-link :key="project.id" :to="`/project/${project.id}`" class="project-preview dark reveal" v-for="project in projects">
                 <div class="project-preview-title">
                     <h5>{{project.name}}</h5>
                     <h6>{{project.description}}</h6>
@@ -35,16 +35,16 @@ import homeInfo from '../components/home/Info'
 import Menu from '../utils/menu'
 import apiManiak from '../utils/api'
 
-    export default {
-        beforeRouteLeave(to, from, next) {
+export default {
+  beforeRouteLeave(to, from, next) {
     this.$root.$refs.revealer.reveal().then(() => next())
   },
-        props: {
-            reveal: {
-                default: false,
-                type: Boolean,
-            },
-        },
+  props: {
+    reveal: {
+      default: false,
+      type: Boolean,
+    },
+  },
 
   components: {
     homeHeader,

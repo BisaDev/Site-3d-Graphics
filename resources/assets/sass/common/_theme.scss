@@ -6,11 +6,17 @@ body {
   color: $base-font-color-dark;
 }
 
-
 * {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, p, section, blockquote, label {
+h1,
+h2,
+h3,
+h4,
+p,
+section,
+blockquote,
+label {
   margin: 0;
 }

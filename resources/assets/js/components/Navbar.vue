@@ -15,23 +15,23 @@
 </template>
 
 <style>
-  .navbar {
-    transition: transform 0.5s ease;
-  }
-  .nav-show {
-    transform: translateY(0%);
-  }
-  .nav-hide {
-    transform: translateY(-100%);
-  }
+.navbar {
+  transition: transform 0.5s ease;
+}
+.nav-show {
+  transform: translateY(0%);
+}
+.nav-hide {
+  transform: translateY(-100%);
+}
 </style>
 
 <script>
 export default {
-  data(){
+  data() {
     return {
-      logo:require('../../img/logos/maniak/logo-maniak-dark.svg'),
-    lastKnownScrollPosition: window.scrollY,
+      logo: require('../../img/logos/maniak/logo-maniak-dark.svg'),
+      lastKnownScrollPosition: window.scrollY,
       ticking: false,
       stateClass: 'nav-show',
       theme: 'dark',
@@ -42,31 +42,32 @@ export default {
   //mounted() {},
 
   created() {
-    window.addEventListener('scroll', this.trackScroll);
+    window.addEventListener('scroll', this.trackScroll)
   },
 
   destroyed() {
-    window.removeEventListener('scroll', this.trackScroll);},
-},
+    window.removeEventListener('scroll', this.trackScroll)
+  },
   methods: {
     trackScroll() {
       if (!this.ticking) {
-        window.requestAnimationFrame(this.modifyNav);}
+        window.requestAnimationFrame(this.modifyNav)
+      }
 
-      this.ticking = true;
+      this.ticking = true
     },
 
     modifyNav() {
-      this.ticking = false;
+      this.ticking = false
 
-      if (window.scrollY >= (this.lastKnownScrollPosition + this.offset)) {
-        this.stateClass = 'nav-hide';
-      } else if (window.scrollY <= (this.lastKnownScrollPosition - this.offset)) {
-        this.stateClass = 'nav-show';
+      if (window.scrollY >= this.lastKnownScrollPosition + this.offset) {
+        this.stateClass = 'nav-hide'
+      } else if (window.scrollY <= this.lastKnownScrollPosition - this.offset) {
+        this.stateClass = 'nav-show'
       }
 
-      this.lastKnownScrollPosition = window.scrollY;
-    }
+      this.lastKnownScrollPosition = window.scrollY
+    },
   },
 }
 </script>

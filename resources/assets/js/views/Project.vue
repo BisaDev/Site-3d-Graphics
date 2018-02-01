@@ -157,11 +157,11 @@ Don't forget to define your components on the Vue instance, see below.
 </template>
 
 <script>
-import apiManiak from '../utils/api.js';
-import PhotoSwipe from 'photoswipe';
-import PhotoSwipeUI_Default from 'photoswipe';
-import ProjectQuote from '../components/project/ProjectQuote';
-import ProjectImageFull from '../components/project/ProjectImageFull';
+import apiManiak from '../utils/api.js'
+import PhotoSwipe from 'photoswipe'
+import PhotoSwipeUI_Default from 'photoswipe'
+import ProjectQuote from '../components/project/ProjectQuote'
+import ProjectImageFull from '../components/project/ProjectImageFull'
 
 export default {
   beforeRouteLeave(to, from, next) {
@@ -179,8 +179,8 @@ export default {
     },
   },
   components: {
-      ProjectQuote,
-      ProjectImageFull
+    ProjectQuote,
+    ProjectImageFull,
   },
 
   data() {
@@ -191,8 +191,8 @@ export default {
 
   mounted() {
     apiManiak.getProject(this.$props.id).then(this.updateData)
-      const test = new PhotoSwipe();
-      console.log(test)
+    const test = new PhotoSwipe()
+    console.log(test)
   },
 
   methods: {

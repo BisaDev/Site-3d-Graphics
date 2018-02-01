@@ -1,18 +1,18 @@
-@import "vendor/vendor";
+@import 'vendor/vendor';
 
-@import "common/variables";
-@import "common/mixins";
-@import "common/typography";
-@import "common/theme";
-@import "common/grid";
-@import "common/util";
+@import 'common/variables';
+@import 'common/mixins';
+@import 'common/typography';
+@import 'common/theme';
+@import 'common/grid';
+@import 'common/util';
 
-@import "components/section";
-@import "components/blob";
-@import "components/button";
-@import "components/navbar";
-@import "components/project";
-@import "components/revealer";
+@import 'components/section';
+@import 'components/blob';
+@import 'components/button';
+@import 'components/navbar';
+@import 'components/project';
+@import 'components/revealer';
 
-@import "partials/home";
-@import "partials/project";
+@import 'partials/home';
+@import 'partials/project';

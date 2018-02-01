@@ -11,7 +11,7 @@
     background-position: bottom right;
     background-repeat: no-repeat;
     background-color: #005fff;
-    background-image: url("../img/featured/plateiq.png");
+    background-image: url('../img/featured/plateiq.png');
 
     .container {
       height: 100vh;
@@ -55,7 +55,7 @@
     background-color: #005fff;
     position: relative;
     padding: 0;
-    background-image: url("../img/patterns/pattern.png");
+    background-image: url('../img/patterns/pattern.png');
     background-size: 50%;
     background-attachment: fixed;
 
@@ -114,15 +114,15 @@
     background-color: #005fff;
     position: relative;
     padding: 0;
-    background-image: url("../img/projectimages/image-full.jpg");
+    background-image: url('../img/projectimages/image-full.jpg');
     background-size: cover;
     background-attachment: fixed;
   }
   .project-next {
     @include transition('md');
     height: $footer-height;
-    background-color: #D70034;
-    background-image: url("../img/featured/wolverine.png");
+    background-color: #d70034;
+    background-image: url('../img/featured/wolverine.png');
     background-size: contain;
     background-position: center bottom;
     background-repeat: no-repeat;
@@ -133,25 +133,25 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%, -50%);
       margin: 0;
       overflow: hidden;
     }
-    h3, h4 {
+    h3,
+    h4 {
       @include transition('md');
     }
-   h4 {
+    h4 {
       transform: translateY(100%);
     }
 
     &:hover {
-      background-color: darken(#D70034, 5%);
+      background-color: darken(#d70034, 5%);
       h3 {
         transform: translateY(-100%);
       }
       h4 {
         transform: translateY(0);
-
       }
     }
   }

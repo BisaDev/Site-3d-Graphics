@@ -1,13 +1,11 @@
 @mixin transition ($duration, $property: all, $easing: ease) {
-
-  @if $duration == "lg" {
+  @if $duration == 'lg' {
     transition: $property 0.35s $easing;
-  } @else if $duration == "md" {
+  } @else if $duration == 'md' {
     transition: $property 0.25s $easing;
-  } @else if $duration == "sm" {
+  } @else if $duration == 'sm' {
     transition: $property 0.15s $easing;
-  }  @else if $duration == "none" {
-  transition: none;
+  } @else if $duration == 'none' {
+    transition: none;
   }
-
 }
