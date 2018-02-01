@@ -11,7 +11,7 @@
 .no-padding {padding: 0 !important; }
 .no-margin {margin: 0 !important; }
 
-.parallax { transition: 0s linear; transition-property: background-position;}
+.parallax { transition: 0s ease; transition-property: background-position; will-change: background-position;}
 
 
 

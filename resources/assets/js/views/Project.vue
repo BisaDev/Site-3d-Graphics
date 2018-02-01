@@ -191,6 +191,8 @@ export default {
 
   mounted() {
     apiManiak.getProject(this.$props.id).then(this.updateData)
+      const test = new PhotoSwipe();
+      console.log(test)
   },
 
   methods: {
