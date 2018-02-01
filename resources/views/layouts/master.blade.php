@@ -19,6 +19,7 @@
         @yield('content')
 
         @include('layouts.footer')
+        @include('partials.photoswipe')
 
         <reveal ref="revealer"></reveal>
 

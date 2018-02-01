@@ -1,0 +1,90 @@
+$project-min-height: 50rem;
+$project-max-height: 60rem;
+
+.project-preview {
+  height: 60vh;
+  min-height: $project-min-height;
+  max-height: $project-max-height;
+
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  width: 33.3333%;
+  color: inherit;
+  @include transition('md');
+
+  background-size: contain;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-color:#005FFF;
+  background-image: url("../img/featured/plateiq.png");
+
+  &-title {
+    align-self: flex-end;
+    padding: 3.5rem 3rem;
+    width: 100%;
+    @include transition('md');
+
+    h5 {
+      margin-bottom: 0.5rem;
+    }
+
+    &-description {
+      height: 0px;
+      overflow: hidden;
+      @include transition('md');
+
+      p {
+        opacity: 0.5;
+        margin-top: 1.5rem;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+
+  &.dark {
+    color: $light-gray;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(100%);
+    @include transition('xl');
+  }
+  &::before {
+    background-color: $light-gray-darker;
+  }
+  &::after {
+    background-color: $light-gray;
+    transition-delay: 0.15s;
+  }
+
+  &.animating {
+    &::after,
+    &::before {
+      transform: translateY(0);
+    }
+  }
+}
+
+.project-preview:hover {
+   transform: translateY(-1rem);
+  .project-preview-title {
+    .project-preview-title-description {
+      height: 4rem;
+    }
+  }
+}
+
+.project-preview:active {
+   transform: translateY(-1rem) scale(0.99);
+}

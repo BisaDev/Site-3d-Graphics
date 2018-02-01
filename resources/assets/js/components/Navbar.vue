@@ -1,23 +1,71 @@
 <template>
-<nav class="nav-dark menu-white" id="sticky">
-  <div class="container-fluid">
-    <router-link class="logo pull-left" to="/">
-      <img :src="logo" id="logomaniak" alt="MANIAK">
-    </router-link>
-    <ul class="menu pull-right">
-      <li><router-link to="/work">Work</router-link></li>
-      <li><router-link to="/studio">Studio</router-link></li>
-      <li><router-link to="/contact">Contact</router-link></li>
-    </ul>
-  </div>
+  <nav :class="['navbar ', theme, stateClass]" ref="nav">
+    <div class="container">
+      <router-link class="navbar-logo" to="/">
+        <img :src="logo" class="logo-maniak" alt="MANIAK">
+      </router-link>
+      <ul class="navbar-menu">
+        <li><router-link to="/work">Work</router-link></li>
+        <li><router-link to="/studio">Studio</router-link></li>
+        <li><router-link to="/contact">Contact</router-link></li>
+      </ul>
+
+</div>
 </nav>
 </template>
 
+<style>
+  .navbar {
+    transition: transform 0.5s ease;
+  }
+  .nav-show {
+    transform: translateY(0%);
+  }
+  .nav-hide {
+    transform: translateY(-100%);
+  }
+</style>
+
 <script>
 export default {
-  data() {
+  data(){
     return {
-      logo: require('../../img/logos/maniak/logo-maniak-white.svg'),
+      logo:require('../../img/logos/maniak/logo-maniak-dark.svg'),
+    lastKnownScrollPosition: window.scrollY,
+      ticking: false,
+      stateClass: 'nav-show',
+      theme: 'dark',
+      offset: 5, //px
+    }
+  },
+
+  //mounted() {},
+
+  created() {
+    window.addEventListener('scroll', this.trackScroll);
+  },
+
+  destroyed() {
+    window.removeEventListener('scroll', this.trackScroll);},
+},
+  methods: {
+    trackScroll() {
+      if (!this.ticking) {
+        window.requestAnimationFrame(this.modifyNav);}
+
+      this.ticking = true;
+    },
+
+    modifyNav() {
+      this.ticking = false;
+
+      if (window.scrollY >= (this.lastKnownScrollPosition + this.offset)) {
+        this.stateClass = 'nav-hide';
+      } else if (window.scrollY <= (this.lastKnownScrollPosition - this.offset)) {
+        this.stateClass = 'nav-show';
+      }
+
+      this.lastKnownScrollPosition = window.scrollY;
     }
   },
 }

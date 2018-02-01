@@ -1,63 +1,3 @@
-// .revealer {
-// 	width: 100vw;
-// 	height: 100vh;
-// 	position: fixed;
-//   top: 100%;
-// 	z-index: 1000;
-//
-//   .revealer-layer {
-//   	position: absolute;
-//   	width: 100%;
-//   	height: 100%;
-//   	top: 0;
-//   	left: 0;
-//     display: flex;
-//     align-items: center;
-//     &:nth-child(1) {
-//       background-color: $stone-dark;
-//     }
-//     &:nth-child(2) {
-//       background-color: $stone;
-//     }
-//
-//     .container {
-//       overflow: hidden;
-//       h3 {
-//         @include transform(translateY(100%));
-//         padding: 20px 0;
-//       }
-//     }
-//   }
-// }
-//
-// .revealer-open {
-//   overflow: hidden;
-// }
-
-body {
-  --color-text: #fff;
-  --color-bg: #333;
-  --color-link: #fff;
-  --color-link-hover: #f44e5e;
-  --color-info: #fff;
-  --color-main-bg: #efcb7b;
-  --path-fill-1: #dce3f1;
-  --path-fill-2: #869ccc;
-  --path-fill-3: #30436f;
-  --path-fill-4: #0d1831;
-  --color-title: #fff;
-  --font-family-title: inherit;
-  --font-size-title: 6vmax;
-  --font-weight-title: 200;
-  --color-menu: #fff;
-  --color-menu-hover: #fff;
-  --font-family-menu: inherit;
-  --font-size-menu: 4vmax;
-  --font-weight-menu: 200;
-  --button-bg: #fff;
-  --button-circle: #fff;
-  --button-line: #222;
-}
 .revealer {
   width: 100vw;
   height: 100vh;
@@ -99,13 +39,15 @@ body {
   }
 
   &-title {
-    .row {
-      overflow: hidden;
-    }
     &-text {
       transform: translateY(0%);
       padding-top: 0.5em;
       padding-bottom: 0.5em;
+      text-align: center;
     }
+  }
+  &-grid {
+    position: relative;
+    overflow: hidden;
   }
 }

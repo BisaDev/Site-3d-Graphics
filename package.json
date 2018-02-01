@@ -21,6 +21,8 @@
     },
     "dependencies": {
         "animejs": "^2.2.0",
+        "foundation-sites": "^6.4.4-rc1",
+        "photoswipe": "^4.1.2",
         "vue-router": "^3.0.1"
     }
 }

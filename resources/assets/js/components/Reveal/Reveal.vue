@@ -4,7 +4,7 @@
       <path ref="paths" v-for="path in paths" :d="path.d" class="revealer-overlays__path"></path>
     </svg>
     <div class="revealer-title container text-dark">
-      <div class="row">
+      <div class="revealer-grid">
         <h3 ref="revealText" class="revealer-title-text col-3">
           {{phrase}}
         </h3>

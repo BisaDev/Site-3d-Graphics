@@ -1,0 +1,19 @@
+
+section {
+  padding: 14rem 0;
+  &.dark {
+    background-color: $base-bg-color-dark;
+    color: $base-font-color-light;
+  }
+  &.light {
+    background-color: $base-bg-color-dark;
+    color: $base-font-color-light;
+  }
+  &.fullscreen {
+    min-height: 100vh;
+  }
+  &.align-center {
+    display: flex;
+    align-items: center;
+  }
+}
