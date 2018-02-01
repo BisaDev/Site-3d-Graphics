@@ -54,7 +54,7 @@ export default {
         end: 'M 100 100 C 75 100 75 100 50 100 C 25 100 25 100 0 100 V 100 H 100',
       },
       phrase: this.getPhrase(),
-      numPoints: 8,
+      numPoints: 3,
       layerDuration: 750,
       titleDuration: 750,
       delayPointsArray: [],
