@@ -20,9 +20,6 @@
         const scrollTop = window.scrollY
         parallax.style.backgroundPosition = "50%" + window.scrollY / this.speed + "px";
       };
-
     },
   }
-
-
 </script>

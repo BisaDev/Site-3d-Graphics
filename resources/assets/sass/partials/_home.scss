@@ -9,8 +9,13 @@
     }
   }
   .home-info {
-    width: 60%;
-    margin-left: 20%;
+    .grid {
+      flex-direction: column;
+      align-items: center;
+    }
+    &-copy {
+      margin-bottom: 3rem;
+    }
   }
   .home-featured {
     &-title {

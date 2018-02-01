@@ -111,7 +111,7 @@
   </div>
 </section>
 
-<section class="project-image-full"></section>
+<project-image-full></project-image-full>
 
 <section class="project-copy">
   <div class="container">
@@ -137,6 +137,14 @@
   </div>
 </section>
 
+<section class="project-next no-padding dark text-center">
+  <div class="container project-next-cta">
+    <h3 class="no-margin">Next.</h3>
+  </div>
+  <div class="container project-next-subtitle">
+    <h4 class="no-margin">The power of design and technology<br>to create and start change</h4>
+  </div>
+</section>
 <!--
 Loop through project sections and inject the needed components.
 Don't forget to define your components on the Vue instance, see below.
@@ -152,8 +160,8 @@ Don't forget to define your components on the Vue instance, see below.
 import apiManiak from '../utils/api.js';
 import PhotoSwipe from 'photoswipe';
 import PhotoSwipeUI_Default from 'photoswipe';
-import parallax from '../components/parallax';
 import ProjectQuote from '../components/project/ProjectQuote';
+import ProjectImageFull from '../components/project/ProjectImageFull';
 
 export default {
   beforeRouteLeave(to, from, next) {
@@ -171,8 +179,8 @@ export default {
     },
   },
   components: {
-      parallax,
-      ProjectQuote
+      ProjectQuote,
+      ProjectImageFull
   },
 
   data() {

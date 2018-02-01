@@ -31,9 +31,8 @@ $grid-margin-gutters: 3rem;
 
 // home
 #home {
-  .info {
+  .home-info-copy {
     @include xy-cell(8 of 12);
-    @include xy-cell-offset(2 of 12);
   }
   .project-preview {
     min-width: 33.333333%;

@@ -16,10 +16,11 @@
 
   &:hover,
   &:focus {
-    background: $light-gray-dark;
+    background: rgba($black, 0.075);
+    @include transition('none');
   }
   &:active {
-    background: $light-gray-darker;
+    background: rgba($black, 0.125);
   }
 
 
@@ -29,11 +30,10 @@
 
     &:hover,
     &:focus {
-      background: $stone-dark;
-      @include transition('none');
+      background: rgba($light-gray, 0.075);
     }
     &:active {
-      background: $stone-darker;
+      background: rgba($light-gray, 0.125);
     }
   }
 }

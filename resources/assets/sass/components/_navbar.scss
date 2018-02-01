@@ -44,14 +44,16 @@ $navbar-offset: 10px;
         cursor: pointer;
         border-radius: $border-radius;
         color: rgba($base-font-color-dark, 0.5);
+        @include transition('sm');
 
         &:hover,
         &:focus {
-          background: $light-gray-dark;
+          @include transition('none');
+          background: rgba($black, 0.075);
           color: $base-font-color-dark;
         }
         &:active {
-          background: $light-gray-darker;
+          background: rgba($black, 0.125);
         }
 
       }
@@ -68,11 +70,11 @@ $navbar-offset: 10px;
 
         &:hover,
         &:focus {
-          background: $stone-dark;
+          background: rgba($light-gray, 0.075);
           color: $base-font-color-light;
         }
         &:active {
-          background: $stone-darker;
+          background: rgba($light-gray, 0.125);
         }
 
       }

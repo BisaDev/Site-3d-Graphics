@@ -5,6 +5,8 @@ $color4:#48098b;
 $move-offset: 100px;
 $color-left: $light-gray-dark;
 $color-right: $light-gray-dark;
+$blob-size: 100px;
+$move-offset: 100px;
 
 @function randomNum($min, $max) {
   $rand: random();
@@ -46,77 +48,76 @@ $color-right: $light-gray-dark;
 }
 
 .blob-rotate {
-  width: 300px;
-  height: 300px;
-  animation: rotate 80s infinite;
-  animation-timing-function: linear;
+	width: 200px;
+	height: 200px;
+	animation: rotate 60s infinite;
+	animation-timing-function: linear;
 
-  position:absolute;
-  left: calc(100% - 150px);
-  top:calc(50% - 150px);
+	 position:absolute;
+ 	left: calc(100% - 100px);
+ 	top:calc(50% - 100px);
 
 }
 
 .blob {
+ position:absolute;
+ left: 50%;
+ top:50%;
+ transform: translate(-50px,-50px);
+ filter: url('#goo');
+ div {
+  width:$blob-size;
+  height: $blob-size;
+  border-radius: 500px;
+  display: inline-block;
   position:absolute;
-  left: 50%;
-  top:50%;
-  transform: translate(-75px,-75px);
-  filter: url('#goo');
-  div {
-    width:100px;
-    height: 100px;
-    border-radius: 500px;
-    display: inline-block;
-    position:absolute;
-    $top-collection: 0;
-    $left-collection: 0;
+  $top-collection: 0;
+  $left-collection: 0;
 
-    @for $i from 1 to 17 {
-      $left: randomNum(-150px, 150px);
-      $top: randomNum(-120px, 120px);
-      $randWH : randomNum(20px, 120px);
-      &:nth-child(#{$i}) {
-        width:$randWH;
-        height: $randWH;
-        left:$left;
-      }
+  @for $i from 1 to 17 {
+   $left: randomNum(-100px, 100px);
+   $top: randomNum(-80px, 80px);
+   $randWH : randomNum(20px, 60px);
+   &:nth-child(#{$i}) {
+    width:$randWH;
+    height: $randWH;
+    left:$left;
+   }
 
-      $left-collection: append($left-collection,$left);
-      $top-collection: append($top-collection,$top);
+   $left-collection: append($left-collection,$left);
+   $top-collection: append($top-collection,$top);
+  }
+
+  @for $i from 2 to length($top-collection) {
+   &:nth-child(#{$i}) {
+    top: 0;
+    left: 0;
+    animation: anim-#{$i} 12s ease-in-out infinite;
+    @if($i == 1) {
+     animation-delay: 0s;
     }
+    @else {
+    animation-delay: randomNum(1s,4s);
+    }
+  }
+  /**keyframes **/
+   @keyframes anim-#{$i} {
+	0%{left:0;top:0}
+    50% { left:nth($left-collection, $i+1);top:nth($top-collection, $i)}
+    100%{left:0;top:0}
 
-    @for $i from 2 to length($top-collection) {
-      &:nth-child(#{$i}) {
-        top: 0;
-        left: 0;
-        animation: anim-#{$i} 30s ease-in-out infinite;
-        @if($i == 1) {
-          animation-delay: 0s;
-        }
-        @else {
-          animation-delay: randomNum(1s,4s);
-        }
-      }
-      /**keyframes **/
-      @keyframes anim-#{$i} {
-        0%{left:0;top:0}
-        50% { left:nth($left-collection, $i+1);top:nth($top-collection, $i)}
-        100%{left:0;top:0}
-
-      }
-    } //end of collection loop
-  } //end of div
+   }
+  } //end of collection loop
+ } //end of div
 
 } //end of glowby-blob
-
 
 .blob-svg {
   position: absolute;
 }
 
 @keyframes rotate {
-  0% {transform: rotate(0deg)}
-  100% {transform: rotate(360deg)}
+	0% {transform: rotate(0deg) scale(2)}
+	100% {transform: rotate(360deg) scale(2)}
 
 }

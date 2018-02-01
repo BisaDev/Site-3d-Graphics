@@ -31,16 +31,19 @@
     &-facts {
       h5 {
         margin: 0.5rem 0;
+        font-size: 1.6rem;
       }
       p {
         line-height: $line-height-lg;
-        margin-bottom: 1.5rem;
+        font-size: 1.6rem;
+        margin-bottom: 2.5rem;
       }
       ul {
         padding: 0;
         margin: 0;
         list-style-type: none;
         li {
+          font-size: 1.6rem;
           line-height: $line-height-lg;
           margin-bottom: 0.5rem;
         }
@@ -79,7 +82,7 @@
   .project-gallery {
     &-image {
       display: block;
-      height: $section-min-height;
+      height: $image-height;
       background: #005fff;
       display: flex;
 
@@ -100,12 +103,14 @@
   }
   .project-screenshot-long {
     text-align: center;
+    border: 1rem solid white;
+    outline: 1px solid $light-gray-darker;
     img {
       max-width: 100%;
     }
   }
   .project-image-full {
-    height: $section-min-height * 2;
+    height: $section-min-height;
     background-color: #005fff;
     position: relative;
     padding: 0;
@@ -113,5 +118,41 @@
     background-size: cover;
     background-attachment: fixed;
   }
+  .project-next {
+    @include transition('md');
+    height: $footer-height;
+    background-color: #D70034;
+    background-image: url("../img/featured/wolverine.png");
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    position: relative;
+    cursor: pointer;
+    &-cta,
+    &-subtitle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      margin: 0;
+      overflow: hidden;
+    }
+    h3, h4 {
+      @include transition('md');
+    }
+   h4 {
+      transform: translateY(100%);
+    }
 
+    &:hover {
+      background-color: darken(#D70034, 5%);
+      h3 {
+        transform: translateY(-100%);
+      }
+      h4 {
+        transform: translateY(0);
+
+      }
+    }
+  }
 }
