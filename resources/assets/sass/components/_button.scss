@@ -1,5 +1,5 @@
 .button {
-  background: transparent;
+  background-color: transparent;
   display: inline-block;
   height: $button-height;
   line-height: $button-height;
@@ -16,10 +16,10 @@
 
   &:hover,
   &:focus {
-    background: rgba($black, 0.075);
+    background-color: rgba($black, 0.075);
   }
   &:active {
-    background: rgba($black, 0.125);
+    background-color: rgba($black, 0.125);
     @include transition('none');
   }
 
@@ -29,28 +29,48 @@
 
     &:hover,
     &:focus {
-      background: rgba($light-gray, 0.075);
+      background-color: rgba($light-gray, 0.075);
     }
     &:active {
-      background: rgba($light-gray, 0.125);
+      background-color: rgba($light-gray, 0.125);
+    }
+  }
+
+  &.button-scroll {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    bottom: 5rem;
+
+    span {
+      display: block;
+      animation-name: button-label-scroll;
+      animation-duration: 3s;
+      animation-timing-function: cubic-bezier(0.75, 0, 0.66, 1.2);
+      animation-iteration-count: infinite;
+    }
+  }
+
+  &.button-arrow {
+    position: relative;
+    &::after {
+      content: '';
+      display: inline-block;
+      height: $button-height;
+      width: $button-height;
+      vertical-align: middle;
+      background-image: url('../img/icons/white/arrow-right.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      @include transition('md');
+    }
+    &:hover::after {
+      margin-left: 2rem;
     }
   }
 }
 
-.button-scroll {
-  display: block;
-  overflow: hidden;
-  position: absolute;
-  bottom: 5rem;
 
-  span {
-    display: block;
-    animation-name: button-label-scroll;
-    animation-duration: 3s;
-    animation-timing-function: cubic-bezier(0.75, 0, 0.66, 1.2);
-    animation-iteration-count: infinite;
-  }
-}
 
 @keyframes button-label-scroll {
   0%,

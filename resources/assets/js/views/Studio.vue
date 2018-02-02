@@ -36,7 +36,7 @@
           </div>
           <div class="studio-where-callout dark">
             <p>Interested in working here?</p>
-            <a class="button" href="">Drop us a line</a>
+            <a class="button button-arrow" href="mailto:hola@maniak.co">Drop us a line</a>
           </div>
         </div>
       </div>
