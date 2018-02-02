@@ -58,15 +58,15 @@ export default {
     },
 
     modifyNav() {
-      this.ticking = false
 
       if (window.scrollY >= this.lastKnownScrollPosition + this.offset) {
         this.stateClass = 'nav-hide'
       } else if (window.scrollY <= this.lastKnownScrollPosition - this.offset) {
         this.stateClass = 'nav-show'
       }
-
       this.lastKnownScrollPosition = window.scrollY
+
+      this.ticking = false
     },
   },
 }
