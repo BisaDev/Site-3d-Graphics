@@ -15,6 +15,7 @@
 <script>
     import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
     import PhotoSwipe from 'photoswipe/dist/photoswipe'
+    import $ from 'jquery'
 
     export default {
         props: {
@@ -26,7 +27,7 @@
         data() {
             return {
                 images_obj: this.images.map(function (el) {
-                    return {src: el, w: 1024, h: 683}
+                    return {src: el, msrc: el, w: 1024, h: 615}
                 })
             }
         },
@@ -34,15 +35,19 @@
             openPhotoSwipe: function (index = 0) {
                 const pswpElement = this.$root.$refs.pswp;
                 const options = {
-                    showAnimationDuration: 0,
-                    hideAnimationDuration: 0,
+                    getThumbBoundsFn: this.getThumbBoundsFn,
                     history: false,
-                    focus: false,
                     index: index,
                 };
 
                 const gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, this.images_obj, options);
                 gallery.init();
+            },
+            getThumbBoundsFn: function(index) {
+                let thumbnail = $(this.$el).children('.gallery-image').eq(index).get(0);
+                let rect = thumbnail.getBoundingClientRect();
+
+                return {x:rect.left, y:rect.top + $(window).scrollTop(), w:rect.width};
             }
         },
         mounted() {

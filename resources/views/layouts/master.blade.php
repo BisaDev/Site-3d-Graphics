@@ -21,7 +21,7 @@
         @include('layouts.footer')
         @include('partials.photoswipe')
 
-        <reveal ref="reveal"></reveal>
+        <reveal ref="revealer"></reveal>
 
     </div>
     <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
