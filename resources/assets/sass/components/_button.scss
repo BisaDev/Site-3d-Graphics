@@ -17,10 +17,10 @@
   &:hover,
   &:focus {
     background: rgba($black, 0.075);
-    @include transition('none');
   }
   &:active {
     background: rgba($black, 0.125);
+    @include transition('none');
   }
 
   .dark &,

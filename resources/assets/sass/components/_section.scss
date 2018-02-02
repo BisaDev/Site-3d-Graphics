@@ -1,6 +1,8 @@
 section {
-  padding: 14rem 0;
+  //padding: 14rem 0 0;
+  margin: 0 0 14rem;
   &.dark {
+    padding: 14rem 0;
     background-color: $base-bg-color-dark;
     color: $base-font-color-light;
   }

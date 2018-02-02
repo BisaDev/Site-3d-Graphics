@@ -1,5 +1,5 @@
 <template>
-  <parallax :speed="-4" class="project-quote dark text-center">
+  <parallax class="project-quote dark text-center">
   <div class="container">
       <div class="project-quote-statement">
         <h3>The smartest way to<br>automate your restaurant's<br>accounts payable.</h3>

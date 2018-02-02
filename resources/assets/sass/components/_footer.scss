@@ -1,0 +1,27 @@
+footer {
+  a {
+    display: flex;
+    position: relative;
+    color: inherit;
+    height: $footer-height;
+    align-items: center;
+    justify-content: stretch;
+    text-decoration: none;
+    position: relative;
+
+    span {
+      display: block;
+      @include transition('md');
+    }
+    .grid {
+      width: 100%;
+      height: $line-height-lg * $font-size-lg;
+      overflow: hidden;
+    }
+
+    &:hover h4 span {
+      transform: translateY(-100%);
+    }
+  }
+}
+

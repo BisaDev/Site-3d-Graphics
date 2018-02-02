@@ -1,0 +1,95 @@
+$studio-where-callout-height: 36rem;
+$studio-paragraph-margin: 0 0 3.5rem;
+
+.studio {
+
+  p {
+    margin: $studio-paragraph-margin;
+  }
+
+  //DELETE THIS
+  .image-full {
+    background-color: #005fff;
+    .parallax-image {
+      background-image: url('../img/projectimages/image-full.jpg');
+      background-size: cover;
+    }
+  }
+
+  &-header {
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &-where {
+    position: relative;
+    z-index: 1;
+    &-callout {
+      height: $studio-where-callout-height;
+      margin-bottom: -$studio-where-callout-height / 2;
+      padding: 3.5rem 4rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: $base-bg-color-dark;
+      color: $base-font-color-light;
+      border-radius: $border-radius;
+    }
+  }
+  &-panorama {
+    padding: 0 0 33%;
+    background-color: red;
+
+    .parallax-image {
+      background-image: url('../img/about/maniak-panorama.png');
+      background-size: cover;
+      right: -80vw;
+      width: 160vw;
+      height: 125%;
+    }
+  }
+  &-values {
+    li {
+      margin-bottom: 8rem;
+    }
+    h5 {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &-services {
+    &-department {
+      margin-bottom: 10rem;
+      ul {
+        width: 60%;
+        column-count: 2;
+        column-gap: 2rem;
+        opacity: 0.75;
+      }
+    }
+  }
+  &-clients {
+    &-title {
+      margin-bottom: 8rem;
+    }
+    &-list {
+      column-count: 3;
+      column-gap: 3rem;
+    }
+    &-description {
+      margin-bottom: 3.5rem;
+
+      ul {
+        opacity: 0.75;
+      }
+      .icon {
+        margin-right: 2rem;
+      }
+    }
+
+  }
+}

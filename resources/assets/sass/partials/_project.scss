@@ -55,9 +55,10 @@
     background-color: #005fff;
     position: relative;
     padding: 0;
-    background-image: url('../img/patterns/pattern.png');
-    background-size: 50%;
-    background-attachment: fixed;
+    .parallax-image {
+      background-image: url('../img/patterns/pattern.png');
+      background-size: 50%;
+    }
 
     .container {
       height: 100%;
@@ -109,14 +110,12 @@
       max-width: 100%;
     }
   }
-  .project-image-full {
-    height: $section-min-height;
+  .image-full {
     background-color: #005fff;
-    position: relative;
-    padding: 0;
-    background-image: url('../img/projectimages/image-full.jpg');
-    background-size: cover;
-    background-attachment: fixed;
+    .parallax-image {
+      background-image: url('../img/projectimages/image-full.jpg');
+      background-size: cover;
+    }
   }
   .project-next {
     @include transition('md');

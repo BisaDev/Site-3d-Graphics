@@ -48,11 +48,11 @@ $navbar-offset: 10px;
 
         &:hover,
         &:focus {
-          @include transition('none');
           background: rgba($black, 0.075);
           color: $base-font-color-dark;
         }
         &:active {
+          @include transition('none');
           background: rgba($black, 0.125);
         }
       }

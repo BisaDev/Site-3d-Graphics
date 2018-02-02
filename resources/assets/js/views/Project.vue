@@ -12,6 +12,8 @@
     </div>
   </section>
 
+
+
   <!-- Main Information -->
   <section>
     <div class="container">
@@ -79,7 +81,7 @@
     </div>
   </div>
 </section>
-<section class="project-gallery no-padding">
+<section class="project-gallery">
   <div class="container">
     <div class="grid">
       <a class="project-gallery-image" href="">
@@ -124,7 +126,7 @@
   </div>
 </section>
 
-<section class="project-gallery no-padding">
+<section class="project-gallery">
   <div class="container">
     <div class="grid">
       <a class="project-gallery-image" href="">
@@ -137,7 +139,7 @@
   </div>
 </section>
 
-<section class="project-next no-padding dark text-center">
+<section class="project-next no-padding no-margin dark text-center">
   <div class="container project-next-cta">
     <h3 class="no-margin">Next.</h3>
   </div>
@@ -161,7 +163,7 @@ import apiManiak from '../utils/api.js'
 import PhotoSwipe from 'photoswipe'
 import PhotoSwipeUI_Default from 'photoswipe'
 import ProjectQuote from '../components/project/ProjectQuote'
-import ProjectImageFull from '../components/project/ProjectImageFull'
+import ImageFull from '../components/ImageFull'
 
 export default {
   beforeRouteLeave(to, from, next) {
@@ -180,7 +182,7 @@ export default {
   },
   components: {
     ProjectQuote,
-    ProjectImageFull,
+    ImageFull,
   },
 
   data() {

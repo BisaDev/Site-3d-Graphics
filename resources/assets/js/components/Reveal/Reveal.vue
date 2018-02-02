@@ -5,9 +5,9 @@
     </svg>
     <div class="revealer-title container text-dark">
       <div class="revealer-grid">
-        <h3 ref="revealText" class="revealer-title-text col-3">
+        <h4 ref="revealText" class="revealer-title-text">
           {{phrase}}
-        </h3>
+        </h4>
       </div>
     </div>
   </div>

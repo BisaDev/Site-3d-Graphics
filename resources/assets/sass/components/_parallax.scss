@@ -1,0 +1,18 @@
+.parallax {
+  position: relative;
+  overflow: hidden;
+  &-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 125%;
+    background-position: center;
+  }
+}
+
+.image-full {
+  height: $section-min-height;
+  position: relative;
+  padding: 0;
+}

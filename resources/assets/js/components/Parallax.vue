@@ -1,6 +1,7 @@
 <template>
 
-  <section :style="{backgroundPosition: `50% ${backgroundPositionOffset}px` }" class="parallax" ref="parallax">
+  <section class="parallax">
+    <div :style="{transform: `translate(${backgroundPositionOffsetX}vw,${backgroundPositionOffsetY}px)` }" class="parallax-image" ref="parallax"></div>
     <slot></slot>
   </section>
 
@@ -13,16 +14,25 @@ export default {
       type: Number,
       default: -4,
     },
+    horizontal: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
-      backgroundPositionOffset: 0,
+      backgroundPositionOffsetY: 0,
+      backgroundPositionOffsetX: 0,
     }
   },
   methods: {
     handleParallax() {
-      this.backgroundPositionOffset = -this.$refs.parallax.getBoundingClientRect().top / this.speed
-      console.log(this.$refs.parallax.getBoundingClientRect().top)
+      this.backgroundPositionOffsetY = this.$refs.parallax.getBoundingClientRect().top / this.speed
+      if (this.horizontal == true) {
+        const offsetX = this.$refs.parallax.getBoundingClientRect().bottom / (window.innerHeight + this.$refs.parallax.getBoundingClientRect().height)
+        const factorX = this.$refs.parallax.getBoundingClientRect().width / window.innerWidth * 50
+        this.backgroundPositionOffsetX = -offsetX * factorX;
+      }
     },
   },
 
