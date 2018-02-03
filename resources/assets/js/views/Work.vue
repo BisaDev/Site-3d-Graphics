@@ -16,7 +16,7 @@
     <section class="work-portfolio">
       <div class="container">
         <div class="grid">
-          <a href class="preview reveal dark">
+          <a href class="preview reveal dark" :style="{backgroundColor: '#005FFF', backgroundImage: 'url(../../img/featured/plateiq.png)'}">
             <div class="preview-title">
               <h5>Plate IQ</h5>
               <h6>Restaurant Management</h6>
@@ -25,19 +25,19 @@
               </div>
             </div>
           </a>
-          <a href class="preview reveal">
+          <a href class="preview reveal" :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/volkswagen.png)'}">
             <div class="preview-title">
-              <h5>Plate IQ</h5>
-              <h6>Restaurant Management</h6>
+              <h5>Volkswagen 4DX</h5>
+              <h6>VR Driving Simulator</h6>
               <div class="preview-title-cta">
                 <p>Read more.</p>
               </div>
             </div>
           </a>
-          <a href class="preview reveal dark">
+          <a href class="preview reveal dark" :style="{backgroundColor: '#D70034', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
             <div class="preview-title">
-              <h5>Plate IQ</h5>
-              <h6>Restaurant Management</h6>
+              <h5>Wolverine</h5>
+              <h6>Online Configurator</h6>
               <div class="preview-title-cta">
                 <p>Read more.</p>
               </div>

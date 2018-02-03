@@ -14,6 +14,7 @@
   background-repeat: no-repeat;
   background-color: #e7e9f0;
   background-image: url('../img/featured/plateiq.png');
+  color: $stone;
 
   &-title {
     align-self: flex-end;
@@ -40,7 +41,7 @@
 
   &.dark {
     color: $light-gray;
-    background-color: #005FFF;
+    background-color: #20222B;
   }
 }
 

@@ -161,7 +161,7 @@ $studio-blob-size-delta: $studio-blob-size-lg - $studio-blob-size-sm;
       display: block;
       position: absolute;
       border-radius: 50%;
-      @include transition('md', $easing: ease-out);
+      @include transition('lg', $easing: ease-out);
       transition-property: transform;
       will-change: transform;
     }

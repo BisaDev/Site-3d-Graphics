@@ -49,27 +49,36 @@ export default {
         return deltaPercent * deltaPercent * -factor
       }
     },
-    handleBlobMove(event) {
-      this.blobs.forEach( (el) => {
-        let centerX = el.getBoundingClientRect().left + el.offsetWidth / 2;
-        el.style.transform = 'translateX(' + this.calcOffset(event.pageX, centerX, 400) + 'px)';
-      })
-      this.circles.forEach( (el) => {
-        let centerX = el.getBoundingClientRect().left + el.offsetWidth / 2;
-        el.style.transform = 'translateX(' + this.calcOffset(event.pageX, centerX, 200) + 'px)';
-      })
+    handleMouseMove(event) {
+      if (!this.ticking) {
+        requestAnimationFrame(this.moveBlob(event))
+      }
+      this.ticking = true
+    },
+    moveBlob(event) {
+      this.ticking = false
+        this.blobs.forEach( (el) => {
+          let centerX = el.getBoundingClientRect().left + el.offsetWidth / 2;
+          el.style.transform = 'translateX(' + this.calcOffset(event.pageX, centerX, 400) + 'px)';
+        })
+        this.circles.forEach( (el) => {
+          let centerX = el.getBoundingClientRect().left + el.offsetWidth / 2;
+          el.style.transform = 'translateX(' + this.calcOffset(event.pageX, centerX, 200) + 'px)';
+        })
+
     }
+
   },
   mounted() {
     this.blobs = this.$refs.blobs.querySelectorAll('span')
     this.circles = this.$refs.circles.querySelectorAll('span')
-    this.$refs.section.addEventListener('mousemove', (e) => this.handleBlobMove(e))
+    this.$refs.section.addEventListener('mousemove', (e) => this.handleMouseMove(e))
   },
   created() {
-    //this.$refs.section.addEventListener('click', () => this.handleBlobMove())
+    //this.$refs.section.addEventListener('click', () => this.handleMouseMove())
   },
   destroyed() {
-    this.$refs.section.removeEventListener('mousemove', () => this.handleBlobMove(e))
+    this.$refs.section.removeEventListener('mousemove', () => this.handleMouseMove(e))
   },
 }
 </script>

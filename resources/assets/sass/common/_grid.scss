@@ -16,9 +16,11 @@ $grid-margin-gutters: 3rem;
   .home-info-copy {
     @include xy-cell(8 of 12);
   }
-  .project-preview {
-    min-width: 33.333333%;
-    flex: 1;
+  .home-featured-list {
+    @include xy-gutters($gutters: 0);
+  }
+  .preview {
+    width: 33.33333333%
   }
 }
 

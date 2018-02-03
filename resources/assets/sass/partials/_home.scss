@@ -27,9 +27,19 @@
     &-list {
       display: flex;
       flex-wrap: wrap;
-      .project-preview {
-        flex: 1;
-        min-width: 33.3333333%;
+      .preview {
+        border-radius: 0;
+        &:first-of-type {
+          border-top-left-radius: $border-radius * 2;
+          border-bottom-left-radius: $border-radius * 2;
+        }
+        &:last-of-type {
+          border-top-right-radius: $border-radius * 2;
+          border-bottom-right-radius: $border-radius * 2;
+        }
+        &:hover {
+          transform: translateY(-1rem);
+        }
       }
     }
   }
