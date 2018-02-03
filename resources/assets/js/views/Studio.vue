@@ -82,7 +82,7 @@
       </div>
     </section>
 
-    <section class="studio-what dark text-center">
+    <!-- <section class="studio-what dark text-center">
       <div class="container">
         <h4>We use the power of design and<br>technology to create and start change.</h4>
       </div>
@@ -108,8 +108,8 @@
         </div>
       </div>
 
-    </section>
-
+    </section> -->
+    <studio-portfolio></studio-portfolio>
     <section class="studio-services">
       <div class="container">
         <div class="grid studio-services-department">
@@ -217,6 +217,7 @@
 
 <script>
     import StudioPanorama from '../components/studio/StudioPanorama'
+    import StudioPortfolio from '../components/studio/StudioPortfolio'
     import Menu from '../utils/menu'
     import apiManiak from '../utils/api'
     import ImageFull from '../components/ImageFull'
@@ -224,6 +225,7 @@
     export default {
       components: {
         StudioPanorama,
+        StudioPortfolio,
         ImageFull
       },
         beforeRouteLeave(to, from, next) {
