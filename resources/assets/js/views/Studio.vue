@@ -1,6 +1,6 @@
 <template>
   <div class="studio">
-    <section class="align-center studio-header fullscreen">
+    <section class="align-center studio-header no-margin no-padding dark fullscreen">
       <div class="container">
         <h2 class="text-center">
           <b>Maniak is a creative studio in Guadalajara, Mexico. </b><br>We build websites, applications and interactive experiences.
@@ -86,6 +86,28 @@
       <div class="container">
         <h4>We use the power of design and<br>technology to create and start change.</h4>
       </div>
+      <div class="studio-what-visual">
+        <div class="studio-what-blob">
+          <span></span>
+          <span></span>
+          <span></span>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="blob-svg">
+            <defs>
+              <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div class="studio-what-circles">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
     </section>
 
     <section class="studio-services">
