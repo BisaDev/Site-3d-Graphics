@@ -1,11 +1,10 @@
 <template>
-
   <div id="home">
     <home-header/>
     <home-info/>
     <!--<photo-swipe :images="['../../img/featured/brightfox.png', '../../img/featured/plateiq.png']"/>-->
 
-    <section class="home-featured">
+    <section class="home-featured dark no-margin">
       <div class="container">
         <div class="home-featured-title">
           <h3>Some of the projects<br>we are most proud of.</h3>
@@ -23,7 +22,6 @@
               </div>
             </div>
           </router-link>
-
         </div>
       </div>
     </section>
@@ -37,7 +35,6 @@ import photoSwipe from '../components/PhotoSwipe'
 import homeInfo from '../components/home/Info'
 
 import apiManiak from '../utils/api'
-import Menu from '../utils/menu'
 
 export default {
   beforeRouteLeave(to, from, next) {

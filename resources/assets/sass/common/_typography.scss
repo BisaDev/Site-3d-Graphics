@@ -34,6 +34,10 @@ h1 {
   font-size: $font-size-xxl;
   line-height: $line-height-md;
   font-weight: $font-weight-regular;
+  b,
+  strong {
+    font-weight: $font-weight-medium;
+  }
 }
 h2 {
   font-size: $font-size-xl;

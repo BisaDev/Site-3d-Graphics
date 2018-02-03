@@ -99,7 +99,7 @@
                 <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
               </filter>
             </defs>
-          </svg>
+          <π/svg>
         </div>
         <div class="studio-what-circles">
           <span></span>
@@ -156,7 +156,7 @@
         </div>
       </div>
     </section>
-    <section class="studio-clients dark no-margin">
+    <section class="studio-clients dark padding no-margin">
       <div class="container">
         <div class="grid">
           <div class="studio-clients-title section-title">

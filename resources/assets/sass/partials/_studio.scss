@@ -84,6 +84,9 @@ $studio-paragraph-margin: 0 0 3.5rem;
     &-list {
       column-count: 3;
       column-gap: 3rem;
+      li {
+        font-size: $font-size-sm;
+      }
     }
     &-description {
       margin-bottom: 3.5rem;

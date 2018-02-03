@@ -9,3 +9,39 @@
     transition: none;
   }
 }
+
+@mixin button-interaction() {
+  display: inline-block;
+  line-height: $button-height;
+  padding: 0 $button-padding-h;
+  background-color: transparent;
+  border: none;
+  outline: none !important;
+  cursor: pointer;
+  border-radius: $border-radius;
+  color: $base-font-color-dark;
+  text-decoration: none;
+  @include transition('sm');
+
+  &:hover,
+  &:focus {
+    background-color: rgba($black, 0.075);
+  }
+  &:active {
+    background-color: rgba($black, 0.125);
+    @include transition('none');
+  }
+
+  .dark &,
+  &.dark {
+    color: $base-font-color-light;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($light-gray, 0.075);
+    }
+    &:active {
+      background-color: rgba($light-gray, 0.125);
+    }
+  }
+}

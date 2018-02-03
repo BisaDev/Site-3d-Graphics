@@ -1,7 +1,7 @@
 <template>
-  <section class="align-center home-header no-padding fullscreen">
+  <section class="align-center home-header no-padding fullscreen dark no-margin">
 
-      <div class="blob-visual">
+      <!-- <div class="blob-visual">
           <div class="blob-wrapper blob-left">
               <div class="blob-rotate">
                   <div class="blob">
@@ -34,7 +34,7 @@
                   </div>
               </div>
           </div>
-      </div>
+      </div> -->
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="blob-svg">
           <defs>
               <filter id="goo">

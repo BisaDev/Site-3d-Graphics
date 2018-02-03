@@ -1,0 +1,44 @@
+$work-portfolio-offset: -10vh;
+
+.work {
+  &-header {
+    height: 100vh;
+
+    .container {
+      height: 90vh;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    &-filters {
+      position: absolute;
+      bottom: calc(5rem});
+      margin-left: -$button-padding-h;
+
+      li {
+        display: inline-block;
+        margin-right: 10rem;
+        margin-bottom: 0;
+        @include transition('md');
+        &:not(.active) {
+          opacity: 0.33;
+        }
+        a {
+          @include button-interaction();
+          line-height: $button-height-lg;
+          .filter-count {
+            font-size: $font-size-xs;
+            vertical-align: baseline;
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+  &-portfolio {
+    .container {
+      margin-top: $work-portfolio-offset;
+    }
+  }
+}

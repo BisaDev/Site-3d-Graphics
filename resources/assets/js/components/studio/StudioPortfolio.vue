@@ -1,6 +1,6 @@
 <template>
 
-  <section class="studio-portfolio dark text-center" ref="section">
+  <section class="studio-portfolio dark padding text-center" ref="section">
     <div class="container">
       <h4>We use the power of design and<br>technology to create and start change.</h4>
     </div>

@@ -2,13 +2,15 @@ section {
   //padding: 14rem 0 0;
   margin: 0 0 14rem;
   &.dark {
-    padding: 14rem 0;
     background-color: $base-bg-color-dark;
     color: $base-font-color-light;
   }
   &.light {
     background-color: $base-bg-color-dark;
     color: $base-font-color-light;
+  }
+  &.padding {
+    padding: 14rem 0;
   }
   &.fullscreen {
     min-height: 100vh;
