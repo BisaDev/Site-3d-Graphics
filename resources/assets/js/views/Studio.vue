@@ -2,12 +2,11 @@
   <div class="studio">
     <section class="align-center studio-header no-margin no-padding fullscreen">
       <div class="container">
-        <h2 class="text-center">
-          <b>Maniak is a creative studio in Guadalajara, Mexico. </b><br>We build websites, applications and interactive experiences.
-        </h2>
-        <button class="button button-scroll">
-          <span>Scroll down</span><span>Scroll down</span>
-        </button>
+        <div class="grid">
+          <h1 class="text-center">
+            <b>Maniak is a creative studio in Guadalajara, Mexico. </b><br>We build websites, applications and interactive experiences.
+          </h1>
+        </div>
       </div>
     </section>
     <image-full></image-full>

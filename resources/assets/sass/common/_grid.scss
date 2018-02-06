@@ -20,7 +20,7 @@ $grid-margin-gutters: 3rem;
     @include xy-gutters($gutters: 0);
   }
   .preview {
-    width: 33.33333333%
+    width: 33.33333333%;
   }
 }
 
@@ -87,11 +87,19 @@ $grid-margin-gutters: 3rem;
   &-clients {
     &-list {
       @include xy-cell(6 of 12);
-
     }
     &-description {
       @include xy-cell(5 of 12);
       @include xy-cell-offset(1 of 12);
+    }
+  }
+}
+
+.contact {
+  &-header {
+    h1 {
+      @include xy-cell(8 of 12);
+      @include xy-cell-offset(2 of 12);
     }
   }
 }
@@ -102,16 +110,14 @@ footer {
   }
 }
 
-
-
 //about
-  .section-title {
-    @include xy-cell(3 of 12);
-  }
-  .section-content {
-    @include xy-cell(9 of 12);
+.section-title {
+  @include xy-cell(3 of 12);
+}
+.section-content {
+  @include xy-cell(9 of 12);
 
-    p + p {
-      margin-top: 3.5rem;
-    }
+  p + p {
+    margin-top: 3.5rem;
   }
+}
