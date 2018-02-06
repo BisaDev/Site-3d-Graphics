@@ -1,6 +1,6 @@
 <template>
   <div class="studio">
-    <section class="align-center studio-header no-margin no-padding dark fullscreen">
+    <section class="align-center studio-header no-margin no-padding fullscreen">
       <div class="container">
         <h2 class="text-center">
           <b>Maniak is a creative studio in Guadalajara, Mexico. </b><br>We build websites, applications and interactive experiences.
@@ -216,31 +216,31 @@
 
 
 <script>
-    import StudioPanorama from '../components/studio/StudioPanorama'
-    import StudioPortfolio from '../components/studio/StudioPortfolio'
-    import Menu from '../utils/menu'
-    import apiManiak from '../utils/api'
-    import ImageFull from '../components/ImageFull'
+import StudioPanorama from '../components/studio/StudioPanorama'
+import StudioPortfolio from '../components/studio/StudioPortfolio'
+import Menu from '../utils/menu'
+import apiManiak from '../utils/api'
+import ImageFull from '../components/ImageFull'
 
-    export default {
-      components: {
-        StudioPanorama,
-        StudioPortfolio,
-        ImageFull
-      },
-        beforeRouteLeave(to, from, next) {
-            this.$root.$refs.revealer.reveal().then(() => next())
-        },
+export default {
+  components: {
+    StudioPanorama,
+    StudioPortfolio,
+    ImageFull,
+  },
+  beforeRouteLeave(to, from, next) {
+    this.$root.$refs.revealer.reveal().then(() => next())
+  },
 
-        mounted() {
-            this.updateData()
-            Menu.run()
-        },
+  mounted() {
+    this.updateData()
+    Menu.run()
+  },
 
-        methods: {
-            updateData() {
-                this.$root.$refs.revealer.close()
-            },
-        },
-    }
+  methods: {
+    updateData() {
+      this.$root.$refs.revealer.close()
+    },
+  },
+}
 </script>

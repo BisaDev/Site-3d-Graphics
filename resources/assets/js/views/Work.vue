@@ -1,6 +1,6 @@
 <template>
   <div class="work">
-    <section class="work-header no-margin dark">
+    <section class="work-header no-margin">
       <div class="container">
         <h1>
           <b>Maniak builds cool stuff.</b><br>Lorem ipsum dolor sit.
@@ -16,7 +16,7 @@
     <section class="work-portfolio">
       <div class="container">
         <div class="grid">
-          <a href class="preview reveal dark" :style="{backgroundColor: '#005FFF', backgroundImage: 'url(../../img/featured/plateiq.png)'}">
+          <a href class="preview reveal" :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/plateiq.png)'}">
             <div class="preview-title">
               <h5>Plate IQ</h5>
               <h6>Restaurant Management</h6>
@@ -34,7 +34,7 @@
               </div>
             </div>
           </a>
-          <a href class="preview reveal dark" :style="{backgroundColor: '#D70034', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
+          <a href class="preview reveal" :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
             <div class="preview-title">
               <h5>Wolverine</h5>
               <h6>Online Configurator</h6>

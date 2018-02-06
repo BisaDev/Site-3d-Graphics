@@ -25,10 +25,10 @@
 
   &:hover,
   &:focus {
-    background-color: rgba($black, 0.075);
+    background-color: rgba($black, 0.05);
   }
   &:active {
-    background-color: rgba($black, 0.125);
+    background-color: rgba($black, 0.08);
     @include transition('none');
   }
 

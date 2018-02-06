@@ -31,50 +31,13 @@ $navbar-offset: 10px;
       margin-left: 1rem;
 
       a {
-        text-decoration: none;
-        background: transparent;
+        @include button-interaction();
         display: block;
         height: $button-height;
-        line-height: $button-height;
-        padding: 0 1rem;
         font-size: $font-size-sm;
         font-weight: $font-weight-regular;
-        border: none;
-        outline: none !important;
-        cursor: pointer;
-        border-radius: $border-radius;
         color: rgba($base-font-color-dark, 0.5);
         @include transition('sm');
-
-        &:hover,
-        &:focus {
-          background: rgba($black, 0.075);
-          color: $base-font-color-dark;
-        }
-        &:active {
-          @include transition('none');
-          background: rgba($black, 0.125);
-        }
-      }
-    }
-  }
-}
-
-.navbar.dark {
-  .navbar-menu {
-    li {
-      a {
-        background: transparent;
-        color: rgba($base-font-color-light, 0.5);
-
-        &:hover,
-        &:focus {
-          background: rgba($light-gray, 0.075);
-          color: $base-font-color-light;
-        }
-        &:active {
-          background: rgba($light-gray, 0.125);
-        }
       }
     }
   }

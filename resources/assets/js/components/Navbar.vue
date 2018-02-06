@@ -34,7 +34,7 @@ export default {
       lastKnownScrollPosition: window.scrollY,
       ticking: false,
       stateClass: 'nav-show',
-      theme: 'dark',
+      theme: 'light',
       offset: 5, //px
     }
   },

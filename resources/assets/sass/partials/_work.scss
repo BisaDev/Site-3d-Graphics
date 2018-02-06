@@ -22,7 +22,9 @@ $work-portfolio-offset: -10vh;
         margin-bottom: 0;
         @include transition('md');
         &:not(.active) {
-          opacity: 0.33;
+          a {
+            color: rgba($base-font-color-dark, 0.5);
+          }
         }
         a {
           @include button-interaction();

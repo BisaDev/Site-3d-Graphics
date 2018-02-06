@@ -4,7 +4,7 @@
     <home-info/>
     <!--<photo-swipe :images="['../../img/featured/brightfox.png', '../../img/featured/plateiq.png']"/>-->
 
-    <section class="home-featured dark no-margin padding">
+    <section class="home-featured no-margin padding">
       <div class="container">
         <div class="home-featured-title">
           <h3>Some of the projects<br>we are most proud of.</h3>
