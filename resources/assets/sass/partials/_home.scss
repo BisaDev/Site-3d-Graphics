@@ -1,5 +1,5 @@
-#home {
-  .home-header {
+.home {
+  &-header {
     .container {
       height: 100vh;
       display: flex;
@@ -17,7 +17,7 @@
       //align-items: center;
     }
   }
-  .home-info {
+  &-info {
     background: $light-gray-dark;
     .grid {
       flex-direction: column;
@@ -27,7 +27,7 @@
       margin-bottom: 3rem;
     }
   }
-  .home-featured {
+  &-featured {
     &-title {
       display: flex;
       align-items: flex-end;

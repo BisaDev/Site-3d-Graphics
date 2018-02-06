@@ -1,4 +1,4 @@
-#project {
+.project {
   h4 {
     margin-bottom: 3rem;
   }
@@ -6,7 +6,7 @@
     margin-bottom: 2.5rem;
   }
 
-  .project-header {
+  &-header {
     background-size: contain;
     background-position: bottom right;
     background-repeat: no-repeat;
@@ -27,7 +27,7 @@
     }
   }
 
-  .project-intro {
+  &-intro {
     &-facts {
       h5 {
         margin: 0.5rem 0;
@@ -50,7 +50,7 @@
       }
     }
   }
-  .project-quote {
+  &-quote {
     height: $section-min-height;
     background-color: #005fff;
     position: relative;
@@ -80,7 +80,7 @@
     }
   }
 
-  .project-gallery {
+  &-gallery {
     &-image {
       display: block;
       height: $image-height;
@@ -99,7 +99,7 @@
       }
     }
   }
-  .project-copy {
+  &-copy {
     &-sticky {
       position: -webkit-sticky;
       position: sticky;
@@ -107,7 +107,7 @@
       align-self: flex-start;
     }
   }
-  .project-screenshot-long {
+  &-screenshot-long {
     text-align: center;
     border: 1rem solid white;
     outline: 1px solid $light-gray-darker;
@@ -122,7 +122,7 @@
       background-size: cover;
     }
   }
-  .project-next {
+  &-next {
     @include transition('md');
     height: $footer-height;
     background-color: #d70034;

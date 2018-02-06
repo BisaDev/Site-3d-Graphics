@@ -12,11 +12,11 @@ $grid-margin-gutters: 3rem;
 }
 
 // home
-#home {
-  .home-info-copy {
+.home {
+  &-info-copy {
     @include xy-cell(8 of 12);
   }
-  .home-featured-list {
+  &-featured-list {
     @include xy-gutters($gutters: 0);
   }
   .preview {
@@ -36,29 +36,29 @@ $grid-margin-gutters: 3rem;
 }
 
 // project detail
-#project {
-  .project-intro-description {
+.project {
+  &-intro-description {
     @include xy-cell(7 of 12);
   }
-  .project-intro-facts {
+  &-intro-facts {
     @include xy-cell(4 of 12);
     @include xy-cell-offset(1 of 12);
-    .project-intro-facts-left,
-    .project-intro-facts-right {
+    &-intro-facts-left,
+    &-intro-facts-right {
       @include xy-cell(6 of 12);
     }
   }
-  .project-copy-text {
+  &-copy-text {
     @include xy-cell(7 of 12);
   }
-  .project-copy-sticky {
+  &-copy-sticky {
     @include xy-cell(6 of 12);
   }
-  .project-screenshot-long {
+  &-screenshot-long {
     @include xy-cell(5 of 12);
     @include xy-cell-offset(1 of 12);
   }
-  .project-gallery-image {
+  &-gallery-image {
     @include xy-cell(4 of 12);
     @include xy-gutters($gutter-position: left right top bottom);
     &:nth-child(4n + 2),

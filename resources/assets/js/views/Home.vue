@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div class="home">
     <home-header/>
     <home-info/>
     <!--<photo-swipe :images="['../../img/featured/brightfox.png', '../../img/featured/plateiq.png']"/>-->

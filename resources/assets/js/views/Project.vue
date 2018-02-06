@@ -1,5 +1,5 @@
 <template>
-  <div id="project" v-if="project !== null">
+  <div class="project" v-if="project !== null">
     <!-- Hero Information -->
     <section class="project-header dark align-center no-padding">
       <!-- <div id="myNav" class="overlay">
