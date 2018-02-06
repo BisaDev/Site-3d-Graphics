@@ -64,7 +64,6 @@ export default {
 
   mounted() {
     apiManiak.getProjects().then(this.updateData)
-    Menu.run()
   },
 
   methods: {
