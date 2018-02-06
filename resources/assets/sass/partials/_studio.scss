@@ -2,7 +2,6 @@ $studio-where-callout-height: 36rem;
 $studio-paragraph-margin: 0 0 3.5rem;
 
 .studio {
-
   p {
     margin: $studio-paragraph-margin;
   }
@@ -38,7 +37,7 @@ $studio-paragraph-margin: 0 0 3.5rem;
       align-items: flex-start;
       background: $base-bg-color-dark;
       color: $base-font-color-light;
-      border-radius: $border-radius;
+      border-radius: $border-radius-lg;
 
       .button {
         margin-left: -$button-padding-h;
@@ -99,6 +98,5 @@ $studio-paragraph-margin: 0 0 3.5rem;
         margin-right: 2rem;
       }
     }
-
   }
 }
