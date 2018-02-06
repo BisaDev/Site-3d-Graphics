@@ -12,7 +12,7 @@
   background-size: contain;
   background-position: bottom right;
   background-repeat: no-repeat;
-  background-color: #e7e9f0;
+  background-color: $light-gray-dark;
   background-image: url('../img/featured/plateiq.png');
   color: $stone;
 
@@ -41,7 +41,7 @@
 
   &.dark {
     color: $light-gray;
-    background-color: #20222B;
+    background-color: #20222b;
   }
 }
 

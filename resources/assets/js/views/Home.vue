@@ -22,7 +22,7 @@
               </div>
             </div>
           </router-link> -->
-            <a href class="preview reveal dark" :style="{backgroundImage: 'url(../../img/featured/plateiq.png)'}">
+            <a href class="preview reveal dark" :style="{backgroundColor: '#005EFF', backgroundImage: 'url(../../img/featured/plateiq.png)'}">
               <div class="preview-title">
                 <h5>Plate IQ</h5>
                 <h6>Restaurant Management</h6>
@@ -40,7 +40,7 @@
                 </div>
               </div>
             </a>
-            <a href class="preview reveal dark" :style="{backgroundImage: 'url(../../img/featured/wolverine.png)'}">
+            <a href class="preview reveal dark" :style="{backgroundColor: '#DA0037', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
               <div class="preview-title">
                 <h5>Wolverine</h5>
                 <h6>Online Configurator</h6>
