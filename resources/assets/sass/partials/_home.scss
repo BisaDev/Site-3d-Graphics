@@ -40,12 +40,12 @@
       .preview {
         border-radius: 0;
         &:first-of-type {
-          border-top-left-radius: $border-radius * 2;
-          border-bottom-left-radius: $border-radius * 2;
+          border-top-left-radius: $border-radius-lg;
+          border-bottom-left-radius: $border-radius-lg;
         }
         &:last-of-type {
-          border-top-right-radius: $border-radius * 2;
-          border-bottom-right-radius: $border-radius * 2;
+          border-top-right-radius: $border-radius-lg;
+          border-bottom-right-radius: $border-radius-lg;
         }
         &:hover {
           transform: translateY(-1rem);

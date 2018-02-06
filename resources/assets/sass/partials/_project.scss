@@ -86,7 +86,12 @@
       height: $image-height;
       background: #005fff;
       display: flex;
-
+      border-radius: $border-radius-lg;
+      overflow: hidden;
+      @include transition('md');
+      &:hover {
+        transform: translateY(-0.5rem);
+      }
       img {
         height: 100%;
         max-width: 100%;

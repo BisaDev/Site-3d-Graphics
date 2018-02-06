@@ -25,8 +25,12 @@ $grid-margin-gutters: 3rem;
 }
 
 .work {
-  .preview {
+  .preview.featured {
     @include xy-cell(12 of 12);
+    @include xy-gutters($gutter-position: left right top bottom);
+  }
+  .preview {
+    @include xy-cell(6 of 12);
     @include xy-gutters($gutter-position: left right top bottom);
   }
 }
