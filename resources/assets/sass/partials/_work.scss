@@ -1,7 +1,7 @@
 $work-portfolio-offset: -10vh;
 
 .work {
-  &-header {
+  & &-header {
     height: 100vh;
 
     .container {
@@ -38,7 +38,7 @@ $work-portfolio-offset: -10vh;
       }
     }
   }
-  &-portfolio {
+  & &-portfolio {
     .container {
       margin-top: $work-portfolio-offset;
     }

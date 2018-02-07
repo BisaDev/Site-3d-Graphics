@@ -58,7 +58,6 @@ export default {
     },
 
     modifyNav() {
-
       if (window.scrollY >= this.lastKnownScrollPosition + this.offset) {
         this.stateClass = 'nav-hide'
       } else if (window.scrollY <= this.lastKnownScrollPosition - this.offset) {

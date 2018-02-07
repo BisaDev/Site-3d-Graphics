@@ -1,5 +1,5 @@
 .home {
-  &-header {
+  & &-header {
     .container {
       height: 100vh;
       display: flex;
@@ -16,8 +16,12 @@
       color: $base-font-color-light;
       //align-items: center;
     }
+
+    h1 {
+      font-size: 6rem;
+    }
   }
-  &-info {
+  & &-info {
     background: $light-gray-dark;
     .grid {
       flex-direction: column;
@@ -27,7 +31,7 @@
       margin-bottom: 3rem;
     }
   }
-  &-featured {
+  & &-featured {
     &-title {
       display: flex;
       align-items: flex-end;

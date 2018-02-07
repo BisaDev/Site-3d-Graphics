@@ -6,7 +6,7 @@
     margin-bottom: 2.5rem;
   }
 
-  .project-header {
+  & &-header {
     background-size: contain;
     background-position: bottom right;
     background-repeat: no-repeat;
@@ -27,7 +27,7 @@
     }
   }
 
-  .project-intro {
+  & &-intro {
     &-facts {
       h5 {
         margin: 0.5rem 0;
@@ -50,7 +50,7 @@
       }
     }
   }
-  .project-quote {
+  & &-quote {
     height: $section-min-height;
     background-color: #005fff;
     position: relative;
@@ -80,7 +80,7 @@
     }
   }
 
-  .project-gallery {
+  & &-gallery {
     &-image {
       height: $image-height;
       background: #005fff;
@@ -98,7 +98,7 @@
       }
     }
   }
-  .project-copy {
+  & &-copy {
     &-sticky {
       position: -webkit-sticky;
       position: sticky;
@@ -121,7 +121,7 @@
       background-size: cover;
     }
   }
-  .project-next {
+  & &-next {
     @include transition('md');
     height: $footer-height;
     background-color: #d70034;
