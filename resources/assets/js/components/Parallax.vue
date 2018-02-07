@@ -16,8 +16,8 @@ export default {
     },
     horizontal: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
@@ -29,9 +29,12 @@ export default {
     handleParallax() {
       this.backgroundPositionOffsetY = this.$refs.parallax.getBoundingClientRect().top / this.speed
       if (this.horizontal == true) {
-        const offsetX = this.$refs.parallax.getBoundingClientRect().bottom / (window.innerHeight + this.$refs.parallax.getBoundingClientRect().height)
-        const factorX = this.$refs.parallaxImage.getBoundingClientRect().width / window.innerWidth * 50
-        this.backgroundPositionOffsetX = -offsetX * factorX * 0.5;
+        const offsetX =
+          this.$refs.parallax.getBoundingClientRect().bottom /
+          (window.innerHeight + this.$refs.parallax.getBoundingClientRect().height)
+        const factorX =
+          this.$refs.parallaxImage.getBoundingClientRect().width / window.innerWidth * 50
+        this.backgroundPositionOffsetX = -offsetX * factorX * 0.5
       }
     },
   },

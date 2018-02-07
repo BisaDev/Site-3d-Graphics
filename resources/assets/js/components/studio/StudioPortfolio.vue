@@ -38,7 +38,6 @@
 
 <script>
 export default {
-
   methods: {
     calcOffset(mouseX, position, factor) {
       const deltaPercent = mouseX / window.innerWidth - position / window.innerWidth
@@ -57,22 +56,20 @@ export default {
     },
     moveBlob(event) {
       this.ticking = false
-        this.blobs.forEach( (el) => {
-          let centerX = el.getBoundingClientRect().left + el.offsetWidth / 2;
-          el.style.transform = 'translateX(' + this.calcOffset(event.pageX, centerX, 400) + 'px)';
-        })
-        this.circles.forEach( (el) => {
-          let centerX = el.getBoundingClientRect().left + el.offsetWidth / 2;
-          el.style.transform = 'translateX(' + this.calcOffset(event.pageX, centerX, 200) + 'px)';
-        })
-
-    }
-
+      this.blobs.forEach(el => {
+        let centerX = el.getBoundingClientRect().left + el.offsetWidth / 2
+        el.style.transform = 'translateX(' + this.calcOffset(event.pageX, centerX, 400) + 'px)'
+      })
+      this.circles.forEach(el => {
+        let centerX = el.getBoundingClientRect().left + el.offsetWidth / 2
+        el.style.transform = 'translateX(' + this.calcOffset(event.pageX, centerX, 200) + 'px)'
+      })
+    },
   },
   mounted() {
     this.blobs = this.$refs.blobs.querySelectorAll('span')
     this.circles = this.$refs.circles.querySelectorAll('span')
-    this.$refs.section.addEventListener('mousemove', (e) => this.handleMouseMove(e))
+    this.$refs.section.addEventListener('mousemove', e => this.handleMouseMove(e))
   },
   created() {
     //this.$refs.section.addEventListener('click', () => this.handleMouseMove())
