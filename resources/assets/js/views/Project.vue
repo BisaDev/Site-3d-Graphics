@@ -1,7 +1,7 @@
 <template>
   <div class="project" v-if="project !== null">
     <!-- Hero Information -->
-    <section class="project-header dark align-center no-padding">
+    <ThemedSection color="#005fff" :dark="true" :class="['project-header', 'align-center', 'no-padding']">
       <!-- <div id="myNav" class="overlay">
       <a href="#" class="closebtn" @click.prevent="close">&times;</a>
     </div>-->
@@ -10,12 +10,12 @@
         <h1 class="project-header-subtitle">{{project.description}}.</h1>
         <button class="button button-scroll"><span>Read more</span><span>Read more</span></button>
     </div>
-  </section>
+  </ThemedSection>
 
 
 
   <!-- Main Information -->
-  <section>
+  <ThemedSection>
     <div class="container">
       <div class="grid">
         <div class="project-intro-description">
@@ -67,11 +67,11 @@
 </div>
 </div>
 </div>-->
-</section>
+</ThemedSection>
 
 <project-quote></project-quote>
 
-<section class="project-copy">
+<ThemedSection class="project-copy">
   <div class="container">
     <div class="grid">
       <div class="project-copy-text">
@@ -80,8 +80,8 @@
       </div>
     </div>
   </div>
-</section>
-<section class="project-gallery">
+</ThemedSection>
+<ThemedSection class="project-gallery">
   <div class="container">
     <div class="grid">
       <a class="project-gallery-image" href="">
@@ -98,8 +98,8 @@
       </a>
     </div>
   </div>
-</section>
-<section class="project-copy">
+</ThemedSection>
+<ThemedSection class="project-copy">
   <div class="container">
     <div class="grid">
       <div class="project-copy-sticky">
@@ -111,11 +111,11 @@
       </div>
     </div>
   </div>
-</section>
+</ThemedSection>
 
 <project-image-full></project-image-full>
 
-<section class="project-copy">
+<ThemedSection class="project-copy">
   <div class="container">
     <div class="grid">
       <div class="project-copy-text">
@@ -124,9 +124,9 @@
       </div>
     </div>
   </div>
-</section>
+</ThemedSection>
 
-<section class="project-gallery">
+<ThemedSection class="project-gallery">
   <div class="container">
     <div class="grid">
       <a class="project-gallery-image" href="">
@@ -137,24 +137,24 @@
       </a>
     </div>
   </div>
-</section>
+</ThemedSection>
 
-<section class="project-next no-padding no-margin dark text-center">
+<ThemedSection class="project-next no-padding no-margin dark text-center">
   <div class="container project-next-cta">
     <h3 class="no-margin">Next.</h3>
   </div>
   <div class="container project-next-subtitle">
     <h4 class="no-margin">The power of design and technology<br>to create and start change</h4>
   </div>
-</section>
+</ThemedSection>
 <!--
 Loop through project sections and inject the needed components.
 Don't forget to define your components on the Vue instance, see below.
 -->
-<component v-for="section in project.sections"
+<!--<component v-for="section in project.sections"
 :key="section.id"
 :is="section.component"
-:model="section.model"/>
+:model="section.model"/>-->
 </div>
 </template>
 
@@ -163,7 +163,10 @@ import apiManiak from '../utils/api.js'
 import PhotoSwipe from 'photoswipe'
 import PhotoSwipeUI_Default from 'photoswipe'
 import ProjectQuote from '../components/project/ProjectQuote'
+import ProjectTextInformation from '../components/project/ProjectTextInformation'
+import ProjectGallery from '../components/project/ProjectGallery'
 import ImageFull from '../components/ImageFull'
+import ThemedSection from '../components/ThemedSection'
 
 export default {
   beforeRouteLeave(to, from, next) {
@@ -181,8 +184,11 @@ export default {
     },
   },
   components: {
+    ProjectGallery,
+    ProjectTextInformation,
     ProjectQuote,
     ImageFull,
+    ThemedSection,
   },
 
   data() {
@@ -220,7 +226,7 @@ export default {
 </script>
 
 <style scoped>
-.overlay .closebtn {
+.overlay {
   position: absolute;
   top: 100px;
   right: 45px;
