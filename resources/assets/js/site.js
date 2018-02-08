@@ -1,6 +1,6 @@
-import router from './router'
-import reveal from './components/Reveal/Reveal.vue'
-import navbar from './components/Navbar.vue'
+import router from './siteRouter'
+import reveal from './components/Reveal'
+import navbar from './components/Navbar'
 import './bootstrap'
 
 /**

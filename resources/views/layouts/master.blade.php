@@ -9,21 +9,11 @@
     <title>Maniak</title>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/site.css')}}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div id="app">
+    @yield('content')
 
-        <navbar></navbar>
-
-        @yield('content')
-
-        @include('layouts.footer')
-        @include('partials.photoswipe')
-
-        <reveal ref="revealer"></reveal>
-
-    </div>
-    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/site.js')}}"></script>
 </body>
 </html>
