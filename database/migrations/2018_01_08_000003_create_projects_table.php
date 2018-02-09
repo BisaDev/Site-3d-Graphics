@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Class CreateProjectsTable
+ */
 class CreateProjectsTable extends Migration
 {
     /**
@@ -23,15 +26,21 @@ class CreateProjectsTable extends Migration
             $table->string('description', 50);
             $table->string('preloader', 50);
             $table->string('hero_image');
+            $table->string('hero_image_preview');
             $table->string('hero_color', 7); // HEX Color, including the #
 
             /*
              * Main description
              */
-            $table->string('info_title', 140);
+            //$table->string('info_title', 140);
+            $table->string('info_subtitle', 140);
             $table->string('info_description', 300);
-            $table->string('info_year', 11);
-            $table->string('info_country', 3);
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->integer('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
 
             /*
              * Client information
@@ -41,6 +50,7 @@ class CreateProjectsTable extends Migration
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
 
+            $table->boolean('is_featured')->default(false);
             $table->timestamps();
         });
     }
