@@ -217,7 +217,6 @@
 <script>
 import StudioPanorama from '../components/studio/StudioPanorama'
 import StudioPortfolio from '../components/studio/StudioPortfolio'
-import Menu from '../utils/menu'
 import apiManiak from '../utils/api'
 import ImageFull from '../components/ImageFull'
 
@@ -233,7 +232,6 @@ export default {
 
   mounted() {
     this.updateData()
-    Menu.run()
   },
 
   methods: {

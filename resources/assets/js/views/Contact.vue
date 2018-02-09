@@ -15,7 +15,6 @@
 import homeHeader from '../components/home/Header'
 import homeInfo from '../components/home/Info'
 
-import Menu from '../utils/menu'
 import apiManiak from '../utils/api'
 
 export default {
@@ -25,7 +24,6 @@ export default {
 
   mounted() {
     this.updateData()
-    Menu.run()
   },
 
   methods: {
