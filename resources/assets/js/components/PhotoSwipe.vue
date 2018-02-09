@@ -46,7 +46,6 @@ export default {
         index: index,
       }
 
-      console.log(this.$refs)
       const gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, this.images_obj, options)
       gallery.init()
     },

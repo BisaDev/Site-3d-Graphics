@@ -1,7 +1,7 @@
 <template>
   <div class="project" v-if="project !== null">
     <!-- Hero Information -->
-    <ThemedSection color="#005fff" :dark="true" :class="['project-header', 'align-center', 'no-padding']">
+    <themed-section color="#005fff" :dark="true" :class="['project-header', 'align-center', 'no-padding']">
       <!-- <div id="myNav" class="overlay">
       <a href="#" class="closebtn" @click.prevent="close">&times;</a>
     </div>-->
@@ -10,12 +10,12 @@
         <h1 class="project-header-subtitle">{{project.description}}.</h1>
         <button class="button button-scroll"><span>Read more</span><span>Read more</span></button>
     </div>
-  </ThemedSection>
+  </themed-section>
 
 
 
   <!-- Main Information -->
-  <ThemedSection>
+  <themed-section>
     <div class="container">
       <div class="grid">
         <div class="project-intro-description">
@@ -67,11 +67,11 @@
 </div>
 </div>
 </div>-->
-</ThemedSection>
+</themed-section>
 
 <project-quote></project-quote>
 
-<ThemedSection class="project-copy">
+<themed-section class="project-copy">
   <div class="container">
     <div class="grid">
       <div class="project-copy-text">
@@ -80,8 +80,8 @@
       </div>
     </div>
   </div>
-</ThemedSection>
-<ThemedSection class="project-gallery">
+</themed-section>
+<themed-section class="project-gallery">
   <div class="container">
     <div class="grid">
       <a class="project-gallery-image" href="">
@@ -98,8 +98,8 @@
       </a>
     </div>
   </div>
-</ThemedSection>
-<ThemedSection class="project-copy">
+</themed-section>
+<themed-section class="project-copy">
   <div class="container">
     <div class="grid">
       <div class="project-copy-sticky">
@@ -111,11 +111,11 @@
       </div>
     </div>
   </div>
-</ThemedSection>
+</themed-section>
 
-<project-image-full></project-image-full>
+<image-full></image-full>
 
-<ThemedSection class="project-copy">
+<themed-section class="project-copy">
   <div class="container">
     <div class="grid">
       <div class="project-copy-text">
@@ -124,9 +124,9 @@
       </div>
     </div>
   </div>
-</ThemedSection>
+</themed-section>
 
-<ThemedSection class="project-gallery">
+<themed-section class="project-gallery">
   <div class="container">
     <div class="grid">
       <a class="project-gallery-image" href="">
@@ -137,16 +137,16 @@
       </a>
     </div>
   </div>
-</ThemedSection>
+</themed-section>
 
-<ThemedSection class="project-next no-padding no-margin dark text-center">
+<themed-section class="project-next no-padding no-margin dark text-center">
   <div class="container project-next-cta">
     <h3 class="no-margin">Next.</h3>
   </div>
   <div class="container project-next-subtitle">
     <h4 class="no-margin">The power of design and technology<br>to create and start change</h4>
   </div>
-</ThemedSection>
+</themed-section>
 <!--
 Loop through project sections and inject the needed components.
 Don't forget to define your components on the Vue instance, see below.
@@ -199,8 +199,6 @@ export default {
 
   mounted() {
     apiManiak.getProject(this.$props.id).then(this.updateData)
-    const test = new PhotoSwipe()
-    console.log(test)
   },
 
   methods: {

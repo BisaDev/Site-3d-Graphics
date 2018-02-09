@@ -101,13 +101,11 @@ export default {
 
   mounted() {
     this.updateData()
-    console.log('mounted')
     Menu.run()
   },
 
   methods: {
     updateData() {
-      console.log('mounted')
       this.$root.$refs.revealer.close()
     },
   },

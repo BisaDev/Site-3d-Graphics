@@ -2,7 +2,7 @@
   <div class="home">
     <home-header/>
     <home-info/>
-    <photo-swipe :images="['../../img/featured/brightfox.png', '../../img/featured/plateiq.png']"/>
+    <!--<photo-swipe :images="['../../img/featured/brightfox.png', '../../img/featured/plateiq.png']"/>-->
 
     <section class="home-featured no-margin padding">
       <div class="container">
