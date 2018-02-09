@@ -1,4 +1,4 @@
-$home-visual-size: 50rem;
+$home-visual-size: 25rem;
 $home-blob-length: 8;
 
 $home-explosion-base-size: 200px;
@@ -47,6 +47,7 @@ $home-explosion-frames: 12;
     width: $home-visual-size;
     height: $home-visual-size;
     transition: all 0.5s cubic-bezier(0.3, 1.65, 0.205, 0.795);
+    //border: 1px solid red;
   }
 
   &:hover .home-header-visual-svg-wrap {
@@ -66,15 +67,16 @@ $home-explosion-frames: 12;
 
   .blob circle {
     will-change: transform, r;
-    mix-blend-mode: multiply;
+    mix-blend-mode: soft-light;
 
     $top-collection: [];
     $left-collection: [];
 
     @for $i from 1 to 20 {
-      $left: randomNum(-40px, 40px);
-      $top: randomNum(-40px, 40px);
-      $randWH: randomNum(70px, 90px);
+      $randWH: randomNum(30px, 100px);
+      $offset: 100px/$randWH * 20px;
+      $left: randomNum(-$offset, $offset);
+      $top: randomNum(-$offset, $offset);
       $left-collection: append($left-collection, $left);
       $top-collection: append($top-collection, $top);
       &:nth-of-type(#{$i}) {
@@ -92,7 +94,7 @@ $home-explosion-frames: 12;
           transform: translate(0, 0);
         }
         50% {
-          transform: translate(nth($left-collection, $i), nth($top-collection, $i + 1));
+          transform: translate(nth($left-collection, $i), nth($top-collection, $i+1));
         }
         100% {
           transform: translate(0, 0);

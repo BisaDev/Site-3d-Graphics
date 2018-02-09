@@ -13,10 +13,9 @@
             </filter>
           </defs>
           <g class="blob" filter="url(#goo)">
-            <circle cx="50%" cy="50%" r="90" fill="#1581F9" />
-            <circle cx="54%" cy="51%" r="90" fill="#1581F9" />
-            <circle cx="53%" cy="48%" r="80" fill="#586170" />
-            <circle cx="49%" cy="56%" r="80" fill="#586170" />
+            <circle cx="47%" cy="52%" r="80" fill="#1581F9" />
+            <circle cx="55%" cy="49%" r="80" fill="#1581F9" />
+            <circle cx="47%" cy="52%" r="80" fill="#D2003E" />
             <circle cx="55%" cy="49%" r="80" fill="#D2003E" />
             <circle cx="47%" cy="52%" r="80" fill="#D2003E" />
           </g>
