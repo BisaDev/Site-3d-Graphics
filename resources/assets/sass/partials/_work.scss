@@ -20,7 +20,7 @@ $work-portfolio-offset: -10vh;
         display: inline-block;
         margin-right: 10rem;
         margin-bottom: 0;
-        @include transition('md');
+        @include transition(md);
         &:not(.active) {
           a {
             color: rgba($base-font-color-dark, 0.5);

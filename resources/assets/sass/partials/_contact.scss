@@ -20,7 +20,7 @@
     }
     &:active {
       background-color: rgba($black, 0.12);
-      @include transition('none');
+      @include transition(none);
     }
 
     .dark &,

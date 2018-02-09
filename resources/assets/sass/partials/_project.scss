@@ -87,14 +87,31 @@
       display: flex;
       border-radius: $border-radius-lg;
       overflow: hidden;
-      @include transition('md');
-      &:hover {
-        transform: translateY(-0.5rem);
-      }
+      @include transition(md);
+      position: relative;
       img {
         height: 100%;
         max-width: 100%;
         margin: auto;
+        position: relative;
+      }
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba($stone-dark, 0);
+        @include transition(sm);
+      }
+      &:hover {
+        //transform: translateY(-0.5rem);
+
+        &::before {
+          background: rgba($stone-dark, 0.2);
+        }
       }
     }
   }
@@ -122,7 +139,7 @@
     }
   }
   & &-next {
-    @include transition('md');
+    @include transition(md);
     height: $footer-height;
     background-color: #d70034;
     background-image: url('../img/featured/wolverine.png');
@@ -142,7 +159,7 @@
     }
     h3,
     h4 {
-      @include transition('md');
+      @include transition(md);
     }
     h4 {
       transform: translateY(100%);

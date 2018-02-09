@@ -11,7 +11,7 @@ footer {
 
     span {
       display: block;
-      @include transition('md');
+      @include transition(md);
     }
     .grid {
       width: 100%;

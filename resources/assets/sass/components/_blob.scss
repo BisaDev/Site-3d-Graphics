@@ -21,7 +21,7 @@ $home-explosion-frames: 12;
   left: 0;
   z-index: 0;
   pointer-events: none;
-  @include transition('sm');
+  @include transition(sm);
 
   .dark & {
     background-color: $watermelon;
@@ -215,7 +215,7 @@ $studio-blob-size-delta: $studio-blob-size-lg - $studio-blob-size-sm;
         margin: auto;
         border-radius: 50%;
         border: 1px solid $light-gray;
-        @include transition('md');
+        @include transition(md);
       }
 
       label {
@@ -224,7 +224,7 @@ $studio-blob-size-delta: $studio-blob-size-lg - $studio-blob-size-sm;
         bottom: -10rem;
         left: 50%;
         transform: translateX(-50%);
-        @include transition('md');
+        @include transition(md);
       }
       &:nth-of-type(1) {
         left: 0;

@@ -30,7 +30,7 @@
       background-image: url('../img/icons/white/arrow-right.svg');
       background-repeat: no-repeat;
       background-position: center;
-      @include transition('md');
+      @include transition(md);
     }
     &:hover::after {
       margin-left: 2rem;
