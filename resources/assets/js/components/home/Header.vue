@@ -13,11 +13,11 @@
             </filter>
           </defs>
           <g class="blob" filter="url(#goo)">
-            <circle cx="47%" cy="52%" r="80" fill="#1581F9"/>
-            <circle cx="55%" cy="49%" r="80" fill="#1581F9"/>
-            <circle cx="47%" cy="52%" r="80" fill="#D2003E"/>
-            <circle cx="55%" cy="49%" r="80" fill="#D2003E"/>
-            <circle cx="47%" cy="52%" r="80" fill="#D2003E"/>
+            <circle cx="47%" cy="52%" r="80" />
+            <circle cx="55%" cy="49%" r="80" />
+            <circle cx="47%" cy="52%" r="80" />
+            <circle cx="55%" cy="49%" r="80" />
+            <circle cx="47%" cy="52%" r="80" />
           </g>
         </svg>
       </div>

@@ -38,9 +38,13 @@ $studio-paragraph-margin: 0 0 3.5rem;
       background: $base-bg-color-dark;
       color: $base-font-color-light;
       border-radius: $border-radius-lg;
-
+      @include transition('md');
       .button {
         margin-left: -$button-padding-h;
+      }
+      &:hover {
+        transform: translateY(-1rem);
+        background: $stone-dark;
       }
     }
   }

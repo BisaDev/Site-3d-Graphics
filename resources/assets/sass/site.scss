@@ -1,24 +1,28 @@
+// Vendor
 @import 'vendor/vendor';
 
+// Common
 @import 'common/variables';
 @import 'common/mixins';
 @import 'common/typography';
 @import 'common/theme';
 @import 'common/grid';
 @import 'common/util';
-@import 'common/icon';
 
+// Components
 @import 'components/section';
-@import 'components/blob3';
+@import 'components/blob';
 @import 'components/button';
 @import 'components/navbar';
-//@import 'components/project';
 @import 'components/preview';
 @import 'components/revealer';
 @import 'components/footer';
 @import 'components/list';
 @import 'components/parallax';
+@import 'components/icon';
+@import 'components/link';
 
+// Views
 @import 'partials/home';
 @import 'partials/project';
 @import 'partials/studio';
