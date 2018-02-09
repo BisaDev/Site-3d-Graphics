@@ -32,7 +32,6 @@ class CreateProjectsTable extends Migration
             /*
              * Main description
              */
-            //$table->string('info_title', 140);
             $table->string('info_subtitle', 140);
             $table->string('info_description', 300);
             $table->date('start_date');

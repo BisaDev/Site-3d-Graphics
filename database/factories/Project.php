@@ -7,8 +7,8 @@ $factory->define(App\Project::class, function (Faker $faker) {
         'name' => $faker->text(50),
         'description' => $faker->text(50),
         'preloader' => $faker->text(50),
-        'hero_image' => '_project-test.png',
-        'hero_image_preview' => '_project-test.png',
+        'hero_image' => 'plateiq.png',
+        'hero_image_preview' => 'plateiq.png',
         'hero_color' => $faker->hexColor,
 
         //'info_title' => $faker->text(140),
