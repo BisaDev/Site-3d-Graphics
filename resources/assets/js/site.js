@@ -12,10 +12,10 @@ import './bootstrap'
 const siteApp = new Vue({
   el: '#app',
   router,
-  components: {navbar, reveal},
+  components: { navbar, reveal },
   data() {
     return {
-      theme: 'light'
+      theme: 'light',
     }
   },
   created() {
@@ -24,6 +24,6 @@ const siteApp = new Vue({
   methods: {
     setNavTheme(isDarkTheme) {
       this.theme = isDarkTheme ? 'dark' : 'light'
-    }
+    },
   },
 })

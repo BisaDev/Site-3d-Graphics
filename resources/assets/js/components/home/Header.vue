@@ -40,7 +40,7 @@ export default {
       dark: false,
       hideVisual: false,
       showExplosion: false,
-      showVisualTimeout: 2000
+      showVisualTimeout: 2000,
     }
   },
   methods: {

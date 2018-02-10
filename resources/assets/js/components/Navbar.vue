@@ -59,7 +59,7 @@ export default {
     theme: {
       type: String,
       default: 'light',
-    }
+    },
   },
   data() {
     return {
