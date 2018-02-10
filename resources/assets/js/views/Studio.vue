@@ -215,19 +215,19 @@
 
 
 <script>
-import StudioPanorama from '../components/studio/StudioPanorama'
-import StudioPortfolio from '../components/studio/StudioPortfolio'
 import apiManiak from '../utils/api'
 import ImageFull from '../components/ImageFull'
+import PageCommon from '../components/PageCommon.vue'
+import StudioPanorama from '../components/studio/StudioPanorama'
+import StudioPortfolio from '../components/studio/StudioPortfolio'
 
 export default {
+  extends: { ...PageCommon },
+
   components: {
     StudioPanorama,
     StudioPortfolio,
     ImageFull,
-  },
-  beforeRouteLeave(to, from, next) {
-    this.$root.$refs.revealer.reveal().then(() => next())
   },
 
   mounted() {

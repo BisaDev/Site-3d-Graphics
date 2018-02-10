@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <home-header/>
+    <home-header @explode="setNavTheme" />
     <home-info/>
     <section class="home-featured no-margin padding">
       <div class="container">
@@ -58,13 +58,13 @@
 import homeHeader from '../components/home/Header'
 import photoSwipe from '../components/PhotoSwipe'
 import homeInfo from '../components/home/Info'
+import PageCommon from '../components/PageCommon.vue'
 
 import apiManiak from '../utils/api'
 
 export default {
-  beforeRouteLeave(to, from, next) {
-    this.$root.$refs.revealer.reveal().then(() => next())
-  },
+  extends: { ...PageCommon },
+
   props: {
     reveal: {
       default: false,

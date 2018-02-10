@@ -5,7 +5,7 @@
     <div id="app">
         <reveal ref="revealer"></reveal>
 
-        <navbar></navbar>
+        <navbar :theme="theme" ></navbar>
 
         <router-view></router-view>
 
