@@ -12,4 +12,14 @@
 */
 
 // Routing is handled by Vue Router, see: resources/assets/js/router.js
-Route::view('{any}', 'site-app')->where('any', '.*');
+Route::view('{admin}', 'admin')->where('admin', 'admin.*')->middleware('auth');
+Route::view('{site}', 'site-app')->where('site', '^(?!(login|logout|admin|register)).*');
+
+Auth::routes();
+
+Route::get('/logout', function () {
+    Auth::logout();
+    Session::flush();
+
+    return Redirect::to('/');
+});
