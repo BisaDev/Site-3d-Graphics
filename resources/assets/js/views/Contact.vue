@@ -14,13 +14,12 @@
 <script>
 import homeHeader from '../components/home/Header'
 import homeInfo from '../components/home/Info'
+import PageCommon from '../components/PageCommon.vue'
 
 import apiManiak from '../utils/api'
 
 export default {
-  beforeRouteLeave(to, from, next) {
-    this.$root.$refs.revealer.reveal().then(() => next())
-  },
+  extends: { ...PageCommon },
 
   mounted() {
     this.updateData()

@@ -9,8 +9,21 @@ import './bootstrap'
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-new Vue({
+const siteApp = new Vue({
   el: '#app',
   router,
   components: { navbar, reveal },
+  data() {
+    return {
+      theme: 'light',
+    }
+  },
+  created() {
+    this.$root.$on('setNavTheme', this.setNavTheme)
+  },
+  methods: {
+    setNavTheme(isDarkTheme) {
+      this.theme = isDarkTheme ? 'dark' : 'light'
+    },
+  },
 })
