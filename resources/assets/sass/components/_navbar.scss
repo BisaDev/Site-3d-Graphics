@@ -1,5 +1,5 @@
 $navbar-height: 80px;
-$navbar-offset: 10px;
+$navbar-offset: 0;
 
 .navbar {
   width: 100%;
@@ -42,6 +42,14 @@ $navbar-offset: 10px;
       list-style-type: none;
       margin-left: 1rem;
 
+      &:first-of-type {
+        @include breakpoint(large up) {
+          display: none;
+        }
+      }
+      @include breakpoint(medium down) {
+        margin: 2rem $grid-container-padding-md;
+      }
       a {
         @include button-interaction();
         display: block;
@@ -50,7 +58,34 @@ $navbar-offset: 10px;
         font-weight: $font-weight-regular;
         color: rgba($base-font-color-dark, 0.5);
         @include transition('sm');
+
+        @include breakpoint(medium down) {
+          font-size: 3rem;
+          color: $base-font-color-dark;
+          text-align: center;
+        }
       }
+    }
+  }
+}
+
+@include breakpoint(medium down) {
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $base-bg-color-light;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    display: none;
+  }
+  .navbar.navbar-mobile-show {
+    .navbar-menu {
+      display: flex;
     }
   }
 }

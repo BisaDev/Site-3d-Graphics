@@ -1,4 +1,5 @@
 $studio-where-callout-height: 36rem;
+$studio-where-callout-height-sm: 25rem;
 $studio-paragraph-margin: 0 0 3.5rem;
 
 .studio {
@@ -22,6 +23,11 @@ $studio-paragraph-margin: 0 0 3.5rem;
       flex-flow: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
+      @include breakpoint(medium down) {
+        align-items: flex-start;
+        text-align: left;
+      }
     }
   }
   &-where {
@@ -39,6 +45,10 @@ $studio-paragraph-margin: 0 0 3.5rem;
       color: $base-font-color-light;
       border-radius: $border-radius-lg;
       @include transition(md);
+      @include breakpoint(medium down) {
+        height: $studio-where-callout-height-sm;
+        margin-bottom: -$studio-where-callout-height-sm / 2;
+      }
       .button {
         margin-left: -$button-padding-h;
       }
@@ -78,6 +88,9 @@ $studio-paragraph-margin: 0 0 3.5rem;
         column-count: 2;
         column-gap: 2rem;
         opacity: 0.75;
+        @include breakpoint(medium down) {
+          width: 100%;
+        }
       }
     }
   }
@@ -88,6 +101,10 @@ $studio-paragraph-margin: 0 0 3.5rem;
     &-list {
       column-count: 3;
       column-gap: 3rem;
+      @include breakpoint(medium down) {
+        column-count: 2;
+        margin-bottom: 4rem;
+      }
       li {
         font-size: $font-size-sm;
       }

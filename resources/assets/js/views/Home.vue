@@ -6,6 +6,8 @@
       <div class="container">
         <div class="home-featured-title">
           <h3>Some of the projects<br>we are most proud of.</h3>
+        </div>
+        <div class="home-featured-button">
           <button class="button">See all projects</button>
         </div>
         <div class="grid home-featured-list">

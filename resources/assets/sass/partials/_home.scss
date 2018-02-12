@@ -15,10 +15,18 @@
       z-index: 3;
       color: $base-font-color-light;
       pointer-events: none;
-    }
+      text-align: center;
 
+      @include breakpoint(medium down) {
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
     h1 {
       font-size: 5rem;
+      @include breakpoint(medium down) {
+        font-size: 4rem;
+      }
     }
   }
   & &-info {
@@ -26,17 +34,29 @@
     .grid {
       flex-direction: column;
       align-items: center;
+      @include breakpoint(medium down) {
+        align-items: left;
+      }
     }
     &-copy {
       margin-bottom: 3rem;
+      text-align: center;
+      @include breakpoint(medium down) {
+        text-align: left;
+      }
     }
   }
   & &-featured {
     &-title {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
       margin-bottom: 5rem;
+    }
+    &-button {
+      text-align: right;
+      margin-bottom: 5rem;
+
+      .button {
+        width: 100%;
+      }
     }
     &-list {
       display: flex;
@@ -53,6 +73,12 @@
         }
         &:hover {
           transform: translateY(-1rem);
+        }
+      }
+      @include breakpoint(medium down) {
+        .preview {
+          border-radius: $border-radius-lg;
+          margin-bottom: 1.5rem;
         }
       }
     }

@@ -1,0 +1,254 @@
+$hamburger-size: 5rem;
+
+@-webkit-keyframes intervalHamburgerBorder {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  80% {
+    -webkit-transform: scale(1.6);
+    transform: scale(1.6);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.6);
+    transform: scale(1.6);
+  }
+}
+
+@keyframes intervalHamburgerBorder {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  80% {
+    -webkit-transform: scale(1.6);
+    transform: scale(1.6);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.6);
+    transform: scale(1.6);
+  }
+}
+
+.hamburger {
+  @include button-interaction();
+  width: $hamburger-size;
+  height: $hamburger-size;
+  display: block;
+  position: relative;
+  //top: 5px;
+  right: -17px;
+  z-index: 110;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  @include breakpoint(large up) {
+    display: none;
+  }
+}
+.hamburger-line {
+  width: 1.6rem;
+  height: 0.1rem;
+  overflow: hidden;
+  position: absolute;
+  z-index: 10;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+
+  &-in {
+    width: 84px;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+
+    &:before,
+    &:after {
+      width: 28px;
+      height: 1px;
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      background-color: $base-font-color-dark;
+
+      transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+      transition-property: transform;
+    }
+
+    &:before {
+      left: -56px;
+    }
+
+    &:after {
+      left: 0;
+    }
+  }
+
+  &-01,
+  &-02,
+  &-03,
+  &-cross01,
+  &-cross02 {
+    left: 17px;
+  }
+
+  &-01 {
+    top: 18.6px;
+  }
+
+  &-02,
+  &-cross01,
+  &-cross02 {
+    top: 24px;
+  }
+
+  &-03 {
+    top: 29.4px;
+  }
+
+  &-cross01 {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  &-cross02 {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+}
+
+.hamburger-line-in-cross01,
+.hamburger-line-in-cross02 {
+  -webkit-transform: translateX(-33.3%);
+  transform: translateX(-33.3%);
+}
+
+.hamburger-line-in-01 {
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.hamburger-line-in-02 {
+  -webkit-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+}
+
+.hamburger-line-in-02::before,
+.hamburger-line-in-02::after {
+  -webkit-transition-delay: 0.05s;
+  transition-delay: 0.05s;
+}
+
+.hamburger-line-in-03 {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.hamburger-line-in-03::before,
+.hamburger-line-in-03::after {
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.hamburger-line-in-cross01 {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+.hamburger-line-in-cross02 {
+  -webkit-transition-delay: 0.05s;
+  transition-delay: 0.05s;
+}
+
+.hamburger-line-in-cross02::before,
+.hamburger-line-in-cross02::after {
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.hamburger.is-opened-navi .hamburger-line-in-01,
+.hamburger.is-opened-navi .hamburger-line-in-02,
+.hamburger.is-opened-navi .hamburger-line-in-03 {
+  -webkit-transform: translateX(33.3%);
+  transform: translateX(33.3%);
+}
+
+.hamburger.is-opened-navi .hamburger-line-in-cross01,
+.hamburger.is-opened-navi .hamburger-line-in-cross02 {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.hamburger.is-opened-navi .hamburger-line-in-01 {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+.hamburger.is-opened-navi .hamburger-line-in-02 {
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.hamburger.is-opened-navi .hamburger-line-in-03 {
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.hamburger.is-opened-navi .hamburger-line-in-cross01 {
+  -webkit-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+}
+
+.hamburger.is-opened-navi .hamburger-line-in-cross02 {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.hamburger:hover .hamburger-line-in::before,
+.hamburger:hover .hamburger-line-in::after {
+  -webkit-transform: translateX(200%);
+  transform: translateX(200%);
+}
+
+.hamburger:hover .hamburger-line-in-01::before,
+.hamburger:hover .hamburger-line-in-01::after,
+.hamburger:hover .hamburger-line-in-02::before,
+.hamburger:hover .hamburger-line-in-02::after,
+.hamburger:hover .hamburger-line-in-03::before,
+.hamburger:hover .hamburger-line-in-03::after {
+  -webkit-transition-duration: 2.5s;
+  transition-duration: 2.5s;
+}
+
+.hamburger:hover .hamburger-line-in-cross01::before,
+.hamburger:hover .hamburger-line-in-cross01::after,
+.hamburger:hover .hamburger-line-in-cross02::before,
+.hamburger:hover .hamburger-line-in-cross02::after {
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s;
+}
+
+.hamburger.is-opened-navi:hover .hamburger-line-in-cross01::before,
+.hamburger.is-opened-navi:hover .hamburger-line-in-cross01::after,
+.hamburger.is-opened-navi:hover .hamburger-line-in-cross02::before,
+.hamburger.is-opened-navi:hover .hamburger-line-in-cross02::after {
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+.hamburger.is-opened-navi:hover .hamburger-line-in-01::before,
+.hamburger.is-opened-navi:hover .hamburger-line-in-01::after,
+.hamburger.is-opened-navi:hover .hamburger-line-in-02::before,
+.hamburger.is-opened-navi:hover .hamburger-line-in-02::after,
+.hamburger.is-opened-navi:hover .hamburger-line-in-03::before,
+.hamburger.is-opened-navi:hover .hamburger-line-in-03::after {
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s;
+}

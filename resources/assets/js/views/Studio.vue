@@ -3,7 +3,7 @@
     <section class="align-center studio-header no-margin no-padding fullscreen">
       <div class="container">
         <div class="grid">
-          <h1 class="text-center">
+          <h1>
             <b>Maniak is a creative studio in Guadalajara, Mexico. </b><br>We build websites, applications and interactive experiences.
           </h1>
         </div>

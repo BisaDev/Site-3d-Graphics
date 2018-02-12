@@ -17,12 +17,11 @@
             <circle cx="55%" cy="49%" r="80" />
             <circle cx="47%" cy="52%" r="80" />
             <circle cx="55%" cy="49%" r="80" />
-            <circle cx="47%" cy="52%" r="80" />
           </g>
         </svg>
       </div>
     </div>
-    <div class="container text-center dark">
+    <div class="container dark">
       <h1>
         Let us blow your mind.
       </h1>
