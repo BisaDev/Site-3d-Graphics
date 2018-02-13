@@ -54,13 +54,18 @@
 </style>
 
 <script>
+import Scroller from './Scroller'
+
 export default {
+  extends: { ...Scroller },
+
   props: {
     theme: {
       type: String,
       default: 'light',
     },
   },
+
   data() {
     return {
       lastKnownScrollPosition: window.scrollY,
@@ -70,13 +75,6 @@ export default {
     }
   },
 
-  created() {
-    window.addEventListener('scroll', this.trackScroll)
-  },
-
-  destroyed() {
-    window.removeEventListener('scroll', this.trackScroll)
-  },
   methods: {
     trackScroll() {
       if (!this.ticking) {
@@ -85,24 +83,29 @@ export default {
 
       this.ticking = true
     },
-
     modifyNav() {
       const pageYScroll = window.pageYOffset || document.documentElement.scrollTop
       if (pageYScroll < 10) {
         this.stateClass = 'nav-at-top'
-      } else {
-        this.stateClass = ''
-        if (window.scrollY >= this.lastKnownScrollPosition + this.offset) {
-          this.stateClass = 'nav-hide'
-        } else if (window.scrollY <= this.lastKnownScrollPosition - this.offset) {
-          this.stateClass = 'nav-show'
-        }
+      } else if (
+        window.scrollY >= this.lastKnownScrollPosition + this.offset &&
+        this.stateClass !== 'nav-hide'
+      ) {
+        this.stateClass = 'nav-hide'
+      } else if (
+        window.scrollY <= this.lastKnownScrollPosition - this.offset &&
+        this.stateClass === 'nav-hide'
+      ) {
+        this.stateClass = 'nav-show'
       }
-
       this.lastKnownScrollPosition = window.scrollY
 
       this.ticking = false
     },
+  },
+
+  created() {
+    this.$on('_scroll', this.modifyNav)
   },
 }
 </script>

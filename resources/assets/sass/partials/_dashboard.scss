@@ -34,8 +34,6 @@ $foundation-5-top-bar-text-color: $white;
   }
 }
 
-
-
 * {
   box-sizing: border-box;
 }
@@ -88,7 +86,7 @@ body {
   display: none;
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
   .nav > .nav-btn {
     display: inline-block;
     position: absolute;
