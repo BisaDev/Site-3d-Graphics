@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <home-header @explode="setNavTheme" />
-    <home-info/>
+    <home-header @explode="setNavTheme" ></home-header>
+    <home-info></home-info>
     <section class="home-featured no-margin padding">
       <div class="container">
         <div class="home-featured-title">
@@ -58,12 +58,12 @@
 import homeHeader from '../components/home/Header'
 import photoSwipe from '../components/PhotoSwipe'
 import homeInfo from '../components/home/Info'
-import PageCommon from '../components/PageCommon.vue'
+import pageCommon from '../components/PageCommon'
 
 import apiManiak from '../utils/api'
 
 export default {
-  extends: { ...PageCommon },
+  extends: { ...pageCommon },
 
   props: {
     reveal: {

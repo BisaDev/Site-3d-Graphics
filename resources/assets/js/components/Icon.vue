@@ -1,5 +1,5 @@
 <template>
-  <span :class="['icon', iconClass]" v-if="iconClass" />
+  <span :class="['icon', iconClass]" v-if="iconClass" ></span>
 </template>
 
 <script>
