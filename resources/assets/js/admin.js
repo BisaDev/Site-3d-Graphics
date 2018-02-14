@@ -1,4 +1,4 @@
-import router from './siteRouter'
+import router from './adminRouter'
 import reveal from './components/Reveal'
 import navbar from './components/Navbar'
 import './bootstrap'
@@ -9,21 +9,8 @@ import './bootstrap'
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const siteApp = new Vue({
+new Vue({
   el: '#app',
   router,
   components: { navbar, reveal },
-  data() {
-    return {
-      theme: 'light',
-    }
-  },
-  created() {
-    this.$root.$on('setNavTheme', this.setNavTheme)
-  },
-  methods: {
-    setNavTheme(isDarkTheme) {
-      this.theme = isDarkTheme ? 'dark' : 'light'
-    },
-  },
 })

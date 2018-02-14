@@ -11,8 +11,10 @@
 |
 */
 
-// Routing is handled by Vue Router, see: resources/assets/js/router.js
-Route::view('{admin}', 'admin')->where('admin', 'admin.*')->middleware('auth');
+// Admin routes. Any route that starts with Admin will be handled by the admin vue-router
+Route::view('{admin}', 'admin-app')->where('admin', 'admin.*')->middleware('auth');
+
+// Site routes. Any route except for admin and auth routes will be handled by the site vue-router
 Route::view('{site}', 'site-app')->where('site', '^(?!(login|logout|admin|register)).*');
 
 Auth::routes();

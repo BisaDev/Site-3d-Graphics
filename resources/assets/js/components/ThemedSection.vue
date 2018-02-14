@@ -1,22 +1,26 @@
 <template>
-  <section :style="{backgroundColor: color}" :class="{ dark: color !== 'transparent' && dark }">
+  <section :style="{backgroundColor: isThemed ? color : 'transparent'}" :class="{ dark: isThemed && isDark }">
     <slot></slot>
   </section>
 </template>
 
 <script>
-  export default {
-    props: {
-      dark: {
-        type: Boolean,
-        default: false,
-      },
-      color: {
-        type: String,
-        default: 'transparent'
-      }
-    }
-  }
+export default {
+  props: {
+    isDark: {
+      type: Boolean,
+      default: false,
+    },
+    color: {
+      type: String,
+      default: 'transparent',
+    },
+    isThemed: {
+      type: Boolean,
+      default: false,
+    },
+  },
+}
 </script>
 
 <style>

@@ -88,15 +88,13 @@
 
 
 <script>
+import apiManiak from '../utils/api'
 import homeHeader from '../components/home/Header'
 import homeInfo from '../components/home/Info'
-
-import apiManiak from '../utils/api'
+import PageCommon from '../components/PageCommon.vue'
 
 export default {
-  beforeRouteLeave(to, from, next) {
-    this.$root.$refs.revealer.reveal().then(() => next())
-  },
+  extends: { ...PageCommon },
 
   mounted() {
     this.updateData()

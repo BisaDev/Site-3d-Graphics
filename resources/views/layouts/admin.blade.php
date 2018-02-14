@@ -21,6 +21,8 @@
 </head>
 <body>
     <div id="app">
+        <navbar />
+        <router-view></router-view>
         @yield('content')
     </div>
     <script type="text/javascript" src="{{asset('js/admin.js')}}"></script>
