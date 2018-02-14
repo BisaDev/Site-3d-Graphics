@@ -31,7 +31,7 @@
                 <h5>Country</h5>
                 <p>
                   <icon icon-class="icon-country-US" />
-                  {{project.info_country}}
+                 <!-- {{project.info_country}} -->
                 </p>
               </div>
               <div class="project-intro-facts-right">

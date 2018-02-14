@@ -40,6 +40,7 @@ $grid-container-padding-lg: 4vw;
       @include xy-cell(12 of 12);
     }
   }
+  //noinspection ALL
   & &-info-button {
     @include xy-cell(6 of 12);
     @include breakpoint(medium down) {
@@ -71,6 +72,7 @@ $grid-container-padding-lg: 4vw;
     @include xy-cell(7 of 12);
     @include breakpoint(medium down) {
       @include xy-cell(12 of 12);
+      margin-bottom: 2rem;
     }
   }
   & &-intro-facts {
@@ -87,20 +89,36 @@ $grid-container-padding-lg: 4vw;
   }
   & &-copy-text {
     @include xy-cell(7 of 12);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+    }
   }
   & &-copy-sticky {
     @include xy-cell(6 of 12);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+    }
   }
   & &-screenshot-long {
     @include xy-cell(5 of 12);
     @include xy-cell-offset(1 of 12);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+      @include xy-cell-offset(0 of 12);
+    }
   }
   & &-gallery-image {
     @include xy-cell(4 of 12);
     @include xy-gutters($gutter-position: left right top bottom);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+    }
     &:nth-child(4n + 2),
     &:nth-child(4n + 3) {
       @include xy-cell(8 of 12);
+      @include breakpoint(medium down) {
+        @include xy-cell(12 of 12);
+      }
     }
   }
 }
