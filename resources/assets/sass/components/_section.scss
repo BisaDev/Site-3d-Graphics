@@ -14,6 +14,9 @@ section {
   }
   &.padding {
     padding: 14rem 0;
+    @include breakpoint(medium down) {
+      padding: 8rem 0;
+    }
   }
   &.fullscreen {
     min-height: 100vh;

@@ -1,26 +1,34 @@
-$work-portfolio-offset: -10vh;
+$work-portfolio-offset: 10vh;
+$work-filters-height: 4rem;
 
 .work {
   & &-header {
-    height: 100vh;
-
-    .container {
-      height: 90vh;
+    height: 80vh;
+    margin-bottom: $work-portfolio-offset;
+    display: flex;
+    flex-flow: column;
+    &-title-container {
+      padding-top: $navbar-height;
       display: flex;
-      flex-flow: column;
-      justify-content: center;
-      align-items: flex-start;
+      align-items: center;
+      flex-grow: 1;
     }
-    &-filters {
-      position: absolute;
-      bottom: calc(5rem});
-      margin-left: -$button-padding-h;
+    &-filters-container {
+      flex-shrink: 0;
+      flex-grow: 0;
+      @include breakpoint(large up) {
+        ul {
+          margin-left: -$button-padding-h;
+        }
+      }
 
       li {
-        display: inline-block;
-        margin-right: 10rem;
-        margin-bottom: 0;
         @include transition(md);
+        @include breakpoint(large up) {
+          display: inline-block;
+          margin-right: 10rem;
+          margin-bottom: 0;
+        }
         &:not(.active) {
           a {
             color: rgba($base-font-color-dark, 0.5);
@@ -34,13 +42,13 @@ $work-portfolio-offset: -10vh;
             vertical-align: baseline;
             margin-left: 1rem;
           }
+          @include breakpoint(medium down) {
+            @include button-outline();
+            display: flex;
+            justify-content: space-between;
+          }
         }
       }
-    }
-  }
-  & &-portfolio {
-    .container {
-      margin-top: $work-portfolio-offset;
     }
   }
 }

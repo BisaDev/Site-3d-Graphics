@@ -1,6 +1,6 @@
 .home {
   & &-header {
-    .container {
+    &-title-container {
       height: 100vh;
       display: flex;
       flex-flow: column;
@@ -18,14 +18,27 @@
       text-align: center;
 
       @include breakpoint(medium down) {
-        align-items: flex-start;
+        //align-items: flex-start;
         text-align: left;
       }
     }
     h1 {
-      font-size: 5rem;
+      font-size: 4rem;
+    }
+    &-button-container {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
       @include breakpoint(medium down) {
-        font-size: 4rem;
+        .button {
+          position: relative;
+          @include button-outline();
+        }
       }
     }
   }
@@ -39,11 +52,18 @@
       }
     }
     &-copy {
-      margin-bottom: 3rem;
       text-align: center;
+      h4 {
+        margin-bottom: 3rem;
+      }
       @include breakpoint(medium down) {
         text-align: left;
+
+        .button {
+          @include button-outline();
+        }
       }
+
     }
   }
   & &-featured {
@@ -51,11 +71,15 @@
       margin-bottom: 5rem;
     }
     &-button {
-      text-align: right;
       margin-bottom: 5rem;
-
-      .button {
-        width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      @include breakpoint(medium down) {
+        .button {
+          width: 100%;
+          @include button-outline();
+        }
       }
     }
     &-list {

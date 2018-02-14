@@ -25,8 +25,7 @@
   text-decoration: none;
   @include transition(sm);
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: rgba($black, 0.05);
   }
   &:active {
@@ -38,12 +37,28 @@
   &.dark {
     color: $base-font-color-light;
 
-    &:hover,
-    &:focus {
+    &:hover {
       background-color: rgba($light-gray, 0.075);
     }
     &:active {
       background-color: rgba($light-gray, 0.125);
     }
   }
+}
+
+
+@mixin button-outline() {
+  border-width: 1px;
+  border-style: solid;
+  border-color: $light-gray-darker;
+  width: 100%;
+
+  .dark &,
+  &.dark {
+    border-color: rgba($light-gray, 0.5);
+  }
+}
+
+@mixin button-xl() {
+  line-height: $button-height-xl;
 }

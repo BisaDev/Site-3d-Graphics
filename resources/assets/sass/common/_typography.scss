@@ -38,6 +38,7 @@ h1 {
   strong {
     font-weight: $font-weight-medium;
   }
+
 }
 h2 {
   font-size: $font-size-xl;
@@ -75,5 +76,30 @@ p {
   b,
   strong {
     font-weight: $font-weight-medium;
+  }
+}
+
+@include breakpoint(medium down) {
+  $mobile-font-factor: 0.9;
+  h1 {
+    font-size: $font-size-xxl * $mobile-font-factor;
+  }
+  h2 {
+    font-size: $font-size-xl * $mobile-font-factor;
+  }
+  h3 {
+    font-size: $font-size-lg * $mobile-font-factor;
+  }
+  h4 {
+    font-size: $font-size-lg * $mobile-font-factor;
+  }
+  h5 {
+    font-size: $font-size-md * $mobile-font-factor;
+  }
+  h6 {
+    font-size: $font-size-md * $mobile-font-factor;
+  }
+  p {
+    font-size: $font-size-md * $mobile-font-factor;
   }
 }

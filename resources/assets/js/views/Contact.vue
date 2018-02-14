@@ -2,9 +2,11 @@
   <div class="contact">
     <section class="align-center contact-header no-margin no-padding fullscreen">
       <div class="container">
-        <h1 class="text-center">
-          If you’d like to partner on a project or simply  chat about what we could do together, just say <a class="contact-email" href="">hello@maniak.co</a>.
-        </h1>
+        <div class="grid">
+          <h1>
+            If you’d like to partner on a project or simply chat about what we could do together, just say <a class="contact-email" href="">hello@maniak.co</a>.
+          </h1>
+        </div>
       </div>
     </section>
   </div>

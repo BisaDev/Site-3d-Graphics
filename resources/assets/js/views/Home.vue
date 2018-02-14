@@ -4,11 +4,13 @@
     <home-info></home-info>
     <section class="home-featured no-margin padding">
       <div class="container">
-        <div class="home-featured-title">
-          <h3>Some of the projects<br>we are most proud of.</h3>
-        </div>
-        <div class="home-featured-button">
-          <button class="button">See all projects</button>
+        <div class="grid">
+          <div class="home-featured-title">
+            <h3>Some of the projects<br>we are most proud of.</h3>
+          </div>
+          <div class="home-featured-button">
+            <button class="button">See all projects</button>
+          </div>
         </div>
         <div class="grid home-featured-list">
           <!-- <router-link :key="project.id" :to="`/project/${project.id}`" class="project-preview dark reveal"

@@ -40,22 +40,16 @@
 </template>
 
 <style>
-.navbar {
-  transition: transform 0.5s ease;
-}
-
-.nav-at-top {
-  position: absolute;
-  left: 0;
-  transform: translateY(0%);
-}
-
 .nav-show {
   transform: translateY(0%);
 }
 
 .nav-hide {
   transform: translateY(-100%);
+}
+
+.nav-at-top {
+  transform: translateY(0%);
 }
 </style>
 

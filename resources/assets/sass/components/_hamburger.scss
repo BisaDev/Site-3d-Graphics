@@ -81,6 +81,12 @@ $hamburger-size: 5rem;
       transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
       transition-property: transform;
     }
+    .dark &:not(.hamburger-line-in-cross01):not(.hamburger-line-in-cross02){
+      &:before,
+      &:after{
+        background-color: $base-font-color-light;
+      }
+    }
 
     &:before {
       left: -56px;
@@ -111,6 +117,14 @@ $hamburger-size: 5rem;
 
   &-03 {
     top: 29.4px;
+  }
+
+  &-cross01,
+  &-cross02 {
+    &:before,
+    &:after{
+      background-color: $base-font-color-dark;
+    }
   }
 
   &-cross01 {

@@ -4,7 +4,7 @@
     <div class="home-header-explosion" :class="{ show: showExplosion }"></div>
     <div class="home-header-visual" :class="{ hidden: hideVisual }" @click="explode">
       <div class="home-header-visual-svg-wrap">
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+       <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
           <defs>
             <filter id="goo">
               <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur"/>
@@ -18,16 +18,18 @@
             <circle cx="47%" cy="52%" r="80" />
             <circle cx="55%" cy="49%" r="80" />
           </g>
-        </svg>
+        </svg>-->
       </div>
     </div>
-    <div class="container dark">
+    <div class="container home-header-title-container dark">
       <h1>
         Let us blow your mind.
       </h1>
-      <button class="button button-scroll">
+    </div>
+    <div class="container home-header-button-container">
+      <a href="#portfolio" class="button button-scroll">
         <span>Scroll down</span><span>Scroll down</span>
-      </button>
+      </a>
     </div>
   </section>
 </template>

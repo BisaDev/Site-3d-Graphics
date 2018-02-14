@@ -4,6 +4,9 @@
       display: flex;
       align-items: center;
       height: 100vh;
+      @include breakpoint(large up) {
+        text-align: center;
+      }
     }
   }
 

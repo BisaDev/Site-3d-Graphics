@@ -1,4 +1,7 @@
 footer {
+  section {
+    margin: 0;
+  }
   a {
     display: flex;
     position: relative;
@@ -11,16 +14,31 @@ footer {
 
     span {
       display: block;
+      text-align: center;
       @include transition(md);
     }
     .grid {
       width: 100%;
       height: $line-height-lg * $font-size-lg;
       overflow: hidden;
+      margin: 0;
+      @include breakpoint(medium down) {
+        height: auto;
+
+        span:last-of-type {
+          @include button-interaction();
+          @include button-outline();
+          color: inherit;
+          line-height: 5rem;
+          margin-top: 2rem;
+        }
+      }
     }
 
     &:hover h4 span {
-      transform: translateY(-100%);
+      @include breakpoint(large up) {
+        transform: translateY(-100%);
+      }
     }
   }
 }

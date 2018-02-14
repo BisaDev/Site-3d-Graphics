@@ -8,14 +8,13 @@ $grid-container-padding-lg: 4vw;
   position: relative;
   padding-left: $grid-container-padding-lg;
   padding-right: $grid-container-padding-lg;
-}
-
-@include breakpoint(medium down) {
-  .container {
-    padding-left: $grid-container-padding-md;
-    padding-right: $grid-container-padding-md;
+  @include breakpoint(medium down) {
+      padding-left: $grid-container-padding-md;
+      padding-right: $grid-container-padding-md;
   }
 }
+
+
 
 .grid {
   @include xy-grid;
@@ -34,14 +33,13 @@ $grid-container-padding-lg: 4vw;
   & &-featured-list {
     @include xy-gutters($gutters: 0);
   }
-  & &-info-title {
+  & &-featured-title {
     @include xy-cell(6 of 12);
     @include breakpoint(medium down) {
       @include xy-cell(12 of 12);
     }
   }
-  //noinspection ALL
-  & &-info-button {
+  & &-featured-button {
     @include xy-cell(6 of 12);
     @include breakpoint(medium down) {
       @include xy-cell(12 of 12);
@@ -56,6 +54,19 @@ $grid-container-padding-lg: 4vw;
 }
 
 .work {
+  & &-header {
+    &-filters-container ul {
+      @include breakpoint(medium down) {
+        @include xy-grid;
+        @include xy-gutters($gutters: 3rem, $negative: 'true');
+        li {
+          @include xy-cell(6 of 12);
+          @include xy-gutters($gutter-position: left right top bottom);
+        }
+      }
+    }
+  }
+
   .preview.featured {
     @include xy-cell(12 of 12);
     @include xy-gutters($gutter-position: left right top bottom);
@@ -63,6 +74,9 @@ $grid-container-padding-lg: 4vw;
   .preview {
     @include xy-cell(6 of 12);
     @include xy-gutters($gutter-position: left right top bottom);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+    }
   }
 }
 
@@ -182,6 +196,10 @@ $grid-container-padding-lg: 4vw;
     h1 {
       @include xy-cell(8 of 12);
       @include xy-cell-offset(2 of 12);
+      @include breakpoint(medium down) {
+        @include xy-cell(12 of 12);
+        @include xy-cell-offset(0 of 12);
+      }
     }
   }
 }
