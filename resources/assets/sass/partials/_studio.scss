@@ -61,7 +61,7 @@ $studio-paragraph-margin: 0 0 3.5rem;
   &-panorama {
     //padding: 0 0 33%;
     height: 40rem;
-    background-color: red;
+    background-color: $base-bg-color-dark;
 
     .parallax-image {
       background-image: url('../img/about/maniak-panorama.png');

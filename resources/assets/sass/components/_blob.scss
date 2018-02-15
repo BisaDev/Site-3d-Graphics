@@ -58,10 +58,10 @@ $home-image-max-size: 40rem;
     will-change: transform, r;
     mix-blend-mode: soft-light;
 
-    &:nth-child(-n + 2) {
+    &:nth-child(n + 3) {
       fill: $azure;
     }
-    &:nth-child(n + 3) {
+    &:nth-child(-n + 2) {
       fill: $watermelon-dark;
     }
     $top-collection: [];
