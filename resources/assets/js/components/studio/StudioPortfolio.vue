@@ -67,15 +67,15 @@ export default {
     },
   },
   mounted() {
-    this.blobs = this.$refs.blobs.querySelectorAll('span')
-    this.circles = this.$refs.circles.querySelectorAll('span')
-    this.$refs.section.addEventListener('mousemove', e => this.handleMouseMove(e))
+   // this.blobs = this.$refs.blobs.querySelectorAll('span')
+   // this.circles = this.$refs.circles.querySelectorAll('span')
+  //  this.$refs.section.addEventListener('mousemove', e => this.handleMouseMove(e))
   },
   created() {
     //this.$refs.section.addEventListener('click', () => this.handleMouseMove())
   },
   destroyed() {
-    this.$refs.section.removeEventListener('mousemove', () => this.handleMouseMove(e))
+  //  this.$refs.section.removeEventListener('mousemove', () => this.handleMouseMove(e))
   },
 }
 </script>

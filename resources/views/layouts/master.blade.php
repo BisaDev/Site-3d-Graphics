@@ -11,6 +11,14 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
     <link href="{{asset('css/site.css')}}" rel="stylesheet" type="text/css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1c202a">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="theme-color" content="#1c202a">
+
 </head>
 <body>
 

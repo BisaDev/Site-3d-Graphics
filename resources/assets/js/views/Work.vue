@@ -8,7 +8,7 @@
       </div>
       <div class="container work-header-filters-container">
         <ul class="work-header-filters-list">
-          <li class="active"><a href="">All<span class="filter-count">12</span></a></li>
+          <li><a class="active" href="">All<span class="filter-count">12</span></a></li>
           <li><a href="">Design<span class="filter-count">12</span></a></li>
           <li><a href="">Software<span class="filter-count">12</span></a></li>
           <li><a href="">3D &amp; VR<span class="filter-count">12</span></a></li>

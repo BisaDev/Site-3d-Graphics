@@ -29,11 +29,7 @@ $work-filters-height: 4rem;
           margin-right: 10rem;
           margin-bottom: 0;
         }
-        &:not(.active) {
-          a {
-            color: rgba($base-font-color-dark, 0.5);
-          }
-        }
+
         a {
           @include button-interaction();
           line-height: $button-height-lg;
@@ -42,10 +38,16 @@ $work-filters-height: 4rem;
             vertical-align: baseline;
             margin-left: 1rem;
           }
+          &:not(.active) {
+              color: rgba($base-font-color-dark, 0.5);
+          }
           @include breakpoint(medium down) {
             @include button-outline();
             display: flex;
             justify-content: space-between;
+            &.active {
+                border: 1px solid $base-bg-color-dark;
+            }
           }
         }
       }

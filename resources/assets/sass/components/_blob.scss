@@ -6,7 +6,8 @@ $home-explosion-desired-size: 60rem;
 $home-explosion-multiplier: $home-explosion-desired-size / $home-explosion-base-size;
 $home-explosion-frames: 12;
 
-$home-image-size: 60rem;
+$home-image-size: 80vw;
+$home-image-max-size: 40rem;
 
 
 @function randomNum($min, $max) {
@@ -135,6 +136,8 @@ $home-image-size: 60rem;
     left: 50%;
     width: $home-image-size;
     height: $home-image-size;
+    max-width: $home-image-max-size;
+    max-height: $home-image-max-size;
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.85);
     background: url('../img/visuals/retro-screen-glitch.gif') no-repeat;
@@ -163,8 +166,9 @@ $home-image-size: 60rem;
   }
 }
 
-$studio-visual-width: 50rem;
-$studio-visual-height: 20rem;
+$studio-visual-width: 45rem;
+$studio-visual-mobile-width: 30rem;
+
 $studio-blob-size-sm: 13rem;
 $studio-blob-size-lg: 18rem;
 $studio-blob-size-delta: $studio-blob-size-lg - $studio-blob-size-sm;
@@ -178,7 +182,9 @@ $studio-blob-size-delta: $studio-blob-size-lg - $studio-blob-size-sm;
     margin: 10rem auto;
     width: $studio-visual-width;
     height: $studio-blob-size-lg;
-
+    @include breakpoint(medium down) {
+      width: $studio-visual-mobile-width;
+    }
     &:hover {
       color: rgba($base-font-color-light, 0.5);
     }
@@ -204,13 +210,15 @@ $studio-blob-size-delta: $studio-blob-size-lg - $studio-blob-size-sm;
   }
   &-blob {
     filter: url('#goo');
-    opacity: 0.25;
+    opacity: 0.66;
     span {
       height: $studio-blob-size-sm;
       width: $studio-blob-size-sm;
       background: $black;
       box-shadow: 0px 0px $studio-blob-size-sm/4 $black;
-
+      @include breakpoint(medium down) {
+        transform: scale(0.75);
+      }
       &:nth-of-type(1) {
         left: $studio-blob-size-delta / 2;
         top: $studio-blob-size-delta / 2;
@@ -229,8 +237,11 @@ $studio-blob-size-delta: $studio-blob-size-lg - $studio-blob-size-sm;
     span {
       height: $studio-blob-size-lg;
       width: $studio-blob-size-lg;
-      background: rgba($black, 0.1);
+      background: rgba($black, 0.25);
       display: flex;
+      @include breakpoint(medium down) {
+        transform: scale(0.75);
+      }
       &::after {
         content: '';
         display: block;
@@ -248,6 +259,7 @@ $studio-blob-size-delta: $studio-blob-size-lg - $studio-blob-size-sm;
         bottom: -10rem;
         left: 50%;
         transform: translateX(-50%);
+        color: inherit;
         @include transition(md);
       }
       &:nth-of-type(1) {
@@ -281,13 +293,13 @@ $studio-blob-size-delta: $studio-blob-size-lg - $studio-blob-size-sm;
     :nth-child(4) {
       height: $studio-blob-size-lg * 0.5;
       width: $studio-blob-size-lg * 0.5;
-      background: rgba($black, 0.033);
+      background: rgba($black, 0.1);
     }
     :nth-child(2),
     :nth-child(3) {
       height: $studio-blob-size-lg * 0.75;
       width: $studio-blob-size-lg * 0.75;
-      background: rgba($black, 0.075);
+      background: rgba($black, 0.175);
     }
     :nth-child(1) {
       left: -150px;

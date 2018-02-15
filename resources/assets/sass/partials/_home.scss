@@ -1,5 +1,7 @@
 .home {
   & &-header {
+    position: relative;
+    overflow: hidden;
     &-title-container {
       height: 100vh;
       display: flex;
