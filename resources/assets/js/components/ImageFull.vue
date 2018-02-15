@@ -2,11 +2,11 @@
   <parallax class="image-full"></parallax>
 </template>
 <script>
-import parallax from './parallax'
+import Parallax from './Parallax'
 
 export default {
   components: {
-    parallax,
+    Parallax,
   },
 }
 </script>

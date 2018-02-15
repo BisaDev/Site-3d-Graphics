@@ -70,8 +70,17 @@
   </div>
   </div>-->
     </themed-section>
-
-    <project-quote></project-quote>
+    <themed-section class="project-quote dark text-center" :parallax="true" image="url(/img/patterns/pattern.png)">
+      <div class="container">
+        <div class="project-quote-statement">
+          <h3>The smartest way to<br>automate your restaurant's<br>accounts payable.</h3>
+        </div>
+        <div class="project-quote-author">
+          <h5>John Doe</h5>
+          <h6>CEO at lorem ipsum</h6>
+        </div>
+      </div>
+    </themed-section>
 
     <themed-section class="project-copy">
       <div class="container">
@@ -164,79 +173,65 @@
 </template>
 
 <script>
-  import apiManiak from '../utils/api.js'
-  import PhotoSwipe from 'photoswipe'
-  import PhotoSwipeUI_Default from 'photoswipe'
-  import ProjectQuote from '../components/project/ProjectQuote'
-  import ProjectTextInformation from '../components/project/ProjectTextInformation'
-  import ProjectGallery from '../components/project/ProjectGallery'
-  import ImageFull from '../components/ImageFull'
-  import ThemedSection from '../components/ThemedSection'
-  import Icon from '../components/Icon'
+import apiManiak from '../utils/api.js'
+import ProjectQuote from '../components/project/ProjectQuote'
+import ProjectTextInformation from '../components/project/ProjectTextInformation'
+import ProjectGallery from '../components/project/ProjectGallery'
+import ImageFull from '../components/ImageFull'
+import ThemedSection from '../components/ThemedSection'
+import Icon from '../components/Icon'
+import pageCommon from '../components/PageCommon'
 
-  export default {
-    beforeRouteLeave(to, from, next) {
-      this.$root.$refs.revealer.reveal().then(() => next())
+export default {
+  extends: { ...pageCommon },
+
+  props: {
+    id: {
+      required: true,
     },
 
-    props: {
-      id: {
-        required: true,
-      },
-
-      reveal: {
-        default: false,
-        type: Boolean,
-      },
+    reveal: {
+      default: false,
+      type: Boolean,
     },
-    components: {
-      ProjectGallery,
-      ProjectTextInformation,
-      ProjectQuote,
-      ImageFull,
-      ThemedSection,
-      Icon,
-    },
+  },
 
-    data() {
-      return {
-        project: null,
-      }
-    },
+  components: {
+    ProjectGallery,
+    ProjectTextInformation,
+    ProjectQuote,
+    ImageFull,
+    ThemedSection,
+    Icon,
+  },
 
-    mounted() {
-      apiManiak.getProject(this.$props.id).then(this.updateData)
-    },
+  data() {
+    return {
+      project: null,
+    }
+  },
 
-    methods: {
-      updateData(response) {
-        this.project = response.data
-        const revealer = this.$root.$refs.revealer
-        revealer.close()
-      },
+  mounted() {
+    apiManiak.getProject(this.$props.id).then(this.updateData)
+  },
 
-      close() {
-        const revealer = this.$root.$refs.revealer
-        revealer.reveal(this.project.preloader).then(() => {
-          this.$router.push({
-            name: 'home',
-            params: {
-              reveal: true,
-            },
-          })
-        })
-      },
+  methods: {
+    updateData(response) {
+      this.setNavTheme(true)
+      this.project = response.data
+      this.$emit('view-loaded')
     },
-  }
+  },
+}
 </script>
 
 <style scoped>
-  .overlay {
-    position: absolute;
-    top: 100px;
-    right: 45px;
-    font-size: 60px;
-    color: #fff;
-    text-decoration: none;
-  }
+.overlay {
+  position: absolute;
+  top: 100px;
+  right: 45px;
+  font-size: 60px;
+  color: #fff;
+  text-decoration: none;
+}
 </style>

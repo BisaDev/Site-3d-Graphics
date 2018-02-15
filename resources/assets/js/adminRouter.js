@@ -17,15 +17,15 @@ let routes = [
         // UserProfile will be rendered inside User's <router-view>
         // when /user/:id/profile is matched
         path: 'project',
-        component: Dashboard
+        component: Dashboard,
       },
       {
         // UserPosts will be rendered inside User's <router-view>
         // when /user/:id/posts is matched
         path: 'posts',
-        component: Home
-      }
-    ]
+        component: Home,
+      },
+    ],
   },
   {
     name: 'project',

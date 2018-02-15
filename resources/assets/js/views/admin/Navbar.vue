@@ -27,49 +27,49 @@
 </template>
 
 <script>
-    //import homeHeader from '../components/home/Header'
-    //import photoSwipe from '../components/PhotoSwipe'
-    //import homeInfo from '../components/home/Info'
+//import homeHeader from '../components/home/Header'
+//import photoSwipe from '../components/PhotoSwipe'
+//import homeInfo from '../components/home/Info'
 
-    //import apiManiak from '../utils/api'
+//import apiManiak from '../utils/api'
 
-    export default {
-        beforeRouteLeave(to, from, next) {
-            this.$root.$refs.revealer.reveal().then(() => next())
-        },
-        props: {
-            reveal: {
-                default: false,
-                type: Boolean,
-            },
-            user: {
-                username: String,
-                default: false,
-            }
-        },
+export default {
+  beforeRouteLeave(to, from, next) {
+    this.$root.$refs.revealer.reveal().then(() => next())
+  },
+  props: {
+    reveal: {
+      default: false,
+      type: Boolean,
+    },
+    user: {
+      username: String,
+      default: false,
+    },
+  },
 
-        components: {
-            //homeHeader,
-            //photoSwipe,
-            //homeInfo,
-        },
+  components: {
+    //homeHeader,
+    //photoSwipe,
+    //homeInfo,
+  },
 
-        data() {
-            return {
-                logo: require('../../../img/logos/maniak/logo-maniak-white.svg'),
-                projects: [],
-            }
-        },
-
-        mounted() {
-            apiManiak.getProjects().then(this.updateData)
-        },
-
-        methods: {
-            updateData(response) {
-                this.projects = response.data
-                //this.$root.$refs.revealer.close()
-            },
-        },
+  data() {
+    return {
+      logo: require('../../../img/logos/maniak/logo-maniak-white.svg'),
+      projects: [],
     }
+  },
+
+  mounted() {
+    apiManiak.getProjects().then(this.updateData)
+  },
+
+  methods: {
+    updateData(response) {
+      this.projects = response.data
+      //this.$emit('view-loaded')
+    },
+  },
+}
 </script>

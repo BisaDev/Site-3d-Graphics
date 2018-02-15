@@ -88,9 +88,6 @@
 
 
 <script>
-import apiManiak from '../utils/api'
-import homeHeader from '../components/home/Header'
-import homeInfo from '../components/home/Info'
 import PageCommon from '../components/PageCommon.vue'
 
 export default {
@@ -102,7 +99,8 @@ export default {
 
   methods: {
     updateData() {
-      this.$root.$refs.revealer.close()
+      this.setNavTheme(false)
+      this.$emit('view-loaded')
     },
   },
 }

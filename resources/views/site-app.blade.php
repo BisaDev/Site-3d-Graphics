@@ -3,11 +3,15 @@
 @section('content')
 
     <div id="app">
-        <reveal ref="revealer"></reveal>
+        <reveal ref="reveal"></reveal>
 
-        <navbar :theme="theme" ></navbar>
+        <navbar :theme="navTheme" ></navbar>
 
-        <router-view></router-view>
+        <router-view
+            v-on:set-nav-theme="setNavTheme"
+            v-on:view-loaded="closeReveal"
+            v-on:view-leave="openReveal"
+        ></router-view>
 
         @include('layouts.footer')
 
