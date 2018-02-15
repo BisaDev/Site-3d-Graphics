@@ -79,7 +79,10 @@ $studio-paragraph-margin: 0 0 3.5rem;
       margin-bottom: 1rem;
     }
   }
-
+  &-portfolio {
+    position: relative;
+    overflow: hidden;
+  }
   &-services {
     &-department {
       margin-bottom: 10rem;
