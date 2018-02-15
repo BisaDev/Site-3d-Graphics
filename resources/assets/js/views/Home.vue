@@ -90,8 +90,9 @@ export default {
 
   methods: {
     updateData(response) {
+      this.setNavTheme(false)
       this.projects = response.data
-      this.$root.$refs.revealer.close()
+      this.$emit('view-loaded')
     },
   },
 }

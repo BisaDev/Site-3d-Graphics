@@ -47,7 +47,7 @@ export default {
   methods: {
     updateData(response) {
       this.projects = response.data
-      //this.$root.$refs.revealer.close()
+      //this.$emit('view-loaded')
     },
   },
 }

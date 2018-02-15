@@ -174,19 +174,16 @@
 
 <script>
 import apiManiak from '../utils/api.js'
-import PhotoSwipe from 'photoswipe'
-import PhotoSwipeUI_Default from 'photoswipe'
 import ProjectQuote from '../components/project/ProjectQuote'
 import ProjectTextInformation from '../components/project/ProjectTextInformation'
 import ProjectGallery from '../components/project/ProjectGallery'
 import ImageFull from '../components/ImageFull'
 import ThemedSection from '../components/ThemedSection'
 import Icon from '../components/Icon'
+import pageCommon from '../components/PageCommon'
 
 export default {
-  beforeRouteLeave(to, from, next) {
-    this.$root.$refs.revealer.reveal().then(() => next())
-  },
+  extends: { ...pageCommon },
 
   props: {
     id: {
@@ -198,6 +195,7 @@ export default {
       type: Boolean,
     },
   },
+
   components: {
     ProjectGallery,
     ProjectTextInformation,
@@ -219,21 +217,9 @@ export default {
 
   methods: {
     updateData(response) {
+      this.setNavTheme(true)
       this.project = response.data
-      const revealer = this.$root.$refs.revealer
-      revealer.close()
-    },
-
-    close() {
-      const revealer = this.$root.$refs.revealer
-      revealer.reveal(this.project.preloader).then(() => {
-        this.$router.push({
-          name: 'home',
-          params: {
-            reveal: true,
-          },
-        })
-      })
+      this.$emit('view-loaded')
     },
   },
 }

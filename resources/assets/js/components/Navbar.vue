@@ -82,7 +82,6 @@ export default {
   methods: {
     updateScrollPosition() {
       this.scrollPosition = window.pageYOffset || document.documentElement.scrollTop
-      console.log(this.scrollPosition)
       this.ticking = false
     },
 

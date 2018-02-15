@@ -236,7 +236,8 @@ export default {
 
   methods: {
     updateData() {
-      this.$root.$refs.revealer.close()
+      this.setNavTheme(false)
+      this.$emit('view-loaded')
     },
   },
 }
