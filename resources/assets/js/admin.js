@@ -1,6 +1,7 @@
 import router from './adminRouter'
-import reveal from './components/Reveal'
-import navbar from './components/Navbar'
+import navbar from './views/admin/Navbar'
+import cookies from './utils/cookies'
+import apiManiak from './utils/api'
 import './bootstrap'
 
 /**
@@ -9,8 +10,32 @@ import './bootstrap'
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-new Vue({
+const adminApp = new Vue({
   el: '#app',
   router,
-  components: { navbar, reveal },
+
+  data() {
+    return {
+      user: {},
+      credentials: false,
+      isLoggedIn: false,
+      ready: true,
+    }
+  },
+
+  components: {
+    navbar,
+  },
+
+  created() {
+    this.user = JSON.parse(cookies.getItem('user'))
+    this.credentials = this.getCredentials()
+    this.isLoggedIn = Boolean(this.credentials)
+  },
+
+  methods: {
+    getCredentials() {
+      return cookies.getItem('credentials');
+    }
+  }
 })

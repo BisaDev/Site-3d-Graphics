@@ -13,63 +13,64 @@
             </label>
         </div>
         <input type="checkbox" id="nav-check">
-        <div class="nav-links">
+
+
+        <div class="nav-links" v-if="isLogged">
             <a href="#" target="_blank">Projects</a>
             <a href="#" target="_blank">Sections</a>
             <a href="#" target="_blank">Users</a>
         </div>
 
-        <div class="nav-title">
-            <p>Logged as: {user}</p>
+        <div class="nav-profile" v-if="isLogged">
+            <p>&lt; Logged as: <a href="javascript:void(0);" >{{this.$root.user ? this.$root.user.name : '' }}</a> &gt;</p>
         </div>
-
     </div>
 </template>
 
 <script>
-//import homeHeader from '../components/home/Header'
-//import photoSwipe from '../components/PhotoSwipe'
-//import homeInfo from '../components/home/Info'
+    //import apiManiak from '../utils/api'
 
-//import apiManiak from '../utils/api'
+    export default {
+        beforeRouteLeave(to, from, next) {
+            this.$root.$refs.revealer.reveal().then(() => next())
+        },
+        props: {
+            reveal: {
+                default: false,
+                type: Boolean,
+            },
+            user: {
+                type: String,
+                default: '',
+            },
+            isLogged: {
+                type: Boolean,
+                default: false,
+            }
+        },
 
-export default {
-  beforeRouteLeave(to, from, next) {
-    this.$root.$refs.revealer.reveal().then(() => next())
-  },
-  props: {
-    reveal: {
-      default: false,
-      type: Boolean,
-    },
-    user: {
-      username: String,
-      default: false,
-    },
-  },
+        components: {
+            //homeHeader,
+            //photoSwipe,
+            //homeInfo,
+        },
 
-  components: {
-    //homeHeader,
-    //photoSwipe,
-    //homeInfo,
-  },
+        data() {
+            return {
+                logo: require('../../../img/logos/maniak/logo-maniak-white.svg'),
+                projects: [],
+            }
+        },
 
-  data() {
-    return {
-      logo: require('../../../img/logos/maniak/logo-maniak-white.svg'),
-      projects: [],
+        mounted() {
+            //apiManiak.getProjects().then(this.updateData)
+        },
+
+        methods: {
+            updateData(response) {
+                this.projects = response.data
+                //this.$root.$refs.revealer.close()
+            },
+        },
     }
-  },
-
-  mounted() {
-    apiManiak.getProjects().then(this.updateData)
-  },
-
-  methods: {
-    updateData(response) {
-      this.projects = response.data
-      //this.$emit('view-loaded')
-    },
-  },
-}
 </script>
