@@ -1,10 +1,11 @@
 <template>
   <section class="home-header no-padding fullscreen no-margin" :class="{dark}">
     <div class="home-header-background"></div>
+    <div class="home-header-image" :class="{ show: showImage }"></div>
     <div class="home-header-explosion" :class="{ show: showExplosion }"></div>
     <div class="home-header-visual" :class="{ hidden: hideVisual }" @click="explode">
       <div class="home-header-visual-svg-wrap">
-       <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
           <defs>
             <filter id="goo">
               <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur"/>
@@ -18,7 +19,7 @@
             <circle cx="47%" cy="52%" r="80" />
             <circle cx="55%" cy="49%" r="80" />
           </g>
-        </svg>-->
+        </svg>
       </div>
     </div>
     <div class="container home-header-title-container dark">
@@ -41,19 +42,29 @@ export default {
       dark: false,
       hideVisual: false,
       showExplosion: false,
-      showVisualTimeout: 2000,
+      showImage: false,
+      showVisualTimeout: 1000,
     }
   },
   methods: {
-    explode() {
+    explode: function() {
       this.$emit('explode', !this.dark)
-      this.hideVisual = true
-      this.showExplosion = true
       this.dark = !this.dark
-      setTimeout(() => {
-        this.hideVisual = false
-        this.showExplosion = false
-      }, this.showVisualTimeout)
+      if (this.hideVisual) {
+        this.showImage = !this.showImage
+        this.showExplosion = true
+        setTimeout(() => {
+          this.hideVisual = !this.hideVisual
+          this.showExplosion = false
+        }, this.showVisualTimeout)
+      } else {
+        this.hideVisual = !this.hideVisual
+        this.showExplosion = true
+        setTimeout(() => {
+          this.showImage = !this.showImage
+          this.showExplosion = false
+        }, this.showVisualTimeout)
+      }
     },
   },
 }

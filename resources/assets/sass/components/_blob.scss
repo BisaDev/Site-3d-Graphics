@@ -6,27 +6,16 @@ $home-explosion-desired-size: 60rem;
 $home-explosion-multiplier: $home-explosion-desired-size / $home-explosion-base-size;
 $home-explosion-frames: 12;
 
+$home-image-size: 60rem;
+
+
 @function randomNum($min, $max) {
   $rand: random();
   $randomNum: $min + floor($rand * (($max - $min) + 1));
   @return $randomNum;
 }
 
-.home-header-background {
-  background: $base-bg-color-light;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  pointer-events: none;
-  @include transition(sm);
 
-  .dark & {
-    background-color: $watermelon;
-  }
-}
 
 .home-header-visual {
   position: absolute;
@@ -109,21 +98,56 @@ $home-explosion-frames: 12;
   }
 }
 
-.home-header-explosion {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: $home-explosion-base-size * $home-explosion-multiplier;
-  height: $home-explosion-base-size * $home-explosion-multiplier;
-  background: url('../img/visuals/explosion-sprite.svg') left;
-  background-size: $home-explosion-desired-size * ($home-explosion-frames + 1) $home-explosion-desired-size;
-  animation: none;
-  &.show {
-    animation: explode 0.85s steps($home-explosion-frames);
-    animation-delay: 0.15s;
+.home-header {
+  &-background {
+    background: $base-bg-color-light;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+    @include transition(sm);
+
+    .dark & {
+      background-color: $watermelon;
+    }
+  }
+  &-explosion {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: $home-explosion-base-size * $home-explosion-multiplier;
+    height: $home-explosion-base-size * $home-explosion-multiplier;
+    background: url('../img/visuals/explosion-sprite.svg') left;
+    background-size: $home-explosion-desired-size * ($home-explosion-frames + 1) $home-explosion-desired-size;
+    animation: none;
+    &.show {
+      animation: explode 0.85s steps($home-explosion-frames);
+      animation-delay: 0.15s;
+    }
+  }
+  &-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $home-image-size;
+    height: $home-image-size;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+    background: url('../img/visuals/retro-screen-glitch.gif') no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: all 0.5s cubic-bezier(0.3, 1.65, 0.205, 0.795);
+    &.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 }
+
 
 @keyframes explode {
   100% {

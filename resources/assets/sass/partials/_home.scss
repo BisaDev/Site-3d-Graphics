@@ -18,7 +18,6 @@
       text-align: center;
 
       @include breakpoint(medium down) {
-        //align-items: flex-start;
         text-align: left;
       }
     }

@@ -111,8 +111,6 @@
         @include transition(sm);
       }
       &:hover {
-        //transform: translateY(-0.5rem);
-
         &::before {
           background: rgba($stone-dark, 0.15);
         }
