@@ -1,7 +1,6 @@
 import router from './adminRouter'
 import navbar from './views/admin/Navbar'
 import cookies from './utils/cookies'
-import apiManiak from './utils/api'
 import './bootstrap'
 
 /**
@@ -35,7 +34,10 @@ const adminApp = new Vue({
 
   methods: {
     getCredentials() {
-      return cookies.getItem('credentials');
-    }
-  }
+      return cookies.getItem('credentials')
+    },
+    notFound() {
+      this.$router.push({ name: 'admin' })
+    },
+  },
 })

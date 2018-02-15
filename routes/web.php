@@ -12,11 +12,6 @@
 */
 
 // Routing is handled by Vue Router, see: resources/assets/js/router.js
-//Route::view('{admin}', 'admin-app')->where('admin', 'admin.*')->middleware('auth:api');
-//Auth::routes();
-//Route::view('{login}', 'admin-app')->where('login', 'login.*')->name('login')->middleware('auth:api');
-//Route::get('/login', function () {})->name('login');
-
 Route::view('login', 'admin-app')->name('login');
 Route::view('{site}', 'site-app')->where('site', '^(?!(login|logout|admin|register|auth/logout)).*');
 

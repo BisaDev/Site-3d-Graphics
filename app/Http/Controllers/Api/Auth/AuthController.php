@@ -23,8 +23,8 @@ class AuthController extends Controller
      */
     public function __construct()
     {
+        //@todo set .env var with the custom client
         $this->client = DB::table('oauth_clients')->where('id', 2)->first();
-        //$this->middleware('auth:api');
     }
 
     /**

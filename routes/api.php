@@ -11,9 +11,8 @@
 |
 */
 
-Route::middleware('auth:api')->name('api')->prefix('v1')->group(function () {
+Route::name('api')->prefix('v1')->group(function () {
     Route::resource('users', 'Api\v1\UserController');
     Route::get('user', 'Api\v1\UserController@userInfo')->name('users.userInfo');
+    Route::resource('projects', 'Api\v1\ProjectsController');
 });
-
-Route::resource('projects', 'Api\v1\ProjectsController');

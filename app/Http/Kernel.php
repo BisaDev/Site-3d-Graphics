@@ -4,6 +4,10 @@ namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
+/**
+ * Class Kernel
+ * @package App\Http
+ */
 class Kernel extends HttpKernel
 {
     /**
@@ -39,7 +43,6 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            //'auth:api',
             'throttle:60,1',
             'bindings',
         ],

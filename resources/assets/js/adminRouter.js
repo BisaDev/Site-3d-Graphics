@@ -1,56 +1,49 @@
 import Router from 'vue-router'
-import Dashboard from './views/admin/Dashboard.vue'
-import ProjectForm from './views/admin/ProjectsForm.vue'
-import Login from './views/admin/Login.vue'
-import Logout from './views/admin/Logout.vue'
-//import { cookies } from './utils/utilities'
+import Dashboard from './views/admin/Dashboard'
+import ProjectForm from './views/admin/ProjectsForm'
+import Login from './views/admin/Login'
+import Logout from './views/admin/Logout'
 
 let routes = [
   {
     name: 'admin',
     path: '/admin',
     component: Dashboard,
-    props: false,
-      /*
-    children: [
-      {
-        // UserProfile will be rendered inside User's <router-view>
-        // when /user/:id/profile is matched
-        //name: 'projects',
-        path: 'projects',
-        component: ProjectForm
-      },
-    ]
-    */
+    props: true,
   },
   {
     name: 'projects',
     path: '/admin/projects',
     component: ProjectForm,
-    props: false,
+    props: true,
     children: [
-        {
-            // UserProfile will be rendered inside User's <router-view>
-            // when /user/:id/profile is matched
-            //name: 'projects',
-            path: ':id/edit',
-            component: ProjectForm
-        },
+      {
+        name: 'edit-project',
+        path: ':id/edit',
+        component: ProjectForm,
+        props: true,
+      },
+      {
+        name: 'create-project',
+        path: 'create',
+        component: { default: ProjectForm },
+        props: { default: true },
+      },
     ],
   },
   {
-      name: 'login',
-      path: '/login',
-      component: Login,
-      props: false,
+    name: 'login',
+    path: '/login',
+    component: Login,
+    props: false,
   },
   {
-      name: 'logout',
-      path: '/logout',
-      component: Logout,
-      props: false,
+    name: 'logout',
+    path: '/logout',
+    component: Logout,
+    props: false,
   },
-];
+]
 
 /**
  *
@@ -80,22 +73,22 @@ const adminRouter = new Router({
   scrollBehavior,
   linkActiveClass: 'is-active',
   mode: 'history',
-});
+})
 
 adminRouter.beforeEach((to, from, next) => {
   adminRouter.app.$nextTick().then(result => {
     if (result.$root.ready) {
-        if (!result.credentials && 'login' !== to.name) {
-            next({name: 'login'})
-        } else {
-          if ('login' === to.name && result.credentials) {
-            next({name: 'admin'});
-          }
-
-          next()
+      if (!result.credentials && 'login' !== to.name) {
+        next({ name: 'login' })
+      } else {
+        if ('login' === to.name && result.credentials) {
+          next({ name: 'admin' })
         }
-    }
-  });
-});
 
-export default adminRouter;
+        next()
+      }
+    }
+  })
+})
+
+export default adminRouter

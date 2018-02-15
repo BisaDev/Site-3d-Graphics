@@ -34,7 +34,7 @@
                                 </div>
                             </div>
 
-                            <!--
+                            <!-- @todo Enable remember me on login form
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="checkbox">
@@ -52,7 +52,7 @@
                                         Login
                                     </button>
 
-                                    <!--
+                                    <!-- @todo Implement forgotten password on login form
                                     <a class="btn btn-link" href="">
                                         Forgot Your Password?
                                     </a>
@@ -69,66 +69,53 @@
 
 
 <script>
-    import apiManiak from '../../utils/api'
-    import cookies from  '../../utils/cookies'
+import apiManiak from '../../utils/api'
+import cookies from '../../utils/cookies'
 
-    export default {
-        /*
-        beforeRouteLeave(to, from, next) {
-            //this.$root.$refs.revealer.reveal().then(() => next())
-        },
-        */
-        props: {
-            reveal: {
-                default: false,
-                type: Boolean,
-            },
-        },
+export default {
+  props: {
+    reveal: {
+      default: false,
+      type: Boolean,
+    },
+  },
 
-        components: {
-        },
+  components: {},
 
-        data() {
-            return {
-                user: '',
-                password: '',
-            }
-        },
-
-        //mounted() {},
-
-        methods: {
-            login(e) {
-                let data = {
-                    user: this.user,
-                    password: this.password
-                };
-
-                apiManiak.login(data).then(response => {
-                    cookies.setItem('credentials', JSON.stringify(response.data));
-                    this.$root.credentials = cookies.getItem('credentials');
-                    this.$root.isLoggedIn = true;
-                    this.$router.push({name: 'admin'});
-
-
-                    axios.get('api/v1/user', {
-                        headers: {
-                            'Accept': 'application/json',
-                            'Authorization': 'Bearer ' + JSON.parse(cookies.getItem('credentials')).access_token,
-                        },
-                        //credentials: 'include',
-                    })
-                        .then(response => {
-                            console.log('aaaa =>',response.data);
-                            this.$root.user = response.data[0]
-                            cookies.setItem('user', JSON.stringify(this.$root.user));
-                            console.log(this.$root.user);
-                        });
-
-
-
-                });
-            },
-        },
+  data() {
+    return {
+      user: '',
+      password: '',
     }
+  },
+
+  methods: {
+    login(e) {
+      let data = {
+        user: this.user,
+        password: this.password,
+      }
+
+      apiManiak.login(data).then(response => {
+        cookies.setItem('credentials', JSON.stringify(response.data))
+        this.$root.credentials = cookies.getItem('credentials')
+        this.$root.isLoggedIn = true
+        this.$router.push({ name: 'admin' })
+
+        axios
+          .get('api/v1/user', {
+            headers: {
+              Accept: 'application/json',
+              Authorization: 'Bearer ' + JSON.parse(cookies.getItem('credentials')).access_token,
+            },
+            //credentials: 'include',
+          })
+          .then(response => {
+            this.$root.user = response.data[0]
+            cookies.setItem('user', JSON.stringify(this.$root.user))
+          })
+      })
+    },
+  },
+}
 </script>

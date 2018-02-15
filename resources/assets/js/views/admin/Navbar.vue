@@ -16,7 +16,7 @@
 
 
         <div class="nav-links" v-if="isLogged">
-            <a href="#" target="_blank">Projects</a>
+            <router-link :to="{name: 'create-project'}">Projects</router-link>
             <a href="#" target="_blank">Sections</a>
             <a href="#" target="_blank">Users</a>
         </div>
@@ -28,49 +28,23 @@
 </template>
 
 <script>
-    //import apiManiak from '../utils/api'
+export default {
+  props: {
+    user: {
+      type: String,
+      default: '',
+    },
+    isLogged: {
+      type: Boolean,
+      default: false,
+    },
+  },
 
-    export default {
-        beforeRouteLeave(to, from, next) {
-            this.$root.$refs.revealer.reveal().then(() => next())
-        },
-        props: {
-            reveal: {
-                default: false,
-                type: Boolean,
-            },
-            user: {
-                type: String,
-                default: '',
-            },
-            isLogged: {
-                type: Boolean,
-                default: false,
-            }
-        },
-
-        components: {
-            //homeHeader,
-            //photoSwipe,
-            //homeInfo,
-        },
-
-        data() {
-            return {
-                logo: require('../../../img/logos/maniak/logo-maniak-white.svg'),
-                projects: [],
-            }
-        },
-
-        mounted() {
-            //apiManiak.getProjects().then(this.updateData)
-        },
-
-        methods: {
-            updateData(response) {
-                this.projects = response.data
-                //this.$root.$refs.revealer.close()
-            },
-        },
+  data() {
+    return {
+      logo: require('../../../img/logos/maniak/logo-maniak-white.svg'),
+      projects: [],
     }
+  },
+}
 </script>

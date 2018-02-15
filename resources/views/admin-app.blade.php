@@ -3,6 +3,6 @@
     <div id="app">
         <navbar :is-logged="isLoggedIn"></navbar>
 
-        <router-view></router-view>
+        <router-view v-on:not-found="notFound"></router-view>
     </div>
 @endsection
