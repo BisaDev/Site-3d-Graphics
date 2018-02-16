@@ -144,7 +144,7 @@
             <li class="studio-clients-link"><a href="https://www.nike.com/mx/es_la/" target="_blank">Nike</a></li>
             <li class="studio-clients-link"><a href="https://upperplayground.com/" target="_blank">Upper Playground</a></li>
             <li class="studio-clients-link"><a href="https://sideways-nyc.com/" target="_blank">Sideways</a></li>
-            <li class="studio-clients-link"><a href="https://www.vw.com.mx" target="_blank">Wolkswagen</a></li>
+            <li class="studio-clients-link"><a href="https://www.vw.com.mx" target="_blank">Volkswagen</a></li>
 
 
           </ul>
