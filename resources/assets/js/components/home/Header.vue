@@ -28,14 +28,13 @@
       </h1>
     </div>
     <div class="container home-header-button-container">
-      <a href="#home-info" class="button button-scroll">
-        <span>Scroll down</span><span>Scroll down</span>
-      </a>
+      <scroll-button to="#home-info" text="Scroll down"></scroll-button>
     </div>
   </section>
 </template>
 
 <script>
+import scrollButton from '../ScrollButton'
 export default {
   data() {
     return {
@@ -46,6 +45,7 @@ export default {
       showVisualTimeout: 1000,
     }
   },
+  components: { scrollButton, },
   methods: {
     explode: function() {
       this.$emit('explode', !this.dark)
