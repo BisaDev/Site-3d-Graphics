@@ -4,13 +4,13 @@ import Project from './views/Project'
 import Work from './views/Work'
 import Studio from './views/Studio'
 import Contact from './views/Contact'
+import NotFound from './views/NotFound'
 
 let routes = [
   {
     name: 'home',
     path: '/',
     component: Home,
-    props: true,
   },
   {
     name: 'project',
@@ -22,19 +22,21 @@ let routes = [
     name: 'work',
     path: '/work',
     component: Work,
-    props: true,
   },
   {
     name: 'studio',
     path: '/studio',
     component: Studio,
-    props: true,
   },
   {
     name: 'contact',
     path: '/contact',
     component: Contact,
-    props: true,
+  },
+  {
+    name: '404',
+    path: '/notFound',
+    component: NotFound,
   },
 ]
 
@@ -50,9 +52,19 @@ function scrollBehavior(to, from, savedPosition) {
   }
 }
 
-export default new Router({
+const router = new Router({
   routes,
   scrollBehavior,
   linkActiveClass: 'is-active',
   mode: 'history',
 })
+
+router.beforeEach((to, from, next) => {
+    if (!to.matched.length) {
+        next('/notFound');
+    } else {
+        next();
+    }
+});
+
+export default router

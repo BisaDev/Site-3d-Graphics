@@ -68,11 +68,14 @@ export default {
     },
 
     reveal() {
-      this.isAnimating = true
-      this.phrase = this.getPhrase()
-      this.calculateMiddlePath()
-      this.resetPoints()
-      return this.animateLayersIn()
+        if(!this.isOpened){
+          this.isAnimating = true
+          this.phrase = this.getPhrase()
+          this.calculateMiddlePath()
+          this.resetPoints()
+          return this.animateLayersIn()
+        }
+        return new Promise(resolve => { resolve() })
     },
 
     close() {
