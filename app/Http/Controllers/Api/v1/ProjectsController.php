@@ -28,7 +28,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::orderByDesc('is_featured')->get();
 
         return response()->json($projects, 200);
     }
