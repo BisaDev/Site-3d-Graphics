@@ -18,7 +18,7 @@ class ProjectsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api')->except(['index', 'show']);
+        $this->middleware('auth:api')->except(['index', 'show', 'getNextProject']);
     }
 
     /**
@@ -114,5 +114,30 @@ class ProjectsController extends Controller
     public function destroy(Project $project)
     {
         //
+    }
+
+    /**
+     * Get next project by id from a projects collection
+     *
+     * @param  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getNextProject($id)
+    {
+        $allProjects = Project::orderByDesc('is_featured')->get();
+
+        if ($allProjects) {
+            $projectIndex = $allProjects->pluck('id')->search($id);
+            $nextElementByIndex = $allProjects->slice($projectIndex + 1, 1);
+
+            if ($nextElementByIndex->isEmpty()) {
+                $nextElementByIndex = $allProjects->slice(0, 1);
+            }
+
+            return response()->json($nextElementByIndex, 200);
+        }
+
+        return response()->json([], 200);
+
     }
 }
