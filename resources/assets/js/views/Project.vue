@@ -5,6 +5,8 @@
       <div class="container">
         <h1 class="project-header-title">{{project.name}}</h1>
         <h1 class="project-header-subtitle">{{project.description}}.</h1>
+      </div>
+      <div class="project-header-button-container container">
         <button class="button button-scroll"><span>Read more</span><span>Read more</span></button>
       </div>
     </themed-section>

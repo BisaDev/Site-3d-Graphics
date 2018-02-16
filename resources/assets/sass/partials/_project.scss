@@ -13,17 +13,37 @@
     background-color: #005fff;
     background-image: url('../img/featured/plateiq.png');
 
-    .container {
+    &-title-container {
       height: 100vh;
       display: flex;
       flex-flow: column;
       justify-content: center;
+    }
+
+    &-button-container {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      display: flex;
+      flex-flow: column;
+      @include breakpoint(medium down) {
+        .button {
+          position: relative;
+          @include button-outline();
+        }
+      }
     }
     &-subtitle {
       opacity: 0.5;
     }
     .button-scroll {
       margin-left: -$button-padding-h;
+      @include breakpoint(medium down) {
+        margin-left: 0;
+        @include button-outline();
+      }
     }
   }
 
