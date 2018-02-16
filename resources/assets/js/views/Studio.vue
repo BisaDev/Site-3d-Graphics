@@ -159,44 +159,28 @@
       <div class="container">
         <div class="grid">
           <div class="studio-clients-title section-title">
-            <h3>Some of the clients we have worked with.</h3>
+            <h3>Some of the clients & partners we have worked with.</h3>
           </div>
         </div>
         <div class="grid">
           <ul class="studio-clients-list">
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit</li>
-            <li>Amet Consectetur</li>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit</li>
-            <li>Amet Consectetur</li>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit</li>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit</li>
-            <li>Amet Consectetur</li>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit</li>
-            <li>Amet Consectetur</li>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit</li>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit</li>
-            <li>Amet Consectetur</li>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit</li>
-            <li>Amet Consectetur</li>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit</li>
-            <li>Dolor Sit</li>
-            <li>Amet Consectetur</li>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit</li>
-            <li>Amet Consectetur</li>
+            <li class="studio-clients-link"><a href="http://attck.com/" target="_blank">ATTK</a> </li>
+            <li class="studio-clients-link"><a href="https://www.butchershop.co/" target="_blank">Butchershop</a></li>
+            <li class="studio-clients-link"><a href="https://ciboglobal.com" target="_blank">Cibo</a></li>
+            <li class="studio-clients-link"><a href="https://www.fluid.com/" target="_blank">Fluid</a></li>
+            <li class="studio-clients-link"><a href="http://wearehathway.com/" target="_blank">Hathway</a></li>
+            <li class="studio-clients-link"><a href="https://www.plateiq.com/" target="_blank">Plate IQ</a></li>
+            <li class="studio-clients-link"><a href="http://www.jtbcustom.com/" target="_blank">JTB Customs</a></li>
+            <li class="studio-clients-link"><a href="https://www.nike.com/mx/es_la/" target="_blank">Nike</a></li>
+            <li class="studio-clients-link"><a href="https://upperplayground.com/" target="_blank">Upper Playground</a></li>
+            <li class="studio-clients-link"><a href="https://sideways-nyc.com/" target="_blank">Sideways</a></li>
+            <li class="studio-clients-link"><a href="https://www.vw.com.mx" target="_blank">Wolkswagen</a></li>
+
+
           </ul>
           <div class="studio-clients-description">
             <p>
-              While our offices are based in Guadalajara, Mexico, clients from all over the world appreciate the personality and spirit of our team as much as the work they provide.
+              While our offices are based in Guadalajara, Mexico, clients, partners and humans from all over the world appreciate the personality and spirit of our team.
             </p>
             <ul>
               <li><img class="icon" src="../../img/icons/white/country-US.svg" alt="">USA</li>
@@ -212,7 +196,6 @@
     <image-full class="no-margin"></image-full>
   </div>
 </template>
-
 
 <script>
 import apiManiak from '../utils/api'

@@ -1,6 +1,6 @@
 <footer>
     <section class="dark no-margin no-padding">
-        <a href="mailto:hola@maniak.co" class="container">
+        <a href="mailto:hola@maniak.co" target="_blank" class="container">
             <div class="grid">
                 <h4 class="footer-title text-center">
                     <span>Lets blow minds together.</span>

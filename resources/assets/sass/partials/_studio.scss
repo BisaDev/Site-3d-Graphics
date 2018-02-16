@@ -10,8 +10,8 @@ $studio-paragraph-margin: 0 0 3.5rem;
   .image-full {
     background-color: #005fff;
     .parallax-image {
-      background-image: url('../img/projectimages/image-full.jpg');
       background-size: cover;
+      background-image: url('../img/projectimages/image-full.jpg');
     }
   }
 
@@ -20,24 +20,24 @@ $studio-paragraph-margin: 0 0 3.5rem;
       height: 100vh;
       display: flex;
       flex-flow: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
     }
   }
   &-where {
-    position: relative;
     z-index: 1;
+    position: relative;
     &-callout {
-      height: $studio-where-callout-height;
-      margin-bottom: -$studio-where-callout-height / 2;
-      padding: 3.5rem 4rem 4rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       align-items: flex-start;
-      background: $base-bg-color-dark;
+      padding: 3.5rem 4rem 4rem;
       color: $base-font-color-light;
+      justify-content: space-between;
+      background: $base-bg-color-dark;
       border-radius: $border-radius-lg;
+      height: $studio-where-callout-height;
+      margin-bottom: -$studio-where-callout-height / 2;
 
       .button {
         margin-left: -$button-padding-h;
@@ -45,16 +45,15 @@ $studio-paragraph-margin: 0 0 3.5rem;
     }
   }
   &-panorama {
-    //padding: 0 0 33%;
     height: 40rem;
     background-color: red;
 
     .parallax-image {
-      background-image: url('../img/about/maniak-panorama.png');
-      background-size: cover;
       right: -80vw;
       width: 160vw;
       height: 125%;
+      background-size: cover;
+      background-image: url('../img/about/maniak-panorama.png');
     }
   }
   &-values {
@@ -71,9 +70,9 @@ $studio-paragraph-margin: 0 0 3.5rem;
       margin-bottom: 10rem;
       ul {
         width: 60%;
+        opacity: 0.75;
         column-count: 2;
         column-gap: 2rem;
-        opacity: 0.75;
       }
     }
   }
@@ -96,6 +95,30 @@ $studio-paragraph-margin: 0 0 3.5rem;
       }
       .icon {
         margin-right: 2rem;
+      }
+    }
+    &-link a {
+
+      position: relative;
+
+      &:after {
+        left: 0;
+        width: 0;
+        bottom: 0;
+        height: 1px;
+        content: ' ';
+        position: absolute;
+        background-color: $white;
+        transition: width 300ms ease;
+      }
+
+      &:hover:after {
+        width: 100%;
+      }
+
+      &:active, &:visited, &:link {
+        color: $white;
+        text-decoration: none;
       }
     }
   }
