@@ -2,7 +2,7 @@
   <div class="project" v-if="project !== null">
     <!-- Hero Information -->
     <themed-section :color="project.hero_color" :image="project.hero_image" :isDark="project.is_dark" :class="['project-header', 'align-center', 'no-padding']">
-      <div class="container">
+      <div class="project-header-title-container container">
         <h1 class="project-header-title">{{project.name}}</h1>
         <h1 class="project-header-subtitle">{{project.description}}.</h1>
       </div>
