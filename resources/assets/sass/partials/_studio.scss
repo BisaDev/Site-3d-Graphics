@@ -34,6 +34,8 @@ $studio-paragraph-margin: 0 0 3.5rem;
     z-index: 1;
     position: relative;
     &-callout {
+      height: $studio-where-callout-height;
+      margin-bottom: -$studio-where-callout-height / 2;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
