@@ -15,6 +15,7 @@
                     v-on:set-nav-theme="setNavTheme"
                     v-on:view-loaded="closeReveal"
                     v-on:view-leave="openReveal"
+                    v-on:not-found="notFoundRedirect"
             ></router-view>
 
             <footer-component></footer-component>

@@ -36,6 +36,10 @@ new Vue({
             this.$refs.reveal.reveal().then(() => callback())
         },
 
+        notFoundRedirect(){
+            this.$router.push('/notFound')
+        },
+
         killIt() {
             if (!this.wantsJob && !window.foundYourSecret) {
                 this.devtoolsOpen = false

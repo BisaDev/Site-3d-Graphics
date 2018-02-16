@@ -89,7 +89,9 @@ export default {
   },
 
   mounted() {
-    apiManiak.getProjects().then(this.updateData)
+    apiManiak.getProjects()
+        .then(this.updateData)
+        .catch(() => { this.$emit('not-found') })
   },
 
   methods: {
