@@ -74,4 +74,10 @@ class Project extends Model
     {
         return $this->hasMany(ProjectSection::class);
     }
+
+    //Scope a query to only include feature projects.
+    public function scopeFeatured($query)
+    {
+        return $query->where('is_featured', 1);
+    }
 }
