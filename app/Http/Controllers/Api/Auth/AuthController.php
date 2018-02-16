@@ -24,7 +24,7 @@ class AuthController extends Controller
     public function __construct()
     {
         //@todo set .env var with the custom client
-        $this->client = DB::table('oauth_clients')->where('id', 2)->first();
+        $this->client = DB::table('oauth_clients')->where('id', 1)->first();
     }
 
     /**
@@ -39,7 +39,7 @@ class AuthController extends Controller
             'grant_type' => 'password',
             'client_id' => $this->client->id,
             'client_secret' => $this->client->secret,
-            'scope' => '*'
+            'scope' => '*',
         ]);
 
         $proxy = Request::create(

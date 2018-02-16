@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Http\Requests\ProjectRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -49,11 +50,10 @@ class ProjectsController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
         $request->offsetSet('hero_image', 'image.png');
         $request->offsetSet('hero_image_preview', 'image.png');
-        $request->offsetSet('hero_color', '#FFFFFF');
         $request->offsetSet('country_id', 1);
         $request->offsetSet('client_id', 1);
 
@@ -62,6 +62,7 @@ class ProjectsController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Project (ID: '.$project->id.') created successfully!',
+            'projectId' => $project->id,
         ], 200);
     }
 
@@ -96,13 +97,19 @@ class ProjectsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\Project $project
-     * @return \Illuminate\Http\Response
+     * @param ProjectRequest $request
+     * @param Project        $project
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, Project $project)
+    public function update(ProjectRequest $request, Project $project)
     {
-        //
+        $project->update($request->all());
+
+        return response()->json([
+            'success' => true,
+            'projectId' => $project->id,
+            'message' => 'Project (ID: '.$project->id.') edited successfully!',
+        ], 200);
     }
 
     /**
