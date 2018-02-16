@@ -50,6 +50,7 @@ class CreateProjectsTable extends Migration
                 ->onUpdate('cascade');
 
             $table->boolean('is_featured')->default(false);
+            $table->boolean('is_dark')->default(false);
             $table->timestamps();
         });
     }

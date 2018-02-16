@@ -1,10 +1,8 @@
 import Router from 'vue-router'
-import Home from './views/Home'
-import Project from './views/Project'
-import Work from './views/Work'
-import Studio from './views/Studio'
-import Contact from './views/Contact'
 import Dashboard from './views/admin/Dashboard'
+import ProjectForm from './views/admin/ProjectsForm'
+import Login from './views/admin/Login'
+import Logout from './views/admin/Logout'
 
 let routes = [
   {
@@ -12,47 +10,48 @@ let routes = [
     path: '/admin',
     component: Dashboard,
     props: true,
+  },
+  {
+    name: 'projects',
+    path: '/admin/projects',
+    component: ProjectForm,
+    props: true,
     children: [
       {
-        // UserProfile will be rendered inside User's <router-view>
-        // when /user/:id/profile is matched
-        path: 'project',
-        component: Dashboard,
+        name: 'edit-project',
+        path: ':id/edit',
+        component: ProjectForm,
+        props: true,
       },
       {
-        // UserPosts will be rendered inside User's <router-view>
-        // when /user/:id/posts is matched
-        path: 'posts',
-        component: Home,
+        name: 'create-project',
+        path: 'create',
+        component: { default: ProjectForm },
+        props: { default: true },
       },
     ],
   },
   {
-    name: 'project',
-    path: '/project/:id',
-    component: Project,
-    props: true,
+    name: 'login',
+    path: '/login',
+    component: Login,
+    props: false,
   },
   {
-    name: 'work',
-    path: '/work',
-    component: Work,
-    props: true,
-  },
-  {
-    name: 'studio',
-    path: '/studio',
-    component: Studio,
-    props: true,
-  },
-  {
-    name: 'contact',
-    path: '/contact',
-    component: Contact,
-    props: true,
+    name: 'logout',
+    path: '/logout',
+    component: Logout,
+    props: false,
   },
 ]
 
+/**
+ *
+ * @param to
+ * @param from
+ * @param savedPosition
+ * @returns {*}
+ */
 function scrollBehavior(to, from, savedPosition) {
   if (to.hash) {
     return {
@@ -65,9 +64,31 @@ function scrollBehavior(to, from, savedPosition) {
   }
 }
 
-export default new Router({
+/**
+ *
+ * @type {VueRouter}
+ */
+const adminRouter = new Router({
   routes,
   scrollBehavior,
   linkActiveClass: 'is-active',
   mode: 'history',
 })
+
+adminRouter.beforeEach((to, from, next) => {
+  adminRouter.app.$nextTick().then(result => {
+    if (result.$root.ready) {
+      if (!result.credentials && 'login' !== to.name) {
+        next({ name: 'login' })
+      } else {
+        if ('login' === to.name && result.credentials) {
+          next({ name: 'admin' })
+        }
+
+        next()
+      }
+    }
+  })
+})
+
+export default adminRouter
