@@ -1,0 +1,5 @@
+<svg class="revealer-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
+  <path class="revealer-overlays__path" d="M 0 0 C 25 0 25 0 50 0 C 75 0 75 0 100 0 V 0 H 0"></path>
+  <path class="revealer-overlays__path" d="M 0 49.75522237776996 C 25 49.75522237776996 25 23.578110955563375 50 23.578110955563375 C 75 23.578110955563375 75 49.75522237776996 100 49.75522237776996 V 0 H 0"></path>
+  <path class="revealer-overlays__path" d="M 0 0 C 25 0 25 0 50 0 C 75 0 75 0 100 0 V 0 H 0"></path>
+</svg>

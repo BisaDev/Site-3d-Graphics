@@ -1,0 +1,64 @@
+@mixin transition ($duration, $property: all, $easing: ease) {
+  @if $duration == lg {
+    transition: $property 0.35s $easing;
+  } @else if $duration == md {
+    transition: $property 0.25s $easing;
+  } @else if $duration == sm {
+    transition: $property 0.15s $easing;
+  } @else if $duration == none {
+    transition: none;
+  } @else {
+    transition: $property $duration $easing;
+  }
+}
+
+@mixin button-interaction() {
+  display: inline-block;
+  line-height: $button-height;
+  padding: 0 $button-padding-h;
+  background-color: transparent;
+  border: none;
+  outline: none !important;
+  cursor: pointer;
+  border-radius: $border-radius;
+  color: $base-font-color-dark;
+  text-decoration: none;
+  @include transition(sm);
+
+  &:hover {
+    background-color: rgba($black, 0.05);
+  }
+  &:active {
+    background-color: rgba($black, 0.08);
+    @include transition(none);
+  }
+
+  .dark &,
+  &.dark {
+    color: $base-font-color-light;
+
+    &:hover {
+      background-color: rgba($light-gray, 0.075);
+    }
+    &:active {
+      background-color: rgba($light-gray, 0.125);
+    }
+  }
+}
+
+
+@mixin button-outline() {
+  border-width: 1px;
+  border-style: solid;
+  border-color: $light-gray-darker;
+  width: 100%;
+
+  .dark &,
+  &.dark {
+    border-color: rgba($light-gray, 0.5);
+  }
+}
+
+@mixin button-xl() {
+  line-height: $button-height-xl;
+}

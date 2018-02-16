@@ -1,0 +1,57 @@
+.button {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  @include button-interaction();
+  @include breakpoint(medium down) {
+    line-height: $button-height-xl;
+  }
+  &.button-scroll {
+    height: $button-height;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    bottom: 5rem;
+
+    span {
+      display: block;
+      animation-name: button-label-scroll;
+      animation-duration: 3s;
+      animation-timing-function: cubic-bezier(0.75, 0, 0.66, 1.2);
+      animation-iteration-count: infinite;
+    }
+
+    @include breakpoint(medium down) {
+      height: $button-height-xl;
+      bottom: 4rem;
+      width: 100%;
+    }
+  }
+
+  &.button-arrow {
+    position: relative;
+    &::after {
+      content: '';
+      display: inline-block;
+      height: $button-height;
+      width: $button-height;
+      vertical-align: middle;
+      background-image: url('../img/icons/white/arrow-right.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      @include transition(md);
+    }
+    &:hover::after {
+      margin-left: 2rem;
+    }
+  }
+}
+
+@keyframes button-label-scroll {
+  0%,
+  66% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}

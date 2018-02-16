@@ -15,8 +15,14 @@
         "browser-sync-webpack-plugin": "^1.2.0",
         "cross-env": "^5.1",
         "laravel-mix": "^1.0",
-        "lodash": "^4.17.4",
+        "prettier": "1.10.2",
         "tailwindcss": "^0.2.2",
         "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "animejs": "^2.2.0",
+        "foundation-sites": "^6.4.4-rc1",
+        "photoswipe": "^4.1.2",
+        "vue-router": "^3.0.1"
     }
 }

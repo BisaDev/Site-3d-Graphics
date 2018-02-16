@@ -1,0 +1,57 @@
+.preview {
+  border-radius: $border-radius-lg;
+  height: 50rem;
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  color: inherit;
+  @include transition(md);
+
+  background-size: contain;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-color: $light-gray-dark;
+  background-image: url('../img/featured/plateiq.png');
+  color: $stone;
+
+  &-title {
+    align-self: flex-end;
+    padding: 3.5rem 3rem;
+    width: 100%;
+    @include transition(md);
+
+    h5 {
+      margin-bottom: 0.5rem;
+    }
+
+    &-cta {
+      height: 0px;
+      overflow: hidden;
+      @include transition(md);
+
+      p {
+        opacity: 0.5;
+        margin-top: 1.5rem;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+
+  &.dark {
+    color: $light-gray;
+    background-color: #20222b;
+  }
+}
+
+.preview:hover {
+  //transform: translateY(-1rem);
+  transform: scale(1.01);
+
+  .preview-title {
+    .preview-title-cta {
+      height: 4rem;
+    }
+  }
+}

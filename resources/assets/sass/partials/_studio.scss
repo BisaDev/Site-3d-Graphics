@@ -1,0 +1,147 @@
+$studio-where-callout-height: 36rem;
+$studio-where-callout-height-sm: 25rem;
+$studio-paragraph-margin: 0 0 3.5rem;
+
+.studio {
+  p {
+    margin: $studio-paragraph-margin;
+  }
+
+  //DELETE THIS
+  .image-full {
+    background-color: #005fff;
+    .parallax-image {
+      background-size: cover;
+      background-image: url('../img/projectimages/image-full.jpg');
+    }
+  }
+
+  &-header {
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      text-align: center;
+      @include breakpoint(medium down) {
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+  }
+  &-where {
+    z-index: 1;
+    position: relative;
+    &-callout {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 3.5rem 4rem 4rem;
+      color: $base-font-color-light;
+      justify-content: space-between;
+      background: $base-bg-color-dark;
+      border-radius: $border-radius-lg;
+      @include transition(md);
+      @include breakpoint(medium down) {
+        height: $studio-where-callout-height-sm;
+        margin-bottom: -$studio-where-callout-height-sm / 2;
+      }
+      .button {
+        margin-left: -$button-padding-h;
+      }
+      &:hover {
+        transform: translateY(-1rem);
+        background: $stone-dark;
+      }
+    }
+  }
+  &-panorama {
+    height: 40rem;
+    background-color: $base-bg-color-dark;
+
+    .parallax-image {
+      right: -80vw;
+      width: 160vw;
+      height: 125%;
+      background-size: cover;
+      background-image: url('../img/about/maniak-panorama.png');
+    }
+  }
+  &-values {
+    li {
+      margin-bottom: 8rem;
+    }
+    h5 {
+      margin-bottom: 1rem;
+    }
+  }
+  &-portfolio {
+    position: relative;
+    overflow: hidden;
+  }
+  &-services {
+    &-department {
+      margin-bottom: 10rem;
+      ul {
+        width: 60%;
+        opacity: 0.75;
+        column-count: 2;
+        column-gap: 2rem;
+        opacity: 0.75;
+        @include breakpoint(medium down) {
+          width: 100%;
+        }
+      }
+    }
+  }
+  &-clients {
+    &-title {
+      margin-bottom: 8rem;
+    }
+    &-list {
+      column-count: 3;
+      column-gap: 3rem;
+      @include breakpoint(medium down) {
+        column-count: 2;
+        margin-bottom: 4rem;
+      }
+      li {
+        font-size: $font-size-sm;
+      }
+    }
+    &-description {
+      margin-bottom: 3.5rem;
+
+      ul {
+        opacity: 0.75;
+      }
+      .icon {
+        margin-right: 2rem;
+      }
+    }
+    &-link a {
+
+      position: relative;
+
+      &:after {
+        left: 0;
+        width: 0;
+        bottom: 0;
+        height: 1px;
+        content: ' ';
+        position: absolute;
+        background-color: $white;
+        transition: width 300ms ease;
+      }
+
+      &:hover:after {
+        width: 100%;
+      }
+
+      &:active, &:visited, &:link {
+        color: $white;
+        text-decoration: none;
+      }
+    }
+  }
+}

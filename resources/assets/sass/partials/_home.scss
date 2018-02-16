@@ -1,0 +1,111 @@
+.home {
+  & &-header {
+    position: relative;
+    overflow: hidden;
+    &-title-container {
+      height: 100vh;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      mix-blend-mode: exclusion;
+      z-index: 3;
+      color: $base-font-color-light;
+      pointer-events: none;
+      text-align: center;
+
+      @include breakpoint(medium down) {
+        text-align: left;
+      }
+    }
+    h1 {
+      font-size: 4rem;
+    }
+    &-button-container {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      @include breakpoint(medium down) {
+        .button {
+          position: relative;
+          @include button-outline();
+        }
+      }
+    }
+  }
+  & &-info {
+    background: $light-gray-dark;
+    .grid {
+      flex-direction: column;
+      align-items: center;
+      @include breakpoint(medium down) {
+        align-items: left;
+      }
+    }
+    &-copy {
+      text-align: center;
+      h4 {
+        margin-bottom: 3rem;
+      }
+      @include breakpoint(medium down) {
+        text-align: left;
+
+        .button {
+          @include button-outline();
+        }
+      }
+
+    }
+  }
+  & &-featured {
+    &-title {
+      margin-bottom: 5rem;
+    }
+    &-button {
+      margin-bottom: 5rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      @include breakpoint(medium down) {
+        .button {
+          width: 100%;
+          @include button-outline();
+        }
+      }
+    }
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      .preview {
+        border-radius: 0;
+        &:first-of-type {
+          border-top-left-radius: $border-radius-lg;
+          border-bottom-left-radius: $border-radius-lg;
+        }
+        &:last-of-type {
+          border-top-right-radius: $border-radius-lg;
+          border-bottom-right-radius: $border-radius-lg;
+        }
+        &:hover {
+          transform: translateY(-1rem);
+        }
+      }
+      @include breakpoint(medium down) {
+        .preview {
+          border-radius: $border-radius-lg;
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+}

@@ -12,8 +12,10 @@ var tailwindcss = require('tailwindcss');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css')
+mix.js('resources/assets/js/site.js', 'public/js')
+    .sass('resources/assets/sass/site.scss', 'public/css')
+    .js('resources/assets/js/admin.js', 'public/js')
+    .sass('resources/assets/sass/admin.scss', 'public/css')
     .options({
         processCssUrls: false,
         postCss: [tailwindcss('tailwind.js')]
@@ -21,5 +23,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 
 mix.browserSync({
-    proxy: 'maniak2018.dev'
+    proxy: 'maniak-website-2018.test'
 });

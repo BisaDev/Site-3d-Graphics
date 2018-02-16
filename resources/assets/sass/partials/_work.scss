@@ -1,0 +1,56 @@
+$work-portfolio-offset: 10vh;
+$work-filters-height: 4rem;
+
+.work {
+  & &-header {
+    height: 80vh;
+    margin-bottom: $work-portfolio-offset;
+    display: flex;
+    flex-flow: column;
+    &-title-container {
+      padding-top: $navbar-height;
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+    }
+    &-filters-container {
+      flex-shrink: 0;
+      flex-grow: 0;
+      @include breakpoint(large up) {
+        ul {
+          margin-left: -$button-padding-h;
+        }
+      }
+
+      li {
+        @include transition(md);
+        @include breakpoint(large up) {
+          display: inline-block;
+          margin-right: 10rem;
+          margin-bottom: 0;
+        }
+
+        a {
+          @include button-interaction();
+          line-height: $button-height-lg;
+          .filter-count {
+            font-size: $font-size-xs;
+            vertical-align: baseline;
+            margin-left: 1rem;
+          }
+          &:not(.active) {
+              color: rgba($base-font-color-dark, 0.5);
+          }
+          @include breakpoint(medium down) {
+            @include button-outline();
+            display: flex;
+            justify-content: space-between;
+            &.active {
+                border: 1px solid $base-bg-color-dark;
+            }
+          }
+        }
+      }
+    }
+  }
+}
