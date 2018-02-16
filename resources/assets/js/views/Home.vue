@@ -14,7 +14,7 @@
         </div>
         <div class="grid home-featured-list">
             <router-link :key="project.id" :to="`/project/${project.id}`" class="preview dark reveal"
-                         v-for="project in projects" :style="{backgroundImage: `url(../../img/featured/${project.hero_image_preview})`}">
+                         v-for="project in firstThreeProjects" :style="{backgroundImage: `url(../../img/featured/${project.hero_image_preview})`}">
               <div class="preview-title">
                 <h5>{{project.name}}</h5>
                 <h6>{{project.description}}</h6>
@@ -47,6 +47,12 @@ export default {
       default: false,
       type: Boolean,
     },
+  },
+
+  computed: {
+      firstThreeProjects: function () {
+          return this.projects.slice(0, 3);
+      }
   },
 
   components: {
