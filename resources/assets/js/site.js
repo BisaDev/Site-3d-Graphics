@@ -4,7 +4,7 @@ import navbar from './components/Navbar'
 import deathScreen from './components/DeathScreen'
 import footerComponent from './components/Footer'
 import './bootstrap'
-
+import {scrollIt} from './utils/scroll'
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -78,5 +78,10 @@ new Vue({
         })
 
         this.enableDeath && setInterval(this.killIt, 1000)
+
+        document.querySelector('.home-header-button-container .button').addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollIt(document.querySelector(e.target.parentElement.getAttribute("href")), 1000, 'easeInOutCubic');
+        });
     }
 })
