@@ -3,19 +3,24 @@
 @section('content')
 
     <div id="app">
-        <reveal ref="reveal"></reveal>
+        <death-screen v-if="death"></death-screen>
+        <div v-else>
 
-        <navbar :theme="navTheme" ></navbar>
+            <reveal ref="reveal"></reveal>
 
-        <router-view
-            v-on:set-nav-theme="setNavTheme"
-            v-on:view-loaded="closeReveal"
-            v-on:view-leave="openReveal"
-        ></router-view>
+            <navbar :theme="navTheme"></navbar>
+
+            <router-view
+                    v-on:set-nav-theme="setNavTheme"
+                    v-on:view-loaded="closeReveal"
+                    v-on:view-leave="openReveal"
+            ></router-view>
 
             <footer-component></footer-component>
 
-        @include('partials.photoswipe')
+            @include('partials.photoswipe')
+        </div>
+
     </div>
 
 @endsection

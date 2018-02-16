@@ -5,7 +5,7 @@
   width: 100vw;
   height: 100vh;
   color: white;
-  display: none;
+  display: flex;
   padding: 3rem;
   position: fixed;
   background-color: #0000e0;
@@ -74,10 +74,3 @@
   }
 }
 
-body.death {
-  overflow: hidden;
-
-  #death {
-    display: flex;
-  }
-}
