@@ -49,8 +49,12 @@ class CreateProjectsTable extends Migration
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
 
+            /*
+             * Theme information
+             */
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_dark')->default(false);
+
             $table->timestamps();
         });
     }

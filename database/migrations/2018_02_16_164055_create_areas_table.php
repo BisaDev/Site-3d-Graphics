@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateServicesTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,12 @@ class CreateServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50);
-            $table->string('icon');
+            $table->string('description', 300);
             $table->timestamps();
 
-            /*
-             * Area information
-             */
-            $table->integer('area_id')->unsigned();
-            $table->foreign('area_id')->references('id')->on('areas')
-                  ->onDelete('restrict')
-                  ->onUpdate('cascade');
         });
     }
 
@@ -36,6 +29,6 @@ class CreateServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('tags');
     }
 }
