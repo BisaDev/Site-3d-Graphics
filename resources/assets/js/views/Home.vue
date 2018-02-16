@@ -9,7 +9,7 @@
             <h3>Some of the projects<br>we are most proud of.</h3>
           </div>
           <div class="home-featured-button">
-            <button class="button">See all projects</button>
+            <button class="button"><router-link to="/work">See all projects</router-link></button>
           </div>
         </div>
         <div class="grid home-featured-list">
@@ -89,7 +89,9 @@ export default {
   },
 
   mounted() {
-    apiManiak.getProjects().then(this.updateData)
+    apiManiak.getProjects()
+        .then(this.updateData)
+        .catch(() => { this.$emit('not-found') })
   },
 
   methods: {
