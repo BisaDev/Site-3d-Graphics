@@ -119,7 +119,8 @@ export default {
 
       if (
         this.stateClass !== 'nav-hide' &&
-        this.scrollPosition >= this.savedScrollPosition + this.offset
+        this.scrollPosition >= this.savedScrollPosition + this.offset &&
+        !this.mobileClass
       ) {
         return 'nav-hide'
       }
