@@ -20,7 +20,7 @@ new Vue({
             death: false,
             devtoolsOpen: false,
             wantsJob: false,
-            enableDeath: process.env.NODE_ENV !== 'development' || true,
+            enableDeath: process.env.NODE_ENV !== 'development',
         }
     },
 
