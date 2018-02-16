@@ -1,10 +1,20 @@
-$grid-margin-gutters: 3rem;
+$grid-container-padding-md: 8vw;
+$grid-container-padding-lg: 4vw;
 
 .container {
-  @include xy-grid-container;
+  max-width: 120rem;
+  margin: 0 auto;
   width: 100%;
   position: relative;
+  padding-left: $grid-container-padding-lg;
+  padding-right: $grid-container-padding-lg;
+  @include breakpoint(medium down) {
+      padding-left: $grid-container-padding-md;
+      padding-right: $grid-container-padding-md;
+  }
 }
+
+
 
 .grid {
   @include xy-grid;
@@ -15,16 +25,48 @@ $grid-margin-gutters: 3rem;
 .home {
   & &-info-copy {
     @include xy-cell(8 of 12);
+
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+    }
   }
   & &-featured-list {
     @include xy-gutters($gutters: 0);
   }
+  & &-featured-title {
+    @include xy-cell(6 of 12);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+    }
+  }
+  & &-featured-button {
+    @include xy-cell(6 of 12);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+    }
+  }
   .preview {
     width: 33.33333333%;
+    @include breakpoint(medium down) {
+      width: 100%;
+    }
   }
 }
 
 .work {
+  & &-header {
+    &-filters-container ul {
+      @include breakpoint(medium down) {
+        @include xy-grid;
+        @include xy-gutters($gutters: 3rem, $negative: 'true');
+        li {
+          @include xy-cell(6 of 12);
+          @include xy-gutters($gutter-position: left right top bottom);
+        }
+      }
+    }
+  }
+
   .preview.featured {
     @include xy-cell(12 of 12);
     @include xy-gutters($gutter-position: left right top bottom);
@@ -32,6 +74,9 @@ $grid-margin-gutters: 3rem;
   .preview {
     @include xy-cell(6 of 12);
     @include xy-gutters($gutter-position: left right top bottom);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+    }
   }
 }
 
@@ -39,10 +84,18 @@ $grid-margin-gutters: 3rem;
 .project {
   & &-intro-description {
     @include xy-cell(7 of 12);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+      margin-bottom: 2rem;
+    }
   }
   & &-intro-facts {
     @include xy-cell(4 of 12);
     @include xy-cell-offset(1 of 12);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+      @include xy-cell-offset(0 of 12);
+    }
     &-left,
     &-right {
       @include xy-cell(6 of 12);
@@ -50,20 +103,36 @@ $grid-margin-gutters: 3rem;
   }
   & &-copy-text {
     @include xy-cell(7 of 12);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+    }
   }
   & &-copy-sticky {
     @include xy-cell(6 of 12);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+    }
   }
   & &-screenshot-long {
     @include xy-cell(5 of 12);
     @include xy-cell-offset(1 of 12);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+      @include xy-cell-offset(0 of 12);
+    }
   }
   & &-gallery-image {
     @include xy-cell(4 of 12);
     @include xy-gutters($gutter-position: left right top bottom);
+    @include breakpoint(medium down) {
+      @include xy-cell(12 of 12);
+    }
     &:nth-child(4n + 2),
     &:nth-child(4n + 3) {
       @include xy-cell(8 of 12);
+      @include breakpoint(medium down) {
+        @include xy-cell(12 of 12);
+      }
     }
   }
 }
@@ -73,28 +142,51 @@ $grid-margin-gutters: 3rem;
   & &-where {
     .section-content {
       @include xy-cell(5 of 12);
+      @include breakpoint(medium down) {
+        @include xy-cell(12 of 12);
+      }
     }
     &-callout {
       @include xy-cell(3 of 12);
       @include xy-cell-offset(1 of 12);
+      @include breakpoint(medium down) {
+        @include xy-cell(12 of 12);
+        @include xy-cell-offset(0 of 12);
+      }
     }
   }
   & &-values {
-    &-col-1 {
-      @include xy-cell(4 of 12);
-    }
+    &-col-1,
     &-col-2 {
       @include xy-cell(4 of 12);
+      @include breakpoint(medium down) {
+        @include xy-cell(6 of 12);
+      }
+      // @include breakpoint(small down) {
+      //   @include xy-cell(12 of 12);
+      // }
+    }
+    &-col-2 {
       @include xy-cell-offset(1 of 12);
+      @include breakpoint(medium down) {
+        @include xy-cell-offset(0 of 12);
+      }
     }
   }
   & &-clients {
     &-list {
       @include xy-cell(6 of 12);
+      @include breakpoint(medium down) {
+        @include xy-cell(12 of 12);
+      }
     }
     &-description {
       @include xy-cell(5 of 12);
       @include xy-cell-offset(1 of 12);
+      @include breakpoint(medium down) {
+        @include xy-cell(12 of 12);
+        @include xy-cell-offset(0 of 12);
+      }
     }
   }
 }
@@ -104,6 +196,10 @@ $grid-margin-gutters: 3rem;
     h1 {
       @include xy-cell(8 of 12);
       @include xy-cell-offset(2 of 12);
+      @include breakpoint(medium down) {
+        @include xy-cell(12 of 12);
+        @include xy-cell-offset(0 of 12);
+      }
     }
   }
 }
@@ -123,5 +219,16 @@ footer {
 
   p + p {
     margin-top: 3.5rem;
+  }
+}
+
+@include breakpoint(medium down) {
+  .section-title {
+    @include xy-cell(12 of 12);
+    margin-bottom: 2rem;
+  }
+  .section-content {
+    @include xy-cell(12 of 12);
+    margin-bottom: 2rem;
   }
 }

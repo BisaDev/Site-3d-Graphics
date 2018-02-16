@@ -4,6 +4,15 @@ body {
   padding: 0;
   background-color: $base-bg-color-light;
   color: $base-font-color-dark;
+
+  ::selection {
+    background: $watermelon;
+    color: $light-gray;
+  }
+  ::-moz-selection {
+    background: $watermelon;
+    color: $light-gray;
+  }
 }
 
 * {

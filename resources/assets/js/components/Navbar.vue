@@ -1,12 +1,13 @@
 <template>
-  <nav :class="['navbar', currentTheme, stateClass]" ref="nav">
+  <nav :class="['navbar', currentTheme, stateClass, {'navbar-mobile-show': mobileClass}]" ref="nav">
     <div class="container">
-
       <router-link class="navbar-logo" to="/">
         <logo></logo>
       </router-link>
-
       <ul class="navbar-menu">
+        <li>
+          <router-link to="/">Home</router-link>
+        </li>
         <li>
           <router-link to="/work">Work</router-link>
         </li>
@@ -17,29 +18,38 @@
           <router-link to="/contact">Contact</router-link>
         </li>
       </ul>
-
+      <div  class="hamburger" :class="{'is-opened-navi': this.hamburgerClass}" role="button" @click="toggleMobileNav">
+        <div class="hamburger-line hamburger-line-01">
+          <div class="hamburger-line-in hamburger-line-in-01"></div>
+        </div>
+        <div class="hamburger-line hamburger-line-02">
+          <div class="hamburger-line-in hamburger-line-in-02"></div>
+        </div>
+        <div class="hamburger-line hamburger-line-03">
+          <div class="hamburger-line-in hamburger-line-in-03"></div>
+        </div>
+        <div class="hamburger-line hamburger-line-cross01">
+          <div class="hamburger-line-in hamburger-line-in-cross01"></div>
+        </div>
+        <div class="hamburger-line hamburger-line-cross02">
+          <div class="hamburger-line-in hamburger-line-in-cross02"></div>
+        </div>
+      </div>
     </div>
   </nav>
 </template>
 
 <style>
-.navbar {
-  transition: transform 0.5s ease;
-}
-
-.nav-at-top {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  transform: translateY(0%);
-}
-
 .nav-show {
   transform: translateY(0%);
 }
 
 .nav-hide {
   transform: translateY(-100%);
+}
+
+.nav-at-top {
+  transform: translateY(0%);
 }
 </style>
 
@@ -64,14 +74,15 @@ export default {
       default: 'light',
     },
   },
-
   data() {
     return {
       scrollPosition: window.scrollY,
       savedScrollPosition: window.scrollY,
       stateClass: window.scrollY > 5 ? 'nav-hide' : 'nav-at-top',
       ticking: false,
+      mobileClass: false,
       offset: 5, //px
+      hamburgerClass: false,
     }
   },
 
@@ -79,10 +90,18 @@ export default {
     this.$on('_scroll', this.updateScrollPosition)
   },
 
+  /*mounted() {
+    this.$refs.hamburger.addEventListener('click', this.toggleMobileNav)
+  },*/
   methods: {
     updateScrollPosition() {
       this.scrollPosition = window.pageYOffset || document.documentElement.scrollTop
       this.ticking = false
+    },
+
+    toggleMobileNav() {
+        this.mobileClass = !this.mobileClass
+        this.hamburgerClass = !this.hamburgerClass
     },
 
     setStateClass() {

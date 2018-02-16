@@ -1,6 +1,9 @@
 section {
   //padding: 14rem 0 0;
   margin: 0 0 14rem;
+  @include breakpoint(medium down) {
+    margin: 0 0 8rem;
+  }
   &.dark {
     background-color: $base-bg-color-dark;
     color: $base-font-color-light;
@@ -11,6 +14,9 @@ section {
   }
   &.padding {
     padding: 14rem 0;
+    @include breakpoint(medium down) {
+      padding: 8rem 0;
+    }
   }
   &.fullscreen {
     min-height: 100vh;

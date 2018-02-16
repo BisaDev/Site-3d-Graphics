@@ -2,9 +2,6 @@
   <div class="project" v-if="project !== null">
     <!-- Hero Information -->
     <themed-section color="#005fff" :dark="true" :class="['project-header', 'align-center', 'no-padding']">
-      <!-- <div id="myNav" class="overlay">
-      <a href="#" class="closebtn" @click.prevent="close">&times;</a>
-    </div>-->
       <div class="container">
         <h1 class="project-header-title">{{project.name}}</h1>
         <h1 class="project-header-subtitle">{{project.description}}.</h1>
@@ -31,7 +28,6 @@
                 <h5>Country</h5>
                 <p>
                   <icon icon-class="icon-country-US" />
-                  {{project.info_country}}
                 </p>
               </div>
               <div class="project-intro-facts-right">

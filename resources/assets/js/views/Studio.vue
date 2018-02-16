@@ -2,11 +2,9 @@
   <div class="studio">
     <section class="align-center studio-header no-margin no-padding fullscreen">
       <div class="container">
-        <div class="grid">
-          <h1 class="text-center">
-            <b>Maniak is a creative studio in Guadalajara, Mexico. </b><br>We build websites, applications and interactive experiences.
-          </h1>
-        </div>
+        <h1>
+          <b>Maniak is a creative studio in Guadalajara, Mexico. </b><br>We build websites, applications and interactive experiences.
+        </h1>
       </div>
     </section>
     <image-full></image-full>
@@ -33,10 +31,10 @@
           <div class="section-content">
             <p>Fusce vehicula dolor arcu, sit amet blandit dolor mollis nec. Donec viverra eleifend lacus, vitae ullamcorper metus vehicula dolor vehicula. </p>
           </div>
-          <div class="studio-where-callout dark">
+          <a href="mailto:hola@maniak.co" class="studio-where-callout dark">
             <p>Interested in working here?</p>
-            <a class="button button-arrow" href="mailto:hola@maniak.co">Drop us a line</a>
-          </div>
+            <button class="button button-arrow">Drop us a line</button>
+          </a>
         </div>
       </div>
     </section>
@@ -80,34 +78,6 @@
         </div>
       </div>
     </section>
-
-    <!-- <section class="studio-what dark text-center">
-      <div class="container">
-        <h4>We use the power of design and<br>technology to create and start change.</h4>
-      </div>
-      <div class="studio-what-visual">
-        <div class="studio-what-blob">
-          <span></span>
-          <span></span>
-          <span></span>
-          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="blob-svg">
-            <defs>
-              <filter id="goo">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
-              </filter>
-            </defs>
-          <π/svg>
-        </div>
-        <div class="studio-what-circles">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-
-    </section> -->
     <studio-portfolio></studio-portfolio>
     <section class="studio-services">
       <div class="container">

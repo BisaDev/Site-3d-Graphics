@@ -4,9 +4,13 @@
     <home-info></home-info>
     <section class="home-featured no-margin padding">
       <div class="container">
-        <div class="home-featured-title">
-          <h3>Some of the projects<br>we are most proud of.</h3>
-          <button class="button">See all projects</button>
+        <div class="grid">
+          <div class="home-featured-title">
+            <h3>Some of the projects<br>we are most proud of.</h3>
+          </div>
+          <div class="home-featured-button">
+            <button class="button">See all projects</button>
+          </div>
         </div>
         <div class="grid home-featured-list">
           <!-- <router-link :key="project.id" :to="`/project/${project.id}`" class="project-preview dark reveal"
@@ -20,7 +24,7 @@
               </div>
             </div>
           </router-link> -->
-            <a href class="preview reveal dark" :style="{backgroundColor: '#005EFF', backgroundImage: 'url(../../img/featured/plateiq.png)'}">
+            <a href class="preview reveal dark" :style="{backgroundImage: 'url(../../img/featured/plateiq.png)'}">
               <div class="preview-title">
                 <h5>Plate IQ</h5>
                 <h6>Restaurant Management</h6>
@@ -38,7 +42,7 @@
                 </div>
               </div>
             </a>
-            <a href class="preview reveal dark" :style="{backgroundColor: '#DA0037', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
+            <a href class="preview reveal dark" :style="{backgroundImage: 'url(../../img/featured/wolverine.png)'}">
               <div class="preview-title">
                 <h5>Wolverine</h5>
                 <h6>Online Configurator</h6>

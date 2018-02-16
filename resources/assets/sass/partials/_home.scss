@@ -1,6 +1,8 @@
 .home {
   & &-header {
-    .container {
+    position: relative;
+    overflow: hidden;
+    &-title-container {
       height: 100vh;
       display: flex;
       flex-flow: column;
@@ -14,12 +16,31 @@
       mix-blend-mode: exclusion;
       z-index: 3;
       color: $base-font-color-light;
-      //align-items: center;
       pointer-events: none;
-    }
+      text-align: center;
 
+      @include breakpoint(medium down) {
+        text-align: left;
+      }
+    }
     h1 {
-      font-size: 5rem;
+      font-size: 4rem;
+    }
+    &-button-container {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      @include breakpoint(medium down) {
+        .button {
+          position: relative;
+          @include button-outline();
+        }
+      }
     }
   }
   & &-info {
@@ -27,17 +48,40 @@
     .grid {
       flex-direction: column;
       align-items: center;
+      @include breakpoint(medium down) {
+        align-items: left;
+      }
     }
     &-copy {
-      margin-bottom: 3rem;
+      text-align: center;
+      h4 {
+        margin-bottom: 3rem;
+      }
+      @include breakpoint(medium down) {
+        text-align: left;
+
+        .button {
+          @include button-outline();
+        }
+      }
+
     }
   }
   & &-featured {
     &-title {
+      margin-bottom: 5rem;
+    }
+    &-button {
+      margin-bottom: 5rem;
       display: flex;
       align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 5rem;
+      justify-content: flex-end;
+      @include breakpoint(medium down) {
+        .button {
+          width: 100%;
+          @include button-outline();
+        }
+      }
     }
     &-list {
       display: flex;
@@ -54,6 +98,12 @@
         }
         &:hover {
           transform: translateY(-1rem);
+        }
+      }
+      @include breakpoint(medium down) {
+        .preview {
+          border-radius: $border-radius-lg;
+          margin-bottom: 1.5rem;
         }
       }
     }
