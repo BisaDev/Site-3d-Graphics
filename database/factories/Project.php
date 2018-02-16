@@ -11,13 +11,10 @@ $factory->define(App\Project::class, function (Faker $faker) {
         'hero_image_preview' => 'plateiq.png',
         'hero_color' => $faker->hexColor,
 
-        //'info_title' => $faker->text(140),
         'info_subtitle' => $faker->text(140),
         'info_description' => $faker->text(300),
         'start_date' => $faker->date(),
         'end_date' =>  $faker->date(),
-        //'info_year' => '2015 - 2018',
-        //'info_country' => 'usa',
 
         'country_id' => 1, //@todo select random country
 

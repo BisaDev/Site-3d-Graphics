@@ -10,5 +10,6 @@ $factory->define(ProjectGalleryImage::class, function (Faker $faker) {
             return factory(ProjectGallery::class)->create()->id;
         },
         'image' => '_project-gallery-image-text.jpg',
+        'color' => $faker->hexColor,
     ];
 });
