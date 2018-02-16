@@ -13,7 +13,7 @@
             v-on:view-leave="openReveal"
         ></router-view>
 
-        @include('layouts.footer')
+            <footer-component></footer-component>
 
         @include('partials.photoswipe')
     </div>
