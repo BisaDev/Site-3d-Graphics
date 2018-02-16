@@ -11,7 +11,6 @@ var tailwindcss = require('tailwindcss');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
 mix.js('resources/assets/js/site.js', 'public/js')
     .sass('resources/assets/sass/site.scss', 'public/css')
     .js('resources/assets/js/admin.js', 'public/js')
@@ -25,3 +24,14 @@ mix.js('resources/assets/js/site.js', 'public/js')
 mix.browserSync({
     proxy: 'maniak-website-2018.test'
 });
+
+// plugs environment variable into front end
+mix.webpackConfig(webpack => ({
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+            }
+        })
+    ]
+}))

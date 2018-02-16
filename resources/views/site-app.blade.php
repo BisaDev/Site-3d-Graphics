@@ -3,6 +3,7 @@
 @section('content')
 
     <div id="app">
+        <span ref="consoleChecker"></span>
         <death-screen v-if="death"></death-screen>
         <div v-else>
 
