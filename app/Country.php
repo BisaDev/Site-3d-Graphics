@@ -19,6 +19,8 @@ class Country extends Model
         'code',
     ];
 
+    public $timestamps = false;
+
     /**
      * Country related Projects
      *
