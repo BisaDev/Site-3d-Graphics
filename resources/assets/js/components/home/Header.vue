@@ -28,7 +28,7 @@
       </h1>
     </div>
     <div class="container home-header-button-container">
-      <a href="#portfolio" class="button button-scroll">
+      <a href="#home-info" class="button button-scroll">
         <span>Scroll down</span><span>Scroll down</span>
       </a>
     </div>
