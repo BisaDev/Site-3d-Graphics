@@ -7,7 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   color: inherit;
-  @include transition('md');
+  @include transition(md);
 
   background-size: contain;
   background-position: bottom right;
@@ -20,7 +20,7 @@
     align-self: flex-end;
     padding: 3.5rem 3rem;
     width: 100%;
-    @include transition('md');
+    @include transition(md);
 
     h5 {
       margin-bottom: 0.5rem;
@@ -29,7 +29,7 @@
     &-cta {
       height: 0px;
       overflow: hidden;
-      @include transition('md');
+      @include transition(md);
 
       p {
         opacity: 0.5;

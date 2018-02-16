@@ -1,14 +1,18 @@
 <template>
-
-  <section class="parallax" ref="parallax">
-    <div :style="{transform: `translate(${backgroundPositionOffsetX}vw,${backgroundPositionOffsetY}px)` }" class="parallax-image" ref="parallaxImage"></div>
+  <section class="parallax">
+    <div :style="{
+      transform: `translate(${backgroundPositionOffsetX}vw,${backgroundPositionOffsetY}px)`,
+      backgroundImage: image
+     }" class="parallax-image" ref="parallaxImage"></div>
     <slot></slot>
   </section>
-
 </template>
 
 <script>
+import Scroller from './Scroller'
+
 export default {
+  extends: { ...Scroller },
   props: {
     speed: {
       type: Number,
@@ -18,32 +22,34 @@ export default {
       type: Boolean,
       default: false,
     },
+    image: {
+      type: String,
+      required: true,
+    },
   },
   data() {
+    const scrollerFunction = this.handleParallax
     return {
       backgroundPositionOffsetY: 0,
       backgroundPositionOffsetX: 0,
+      scrollerFunction,
     }
   },
   methods: {
     handleParallax() {
-      this.backgroundPositionOffsetY = this.$refs.parallax.getBoundingClientRect().top / this.speed
+      const elPosition = this.$el.getBoundingClientRect()
+      this.backgroundPositionOffsetY = elPosition.top / this.speed
       if (this.horizontal == true) {
-        const offsetX =
-          this.$refs.parallax.getBoundingClientRect().bottom /
-          (window.innerHeight + this.$refs.parallax.getBoundingClientRect().height)
+        const offsetX = elPosition.bottom / (window.innerHeight + elPosition.height)
         const factorX =
           this.$refs.parallaxImage.getBoundingClientRect().width / window.innerWidth * 50
         this.backgroundPositionOffsetX = -offsetX * factorX * 0.5
       }
+      this.ticking = false
     },
   },
-
   created() {
-    window.addEventListener('scroll', () => this.handleParallax())
-  },
-  destroyed() {
-    window.removeEventListener('scroll', () => this.handleParallax())
+    this.$on('_scroll', this.handleParallax)
   },
 }
 </script>

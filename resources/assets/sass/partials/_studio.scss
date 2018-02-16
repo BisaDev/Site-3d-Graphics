@@ -1,4 +1,5 @@
 $studio-where-callout-height: 36rem;
+$studio-where-callout-height-sm: 25rem;
 $studio-paragraph-margin: 0 0 3.5rem;
 
 .studio {
@@ -21,7 +22,11 @@ $studio-paragraph-margin: 0 0 3.5rem;
       display: flex;
       flex-flow: column;
       align-items: center;
-      justify-content: center;
+      text-align: center;
+      @include breakpoint(medium down) {
+        align-items: flex-start;
+        text-align: left;
+      }
     }
   }
   &-where {
@@ -36,17 +41,23 @@ $studio-paragraph-margin: 0 0 3.5rem;
       justify-content: space-between;
       background: $base-bg-color-dark;
       border-radius: $border-radius-lg;
-      height: $studio-where-callout-height;
-      margin-bottom: -$studio-where-callout-height / 2;
-
+      @include transition(md);
+      @include breakpoint(medium down) {
+        height: $studio-where-callout-height-sm;
+        margin-bottom: -$studio-where-callout-height-sm / 2;
+      }
       .button {
         margin-left: -$button-padding-h;
+      }
+      &:hover {
+        transform: translateY(-1rem);
+        background: $stone-dark;
       }
     }
   }
   &-panorama {
     height: 40rem;
-    background-color: red;
+    background-color: $base-bg-color-dark;
 
     .parallax-image {
       right: -80vw;
@@ -64,7 +75,10 @@ $studio-paragraph-margin: 0 0 3.5rem;
       margin-bottom: 1rem;
     }
   }
-
+  &-portfolio {
+    position: relative;
+    overflow: hidden;
+  }
   &-services {
     &-department {
       margin-bottom: 10rem;
@@ -73,6 +87,10 @@ $studio-paragraph-margin: 0 0 3.5rem;
         opacity: 0.75;
         column-count: 2;
         column-gap: 2rem;
+        opacity: 0.75;
+        @include breakpoint(medium down) {
+          width: 100%;
+        }
       }
     }
   }
@@ -83,6 +101,10 @@ $studio-paragraph-margin: 0 0 3.5rem;
     &-list {
       column-count: 3;
       column-gap: 3rem;
+      @include breakpoint(medium down) {
+        column-count: 2;
+        margin-bottom: 4rem;
+      }
       li {
         font-size: $font-size-sm;
       }

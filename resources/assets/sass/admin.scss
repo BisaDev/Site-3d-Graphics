@@ -6,13 +6,12 @@
 @import 'common/theme';
 @import 'common/grid';
 @import 'common/util';
-@import 'common/icon';
 
 @import 'components/section';
-@import 'components/blob3';
+@import 'components/blob';
 @import 'components/button';
 @import 'components/navbar';
-//@import 'components/project';
+@import 'components/icon';
 @import 'components/preview';
 @import 'components/revealer';
 @import 'components/footer';
@@ -25,4 +24,6 @@
 @import 'partials/work';
 @import 'partials/contact';
 
-@import "partials/dashboard";
+@import 'partials/dashboard';
+@import 'components/navbar-admin';
+@import 'components/login';

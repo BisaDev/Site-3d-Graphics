@@ -4,6 +4,9 @@
       display: flex;
       align-items: center;
       height: 100vh;
+      @include breakpoint(large up) {
+        text-align: center;
+      }
     }
   }
 
@@ -20,7 +23,7 @@
     }
     &:active {
       background-color: rgba($black, 0.12);
-      @include transition('none');
+      @include transition(none);
     }
 
     .dark &,

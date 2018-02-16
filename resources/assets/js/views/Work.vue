@@ -1,12 +1,14 @@
 <template>
   <div class="work">
-    <section class="work-header no-margin">
-      <div class="container">
+    <section class="work-header">
+      <div class="container work-header-title-container">
         <h1>
           <b>Maniak builds cool stuff.</b><br>Lorem ipsum dolor sit.
         </h1>
-        <ul class="work-header-filters">
-          <li class="active"><a href="">All<span class="filter-count">12</span></a></li>
+      </div>
+      <div class="container work-header-filters-container">
+        <ul class="work-header-filters-list">
+          <li><a class="active" href="">All<span class="filter-count">12</span></a></li>
           <li><a href="">Design<span class="filter-count">12</span></a></li>
           <li><a href="">Software<span class="filter-count">12</span></a></li>
           <li><a href="">3D &amp; VR<span class="filter-count">12</span></a></li>
@@ -88,9 +90,6 @@
 
 
 <script>
-import apiManiak from '../utils/api'
-import homeHeader from '../components/home/Header'
-import homeInfo from '../components/home/Info'
 import PageCommon from '../components/PageCommon.vue'
 
 export default {
@@ -102,7 +101,8 @@ export default {
 
   methods: {
     updateData() {
-      this.$root.$refs.revealer.close()
+      this.setNavTheme(false)
+      this.$emit('view-loaded')
     },
   },
 }

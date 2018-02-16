@@ -1,11 +1,11 @@
 <script>
 export default {
   beforeRouteLeave(to, from, next) {
-    this.$root.$refs.revealer.reveal().then(() => next())
+    this.$emit('view-leave', next)
   },
   methods: {
     setNavTheme(isDarkTheme) {
-      this.$root.$emit('setNavTheme', isDarkTheme)
+      this.$emit('set-nav-theme', isDarkTheme)
     },
   },
 }

@@ -4,8 +4,31 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Project
+ * @package App
+ */
 class Project extends Model
 {
+    /**
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'description',
+        'preloader',
+        'hero_image',
+        'hero_image_preview',
+        'hero_color',
+        'info_subtitle',
+        'info_description',
+        'start_date',
+        'end_date',
+        'country_id',
+        'client_id',
+        'is_featured',
+    ];
+
     /**
      * Project's Client.
      *

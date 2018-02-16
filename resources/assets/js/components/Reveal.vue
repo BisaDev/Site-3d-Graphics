@@ -17,10 +17,6 @@
 import anime from 'animejs'
 
 export default {
-  beforeRouteLeave(to, from, next) {
-    this.$root.$refs.revealer.reveal().then(next())
-  },
-
   props: {
     title: {
       type: String,

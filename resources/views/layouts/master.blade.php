@@ -11,6 +11,14 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
     <link href="{{asset('css/site.css')}}" rel="stylesheet" type="text/css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1c202a">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="theme-color" content="#1c202a">
+
 </head>
 <body>
 
@@ -75,7 +83,7 @@
                 }
                 console.clear();
                 console.log('%cHello there, so you like looking under the hood?', 'font-size:40px;color:#fff;text-shadow:0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #aaa,0 6px 1px rgba(0,0,0,.1),0 0 5px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.3),0 3px 5px rgba(0,0,0,.2),0 5px 10px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.2),0 20px 20px rgba(0,0,0,.15);');
-                console.info('%cthere might be something else here', 'font-size:10px;color:#0f0')
+                console.info('%cthere might be something else here', 'font-size:10px;color:#FF1141')
             }
         }, 1000);
     </script>

@@ -1,5 +1,5 @@
 $navbar-height: 80px;
-$navbar-offset: 10px;
+$navbar-offset: 0;
 
 .navbar {
   width: 100%;
@@ -9,10 +9,19 @@ $navbar-offset: 10px;
   z-index: 10;
   display: flex;
   align-items: center;
+  transition: transform 0.5s ease;
+  background-color: $light-gray;
+  border-bottom: 1px solid $light-gray-darker;
 
   .container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+
+  &.nav-at-top {
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
   }
 
   &.scrolled {
@@ -40,15 +49,103 @@ $navbar-offset: 10px;
       display: inline-block;
       list-style-type: none;
       margin-left: 1rem;
-
+      &:first-of-type {
+        @include breakpoint(large up) {
+          display: none;
+        }
+      }
       a {
         @include button-interaction();
+        @include transition('sm');
         display: block;
-        height: $button-height;
         font-size: $font-size-sm;
         font-weight: $font-weight-regular;
         color: rgba($base-font-color-dark, 0.5);
-        @include transition('sm');
+
+        &.is-active {
+          color: rgba($base-font-color-dark, 1);
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(medium down) {
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    pointer-events: none;
+    overflow: hidden;
+    display: flex;
+
+    &::before,
+    &::after {
+      content:'';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      transform: translateY(100%);
+      @include transition('lg')
+    }
+
+    &::before {
+      background-color: $light-gray-darker;
+    }
+    &::after {
+      background-color: $light-gray;
+    }
+    li {
+      position: relative;
+      z-index: 1;
+      margin: 1rem $grid-container-padding-md;
+      overflow: hidden;
+      a {
+        font-size: 3rem;
+        line-height: 5rem;
+        color: $base-font-color-dark;
+        text-align: center;
+        transform: translateY(100%);
+      }
+    }
+    .dark & li a {
+      color: $base-font-color-dark;
+    }
+  }
+  .navbar.navbar-mobile-show {
+    .navbar-menu {
+      display: flex;
+      pointer-events: all;
+
+      &:after {
+        transition-delay: 0.15s;
+      }
+      &::before,
+      &::after {
+        transform: translateY(0);
+      }
+
+      li {
+        @for $i from 1 to 10 {
+          &:nth-child(#{$i}) a {
+            transition-delay: 0.1s * $i;
+          }
+        }
+        a {
+          transform: translateY(0);
+          transition-duration: 0.5s;
+          &:hover {
+            transition-delay: 0s;
+          }
+        }
       }
     }
   }

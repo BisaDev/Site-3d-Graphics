@@ -15,15 +15,18 @@ const siteApp = new Vue({
   components: { navbar, reveal },
   data() {
     return {
-      theme: 'light',
+      navTheme: 'light',
     }
-  },
-  created() {
-    this.$root.$on('setNavTheme', this.setNavTheme)
   },
   methods: {
     setNavTheme(isDarkTheme) {
-      this.theme = isDarkTheme ? 'dark' : 'light'
+      this.navTheme = isDarkTheme ? 'dark' : 'light'
+    },
+    closeReveal() {
+      this.$refs.reveal.close()
+    },
+    openReveal(callback) {
+      this.$refs.reveal.reveal().then(() => callback())
     },
   },
 })
