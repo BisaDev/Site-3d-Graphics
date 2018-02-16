@@ -89,24 +89,17 @@
         </div>
       </div>
     </themed-section>
+
     <themed-section class="project-gallery">
-      <div class="container">
-        <div class="grid">
-          <a class="project-gallery-image" href="">
-            <img src="../../img/featured/plateiq.png" alt="Image description"/>
-          </a>
-          <a class="project-gallery-image" href="">
-            <img src="../../img/featured/plateiq.png" alt="Image description"/>
-          </a>
-          <a class="project-gallery-image" href="">
-            <img src="../../img/featured/plateiq.png" alt="Image description"/>
-          </a>
-          <a class="project-gallery-image" href="">
-            <img src="../../img/featured/plateiq.png" alt="Image description"/>
-          </a>
-        </div>
-      </div>
+      <photo-swipe :images="[
+      '../../img/featured/plateiq.png',
+      '../../img/featured/plateiq.png',
+      '../../img/featured/plateiq.png',
+      '../../img/featured/plateiq.png',
+      '../../img/featured/plateiq.png',
+      ]"></photo-swipe>
     </themed-section>
+
     <themed-section class="project-copy">
       <div class="container">
         <div class="grid">
@@ -173,6 +166,7 @@ import apiManiak from '../utils/api.js'
 import ProjectQuote from '../components/project/ProjectQuote'
 import ProjectTextInformation from '../components/project/ProjectTextInformation'
 import ProjectGallery from '../components/project/ProjectGallery'
+import PhotoSwipe from '../components/PhotoSwipe'
 import ImageFull from '../components/ImageFull'
 import ThemedSection from '../components/ThemedSection'
 import Icon from '../components/Icon'
@@ -199,6 +193,7 @@ export default {
     ImageFull,
     ThemedSection,
     Icon,
+    PhotoSwipe,
   },
 
   data() {
