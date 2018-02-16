@@ -22,6 +22,7 @@ $studio-paragraph-margin: 0 0 3.5rem;
       display: flex;
       flex-flow: column;
       align-items: center;
+      justify-content: center;
       text-align: center;
       @include breakpoint(medium down) {
         align-items: flex-start;
