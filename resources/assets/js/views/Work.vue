@@ -7,88 +7,25 @@
                 </h1>
             </div>
             <div class="container work-header-filters-container">
-                <ul class="work-header-filters-list">
-                    <li><a class="active" href="">All<span class="filter-count">12</span></a></li>
-                    <li><a href="">Design<span class="filter-count">12</span></a></li>
-                    <li><a href="">Software<span class="filter-count">12</span></a></li>
-                    <li><a href="">3D &amp; VR<span class="filter-count">12</span></a></li>
-                </ul>
+
+                <link-tabs :projects="projects" key-to-group="hero_color"></link-tabs>
+
             </div>
         </section>
-        <link-tabs :projects="projects" key-to-group="client_id"></link-tabs>
         <section class="work-portfolio">
             <div class="container">
                 <div class="grid">
-                    <a href class="preview reveal featured"
-                       :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/plateiq.png)'}">
+                    <router-link key="project.id" v-for="project in projects" :to="`/project/${project.id}`" class="preview reveal"
+                                 :class="{'featured': project.is_featured}"
+                                 :style="{backgroundColor: `${project.hero_color}`, backgroundImage: `${project.hero_image}`}">
                         <div class="preview-title">
-                            <h5>Plate IQ</h5>
-                            <h6>Restaurant Management</h6>
+                            <h5>{{project.name}}</h5>
+                            <h6>{{project.preloader}}</h6>
                             <div class="preview-title-cta">
                                 <p>Read more.</p>
                             </div>
                         </div>
-                    </a>
-                    <a href class="preview reveal featured"
-                       :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/volkswagen.png)'}">
-                        <div class="preview-title">
-                            <h5>Volkswagen 4DX</h5>
-                            <h6>VR Driving Simulator</h6>
-                            <div class="preview-title-cta">
-                                <p>Read more.</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href class="preview reveal featured"
-                       :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
-                        <div class="preview-title">
-                            <h5>Wolverine</h5>
-                            <h6>Online Configurator</h6>
-                            <div class="preview-title-cta">
-                                <p>Read more.</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href class="preview reveal"
-                       :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
-                        <div class="preview-title">
-                            <h5>Wolverine</h5>
-                            <h6>Online Configurator</h6>
-                            <div class="preview-title-cta">
-                                <p>Read more.</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href class="preview reveal"
-                       :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
-                        <div class="preview-title">
-                            <h5>Wolverine</h5>
-                            <h6>Online Configurator</h6>
-                            <div class="preview-title-cta">
-                                <p>Read more.</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href class="preview reveal"
-                       :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
-                        <div class="preview-title">
-                            <h5>Wolverine</h5>
-                            <h6>Online Configurator</h6>
-                            <div class="preview-title-cta">
-                                <p>Read more.</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href class="preview reveal"
-                       :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
-                        <div class="preview-title">
-                            <h5>Wolverine</h5>
-                            <h6>Online Configurator</h6>
-                            <div class="preview-title-cta">
-                                <p>Read more.</p>
-                            </div>
-                        </div>
-                    </a>
+                    </router-link>
 
                 </div>
             </div>
