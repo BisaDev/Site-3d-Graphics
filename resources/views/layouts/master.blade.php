@@ -5,12 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="We are Maniak. Think of us as controlled kind of crazy with a deep passion for creative disruption." />
 
-    <title>Maniak - Oh Yeah!</title>
+    <title>Maniak</title>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
     <link href="{{asset('css/site.css')}}" rel="stylesheet" type="text/css">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@maniakbtl">
+    <meta name="twitter:title" content="Maniak">
+    <meta name="twitter:description" content="We are Maniak. Think of us as controlled kind of crazy with a deep passion for creative disruption.">
+
+    <!-- Twitter Summary card images must be at least 120x120px
+    <meta name="twitter:image" content="http://www.example.com/image.jpg">-->
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Maniak" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.maniak.co/" />
+    <!-- <meta property="og:image" content="http://example.com/image.jpg" /> -->
+    <meta property="og:description" content="We are Maniak. Think of us as controlled kind of crazy with a deep passion for creative disruption." />
+    <meta property="og:site_name" content="Maniak" />
+    <meta property="fb:admins" content="123698014336102" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
