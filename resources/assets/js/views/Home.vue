@@ -50,9 +50,9 @@ export default {
   },
 
   computed: {
-      firstThreeProjects: function () {
-          return this.projects.slice(0, 3);
-      }
+    firstThreeProjects: function() {
+      return this.projects.slice(0, 3)
+    },
   },
 
   components: {
@@ -68,9 +68,12 @@ export default {
   },
 
   mounted() {
-    apiManiak.getProjects()
-        .then(this.updateData)
-        .catch(() => { this.$emit('not-found') })
+    apiManiak
+      .getProjects()
+      .then(this.updateData)
+      .catch(() => {
+        this.$emit('not-found')
+      })
   },
 
   methods: {

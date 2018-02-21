@@ -78,6 +78,7 @@
     background-color: #005fff;
     position: relative;
     padding: 0;
+    text-align: center;
     .parallax-image {
       background-image: url('../img/patterns/pattern.png');
       background-size: 50%;
@@ -172,6 +173,8 @@
     background-repeat: no-repeat;
     position: relative;
     cursor: pointer;
+    text-align: center;
+    margin: 0;
     &-cta,
     &-subtitle {
       position: absolute;
