@@ -62,3 +62,22 @@
 @mixin button-xl() {
   line-height: $button-height-xl;
 }
+
+
+
+@mixin section-fullscreen() {
+  min-height: 100vh;
+}
+
+@mixin section-align-center () {
+  display: flex;
+  align-items: center;
+}
+
+@mixin section-padding() {
+  padding: 14rem 0;
+  @include breakpoint(medium down) {
+    padding: 8rem 0;
+  }
+}
+

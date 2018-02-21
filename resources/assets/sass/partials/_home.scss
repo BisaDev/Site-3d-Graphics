@@ -2,6 +2,7 @@
   & &-header {
     position: relative;
     overflow: hidden;
+    @include section-fullscreen();
     &-title-container {
       height: 100vh;
       display: flex;
@@ -44,6 +45,8 @@
     }
   }
   & &-info {
+    @include section-fullscreen();
+    @include section-align-center();
     background: $light-gray-dark;
     .grid {
       flex-direction: column;

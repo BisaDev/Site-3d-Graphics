@@ -1,5 +1,8 @@
 .contact {
   & &-header {
+    margin: 0;
+    @include section-fullscreen;
+    @include section-align-center;
     .container {
       display: flex;
       align-items: center;

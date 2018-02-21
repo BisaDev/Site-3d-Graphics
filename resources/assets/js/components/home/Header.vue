@@ -1,5 +1,5 @@
 <template>
-  <section class="home-header no-padding fullscreen no-margin" :class="{dark}">
+  <section class="home-header" :class="{dark}">
     <div class="home-header-background"></div>
     <div class="home-header-image" :class="{ show: showImage }"></div>
     <div class="home-header-explosion" :class="{ show: showExplosion }"></div>

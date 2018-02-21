@@ -2,7 +2,7 @@
   <div class="home">
     <home-header @explode="setNavTheme" ></home-header>
     <home-info></home-info>
-    <section class="home-featured no-margin padding">
+    <section class="home-featured">
       <div class="container">
         <div class="grid">
           <div class="home-featured-title">

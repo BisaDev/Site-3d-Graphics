@@ -1,6 +1,6 @@
 <template>
   <div class="contact">
-    <section class="align-center contact-header no-margin no-padding fullscreen">
+    <section class="contact-header">
       <div class="container">
         <div class="grid">
           <h1>
