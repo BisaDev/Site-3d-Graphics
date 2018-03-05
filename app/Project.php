@@ -27,7 +27,23 @@ class Project extends Model
         'country_id',
         'client_id',
         'is_featured',
+        'is_dark',
     ];
+
+    /**
+     * @var array
+     */
+    protected $appends = ['areas'];
+
+    /**
+     * Project Many => Many Services 1 => Many
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function getAreasAttribute()
+    {
+        return $this->services->pluck('area')->unique();
+    }
 
     /**
      * Project's Client.
@@ -75,7 +91,12 @@ class Project extends Model
         return $this->hasMany(ProjectSection::class);
     }
 
-    //Scope a query to only include feature projects.
+    /**
+     * Scope a query to only include feature projects.
+     *
+     * @param $query
+     * @return mixed
+     */
     public function scopeFeatured($query)
     {
         return $query->where('is_featured', 1);

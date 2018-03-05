@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProjectTextInformationsTable extends Migration
+class CreateStickySectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProjectTextInformationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_text_informations', function (Blueprint $table) {
+        Schema::create('project_sticky_sections', function (Blueprint $table) {
             $table->increments('id');
 
             $table->unsignedInteger('project_id');
@@ -21,10 +21,9 @@ class CreateProjectTextInformationsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            //$table->string('title', 140);
             $table->text('body');
-
-            //$table->timestamps();
+            $table->string('image');
+            $table->timestamps();
         });
     }
 
@@ -35,6 +34,6 @@ class CreateProjectTextInformationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_text_informations');
+        Schema::dropIfExists('project_sticky_sections');
     }
 }
