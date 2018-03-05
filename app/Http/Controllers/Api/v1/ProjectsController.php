@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Requests\ProjectRequest;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\Project;
+use Illuminate\Support\Carbon;
+use Intervention\Image\Facades\Image;
 
 /**
  * Class ProjectsController
@@ -14,6 +14,13 @@ use App\Project;
  */
 class ProjectsController extends Controller
 {
+    /**
+     * Public Upload Image Route
+     *
+     * @var string
+     */
+    protected $imageRoute = 'uploads/images/';
+
     /**
      * ProjectsController constructor.
      */
@@ -29,7 +36,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderByDesc('is_featured')->get();
+        $projects = Project::with('sections')->orderByDesc('is_featured')->get();
 
         return response()->json($projects, 200);
     }
@@ -52,13 +59,22 @@ class ProjectsController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-        $request->offsetSet('hero_image', 'image.png');
-        $request->offsetSet('hero_image_preview', 'image.png');
         $request->offsetSet('country_id', 1);
         $request->offsetSet('client_id', 1);
 
+        //Upload Images
+        foreach (['hero_image', 'hero_image_preview'] as $image) {
+            if ($request->get($image)) {
+                $request->offsetSet($image, $this->uploadEncoded64Image($request->get($image)));
+            } else {
+                $request->offsetUnset($image);
+            }
+        }
+
+        //Create Project Model
         $project = Project::create($request->all());
 
+        //Response
         return response()->json([
             'success' => true,
             'message' => 'Project (ID: '.$project->id.') created successfully!',
@@ -103,8 +119,19 @@ class ProjectsController extends Controller
      */
     public function update(ProjectRequest $request, Project $project)
     {
+        //Upload Images
+        foreach (['hero_image', 'hero_image_preview'] as $image) {
+            if ($request->get($image)) {
+                $request->offsetSet($image, $this->uploadEncoded64Image($request->get($image)));
+            } else {
+                $request->offsetUnset($image);
+            }
+        }
+
+        //Update Project Model
         $project->update($request->all());
 
+        //Response
         return response()->json([
             'success' => true,
             'projectId' => $project->id,
@@ -131,7 +158,7 @@ class ProjectsController extends Controller
      */
     public function getNextProject($id)
     {
-        $allProjects = Project::orderByDesc('is_featured')->get();
+        $allProjects = Project::with('sections')->orderByDesc('is_featured')->get();
 
         if ($allProjects) {
             $projectIndex = $allProjects->pluck('id')->search($id);
@@ -146,5 +173,19 @@ class ProjectsController extends Controller
 
         return response()->json([], 200);
 
+    }
+
+    /**
+     * Process Encode64 Image
+     *
+     * @param string $imageData
+     * @return string URL
+     */
+    protected function uploadEncoded64Image($imageData)
+    {
+        $fileName = Carbon::now()->timestamp.'_'.uniqid().'.'.explode('/', explode(':', substr($imageData, 0, strpos($imageData, ';')))[1])[1];
+        $heroImage = Image::make($imageData)->save(public_path($this->imageRoute).$fileName);
+
+        return DIRECTORY_SEPARATOR.$this->imageRoute.$heroImage->basename;
     }
 }

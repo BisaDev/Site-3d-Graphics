@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class ProjectRequest
+ * @package App\Http\Requests
+ */
 class ProjectRequest extends FormRequest
 {
     /**
@@ -23,17 +27,21 @@ class ProjectRequest extends FormRequest
      */
     public function rules()
     {
+        $required = (null === $this->project) ? 'required|image64:jpeg,jpg,png' : '';
+
         return [
             'name' => 'required|max:50',
             'description' => 'required|max:50',
             'preloader' => 'required|max:50',
-            //'hero_image' => 'mimes:jpeg,png|max:2000',
-            //'hero_image_preview' => 'mimes:jpeg,png|max:2000',
+            'hero_image' => $required,
+            'hero_image_preview' => $required,
             'hero_color' => 'required|max:7',
             'info_subtitle' => 'required|max:140',
             'info_description' => 'required|max:300',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
+            'is_featured' => 'boolean',
+            'is_dark' => 'boolean',
             //'country_id' => 'required|exists:countries',
             //'client_id' => 'required|exists:clients',
         ];

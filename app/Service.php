@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Service
+ * @package App
+ */
 class Service extends Model
 {
 
@@ -16,12 +20,19 @@ class Service extends Model
     ];
 
     /**
-     * Project's Client.
-     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function client()
+    public function area()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Area::class);
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class);
     }
 }

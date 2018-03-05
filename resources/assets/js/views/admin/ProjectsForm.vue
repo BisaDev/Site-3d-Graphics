@@ -48,14 +48,24 @@
                         </label>
                     </div>
                     <div class="medium-6 cell">
-                        <label>Hero Image
-                            <input name="hero_image" type="file">
-                        </label>
+                        <label for="">Hero image</label>
+                        <div v-if="!project.hero_image">
+                            <input accept="image/*" name="hero_image" type="file" @change="onFileChange">
+                        </div>
+                        <div v-else>
+                            <img :src="project.hero_image" />
+                            <button @click.prevent="removeImage('hero_image')">Remove image</button>
+                        </div>
                     </div>
                     <div class="medium-6 cell">
-                        <label>Hero Image Preview
-                            <input name="hero_image_preview" type="file">
-                        </label>
+                        <label for="">Hero Image Preview</label>
+                        <div v-if="!project.hero_image_preview">
+                            <input accept="image/*" name="hero_image_preview" type="file" @change="onFileChange">
+                        </div>
+                        <div v-else>
+                            <img :src="project.hero_image_preview" />
+                            <button @click.prevent="removeImage('hero_image_preview')">Remove image</button>
+                        </div>
                     </div>
                     <div class="medium-6 cell">
                         <label>Info Subtitle
@@ -153,7 +163,8 @@ export default {
 
 
   created() {
-      console.log('created')
+    console.log('created')
+
     if (Number.isInteger(parseInt(this.$props.id, 10))) {
       this.fetchProject(this.$props.id)
         .then(response => {
@@ -168,30 +179,78 @@ export default {
 
   methods: {
     submitForm() {
-        console.log(this.$data.project.id)
-        let request = (this.$data.project.id)
-            ? apiManiak.editProject(this.$data.project)
-            : apiManiak.createProject(this.$data.project) ;
+      let project = Object.assign({}, this.$data.project),
+          dataImageRegExp = /^data\:image\//,
+          images = ['hero_image', 'hero_image_preview']
 
-        this.handleRequest(request)
+      //This omits images already set
+      images.forEach(image => {
+        project[image] = dataImageRegExp.test(project[image]) ? project[image] : '';
+      })
+
+      let request = (this.$data.project.id)
+        ? apiManiak.editProject(project)
+        : apiManiak.createProject(project) ;
+
+      this.handleRequest(request)
     },
 
     handleRequest(request) {
+      this.$data.form.messages = false
+
         request.then(response => {
             this.$data.form.errors = false
             this.$data.form.messages = response.data.message
             this.$router.push({name: 'edit-project', params: { id: response.data.projectId } })
             console.log(response)
         }).catch(error => {
-        if (error.response.data.message) {
+          if (error.response.data.message) {
             this.$data.form.errors = error.response.data.errors
-            console.log(this.$data.form);
-        }
+            console.log('error:', this.$data.form);
+          }
+        }).finally(() => {
+            this.scrollTop()
         });
     },
 
     fetchProject(id) {
       return apiManiak.fetchProject(id)
+    },
+
+    onFileChange(e) {
+      var files = e.target.files || e.dataTransfer.files;
+
+      if (!files.length) {
+        return;
+      }
+
+      console.log();
+
+      this.createImage(files[0], e.target.name)
+    },
+
+    createImage(file, field) {
+      var image = new Image();
+      var reader = new FileReader();
+      var vm = this;
+
+      reader.onload = (e) => {
+        vm.project[field] = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+
+    removeImage(field) {
+      this.project[field] = null
+    },
+
+    scrollTop() {
+      return window.scrollTo({
+        'behavior': 'smooth',
+        'left': 0,
+        'top': 0
+      })
     },
   },
     

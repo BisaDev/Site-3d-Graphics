@@ -95,7 +95,7 @@ adminRouter.afterEach((to, from) => {
     adminRouter.app.$nextTick().then(result => {
       console.log('afterEach');
         if (to.name === 'create-project') {
-            document.querySelector('form').reset();
+            //document.querySelector('form').reset();
         }
     })
 })
