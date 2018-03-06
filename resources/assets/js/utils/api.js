@@ -1,52 +1,56 @@
 import cookies from './cookies'
 
 export default {
-  api: '/api/v1',
-  config: {
-    headers: {
-      Accept: 'application/json',
-      Authorization:
-        'Bearer ' +
-        (cookies.getItem('credentials')
-          ? JSON.parse(cookies.getItem('credentials')).access_token
-          : ''),
+    api: '/api/v1',
+    config: {
+        headers: {
+            Accept: 'application/json',
+            Authorization:
+            'Bearer ' +
+            (cookies.getItem('credentials')
+                ? JSON.parse(cookies.getItem('credentials')).access_token
+                : ''),
+        },
     },
-  },
 
-  //@todo group public and private routes
+    //@todo group public and private routes
 
-  getProjects() {
-    return axios.get(this.api + '/projects')
-  },
+    getAreas() {
+        return axios.get(this.api + '/areas')
+    },
 
-  getProject(id) {
-    return axios.get(this.api + `/projects/${id}`)
-  },
+    getProjects() {
+        return axios.get(this.api + '/projects')
+    },
 
-  login(data) {
-    return axios.post('auth/token', {
-      username: data.user,
-      password: data.password,
-    })
-  },
+    getProject(id) {
+        return axios.get(this.api + `/projects/${id}`)
+    },
 
-  logout(user) {
+    login(data) {
+        return axios.post('auth/token', {
+            username: data.user,
+            password: data.password,
+        })
+    },
 
-  },
+    logout(user) {
 
-  createProject(data) {
-      //POST to CREATE entity
-      return axios.post(this.api + '/projects', data, this.config)
-  },
+    },
 
-  editProject(data) {
-      let id = data.id
+    createProject(data) {
+        //POST to CREATE entity
+        return axios.post(this.api + '/projects', data, this.config)
+    },
 
-      //PUT to ALTER entity
-      return axios.put(this.api + `/projects/${id}`, data, this.config)
-  },
+    editProject(data) {
+        let id = data.id
 
-  fetchProject(id) {
-    return axios.get(this.api + `/projects/${id}/edit`, this.config)
-  },
+        //PUT to ALTER entity
+        return axios.put(this.api + `/projects/${id}`, data, this.config)
+    },
+
+    fetchProject(id) {
+        return axios.get(this.api + `/projects/${id}/edit`, this.config)
+    },
 }
