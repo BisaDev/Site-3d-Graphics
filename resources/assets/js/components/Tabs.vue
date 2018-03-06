@@ -1,46 +1,45 @@
 <template>
-    <div calss="tabs">
-        <div class="container work-header-filters-container">
-            <ul class="work-header-filters-list">
-                <li><a class="active" href="">All<span class="filter-count">12</span></a></li>
+    <div>
+        <div :class="tabsContainerClasses">
+            <ul :class="tabsListClasses">
+                <li v-for="(tab, key) in tabs"  :key="key" :class="{ 'active': tab.isActive }">
+                    <a :href="tab.href" @click="selectTab(tab)" v-html="tab.header"></a>
+                </li>
             </ul>
         </div>
-        <section class="work-portfolio">
-            <div class="container">
-                <div class="grid">
-                    <router-link v-for="project in projects" :to="" class="preview reveal"
-                       :style="{backgroundColor: '#e7e9f0', backgroundImage: 'project.'}">
-                        <div class="preview-title">
-                            <h5>Wolverine</h5>
-                            <h6>Online Configurator</h6>
-                            <div class="preview-title-cta">
-                                <p>Read more.</p>
-                            </div>
-                        </div>
-                    </router-link>
-                </div>
-            </div>
-        </section>
+        <div class="tabs-details">
+            <slot></slot>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
         props: {
-            content: {
-                type: Object,
-                required: true,
-            }
+            tabsListClasses: {
+                default: () => ['tabs-list'],
+            },
+            tabsContainerClasses: {
+                default: () => ['tabs'],
+            },
+            tabsContentClasses: {
+                default: () => ['tabs-details'],
+            },
         },
         data() {
-          return {
-              tabs: Object.keys(this.content),
-              projects: Object.values(this.content),
-          }
+            return { tabs: [] };
         },
+
+        created() {
+            this.tabs = this.$children;
+        },
+
+        methods: {
+            selectTab(selectedTab) {
+                this.tabs.forEach(tab => {
+                    tab.isActive = (tab.href == selectedTab.href);
+                });
+            }
+        }
     }
 </script>
-
-<style scoped>
-
-</style>
