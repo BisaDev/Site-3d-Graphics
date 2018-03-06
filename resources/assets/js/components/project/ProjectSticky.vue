@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="grid">
-            <div class="project-copy-sticky" v-html="content"></div>
+            <div class="project-copy-sticky" v-html="body"></div>
             <div class="project-screenshot-long">
                 <img :src="image" />
             </div>
@@ -12,7 +12,7 @@
 
 export default {
   props: {
-      content: {
+      body: {
           type: String,
           required: true,
       },
