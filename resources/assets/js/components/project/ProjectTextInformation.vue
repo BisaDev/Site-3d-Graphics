@@ -1,15 +1,12 @@
 <template>
-    <div class="bg-white text-black p-8">
-        <strong>{{model.title}}</strong>
-        <p>{{model.body}}</p>
-    </div>
+    <div v-html="content"></div>
 </template>
 
 <script>
 export default {
   props: {
-    model: {
-      type: Object,
+    content: {
+      type: String,
       required: true,
     },
   },

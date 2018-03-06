@@ -165,7 +165,7 @@
 
 <script>
 import apiManiak from '../utils/api.js'
-import ProjectQuote from '../components/project/ProjectQuote'
+import ProjectSticky from '../components/project/ProjectSticky'
 import ProjectTextInformation from '../components/project/ProjectTextInformation'
 import ProjectGallery from '../components/project/ProjectGallery'
 import PhotoSwipe from '../components/PhotoSwipe'
@@ -191,7 +191,7 @@ export default {
   components: {
     ProjectGallery,
     ProjectTextInformation,
-    ProjectQuote,
+    ProjectSticky,
     ImageFull,
     ThemedSection,
     Icon,
