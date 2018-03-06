@@ -1,5 +1,6 @@
-$home-visual-size: 30rem;
+$home-visual-size: 40rem;
 $home-blob-length: 8;
+$home-blob-duration: 5s;
 
 $home-explosion-base-size: 20rem;
 $home-explosion-desired-size: 60rem;
@@ -54,50 +55,60 @@ $home-image-max-size: 40rem;
     animation: rotate 60s linear;
   }
 
-  .blob circle {
-    will-change: transform, r;
-    mix-blend-mode: soft-light;
+  $top-collection: [];
+  $left-collection: [];
+  $size-collection: [];
 
-    &:nth-child(n + 3) {
-      fill: $azure;
-    }
-    &:nth-child(-n + 2) {
-      fill: $watermelon-dark;
-    }
-    $top-collection: [];
-    $left-collection: [];
+  @for $i from 1 to 20 {
+    $randWH: randomNum(140px, 160px);
+    $offset: $randWH;
+    $left: randomNum(-5%, 5%);
+    $top: randomNum(-5%, 5%);
+    $left-collection: append($left-collection, $left);
+    $top-collection: append($top-collection, $top);
+    $size-collection: append($size-collection, $randWH)
+  }
 
-    @for $i from 1 to 20 {
-      $randWH: randomNum(30px, 100px);
-      $offset: 100px/$randWH * 20px;
-      $left: randomNum(-$offset, $offset);
-      $top: randomNum(-$offset, $offset);
-      $left-collection: append($left-collection, $left);
-      $top-collection: append($top-collection, $top);
-      &:nth-of-type(#{$i}) {
-        r: $randWH;
-      }
-    }
+  .blob:nth-of-type(1) circle {
+    fill: $watermelon;
+  }
+  .blob:nth-of-type(2) circle {
+    fill: $azure;
+  }
+  .blob:nth-of-type(3) circle {
+    fill: $stone;
+  }
+  .blob:nth-of-type(4) circle {
+    fill: $light-gray;
+  }
 
-    @for $i from 1 to $home-blob-length + 1 {
-      &:nth-of-type(#{$i}) {
-        animation: anim-#{$i} 15s ease-in-out infinite;
-        animation-delay: randomNum(0.5s, 1s);
-      }
-      @keyframes anim-#{$i} {
-        0% {
-          transform: translate(0, 0);
+  @for $k from 1 to 6 {
+    $factor: 2 / $k;
+    .blob:nth-child(#{$k}) {
+      @for $i from 1 to 4 {
+        circle:nth-child(#{$i}) {
+          cx: 50% + $k;
+          cy: 50%;
+          r: nth($size-collection, $i) - $k * 8px;
+          animation: blob-#{$k}-circle-#{$i} $home-blob-duration ease-in-out infinite;
+          animation-delay: $home-blob-duration * 0.025 * ($k - 1);
         }
-        50% {
-          transform: translate(nth($left-collection, $i), nth($top-collection, $i+1));
-        }
-        100% {
-          transform: translate(0, 0);
+        @keyframes blob-#{$k}-circle-#{$i}  {
+          0% {
+            transform: translate(0, 0)
+          }
+          50% {
+            transform: translate(nth($left-collection, $i) * $factor, nth($top-collection, $i) * $factor)
+          }
+          100% {
+            transform: translate(0, 0)
+          }
         }
       }
     }
   }
 }
+
 
 .home-header {
   &-background {

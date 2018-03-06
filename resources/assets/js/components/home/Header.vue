@@ -1,5 +1,5 @@
 <template>
-  <section class="home-header no-padding fullscreen no-margin" :class="{dark}">
+  <section class="home-header" :class="{dark}">
     <div class="home-header-background"></div>
     <div class="home-header-image" :class="{ show: showImage }"></div>
     <div class="home-header-explosion" :class="{ show: showExplosion }"></div>
@@ -8,16 +8,30 @@
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
           <defs>
             <filter id="goo">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
-              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 16 -9" result="goo"/>
+              <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 8 -6" result="goo" />
               <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
             </filter>
           </defs>
-          <g class="blob" filter="url(#goo)">
-            <circle cx="47%" cy="52%" r="80" />
-            <circle cx="55%" cy="49%" r="80" />
-            <circle cx="47%" cy="52%" r="80" />
-            <circle cx="55%" cy="49%" r="80" />
+          <g class="blob">
+            <circle cx="51%" cy="50%" r="148px" />
+            <circle cx="51%" cy="50%" r="145px" />
+            <circle cx="51%" cy="50%" r="134px" />
+          </g>
+          <g class="blob">
+            <circle cx="52%" cy="50%" r="126px" />
+            <circle cx="52%" cy="50%" r="140px" />
+            <circle cx="52%" cy="50%" r="137px" />
+          </g>
+          <g class="blob">
+            <circle cx="53%" cy="50%" r="140px" />
+            <circle cx="53%" cy="50%" r="140px" />
+            <circle cx="53%" cy="50%" r="140px" />
+          </g>
+          <g class="blob">
+            <circle cx="54%" cy="50%" r="118px" />
+            <circle cx="54%" cy="50%" r="132px" />
+            <circle cx="54%" cy="50%" r="129px" />
           </g>
         </svg>
       </div>

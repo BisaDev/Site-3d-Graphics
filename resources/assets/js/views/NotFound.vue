@@ -10,13 +10,13 @@
 </template>
 
 <script>
-    import pageCommon from '../components/PageCommon'
+import pageCommon from '../components/PageCommon'
 
-    export default {
-        extends: { ...pageCommon },
+export default {
+  extends: { ...pageCommon },
 
-        mounted(){
-            this.$emit('view-loaded')
-        }
-    }
+  mounted() {
+    this.$emit('view-loaded')
+  },
+}
 </script>

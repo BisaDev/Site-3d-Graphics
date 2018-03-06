@@ -198,7 +198,7 @@ $grid-container-padding-lg: 4vw;
   & &-header {
     h1 {
       @include xy-cell(8 of 12);
-      @include xy-cell-offset(2 of 12);
+      //@include xy-cell-offset(2 of 12);
       @include breakpoint(medium down) {
         @include xy-cell(12 of 12);
         @include xy-cell-offset(0 of 12);

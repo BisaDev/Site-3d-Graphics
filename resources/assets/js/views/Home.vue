@@ -2,7 +2,7 @@
   <div class="home">
     <home-header @explode="setNavTheme" ></home-header>
     <home-info></home-info>
-    <section class="home-featured no-margin padding">
+    <section class="home-featured">
       <div class="container">
         <div class="grid">
           <div class="home-featured-title">
@@ -50,9 +50,9 @@ export default {
   },
 
   computed: {
-      firstThreeProjects: function () {
-          return this.projects.slice(0, 3);
-      }
+    firstThreeProjects: function() {
+      return this.projects.slice(0, 3)
+    },
   },
 
   components: {
@@ -68,9 +68,12 @@ export default {
   },
 
   mounted() {
-    apiManiak.getProjects()
-        .then(this.updateData)
-        .catch(() => { this.$emit('not-found') })
+    apiManiak
+      .getProjects()
+      .then(this.updateData)
+      .catch(() => {
+        this.$emit('not-found')
+      })
   },
 
   methods: {

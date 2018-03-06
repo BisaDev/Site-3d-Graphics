@@ -1,5 +1,5 @@
 <template>
-  <section id="home-info" class="home-info align-center no-margin fullscreen">
+  <section id="home-info" class="home-info">
     <div class="container">
       <div class="grid">
         <div class="home-info-copy">
