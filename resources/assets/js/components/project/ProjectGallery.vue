@@ -4,7 +4,7 @@
             <div class="grid">
                 <div :style="{backgroundColor: color}" ref="galleryImage" v-for="(image, index) in images" @click="openPhotoSwipe(index)"
                      class="project-gallery-image">
-                    <img :src="image"/>
+                    <img :src="image.image"/>
                 </div>
             </div>
         </div>

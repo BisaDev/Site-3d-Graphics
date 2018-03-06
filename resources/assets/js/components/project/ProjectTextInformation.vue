@@ -1,11 +1,11 @@
 <template>
-    <div v-html="content"></div>
+    <div v-html="body"></div>
 </template>
 
 <script>
 export default {
   props: {
-    content: {
+    body: {
       type: String,
       required: true,
     },
