@@ -7,9 +7,11 @@ $factory->define(App\Project::class, function (Faker $faker) {
         'name' => $faker->text(50),
         'description' => $faker->text(50),
         'preloader' => $faker->text(50),
-        'hero_image' => 'plateiq.png',
-        'hero_image_preview' => 'plateiq.png',
+        'hero_image' => '/images/plateiq.png',
+        'hero_image_preview' => '/images/plateiq.png',
         'hero_color' => $faker->hexColor,
+        'is_dark' => $faker->boolean($chanceOfGettingTrue = 40),
+        'is_featured' => $faker->boolean($chanceOfGettingTrue = 20),
 
         'info_subtitle' => $faker->text(140),
         'info_description' => $faker->text(300),

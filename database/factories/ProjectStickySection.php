@@ -10,6 +10,6 @@ $factory->define(ProjectStickySection::class, function (Faker $faker) {
             return factory(Project::class)->create()->id;
         },
         'body' => $faker->text(600),
-        'image' => $faker->image(public_path('uploads/images'), 200, 800),
+        'image' => '/uploads/images/'.$faker->image(public_path('uploads/images'), 200, 800, null, false),
     ];
 });

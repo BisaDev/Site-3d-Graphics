@@ -9,7 +9,7 @@ $factory->define(ProjectGalleryImage::class, function (Faker $faker) {
         'project_gallery_id' => function () {
             return factory(ProjectGallery::class)->create()->id;
         },
-        'image' => '_project-gallery-image-text.jpg',
+        'image' => '/images/plateiq.png',
         'color' => $faker->hexColor,
     ];
 });
