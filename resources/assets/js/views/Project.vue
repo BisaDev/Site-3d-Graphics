@@ -1,7 +1,7 @@
 <template>
   <div class="project" v-if="project !== null">
     <!-- Hero Information -->
-    <themed-section :color="project.hero_color" :image="project.hero_image" :isDark="project.is_dark" :class="['project-header', 'align-center', 'no-padding']">
+    <themed-section :color="project.hero_color" :image="project.hero_image" :isDark="!!project.is_dark" :class="['project-header', 'align-center', 'no-padding']">
       <div class="project-header-title-container container">
         <h1 class="project-header-title">{{project.name}}</h1>
         <h1 class="project-header-subtitle">{{project.description}}.</h1>
@@ -158,7 +158,12 @@
     Loop through project sections and inject the needed components.
     Don't forget to define your components on the Vue instance, see below.
     -->
-    <themed-section v-for="section in project.sections" :key="section.id">
+    <themed-section v-for="section in project.sections" :key="section.id"
+                    :color="section.color || 'transparent'"
+                    :is-dark="!!section.is_dark"
+                    :parallax="!!section.is_parallax"
+                    :image="section.background_image"
+    >
       <component :is="section.component" v-bind="section.model"/>
     </themed-section>
   </div>
@@ -214,7 +219,6 @@ export default {
         updateData(response) {
             this.setNavTheme(true)
             this.project = response.data
-            console.log(this.project.sections)
             this.$emit('view-loaded')
         },
     },
