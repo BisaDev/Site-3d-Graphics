@@ -3,7 +3,7 @@
         <tab name="All" :suffix="buildSuffix(projects.length)" :selected="true">
             <div class="container">
                 <div class="grid">
-                    <router-link v-for="(project, key) in projects" :to="`/project/${project.id}`" :key="`all-${key}`"
+                    <router-link v-for="(project, index) in projects" :to="`/project/${project.id}`" :key="`all-${index}`"
                                  class="preview reveal" :class="[{featured: project.is_featured, dark: project.is_dark}]"
                                  :style="{backgroundColor: project.hero_color, backgroundImage: `url(${project.hero_image})`}">
                         <div class="preview-title">
@@ -20,7 +20,7 @@
         <tab v-for="area in areas" :key="area.id" :name="area.name" :suffix="buildSuffix(area.projects.length)" >
             <div class="container">
                 <div class="grid">
-                    <router-link v-for="(project, key) in area.projects" :to="`/project/${project.id}`" :key="`${area.name}-${key}`"
+                    <router-link v-for="(project, index) in area.projects" :to="`/project/${project.id}`" :key="`${area.name}-${index}`"
                                  class="preview reveal" :class="[{featured: project.is_featured, dark: project.is_dark}]"
                                  :style="{backgroundColor: project.hero_color, backgroundImage: `url(${project.hero_image})`}">
                         <div class="preview-title">
