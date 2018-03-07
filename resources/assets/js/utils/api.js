@@ -53,8 +53,12 @@ export default {
         //PUT to ALTER entity
         return axios.put(this.api + `/projects/${id}`, data, this.config)
     },
+    
+  fetchProject(id) {
+    return axios.get(this.api + `/projects/${id}/edit`, this.config)
+  },
 
-    fetchProject(id) {
-        return axios.get(this.api + `/projects/${id}/edit`, this.config)
-    },
+  getConfigModels() {
+    return axios.get(this.api + `/getConfigModels`, this.config)
+  },
 }

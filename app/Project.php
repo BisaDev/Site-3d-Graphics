@@ -71,13 +71,13 @@ class Project extends Model
      * @param  string $modelClass
      * @param  int $modelId
      */
-    public function addSection($modelClass, $modelId)
+    public function addSection($modelClass, $modelId, $pivotAttrs = [])
     {
         $this->sections()->save(
-            new ProjectSection([
+            new ProjectSection(array_merge([
                 'model_id' => $modelId,
                 'model_class' => $modelClass,
-            ])
+            ], $pivotAttrs))
         );
     }
 
@@ -88,7 +88,7 @@ class Project extends Model
      */
     public function sections()
     {
-        return $this->hasMany(ProjectSection::class);
+        return $this->hasMany(ProjectSection::class)->orderBy('order');
     }
 
     /**

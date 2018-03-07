@@ -1,6 +1,7 @@
 import Router from 'vue-router'
 import Dashboard from './views/admin/Dashboard'
 import ProjectForm from './views/admin/ProjectsForm'
+import ProjectList from './views/admin/ProjectsList'
 import Login from './views/admin/Login'
 import Logout from './views/admin/Logout'
 
@@ -14,10 +15,11 @@ let routes = [
   {
     name: 'projects',
     path: '/admin/projects',
-    component: ProjectForm,
+    component: ProjectList,
     props: true,
+      /*
     children: [
-      {
+     {
         name: 'edit-project',
         path: ':id/edit',
         component: ProjectForm,
@@ -29,7 +31,19 @@ let routes = [
         component: ProjectForm,
         props: false,
       },
-    ],
+    ],*/
+  },
+  {
+      name: 'project-edit',
+      path: '/admin/projects/:id/edit',
+      component: ProjectForm,
+      props: true,
+  },
+  {
+      name: 'create-project',
+      path: '/admin/projects/create',
+      component: ProjectForm,
+      props: false,
   },
   {
     name: 'login',

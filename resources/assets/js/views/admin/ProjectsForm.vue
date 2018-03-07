@@ -1,18 +1,23 @@
 <template>
     <div class="project-form grid-container">
         <div class="row">
-            <h2>Project Id: {{id}}</h2>
+            <h2>
+                <span v-if="id">Project Id: {{id}}</span>
+                <span v-else>New Project</span>
+            </h2>
         </div>
 
         <!-- Messages -->
-        <div class="form-messages grid-x grid-padding-x" v-if="form.messages">
-           {{form.messages}}
+        <div class="form-messages grid-x grid-padding-x" v-if="messages">
+            <div class="small-12 large-3 small-centered cell">
+                {{messages}}
+            </div>
         </div>
 
         <!-- Errors -->
-        <div class="form-errors grid-x grid-padding-x" v-if="form.errors">
-            <ul class="form-errors-list medium-6 cell">
-                <li v-for="field in form.errors">
+        <div class="form-errors grid-x grid-padding-x" v-if="errors">
+            <ul class="form-errors-list medium-6 large-3 small-centered cell">
+                <li v-for="field in errors">
                     <ul class="form-errors-items">
                         <li v-for="item in field">
                             {{ item }}
@@ -53,7 +58,7 @@
                             <input accept="image/*" name="hero_image" type="file" @change="onFileChange">
                         </div>
                         <div v-else>
-                            <img :src="project.hero_image" />
+                            <img :src="project.hero_image" style="width:100%; height: auto;" />
                             <button @click.prevent="removeImage('hero_image')">Remove image</button>
                         </div>
                     </div>
@@ -63,7 +68,7 @@
                             <input accept="image/*" name="hero_image_preview" type="file" @change="onFileChange">
                         </div>
                         <div v-else>
-                            <img :src="project.hero_image_preview" />
+                            <img :src="project.hero_image_preview" style="width:100%; height: auto;" />
                             <button @click.prevent="removeImage('hero_image_preview')">Remove image</button>
                         </div>
                     </div>
@@ -90,25 +95,26 @@
                     <div class="medium-6 cell">
                         <label>Country
                             <select v-model="project.country_id" name="country_id">
-                                <option value="1">Mexico</option>
-                                <option value="2">United States</option>
-                                <option value="3">Colombia</option>
-                                <option value="4">Brazil</option>
+                                <option v-for="country in form.countries" v-bind:value="country.id">
+                                    {{ country.name }}
+                                </option>
                             </select>
                         </label>
                     </div>
+                    <!--
                     <div class="medium-6 cell">
                         <label>Client * (input new Client name)
                             <input v-model="project.client_name" name="client_name" type="text" placeholder="Info Description">
                         </label>
                     </div>
+                    -->
                     <div class="medium-6 cell">
                         <label>Clients
                             <select v-model="project.client_id" name="client_id">
-                                <option value="1">Mexico</option>
-                                <option value="2">United States</option>
-                                <option value="3">Colombia</option>
-                                <option value="4">Brazil</option>
+                                <option disabled value="">Please select one</option>
+                                <option v-for="client in form.clients" v-bind:value="client.id">
+                                    {{ client.name }}
+                                </option>
                             </select>
                         </label>
                     </div>
@@ -118,10 +124,30 @@
                     <div class="medium-6 cell">
                         <input v-model="project.is_dark" name="is_featured" type="checkbox"><label>Is Dark (theme)?</label>
                     </div>
-                    <div class="medium-12 cell">
-                        <input type="submit" class="button" value="Submit">
+                    <div class="small-12 cell">
+                        <label for="">Section Type</label>
+                        <select name="sections" v-model="form.currentSection">
+                            <option disabled value="">Please select one</option>
+                            <option v-for="(section, index) in form.sections" v-bind:value="index">
+                                {{ index }}
+                            </option>
+                        </select>
+                        <button @click.prevent="addSection">Add Project Section</button>
                     </div>
                 </div>
+
+
+                <ProjectSection
+                    v-for="(section, index) in project.sections"
+                    :key="index"
+                    :section="project.sections[index]"
+                >
+                </ProjectSection>
+
+                <div class="medium-12 cell">
+                    <input type="submit" class="button" value="Submit">
+                </div>
+
             </div>
         </form>
     </div>
@@ -130,12 +156,18 @@
 
 <script>
 import apiManiak from '../../utils/api'
+import ProjectSection from '../../components/admin/ProjectSection'
 
 export default {
   props: ['id'],
 
+    components: {
+        ProjectSection,
+    },
+
   data() {
     return {
+      sections: [],
       project: {
         id: null,
         name: '',
@@ -153,14 +185,18 @@ export default {
         client_id: null,
         is_featured: false,
         is_dark: false,
+        sections: [],
       },
+      errors: false,
+      messages: false,
       form: {
-          errors: false,
-          messages: false,
+        clients: [],
+        countries: [],
+        sections:[],
+        currentSection: '',
       },
     }
   },
-
 
   created() {
     console.log('created')
@@ -168,16 +204,88 @@ export default {
     if (Number.isInteger(parseInt(this.$props.id, 10))) {
       this.fetchProject(this.$props.id)
         .then(response => {
-          this.project = response.data
+          this.project = response.data.project
+          this.sections = response.data.sections
+          this.form = {
+              clients: response.data.clients,
+              countries: response.data.countries,
+              sections: response.data.sections
+          }
         })
         .catch(error => {
           this.$emit('not-found')
           console.log(error)
         })
+    } else {
+        this.setOptions().then(response => {
+            this.form = {
+                clients: response.data.clients,
+                countries: response.data.countries,
+                sections: response.data.sections
+            }
+        })
+            .catch(error => {
+                this.$emit('not-found')
+                console.log(error)
+            })
     }
   },
 
+  watch: {
+    // call again the method if the route changes
+    '$route': 'resetForm'
+  },
+
   methods: {
+    setOptions() {
+      return apiManiak.getConfigModels()
+    },
+
+    addSection() {
+      console.log(this.form.currentSection)
+      console.log(this.form.sections[this.form.currentSection])
+
+      let model = Object.assign({}, this.form.sections[this.form.currentSection])
+
+      this.project.sections.push({
+        background_image: null,
+        color: null,
+        component: this.form.currentSection,
+        id: null,
+        is_dark: 0,
+        is_parallax: 0,
+        model: model
+      })
+    },
+
+    resetForm() {
+        if(!this.$props.id) {
+            this.sections = false
+            //this.form.sections = false
+            this.errors = false
+            this.messages = false
+            this.project = {
+                id: null,
+                name: '',
+                description: '',
+                preloader: '',
+                hero_color: '',
+                hero_image: '',
+                hero_image_preview: '',
+                info_subtitle: '',
+                info_description: '',
+                start_date: '',
+                end_date: '',
+                country_id: null,
+                client_name: '',
+                client_id: null,
+                is_featured: false,
+                is_dark: false,
+                sections: [],
+            }
+      }
+    },
+
     submitForm() {
       let project = Object.assign({}, this.$data.project),
           dataImageRegExp = /^data\:image\//,
@@ -196,16 +304,18 @@ export default {
     },
 
     handleRequest(request) {
-      this.$data.form.messages = false
+      this.$data.messages = false
 
         request.then(response => {
-            this.$data.form.errors = false
-            this.$data.form.messages = response.data.message
-            this.$router.push({name: 'edit-project', params: { id: response.data.projectId } })
+            this.$data.errors = false
+            this.$data.messages = response.data.message
+            //this.$data.project.id = response.data.projectId
+            this.$data.project = response.data.project
+            this.$router.push({name: 'project-edit', params: { id: response.data.projectId } })
             console.log(response)
         }).catch(error => {
           if (error.response.data.message) {
-            this.$data.form.errors = error.response.data.errors
+            this.$data.errors = error.response.data.errors || { Server: [error.response.data.message] }
             console.log('error:', this.$data.form);
           }
         }).finally(() => {
@@ -253,7 +363,8 @@ export default {
       })
     },
   },
-    
+
+    /*
   beforeRouteUpdate (to, from, next) {
       console.log('beforeRouteUpdate')
 
@@ -278,5 +389,6 @@ export default {
 
     next()
   },
+    */
 }
 </script>
