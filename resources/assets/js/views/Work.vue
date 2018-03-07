@@ -1,109 +1,65 @@
 <template>
-  <div class="work">
-    <section class="work-header">
-      <div class="container work-header-title-container">
-        <h1>
-          <b>Maniak builds cool stuff.</b><br>Lorem ipsum dolor sit.
-        </h1>
-      </div>
-      <div class="container work-header-filters-container">
-        <ul class="work-header-filters-list">
-          <li><a class="active" href="">All<span class="filter-count">12</span></a></li>
-          <li><a href="">Design<span class="filter-count">12</span></a></li>
-          <li><a href="">Software<span class="filter-count">12</span></a></li>
-          <li><a href="">3D &amp; VR<span class="filter-count">12</span></a></li>
-        </ul>
-      </div>
-    </section>
-    <section class="work-portfolio">
-      <div class="container">
-        <div class="grid">
-          <a href class="preview reveal featured" :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/plateiq.png)'}">
-            <div class="preview-title">
-              <h5>Plate IQ</h5>
-              <h6>Restaurant Management</h6>
-              <div class="preview-title-cta">
-                <p>Read more.</p>
-              </div>
+    <div class="work">
+        <section class="work-header">
+            <div class="container work-header-title-container">
+                <h1>
+                    <b>Maniak builds cool stuff.</b><br>Lorem ipsum dolor sit.
+                </h1>
             </div>
-          </a>
-          <a href class="preview reveal featured" :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/volkswagen.png)'}">
-            <div class="preview-title">
-              <h5>Volkswagen 4DX</h5>
-              <h6>VR Driving Simulator</h6>
-              <div class="preview-title-cta">
-                <p>Read more.</p>
-              </div>
-            </div>
-          </a>
-          <a href class="preview reveal featured" :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
-            <div class="preview-title">
-              <h5>Wolverine</h5>
-              <h6>Online Configurator</h6>
-              <div class="preview-title-cta">
-                <p>Read more.</p>
-              </div>
-            </div>
-          </a>
-          <a href class="preview reveal" :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
-            <div class="preview-title">
-              <h5>Wolverine</h5>
-              <h6>Online Configurator</h6>
-              <div class="preview-title-cta">
-                <p>Read more.</p>
-              </div>
-            </div>
-          </a>
-          <a href class="preview reveal" :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
-            <div class="preview-title">
-              <h5>Wolverine</h5>
-              <h6>Online Configurator</h6>
-              <div class="preview-title-cta">
-                <p>Read more.</p>
-              </div>
-            </div>
-          </a>
-          <a href class="preview reveal" :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
-            <div class="preview-title">
-              <h5>Wolverine</h5>
-              <h6>Online Configurator</h6>
-              <div class="preview-title-cta">
-                <p>Read more.</p>
-              </div>
-            </div>
-          </a>
-          <a href class="preview reveal" :style="{backgroundColor: '#e7e9f0', backgroundImage: 'url(../../img/featured/wolverine.png)'}">
-            <div class="preview-title">
-              <h5>Wolverine</h5>
-              <h6>Online Configurator</h6>
-              <div class="preview-title-cta">
-                <p>Read more.</p>
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-    </section>
-  </div>
+        </section>
+        <section class="work-portfolio">
+            <project-filters :projects="projects" :areas="areas"></project-filters>
+        </section>
+    </div>
 </template>
 
 
 <script>
-import PageCommon from '../components/PageCommon.vue'
+    import PageCommon from '../components/PageCommon'
+    import ProjectFilters from '../components/ProjectFilters'
+    import apiManiak from '../utils/api'
 
-export default {
-  extends: { ...PageCommon },
 
-  mounted() {
-    this.updateData()
-  },
+    export default {
+        extends: {...PageCommon},
 
-  methods: {
-    updateData() {
-      this.setNavTheme(false)
-      this.$emit('view-loaded')
-    },
-  },
-}
+        components: { ProjectFilters },
+
+        data() {
+            return {
+                areas: [],
+                projects: [],
+                projectsLoaded: false,
+                areasLoaded: false,
+            }
+        },
+
+        mounted() {
+            apiManiak.getAreas()
+                .then(this.updateAreas)
+                .catch(() => { this.$emit('not-found') })
+            apiManiak.getProjects()
+                .then(this.updateProjects)
+                .catch(() => { this.$emit('not-found') })
+        },
+
+        methods: {
+            updateAreas(response) {
+                this.setNavTheme(false)
+                this.areas = response.data
+                this.areasLoaded = true
+                if(this.projectsLoaded){
+                    this.$emit('view-loaded')
+                }
+            },
+            updateProjects(response) {
+                this.setNavTheme(false)
+                this.projects = response.data
+                this.projectsLoaded = true
+                if(this.areasLoaded){
+                    this.$emit('view-loaded')
+                }
+            },
+        },
+    }
 </script>
