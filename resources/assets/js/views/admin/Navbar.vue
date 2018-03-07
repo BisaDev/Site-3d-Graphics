@@ -9,16 +9,14 @@
             <label for="nav-check">
                 <span></span>
                 <span></span>
-                <span></span>
             </label>
         </div>
         <input type="checkbox" id="nav-check">
 
 
         <div class="nav-links" v-if="isLogged">
-            <router-link :to="{name: 'create-project'}">Projects</router-link>
-            <a href="#" target="_blank">Sections</a>
-            <a href="#" target="_blank">Users</a>
+            <router-link :to="{name: 'projects'}">Project List</router-link>
+            <router-link :to="{name: 'create-project'}">Create New Project</router-link>
         </div>
 
         <div class="nav-profile" v-if="isLogged">

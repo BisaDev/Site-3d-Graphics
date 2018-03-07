@@ -10,19 +10,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ProjectStickySection extends Model
 {
+    /**
+     * @todo remove project_id from migration
+     * @var array
+     */
     protected $fillable = [
-        'project_id',
         'body',
         'image',
     ];
-
-    /**
-     * Project Parent
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function project()
-    {
-        return $this->belongsTo(Project::class);
-    }
 }
