@@ -2,8 +2,10 @@
   <div class="studio">
     <section class="studio-header">
       <div class="studio-header-title-container container">
-        <h1 class="studio-header-title"><b>Maniak is a creative studio in Guadalajara, Mexico. </b><br>We build websites, applications and interactive experiences.
-        </h1>
+        <div class="appear-after-reveal">
+          <h1 class="studio-header-title"><b>Maniak is a creative studio in Guadalajara, Mexico. </b><br>We build websites, applications and interactive experiences.
+          </h1>
+        </div>
       </div>
       <div class="studio-header-button-container container">
         <button class="button button-scroll"><span>Read more</span><span>Read more</span></button>

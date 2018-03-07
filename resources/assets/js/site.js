@@ -20,6 +20,8 @@ new Vue({
             devtoolsOpen: false,
             wantsJob: false,
             enableDeath: process.env.NODE_ENV !== 'development',
+            revealerIsAnimating: true,
+            revealerIsOpen: true,
         }
     },
 

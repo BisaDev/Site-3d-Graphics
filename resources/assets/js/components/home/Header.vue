@@ -37,9 +37,9 @@
       </div>
     </div>
     <div class="container home-header-title-container dark">
-      <h1>
-        Let us blow your mind.
-      </h1>
+      <div class="appear-after-reveal">
+        <h1>Let us blow your mind.</h1>
+      </div>
     </div>
     <div class="container home-header-button-container">
       <scroll-button to="#home-info" text="Scroll down"></scroll-button>
