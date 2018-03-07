@@ -37,8 +37,8 @@
         },
         data() {
             return {
-                images_obj: this.images.map(function (el) {
-                    return {src: el, msrc: el, w: 1024, h: 615}
+                images_obj: this.images.map(function (image) {
+                    return {src: image.image, msrc: image.image, w: 1024, h: 615}
                 }),
             }
         },
