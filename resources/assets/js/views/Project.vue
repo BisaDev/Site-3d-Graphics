@@ -1,7 +1,7 @@
 <template>
   <div class="project" v-if="project !== null">
     <!-- Hero Information -->
-    <themed-section :color="project.hero_color" :image="project.hero_image" :isDark="!!project.is_dark" :class="['project-header', 'align-center', 'no-padding']">
+    <themed-section :color="project.hero_color" :image="project.hero_image" :isDark="Boolean(project.is_dark)" :class="['project-header', 'align-center', 'no-padding']">
       <div class="project-header-title-container container">
         <h1 class="project-header-title">{{project.name}}</h1>
         <h1 class="project-header-subtitle">{{project.description}}.</h1>
@@ -146,14 +146,6 @@
       <!--</div>-->
     <!--</themed-section>-->
 
-    <!--<themed-section class="project-next no-padding no-margin dark text-center">-->
-      <!--<div class="container project-next-cta">-->
-        <!--<h3 class="no-margin">Next.</h3>-->
-      <!--</div>-->
-      <!--<div class="container project-next-subtitle">-->
-        <!--<h4 class="no-margin">The power of design and technology<br>to create and start change</h4>-->
-      <!--</div>-->
-    <!--</themed-section>-->
     <!--
     Loop through project sections and inject the needed components.
     Don't forget to define your components on the Vue instance, see below.
@@ -165,6 +157,19 @@
                     :image="section.background_image"
     >
       <component :is="section.component" v-bind="section.model"/>
+    </themed-section>
+    <!-- NEXT PROJECT -->
+    <themed-section class="project-next no-padding no-margin text-center"
+                    :is-dark="Boolean(nextProject.is_dark)"
+                    :image="nextProject.hero_image"
+                    :color="nextProject.hero_color || 'transparent'"
+                    v-if="nextProject">
+      <div class="container project-next-cta">
+        <h3 class="no-margin">Next.</h3>
+      </div>
+      <div class="container project-next-subtitle">
+        <h4 class="no-margin">{{ nextProject.preloader }}</h4>
+      </div>
     </themed-section>
   </div>
 </template>
@@ -203,24 +208,36 @@ export default {
     data() {
         return {
             project: null,
+            nextProject: null,
         }
     },
 
     mounted() {
         apiManiak
             .getProject(this.$props.id)
-            .then(this.updateData)
+            .then(this.updateProject)
+            .catch(() => {
+                this.$emit('not-found')
+            })
+        apiManiak
+            .getProjectNext(this.$props.id)
+            .then(this.updateNextProject)
             .catch(() => {
                 this.$emit('not-found')
             })
     },
 
     methods: {
-        updateData(response) {
-            this.setNavTheme(true)
+        updateProject(response) {
             this.project = response.data
+            this.setNavTheme(Boolean(this.project.is_dark))
             this.$emit('view-loaded')
         },
+        updateNextProject(response) {
+            // @TODO: change this once the API return a single object instead of a n object with a single object prop
+            this.nextProject = Object.values(response.data)[0]
+        },
+
     },
 }
 </script>
