@@ -102,9 +102,10 @@
   }
 
   & &-gallery {
+
     &-image {
       height: $image-height;
-      background: $light-gray-darker;
+      background-color: $light-gray-darker;
       display: flex;
       border-radius: $border-radius-lg;
       overflow: hidden;
@@ -112,12 +113,9 @@
       position: relative;
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       cursor: pointer;
-      img {
-        max-height: 100%;
-        max-width: 100%;
-        margin: auto;
-        position: relative;
-      }
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
       &::before {
         content: '';
         display: block;
