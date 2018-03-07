@@ -23,18 +23,27 @@
             <div class="pswp__top-bar">
 
                 <!--  Controls are self-explanatory. Order can be changed. -->
+                <!--
+                 Hide Counter
+                   <div class="pswp__counter"></div>
+               -->
 
-                <div class="pswp__counter"></div>
+               <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+               <!--
+               Hide Share button
+               <button class="pswp__button pswp__button--share" title="Share"></button>
+                -->
+                <!--
+                  Hide Fullscreen Button
+                   <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+    -->
+                   <!--
+                 Hide Zoom Button
+                 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                 -->
 
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+              <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
                 <!-- element will get class pswp__preloader--active when preloader is running -->
                 <div class="pswp__preloader">
                     <div class="pswp__preloader__icn">

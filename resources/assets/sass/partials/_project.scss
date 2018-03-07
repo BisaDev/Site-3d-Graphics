@@ -10,8 +10,7 @@
     background-size: contain;
     background-position: bottom right;
     background-repeat: no-repeat;
-    background-color: #005fff;
-    background-image: url('../img/featured/plateiq.png');
+    background-color: $stone;
 
     &-title-container {
       height: 100vh;
@@ -75,12 +74,10 @@
   }
   & &-quote {
     height: $section-min-height;
-    background-color: #005fff;
     position: relative;
     padding: 0;
     text-align: center;
     .parallax-image {
-      background-image: url('../img/patterns/pattern.png');
       background-size: 50%;
     }
 
@@ -107,13 +104,14 @@
   & &-gallery {
     &-image {
       height: $image-height;
-      background: #005fff;
+      background: $light-gray-darker;
       display: flex;
       border-radius: $border-radius-lg;
       overflow: hidden;
       @include transition(md);
       position: relative;
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      cursor: pointer;
       img {
         max-height: 100%;
         max-width: 100%;
@@ -157,17 +155,15 @@
     }
   }
   .image-full {
-    background-color: #005fff;
+    background-color: $light-gray-darker;
     .parallax-image {
       background-image: url('../img/projectimages/image-full.jpg');
       background-size: cover;
     }
   }
   & &-next {
-    @include transition(md);
     height: $footer-height;
-    background-color: #d70034;
-    background-image: url('../img/featured/wolverine.png');
+    background-color: $light-gray-darker;
     background-size: contain;
     background-position: center bottom;
     background-repeat: no-repeat;
@@ -175,6 +171,17 @@
     cursor: pointer;
     text-align: center;
     margin: 0;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($stone-dark, 0);
+      @include transition(md);
+    }
     &-cta,
     &-subtitle {
       position: absolute;
@@ -193,7 +200,9 @@
     }
 
     &:hover {
-      background-color: darken(#d70034, 5%);
+      &::before {
+        background-color: rgba($stone-dark, 0.15);
+      }
       h3 {
         transform: translateY(-100%);
       }

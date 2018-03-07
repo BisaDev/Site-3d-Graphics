@@ -41,7 +41,8 @@ $home-image-max-size: 40rem;
   }
 
   &:hover .home-header-visual-svg-wrap {
-    transform: scale(1.25);
+    //transform: scale(1.25);
+    animation: huerotate 2s linear infinite;
   }
   &.hidden .home-header-visual-svg-wrap {
     transition: all 0.15s ease-in;
@@ -52,7 +53,7 @@ $home-image-max-size: 40rem;
     width: 100%;
     height: 100%;
     max-height: 100vh;
-    animation: rotate 60s linear;
+    animation: rotate 40s linear;
   }
 
   $top-collection: [];
@@ -70,13 +71,13 @@ $home-image-max-size: 40rem;
   }
 
   .blob:nth-of-type(1) circle {
-    fill: $watermelon;
+    fill: #40517B;
   }
   .blob:nth-of-type(2) circle {
-    fill: $azure;
+    fill: #242B48;
   }
   .blob:nth-of-type(3) circle {
-    fill: $stone;
+    fill: #121722;
   }
   .blob:nth-of-type(4) circle {
     fill: $light-gray;
@@ -86,10 +87,12 @@ $home-image-max-size: 40rem;
     $factor: 2 / $k;
     .blob:nth-child(#{$k}) {
       @for $i from 1 to 4 {
+        $size-factor: 10px;
+
         circle:nth-child(#{$i}) {
           cx: 50% + $k;
           cy: 50%;
-          r: nth($size-collection, $i) - $k * 8px;
+          r: nth($size-collection, $i) - $k * $k * 1.5px;
           animation: blob-#{$k}-circle-#{$i} $home-blob-duration ease-in-out infinite;
           animation-delay: $home-blob-duration * 0.025 * ($k - 1);
         }
@@ -121,6 +124,7 @@ $home-image-max-size: 40rem;
     z-index: 0;
     pointer-events: none;
     @include transition(sm);
+    animation: huerotate 20s linear infinite;
 
     .dark & {
       background-color: $watermelon;
@@ -142,6 +146,7 @@ $home-image-max-size: 40rem;
     }
   }
   &-image {
+    animation: huerotate 20s linear infinite;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -175,6 +180,11 @@ $home-image-max-size: 40rem;
   100% {
     transform: rotate(360deg);
   }
+}
+
+@keyframes huerotate {
+  0%{filter: hue-rotate(0deg);}
+  100%{filter: hue-rotate(360deg);}
 }
 
 $studio-visual-width: 45rem;

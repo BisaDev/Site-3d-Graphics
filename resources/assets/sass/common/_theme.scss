@@ -29,3 +29,15 @@ blockquote,
 label {
   margin: 0;
 }
+
+// Photoswipe BG
+.pswp__bg {
+  background-color: $stone-dark;
+}
+
+.pswp__ui--fit {
+  .pswp__top-bar,
+  .pswp__caption {
+    background-color: transparent;
+  }
+}
