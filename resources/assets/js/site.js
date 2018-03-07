@@ -32,7 +32,10 @@ new Vue({
             this.$refs.reveal.close()
         },
         openReveal(callback) {
-            this.$refs.reveal.reveal().then(() => callback())
+            this.$refs.reveal.reveal().then(() => {
+                this.$refs.navbar.closeMobileNav()
+                return callback()
+            })
         },
 
         notFoundRedirect(){

@@ -9,7 +9,7 @@
 
             <reveal ref="reveal"></reveal>
 
-            <navbar :theme="navTheme"></navbar>
+            <navbar :theme="navTheme" ref="navbar"></navbar>
 
             <router-view
                     v-on:set-nav-theme="setNavTheme"
