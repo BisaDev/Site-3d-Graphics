@@ -1,9 +1,10 @@
 <template>
 
-  <section class="parallax" ref="parallax">
-    <div :style="{transform: `translate(${backgroundPositionOffsetX}vw,${backgroundPositionOffsetY}px)` }" class="parallax-image" ref="parallaxImage"></div>
-    <slot></slot>
-  </section>
+    <section class="parallax" ref="parallax">
+        <div :style="{transform: `translate(${backgroundPositionOffsetX}vw,${backgroundPositionOffsetY}px)`, backgroundImage: image }"
+             class="parallax-image" ref="parallaxImage"></div>
+        <slot></slot>
+    </section>
 
 </template>
 
@@ -18,6 +19,10 @@
                 type: Boolean,
                 default: false,
             },
+            image: {
+                type: String,
+                required: true,
+            }
         },
         data() {
             return {
