@@ -45,10 +45,10 @@
         },
 
         created() {
-            window.addEventListener('scroll', () => this.handleParallax())
+            window.addEventListener('scroll', this.handleParallax)
         },
         destroyed() {
-            window.removeEventListener('scroll', () => this.handleParallax())
+            window.removeEventListener('scroll', this.handleParallax)
         },
     }
 </script>

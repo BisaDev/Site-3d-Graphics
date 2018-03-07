@@ -1,5 +1,11 @@
 <template>
-    <div v-html="body"></div>
+    <div class="container">
+        <div class="grid">
+            <div class="project-copy-text" v-html="body">
+
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>

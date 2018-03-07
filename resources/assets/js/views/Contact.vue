@@ -4,7 +4,7 @@
       <div class="container">
         <div class="grid appear-after-reveal">
           <h1>
-            If you’d like to partner on a project or simply chat about what we could do together, just say <a class="contact-email" href="">hello@maniak.co</a>.
+            If you’d like to partner on a project or simply chat about what we could do together, just say <a class="contact-email" href="mailto: hello@maniak.co">hello@maniak.co</a>.
           </h1>
         </div>
       </div>
