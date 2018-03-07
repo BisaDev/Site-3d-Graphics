@@ -63,10 +63,6 @@
         },
 
         methods: {
-            toggle() {
-                // TODO
-            },
-
             reveal() {
                 if (!this.isOpened) {
                     this.isAnimating = true
