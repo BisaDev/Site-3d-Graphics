@@ -113,6 +113,11 @@ export default {
           .then(response => {
             this.$root.user = response.data[0]
             cookies.setItem('user', JSON.stringify(this.$root.user))
+
+            //This is not a hack nor hardcode stuff, Laravel Passport requires to perform a GET to
+            //call CreateFreshApiToken middleware, and the get fresh credentials:
+            //https://github.com/laravel/passport/issues/400
+            window.location = '/admin'
           })
       })
     },

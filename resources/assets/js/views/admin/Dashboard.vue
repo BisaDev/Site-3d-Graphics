@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <router-link to="admin/projects">Link</router-link>
+        <router-link to="admin/projects">Go to Projects.</router-link>
     </div>
 </template>
 
