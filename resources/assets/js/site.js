@@ -20,6 +20,8 @@ new Vue({
             devtoolsOpen: false,
             wantsJob: false,
             enableDeath: process.env.NODE_ENV !== 'development',
+            revealerIsAnimating: true,
+            revealerIsOpen: true,
         }
     },
 
@@ -32,7 +34,10 @@ new Vue({
             this.$refs.reveal.close()
         },
         openReveal(callback) {
-            this.$refs.reveal.reveal().then(() => callback())
+            this.$refs.reveal.reveal().then(() => {
+                this.$refs.navbar.closeMobileNav()
+                return callback()
+            })
         },
 
         notFoundRedirect(){

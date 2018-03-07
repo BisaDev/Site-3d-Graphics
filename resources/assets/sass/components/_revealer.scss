@@ -51,3 +51,20 @@
     overflow: hidden;
   }
 }
+
+.appear-after-reveal {
+  overflow: hidden;
+  > * {
+    transform: translateY(0);
+    transition: transform 0.9s cubic-bezier(0.075, 0.820, 0.165, 1.000);
+  }
+  &-delay {
+    > * {
+      transition-delay: 0.2s;
+    }
+  }
+  .revealer-on & > * {
+    transform: translateY(100%);
+  }
+}
+

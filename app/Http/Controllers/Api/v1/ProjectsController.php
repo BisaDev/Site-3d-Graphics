@@ -2,10 +2,19 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Client;
+use App\Country;
 use App\Http\Requests\ProjectRequest;
 use App\Http\Controllers\Controller;
 use App\Project;
+use App\ProjectGallery;
+use App\ProjectGalleryImage;
+use App\ProjectSection;
+use App\ProjectStickySection;
+use App\ProjectTextInformation;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Schema;
 use Intervention\Image\Facades\Image;
 
 /**
@@ -14,6 +23,11 @@ use Intervention\Image\Facades\Image;
  */
 class ProjectsController extends Controller
 {
+    /**
+     *
+     */
+    private $projectSections = [];
+
     /**
      * Public Upload Image Route
      *
@@ -26,6 +40,21 @@ class ProjectsController extends Controller
      */
     public function __construct()
     {
+        $this->projectSections = [
+            class_basename(ProjectGallery::class) => array_fill_keys(
+                Schema::getColumnListing((new ProjectGalleryImage())->getTable()),
+                null
+            ),
+            class_basename(ProjectStickySection::class) => array_fill_keys(
+                Schema::getColumnListing((new ProjectStickySection())->getTable()),
+                null
+            ),
+            class_basename(ProjectTextInformation::class) => array_fill_keys(
+                Schema::getColumnListing((new ProjectTextInformation())->getTable()),
+                null
+            ),
+        ];
+
         $this->middleware('auth:api')->except(['index', 'show', 'getNextProject']);
     }
 
@@ -59,9 +88,6 @@ class ProjectsController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-        $request->offsetSet('country_id', 1);
-        $request->offsetSet('client_id', 1);
-
         //Upload Images
         foreach (['hero_image', 'hero_image_preview'] as $image) {
             if ($request->get($image)) {
@@ -74,8 +100,14 @@ class ProjectsController extends Controller
         //Create Project Model
         $project = Project::create($request->all());
 
+        //Save Project Sections
+        $this->addProjectSections($request, $project);
+
+        $project->load('sections');
+
         //Response
         return response()->json([
+            'project' => $project,
             'success' => true,
             'message' => 'Project (ID: '.$project->id.') created successfully!',
             'projectId' => $project->id,
@@ -107,7 +139,14 @@ class ProjectsController extends Controller
      */
     public function edit(Project $project)
     {
-        return response()->json($project, 200);
+        $project->load('sections');
+
+        return response()->json([
+            'project' => $project,
+            'clients' => Client::select('id', 'name')->get(),
+            'countries' => Country::select('id', 'name')->get(),
+            'sections' => $this->projectSections
+        ], 200);
     }
 
     /**
@@ -119,6 +158,12 @@ class ProjectsController extends Controller
      */
     public function update(ProjectRequest $request, Project $project)
     {
+        $request->offsetUnset('areas');
+        $request->offsetUnset('services');
+
+        //Save Project Sections
+        $this->addProjectSections($request, $project);
+
         //Upload Images
         foreach (['hero_image', 'hero_image_preview'] as $image) {
             if ($request->get($image)) {
@@ -131,8 +176,11 @@ class ProjectsController extends Controller
         //Update Project Model
         $project->update($request->all());
 
+        $project->load('sections');
+
         //Response
         return response()->json([
+            'project' => $project,
             'success' => true,
             'projectId' => $project->id,
             'message' => 'Project (ID: '.$project->id.') edited successfully!',
@@ -187,5 +235,96 @@ class ProjectsController extends Controller
         $heroImage = Image::make($imageData)->save(public_path($this->imageRoute).$fileName);
 
         return DIRECTORY_SEPARATOR.$this->imageRoute.$heroImage->basename;
+    }
+
+    /**
+     * Provides data for Config dropdowns on Form
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getConfigModels(Request $request)
+    {
+        return response()->json([
+            'clients' => Client::select('id', 'name')->get(),
+            'countries' => Country::select('id', 'name')->get(),
+            'sections' => $this->projectSections
+        ], 200);
+    }
+
+    /**
+     * @param Request $request
+     */
+    protected function addProjectSections(Request $request, Project $project)
+    {
+        //Filter Remove Sections
+        $sections = array_filter($request->get('sections'), function($section) {
+            return !isset($section['visible']);
+        });
+
+        $removedSections =  array_filter($request->get('sections'), function($section) {
+            return isset($section['visible']);
+        });
+
+        foreach($removedSections as $section) {
+            if ($section['id']) {
+                $project->sections()->find($section['id'])->delete();
+            }
+        }
+
+        //Replace Sections offset with filtered data
+        $request->replace(['sections' => $sections]);
+
+        if ($request->offsetGet('sections')) {
+            foreach ($request->offsetGet('sections') as $section) {
+                if ($section['id'] and $section['component'] === 'ProjectTextInformation') {
+                    $projectSection = ProjectSection::find($section['id']);
+
+                    //@todo refactor using ternary, check weird behavior when implementing it
+                    if ((preg_match('/^data\:image/', $section['background_image']))) {
+                        $background = [ 'background_image' => $this->uploadEncoded64Image($section['background_image']) ];
+                    } else {
+                        $background = ($section['background_image']) ? ['0'] : ['background_image' => null];
+                    }
+
+                    $projectSection->update(array_merge([
+                        'color' => $section['color'],
+                        'is_dark' => $section['is_dark'],
+                        //'background_image' => ($section['background_image']) ? $this->uploadEncoded64Image($section['background_image']) : null,
+                        'is_parallax' => $section['is_parallax'],
+                        'order' => $section['order'],
+                    ], $background));
+
+                    $projectSection->model->update(['body' => $section['model']['body']]);
+                } elseif($section['component'] === 'ProjectTextInformation') {
+                    if ((preg_match('/^data\:image/', $section['background_image']))) {
+                        $background = [ 'background_image' => $this->uploadEncoded64Image($section['background_image']) ];
+                    } else {
+                        $background = ($section['background_image']) ? ['0'] : ['background_image' => null];
+                    }
+
+                    $attrs = [
+                        'color' => $section['color'],
+                        'is_dark' => $section['is_dark'],
+                        //'background_image' => ($section['background_image']) ? $this->uploadEncoded64Image($section['background_image']) : null,
+                        'is_parallax' => $section['is_parallax'],
+                        'order' => $section['order'],
+                    ];
+
+                    $attrs = array_merge($attrs, $background);
+
+                    $textInformationSection = ProjectTextInformation::create([
+                        'project_id' => $project->id,
+                        'body' => $section['model']['body'],
+                    ]);
+
+                    $project->addSection(ProjectTextInformation::class,  $textInformationSection->id, $attrs);
+                }
+            }
+        } else {
+            $project->sections()->delete();
+        }
+
+        return true;
     }
 }

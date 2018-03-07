@@ -42,8 +42,21 @@ class ProjectRequest extends FormRequest
             'end_date' => 'required|date',
             'is_featured' => 'boolean',
             'is_dark' => 'boolean',
-            //'country_id' => 'required|exists:countries',
-            //'client_id' => 'required|exists:clients',
+            'country_id' => 'required|exists:countries,id',
+            'client_id' => 'required|exists:clients,id',
+            'sections.*.model.body' => 'required_without:sections.*.visible',
+            'sections.*.order' => 'required_without:sections.*.visible'
+        ];
+    }
+
+    /**
+     *
+     */
+    public function messages()
+    {
+        return [
+            'sections.*.order.required' => 'Section Order position is required',
+            'sections.*.model.body.required' => 'The Section Body is required',
         ];
     }
 }

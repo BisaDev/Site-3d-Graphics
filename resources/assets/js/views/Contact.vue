@@ -2,7 +2,7 @@
   <div class="contact">
     <section class="contact-header">
       <div class="container">
-        <div class="grid">
+        <div class="grid appear-after-reveal">
           <h1>
             If you’d like to partner on a project or simply chat about what we could do together, just say <a class="contact-email" href="">hello@maniak.co</a>.
           </h1>

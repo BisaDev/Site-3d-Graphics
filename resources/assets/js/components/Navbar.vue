@@ -104,6 +104,11 @@ export default {
         this.hamburgerClass = !this.hamburgerClass
     },
 
+    closeMobileNav() {
+        this.mobileClass = false
+        this.hamburgerClass = false
+    },
+
     setStateClass() {
       if (this.scrollPosition === 0) {
         return 'nav-at-top'

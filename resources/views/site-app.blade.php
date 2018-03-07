@@ -5,11 +5,17 @@
     <div id="app">
         <span ref="consoleChecker"></span>
         <death-screen v-if="death"></death-screen>
-        <div v-else>
+        <div :class="{'revealer-animating':  revealerIsAnimating, 'revealer-on': revealerIsOpen, 'revealer-off': !revealerIsOpen}" v-else>
 
-            <reveal ref="reveal"></reveal>
+            <reveal
+                    v-on:revealer-animation-on="revealerIsAnimating = true"
+                    v-on:revealer-animation-off="revealerIsAnimating = false"
+                    v-on:revealer-opened="revealerIsOpen = true"
+                    v-on:revealer-closed="revealerIsOpen = false"
+                    ref="reveal"
+            ></reveal>
 
-            <navbar :theme="navTheme"></navbar>
+            <navbar :theme="navTheme" ref="navbar"></navbar>
 
             <router-view
                     v-on:set-nav-theme="setNavTheme"
