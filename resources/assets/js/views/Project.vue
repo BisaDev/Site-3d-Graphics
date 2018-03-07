@@ -3,8 +3,12 @@
     <!-- Hero Information -->
     <themed-section :color="project.hero_color" :image="project.hero_image" :isDark="Boolean(project.is_dark)" :class="['project-header', 'align-center', 'no-padding']">
       <div class="project-header-title-container container">
-        <h1 class="project-header-title">{{project.name}}</h1>
-        <h1 class="project-header-subtitle">{{project.description}}.</h1>
+        <div class="appear-after-reveal">
+          <h1 class="project-header-title">{{project.name}}</h1>
+        </div>
+        <div class="appear-after-reveal appear-after-reveal-delay">
+          <h1 class="project-header-subtitle">{{project.description}}.</h1>
+        </div>
       </div>
       <div class="project-header-button-container container">
         <button class="button button-scroll"><span>Read more</span><span>Read more</span></button>
