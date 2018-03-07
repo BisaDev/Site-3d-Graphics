@@ -13,12 +13,19 @@ For local development run:
 `npm run watch`
 
 
-##API Clients
+##API Clients on Laravel Passport
 
 Generate a API client by running:
 
 ```bash
 php artisan passport:client --password
+```
+
+Create Oauth Keys
+
+```bash
+php artisan passport:keys
+
 ```
 
 Enjoy!
