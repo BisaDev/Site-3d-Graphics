@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import scrollButton from '../ScrollButton'
+import ScrollButton from '../ScrollButton'
 export default {
   data() {
     return {
@@ -59,7 +59,7 @@ export default {
       showVisualTimeout: 1000,
     }
   },
-  components: { scrollButton, },
+  components: { ScrollButton, },
   methods: {
     explode: function() {
       this.$emit('explode', !this.dark)

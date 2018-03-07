@@ -8,11 +8,11 @@
         </div>
       </div>
       <div class="studio-header-button-container container">
-        <button class="button button-scroll"><span>Read more</span><span>Read more</span></button>
+        <scroll-button to="#who-we-are" text="Read more"></scroll-button>
       </div>
     </section>
     <image-full></image-full>
-    <section class="studio-who">
+    <section id="who-we-are" class="studio-who">
       <div class="container">
         <div class="grid">
           <div class="section-title">
@@ -177,6 +177,8 @@ import ImageFull from '../components/ImageFull'
 import PageCommon from '../components/PageCommon.vue'
 import StudioPanorama from '../components/studio/StudioPanorama'
 import StudioPortfolio from '../components/studio/StudioPortfolio'
+import ScrollButton from '../components/ScrollButton'
+
 
 export default {
   extends: { ...PageCommon },
@@ -185,6 +187,7 @@ export default {
     StudioPanorama,
     StudioPortfolio,
     ImageFull,
+    ScrollButton,
   },
 
   mounted() {
