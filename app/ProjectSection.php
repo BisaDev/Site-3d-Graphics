@@ -18,7 +18,7 @@ class ProjectSection extends Model
      *
      * @var array
      */
-    protected $visible = ['id', 'component', 'model'];
+    protected $visible = ['id', 'component', 'model', 'color', 'is_dark', 'background_image', 'is_parallax'];
 
     /**
      * The accessors to append to the model's array form.

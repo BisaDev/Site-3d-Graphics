@@ -17,23 +17,37 @@ $studio-paragraph-margin: 0 0 3.5rem;
   }
 
   &-header {
-    .container {
+    @include section-fullscreen();
+    @include section-align-center();
+    &-title-container {
       height: 100vh;
       display: flex;
       flex-flow: column;
-      align-items: center;
       justify-content: center;
+    }
+    &-button-container {
+      position: absolute;
       text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      display: flex;
+      flex-flow: column;
       @include breakpoint(medium down) {
-        align-items: flex-start;
-        text-align: left;
+        .button {
+          position: relative;
+          @include button-outline();
+        }
       }
     }
   }
   &-where {
     z-index: 1;
     position: relative;
+    margin: 0;
     &-callout {
+      height: $studio-where-callout-height;
+      margin-bottom: -$studio-where-callout-height / 2;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -84,7 +98,7 @@ $studio-paragraph-margin: 0 0 3.5rem;
     &-department {
       margin-bottom: 10rem;
       ul {
-        width: 60%;
+        width: 75%;
         opacity: 0.75;
         column-count: 2;
         column-gap: 2rem;
@@ -96,6 +110,8 @@ $studio-paragraph-margin: 0 0 3.5rem;
     }
   }
   &-clients {
+    margin: 0;
+    @include section-padding();
     &-title {
       margin-bottom: 8rem;
     }

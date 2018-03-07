@@ -1,10 +1,12 @@
 <template>
   <div class="studio">
-    <section class="align-center studio-header no-margin no-padding fullscreen">
-      <div class="container">
-        <h1>
-          <b>Maniak is a creative studio in Guadalajara, Mexico. </b><br>We build websites, applications and interactive experiences.
+    <section class="studio-header">
+      <div class="studio-header-title-container container">
+        <h1 class="studio-header-title"><b>Maniak is a creative studio in Guadalajara, Mexico. </b><br>We build websites, applications and interactive experiences.
         </h1>
+      </div>
+      <div class="studio-header-button-container container">
+        <button class="button button-scroll"><span>Read more</span><span>Read more</span></button>
       </div>
     </section>
     <image-full></image-full>
@@ -22,7 +24,7 @@
         </div>
       </div>
     </section>
-    <section class="studio-where no-margin">
+    <section class="studio-where">
       <div class="container">
         <div class="grid">
           <div class="section-title">
@@ -125,7 +127,7 @@
         </div>
       </div>
     </section>
-    <section class="studio-clients dark padding no-margin">
+    <section class="studio-clients dark">
       <div class="container">
         <div class="grid">
           <div class="studio-clients-title section-title">

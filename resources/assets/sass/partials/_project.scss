@@ -13,17 +13,37 @@
     background-color: #005fff;
     background-image: url('../img/featured/plateiq.png');
 
-    .container {
+    &-title-container {
       height: 100vh;
       display: flex;
       flex-flow: column;
       justify-content: center;
+    }
+
+    &-button-container {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      display: flex;
+      flex-flow: column;
+      @include breakpoint(medium down) {
+        .button {
+          position: relative;
+          @include button-outline();
+        }
+      }
     }
     &-subtitle {
       opacity: 0.5;
     }
     .button-scroll {
       margin-left: -$button-padding-h;
+      @include breakpoint(medium down) {
+        margin-left: 0;
+        @include button-outline();
+      }
     }
   }
 
@@ -58,6 +78,7 @@
     background-color: #005fff;
     position: relative;
     padding: 0;
+    text-align: center;
     .parallax-image {
       background-image: url('../img/patterns/pattern.png');
       background-size: 50%;
@@ -152,6 +173,8 @@
     background-repeat: no-repeat;
     position: relative;
     cursor: pointer;
+    text-align: center;
+    margin: 0;
     &-cta,
     &-subtitle {
       position: absolute;

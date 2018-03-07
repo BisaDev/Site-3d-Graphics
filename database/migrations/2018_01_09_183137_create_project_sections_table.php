@@ -25,6 +25,13 @@ class CreateProjectSectionsTable extends Migration
             $table->string('model_class');
             $table->string('model_id');
 
+            $table->string('color', 7)->nullable();
+            $table->boolean('is_dark')->default(false);
+            $table->string('background_image')->nullable();
+            $table->boolean('is_parallax')->default(false);
+
+            //@todo {Color, isDarkSection, backgroundimage, isParallax }
+
             $table->timestamps();
         });
     }

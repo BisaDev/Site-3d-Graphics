@@ -127,6 +127,9 @@ $grid-container-padding-lg: 4vw;
     @include breakpoint(medium down) {
       @include xy-cell(12 of 12);
     }
+    &:only-child {
+      @include xy-cell(12 of 12);
+    }
     &:nth-child(4n + 2),
     &:nth-child(4n + 3) {
       @include xy-cell(8 of 12);
@@ -195,7 +198,7 @@ $grid-container-padding-lg: 4vw;
   & &-header {
     h1 {
       @include xy-cell(8 of 12);
-      @include xy-cell-offset(2 of 12);
+      //@include xy-cell-offset(2 of 12);
       @include breakpoint(medium down) {
         @include xy-cell(12 of 12);
         @include xy-cell-offset(0 of 12);

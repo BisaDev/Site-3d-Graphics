@@ -1,25 +1,22 @@
 <template>
-    <div class="not-found">
-        <section class="align-center work-header no-margin no-padding fullscreen">
+    <div class="notFound">
+        <section class="notFound-header">
             <div class="container">
-                <div class="grid">
-                    <h1>
-                        <b>Ooops we got nothing here!</b>
-                    </h1>
-                </div>
+                   <h5>404</h5>
+                    <p>Oops.</p>
             </div>
         </section>
     </div>
 </template>
 
 <script>
-    import pageCommon from '../components/PageCommon'
+import pageCommon from '../components/PageCommon'
 
-    export default {
-        extends: { ...pageCommon },
+export default {
+  extends: { ...pageCommon },
 
-        mounted(){
-            this.$emit('view-loaded')
-        }
-    }
+  mounted() {
+    this.$emit('view-loaded')
+  },
+}
 </script>

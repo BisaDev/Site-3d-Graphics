@@ -2,7 +2,7 @@
   <div class="home">
     <home-header @explode="setNavTheme" ></home-header>
     <home-info></home-info>
-    <section class="home-featured no-margin padding">
+    <section class="home-featured">
       <div class="container">
         <div class="grid">
           <div class="home-featured-title">
@@ -13,44 +13,17 @@
           </div>
         </div>
         <div class="grid home-featured-list">
-          <!-- <router-link :key="project.id" :to="`/project/${project.id}`" class="project-preview dark reveal"
-                       v-for="project in projects">
-            <div class="project-preview-title">
-              <h5>{{project.name}}</h5>
-              <h6>{{project.description}}</h6>
+            <router-link :key="project.id" :to="`/project/${project.id}`" class="preview dark reveal"
+                         v-for="project in firstThreeProjects" :style="{backgroundImage: `url(../../img/featured/${project.hero_image_preview})`}">
+              <div class="preview-title">
+                <h5>{{project.name}}</h5>
+                <h6>{{project.description}}</h6>
 
-              <div class="project-preview-title-description">
-                <p>Read more.</p>
-              </div>
-            </div>
-          </router-link> -->
-            <a href class="preview reveal dark" :style="{backgroundImage: 'url(../../img/featured/plateiq.png)'}">
-              <div class="preview-title">
-                <h5>Plate IQ</h5>
-                <h6>Restaurant Management</h6>
                 <div class="preview-title-cta">
                   <p>Read more.</p>
                 </div>
               </div>
-            </a>
-            <a href class="preview reveal" :style="{backgroundImage: 'url(../../img/featured/volkswagen.png)'}">
-              <div class="preview-title">
-                <h5>Volkswagen 4DX</h5>
-                <h6>VR Driving Simulator</h6>
-                <div class="preview-title-cta">
-                  <p>Read more.</p>
-                </div>
-              </div>
-            </a>
-            <a href class="preview reveal dark" :style="{backgroundImage: 'url(../../img/featured/wolverine.png)'}">
-              <div class="preview-title">
-                <h5>Wolverine</h5>
-                <h6>Online Configurator</h6>
-                <div class="preview-title-cta">
-                  <p>Read more.</p>
-                </div>
-              </div>
-            </a>
+            </router-link>
         </div>
       </div>
     </section>
@@ -76,6 +49,12 @@ export default {
     },
   },
 
+  computed: {
+    firstThreeProjects: function() {
+      return this.projects.slice(0, 3)
+    },
+  },
+
   components: {
     homeHeader,
     photoSwipe,
@@ -89,9 +68,12 @@ export default {
   },
 
   mounted() {
-    apiManiak.getProjects()
-        .then(this.updateData)
-        .catch(() => { this.$emit('not-found') })
+    apiManiak
+      .getProjects()
+      .then(this.updateData)
+      .catch(() => {
+        this.$emit('not-found')
+      })
   },
 
   methods: {

@@ -9,7 +9,7 @@ $factory->define(ProjectTextInformation::class, function (Faker $faker) {
         'project_id' => function () {
             return factory(Project::class)->create()->id;
         },
-        'title' => $faker->text(140),
+        //'title' => $faker->text(140),
         'body' => $faker->text(300),
     ];
 });

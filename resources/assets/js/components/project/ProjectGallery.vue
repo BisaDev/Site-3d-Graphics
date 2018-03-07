@@ -1,16 +1,66 @@
 <template>
-    <div class="bg-white text-black p-8">
-        <img v-for="image in model.images" :key="image.id" :src="image.image" :alt="image.image">
-    </div>
+    <section class="project-gallery">
+        <div class="container">
+            <div class="grid">
+                <div :style="{backgroundColor: color}" ref="galleryImage" v-for="(image, index) in images" @click="openPhotoSwipe(index)"
+                     class="project-gallery-image">
+                    <img :src="image.image"/>
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
 
+
+<style>
+    .gallery-image {
+        height: 300px;
+        width: 500px;
+    }
+
+    .gallery-image img {
+        height: 100%;
+        width: 100%;
+    }
+</style>
+
 <script>
-export default {
-  props: {
-    model: {
-      type: Object,
-      required: true,
-    },
-  },
-}
+    import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
+    import PhotoSwipe from 'photoswipe/dist/photoswipe'
+
+    export default {
+        props: {
+            images: {
+                type: Array,
+                default: () => [],
+            },
+        },
+        data() {
+            return {
+                images_obj: this.images.map(function (el) {
+                    return {src: el, msrc: el, w: 1024, h: 615}
+                }),
+            }
+        },
+        methods: {
+            openPhotoSwipe(index = 0) {
+                const pswpElement = this.$root.$refs.pswp
+                const options = {
+                    getThumbBoundsFn: this.getThumbBoundsFn,
+                    history: false,
+                    index: index,
+                }
+
+                const gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, this.images_obj, options)
+                gallery.init()
+            },
+            getThumbBoundsFn(index) {
+                const thumbnail = this.$refs.galleryImage[index]
+                const pageYScroll = window.pageYOffset || document.documentElement.scrollTop
+                const rect = thumbnail.getBoundingClientRect()
+
+                return {x: rect.left, y: rect.top + pageYScroll, w: rect.width}
+            },
+        },
+    }
 </script>

@@ -11,7 +11,7 @@ class ProjectGallery extends Model
      *
      * @var array
      */
-    protected $with = ['images'];
+    protected $with = ['images',];
 
     /**
      * Gallery's Project.

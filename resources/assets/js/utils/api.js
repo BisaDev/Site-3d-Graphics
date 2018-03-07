@@ -30,10 +30,20 @@ export default {
     })
   },
 
-  logout(user) {},
+  logout(user) {
 
-  sendProjectData(data = []) {
-    return axios.post(this.api + '/projects', data, this.config)
+  },
+
+  createProject(data) {
+      //POST to CREATE entity
+      return axios.post(this.api + '/projects', data, this.config)
+  },
+
+  editProject(data) {
+      let id = data.id
+
+      //PUT to ALTER entity
+      return axios.put(this.api + `/projects/${id}`, data, this.config)
   },
 
   fetchProject(id) {

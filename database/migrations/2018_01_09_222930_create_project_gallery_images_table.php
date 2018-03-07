@@ -16,6 +16,8 @@ class CreateProjectGalleryImagesTable extends Migration
         Schema::create('project_gallery_images', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('project_gallery_id');
+            $table->string('color', 7); // HEX Color, including the #
+
             $table->foreign('project_gallery_id')->references('id')->on('project_galleries')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');

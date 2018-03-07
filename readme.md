@@ -12,4 +12,13 @@ If are you using **Valet** the site should be available on http://maniak-website
 For local development run:
 `npm run watch`
 
+
+##API Clients
+
+Generate a API client by running:
+
+```bash
+php artisan passport:client --password
+```
+
 Enjoy!

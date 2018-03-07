@@ -26,8 +26,8 @@ let routes = [
       {
         name: 'create-project',
         path: 'create',
-        component: { default: ProjectForm },
-        props: { default: true },
+        component: ProjectForm,
+        props: false,
       },
     ],
   },
@@ -89,6 +89,15 @@ adminRouter.beforeEach((to, from, next) => {
       }
     }
   })
+})
+
+adminRouter.afterEach((to, from) => {
+    adminRouter.app.$nextTick().then(result => {
+      console.log('afterEach');
+        if (to.name === 'create-project') {
+            //document.querySelector('form').reset();
+        }
+    })
 })
 
 export default adminRouter
