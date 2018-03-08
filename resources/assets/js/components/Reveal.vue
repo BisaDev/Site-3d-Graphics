@@ -63,11 +63,11 @@
         },
 
         methods: {
-            reveal() {
+            reveal(phrase) {
                 if (!this.isOpened) {
                     this.isAnimating = true
                     this.$emit('revealer-animation-on')
-                    this.phrase = this.getPhrase()
+                    this.phrase = phrase ? phrase : this.getPhrase()
                     this.calculateMiddlePath()
                     this.resetPoints()
                     return this.animateLayersIn()

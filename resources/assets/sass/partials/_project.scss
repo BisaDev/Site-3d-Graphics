@@ -180,6 +180,11 @@
       background-color: rgba($stone-dark, 0);
       @include transition(md);
     }
+    &-link{
+      display: block;
+      position: relative;
+      height: 100%;
+    }
     &-cta,
     &-subtitle {
       position: absolute;

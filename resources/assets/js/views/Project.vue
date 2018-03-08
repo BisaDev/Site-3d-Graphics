@@ -168,12 +168,14 @@
                     :image="nextProject.hero_image"
                     :color="nextProject.hero_color || 'transparent'"
                     v-if="nextProject">
-      <div class="container project-next-cta">
-        <h3 class="no-margin">Next.</h3>
-      </div>
-      <div class="container project-next-subtitle">
-        <h4 class="no-margin">{{ nextProject.preloader }}</h4>
-      </div>
+      <router-link :to="`/project/${nextProject.id}`" class="project-next-link">
+        <div class="container project-next-cta">
+          <h3 class="no-margin">Next.</h3>
+        </div>
+        <div class="container project-next-subtitle">
+          <h4 class="no-margin">{{ nextProject.preloader }}</h4>
+        </div>
+      </router-link>
     </themed-section>
   </div>
 </template>
@@ -217,21 +219,24 @@ export default {
     },
 
     mounted() {
-        apiManiak
-            .getProject(this.$props.id)
-            .then(this.updateProject)
-            .catch(() => {
-                this.$emit('not-found')
-            })
-        apiManiak
-            .getProjectNext(this.$props.id)
-            .then(this.updateNextProject)
-            .catch(() => {
-                this.$emit('not-found')
-            })
+        this.fetchData()
     },
 
     methods: {
+        fetchData() {
+            apiManiak
+                .getProject(this.$props.id)
+                .then(this.updateProject)
+                .catch(() => {
+                    this.$emit('not-found')
+                })
+            apiManiak
+                .getProjectNext(this.$props.id)
+                .then(this.updateNextProject)
+                .catch(() => {
+                    this.$emit('not-found')
+                })
+        },
         updateProject(response) {
             this.project = response.data
             this.setNavTheme(Boolean(this.project.is_dark))
@@ -243,6 +248,10 @@ export default {
         },
 
     },
+
+    watch: {
+        id:  'fetchData'
+    }
 }
 </script>
 
