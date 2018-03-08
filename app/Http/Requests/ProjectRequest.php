@@ -45,7 +45,8 @@ class ProjectRequest extends FormRequest
             'country_id' => 'required|exists:countries,id',
             'client_id' => 'required|exists:clients,id',
             'sections.*.model.body' => 'required_without:sections.*.visible',
-            'sections.*.order' => 'required_without:sections.*.visible'
+            'sections.*.order' => 'required_without:sections.*.visible',
+            'sections.*.model.image' => 'required_if:sections.*.component,ProjectStickySection',
         ];
     }
 

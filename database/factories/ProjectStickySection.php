@@ -9,6 +9,7 @@ $factory->define(ProjectStickySection::class, function (Faker $faker) {
         'project_id' => function () {
             return factory(Project::class)->create()->id;
         },
+        'title' => $faker->text(255),
         'body' => $faker->text(600),
         'image' => '/uploads/images/'.$faker->image(public_path('uploads/images'), 200, 800, null, false),
     ];

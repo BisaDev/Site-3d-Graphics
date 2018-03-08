@@ -5,6 +5,10 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Login</div>
 
+                    <div class="panel-body" v-if="message">
+                        <p>* {{message}}</p>
+                    </div>
+
                     <div class="panel-body">
                         <form v-on:submit.prevent="login" class="form-horizontal" method="POST" action="">
                             <div class="form-group">
@@ -86,6 +90,7 @@ export default {
     return {
       user: '',
       password: '',
+      message: '',
     }
   },
 
@@ -119,6 +124,9 @@ export default {
             //https://github.com/laravel/passport/issues/400
             window.location = '/admin'
           })
+      }).catch(error => {
+        this.message = (401 === error.response.status) ? 'Invalid Credentials.' : 'Unexpected Server Error.'
+        console.log(error.response)
       })
     },
   },
