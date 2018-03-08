@@ -3,19 +3,24 @@
         <input type="hidden" name="section[][section_id]" v-model="section.model.id">
 
         <div class="small-12 cell">
+            <label>Title
+                <textarea maxlength="255" name="section[][title]" cols="30" rows="5" v-model="section.model.title"></textarea>
+            </label>
+        </div>
+        <div class="small-12 cell">
             <label>Body
-                <textarea name="section[][body]" id="" cols="30" rows="10" v-model="section.model.body"></textarea>
+                <textarea name="section[][body]" cols="30" rows="10" v-model="section.model.body"></textarea>
             </label>
         </div>
 
         <div class="medium-12 cell">
             <label for="">Image</label>
             <div v-if="!section.model.image">
-                <input accept="image/*" name="background_image" type="file" @change="onFileChange">
+                <input accept="image/*" name="image" type="file" @change="onFileChange">
             </div>
             <div v-else>
-                <img :src="section.background_image" style="width:100%; height: auto;" />
-                <button @click.prevent="removeImage('background_image')">Remove image</button>
+                <img :src="section.model.image" style="width:100%; height: auto;" />
+                <button @click.prevent="removeImage('image')">Remove image</button>
             </div>
         </div>
 
@@ -61,14 +66,14 @@
                 var vm = this;
 
                 reader.onload = (e) => {
-                    vm.section[field] = e.target.result;
+                    vm.section.model[field] = e.target.result;
                 };
 
                 reader.readAsDataURL(file);
             },
 
             removeImage(field) {
-                this.section[field] = null
+                this.section.model[field] = null
             },
         }
     }

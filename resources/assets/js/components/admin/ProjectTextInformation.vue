@@ -3,8 +3,13 @@
         <input type="hidden" name="section[][section_id]" v-model="section.model.id">
 
         <div class="small-12 cell">
+            <label>Title
+                <textarea maxlength="255" name="section[][title]" cols="30" rows="5" v-model="section.model.title"></textarea>
+            </label>
+        </div>
+        <div class="small-12 cell">
             <label>Body
-                <textarea name="section[][body]" id="" cols="30" rows="10" v-model="section.model.body"></textarea>
+                <textarea name="section[][body]" cols="30" rows="10" v-model="section.model.body"></textarea>
             </label>
         </div>
         <div class="small-12">

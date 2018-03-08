@@ -100,8 +100,8 @@ class ProjectsController extends Controller
         //Create Project Model
         $project = Project::create($request->all());
 
-        //Save Project Sections
-        $this->addProjectSections($request, $project);
+        //Process Project Sections
+        $this->handleProjectSections($request, $project);
 
         $project->load('sections');
 
@@ -161,8 +161,8 @@ class ProjectsController extends Controller
         $request->offsetUnset('areas');
         $request->offsetUnset('services');
 
-        //Save Project Sections
-        $this->addProjectSections($request, $project);
+        //Process Project Sections
+        $this->handleProjectSections($request, $project);
 
         //Upload Images
         foreach (['hero_image', 'hero_image_preview'] as $image) {
@@ -255,75 +255,36 @@ class ProjectsController extends Controller
     /**
      * @param Request $request
      */
-    protected function addProjectSections(Request $request, Project $project)
+    protected function handleProjectSections(Request $request, Project $project)
     {
-        //Filter Remove Sections
-        $sections = array_filter($request->get('sections'), function($section) {
-            return !isset($section['visible']);
-        });
-
-        $removedSections =  array_filter($request->get('sections'), function($section) {
-            return isset($section['visible']);
-        });
-
-        foreach($removedSections as $section) {
-            if ($section['id']) {
-                $project->sections()->find($section['id'])->delete();
-            }
-        }
-
-        //Replace Sections offset with filtered data
-        $request->replace(['sections' => $sections]);
-
-        if ($request->offsetGet('sections')) {
-            foreach ($request->offsetGet('sections') as $section) {
-                if ($section['id'] and $section['component'] === 'ProjectTextInformation') {
-                    $projectSection = ProjectSection::find($section['id']);
-
-                    //@todo refactor using ternary, check weird behavior when implementing it
-                    if ((preg_match('/^data\:image/', $section['background_image']))) {
-                        $background = [ 'background_image' => $this->uploadEncoded64Image($section['background_image']) ];
-                    } else {
-                        $background = ($section['background_image']) ? ['0'] : ['background_image' => null];
-                    }
-
-                    $projectSection->update(array_merge([
-                        'color' => $section['color'],
-                        'is_dark' => $section['is_dark'],
-                        //'background_image' => ($section['background_image']) ? $this->uploadEncoded64Image($section['background_image']) : null,
-                        'is_parallax' => $section['is_parallax'],
-                        'order' => $section['order'],
-                    ], $background));
-
-                    $projectSection->model->update(['body' => $section['model']['body']]);
-                } elseif($section['component'] === 'ProjectTextInformation') {
-                    if ((preg_match('/^data\:image/', $section['background_image']))) {
-                        $background = [ 'background_image' => $this->uploadEncoded64Image($section['background_image']) ];
-                    } else {
-                        $background = ($section['background_image']) ? ['0'] : ['background_image' => null];
-                    }
-
-                    $attrs = [
-                        'color' => $section['color'],
-                        'is_dark' => $section['is_dark'],
-                        //'background_image' => ($section['background_image']) ? $this->uploadEncoded64Image($section['background_image']) : null,
-                        'is_parallax' => $section['is_parallax'],
-                        'order' => $section['order'],
-                    ];
-
-                    $attrs = array_merge($attrs, $background);
-
-                    $textInformationSection = ProjectTextInformation::create([
-                        'project_id' => $project->id,
-                        'body' => $section['model']['body'],
-                    ]);
-
-                    $project->addSection(ProjectTextInformation::class,  $textInformationSection->id, $attrs);
-                }
-            }
-        } else {
+        //Skip if empty Sections
+        if (empty($request->get('sections'))) {
             $project->sections()->delete();
+
+            return true;
         }
+
+        //Filter Removed Sections from Updated/New ones
+        $sections = [
+            'created' => array_filter($request->get('sections'), function($section) {
+                return (!isset($section['visible']) and !$section['id']);
+            }),
+            'updated' => array_filter($request->get('sections'), function($section) {
+                return (!isset($section['visible']) and $section['id']);
+            }),
+            'removed' => array_filter($request->get('sections'), function($section) {
+                return (isset($section['visible']) and $section['id']);
+            })
+        ];
+
+        //Step 1: Remove deleted/missing Sections
+        $project->bulkRemoveSections(array_map(function ($section) { return $section['id']; }, $sections['removed']));
+
+        //Step 2: Create New Sections
+        $project->bulkCreateSections($sections['created'], $this->projectSections);
+
+        //Step 3: Update Modified Sections
+        $project->bulkUpdateSections($sections['updated'], $this->projectSections);
 
         return true;
     }

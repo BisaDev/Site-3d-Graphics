@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Facades\App\Upload\Uploads;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -100,5 +101,106 @@ class Project extends Model
     public function scopeFeatured($query)
     {
         return $query->where('is_featured', 1);
+    }
+
+    /**
+     * Bulk Remove Sections
+     *
+     * @param array $sectionIds
+     * @return bool
+     */
+    public function bulkRemoveSections(array $sectionIds)
+    {
+        if (empty($sectionIds)) {
+            return true;
+        }
+
+        foreach($this->sections()->find($sectionIds) as $section) {
+            $section->delete();
+        }
+
+        return true;
+    }
+
+    /**
+     * Bulk Add Sections
+     *
+     * @param array $sections
+     * @return bool
+     */
+    public function bulkCreateSections(array $sections, $projectSections)
+    {
+        foreach($sections as $section) {
+            $sectionClass = ('\\App\\'.$section['component']);
+            $model = $section['model'];
+            $fields = $projectSections[$section['component']];
+
+            //Populate Section Fields
+            foreach($model as $key => $data) {
+                if ('image' === $key) {
+                    if ((preg_match('/^data\:image/', $data))) {
+                        $data = Uploads::uploadEncoded64Image($data);
+                    } else {
+                        $data = null;
+                    }
+                }
+
+                $fields[$key] = $data;
+            }
+
+            $fields['project_id'] = $this->id;
+
+            if ((preg_match('/^data\:image/', $section['background_image']))) {
+                $background = [ 'background_image' => Uploads::uploadEncoded64Image($section['background_image']) ];
+            } else {
+                $background = ($section['background_image']) ? [] : ['background_image' => null];
+            }
+
+            $attrs = [
+                'color' => $section['color'],
+                'is_dark' => $section['is_dark'],
+                //'background_image' => ($section['background_image']) ? $this->uploadEncoded64Image($section['background_image']) : null,
+                'is_parallax' => $section['is_parallax'],
+                'order' => $section['order'],
+            ];
+
+            $attrs = array_merge($attrs, $background);
+            $textInformationSection = $sectionClass::create($fields);
+            $this->addSection($sectionClass,  $textInformationSection->id, $attrs);
+        }
+
+        return true;
+    }
+
+    /**
+     * Bulk Update Sections
+     *
+     * @param array $sections
+     * @return bool
+     */
+    public function bulkUpdateSections(array $sections)
+    {
+        foreach($sections as $section) {
+            $projectSection = ProjectSection::find($section['id']);
+
+            //@todo refactor using ternary, check weird behavior when implementing it
+            if ((preg_match('/^data\:image/', $section['background_image']))) {
+                $background = ['background_image' => Uploads::uploadEncoded64Image($section['background_image'])];
+            } else {
+                $background = ($section['background_image']) ? [] : ['background_image' => null];
+            }
+
+            $projectSection->update(array_merge([
+                'color' => $section['color'],
+                'is_dark' => $section['is_dark'],
+                //'background_image' => ($section['background_image']) ? $this->uploadEncoded64Image($section['background_image']) : null,
+                'is_parallax' => $section['is_parallax'],
+                'order' => $section['order'],
+            ], $background));
+
+            $projectSection->model->update(['body' => $section['model']['body']]);
+        }
+
+        return true;
     }
 }

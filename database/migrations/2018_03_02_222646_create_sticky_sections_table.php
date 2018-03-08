@@ -21,9 +21,9 @@ class CreateStickySectionsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
+            $table->string('title', 255);
             $table->text('body');
             $table->string('image');
-            $table->timestamps();
         });
     }
 

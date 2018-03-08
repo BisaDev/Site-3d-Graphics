@@ -15,6 +15,7 @@ class ProjectTextInformation extends Model
      */
     protected $fillable = [
         'project_id',
+        'title',
         'body',
     ];
 }
