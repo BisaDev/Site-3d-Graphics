@@ -2,9 +2,11 @@
     <div class="work">
         <section class="work-header">
             <div class="container work-header-title-container">
-                <h1>
-                    <b>Maniak builds cool stuff.</b><br>Lorem ipsum dolor sit.
-                </h1>
+                <div class="appear-after-reveal">
+                    <h1>
+                        <b>Maniak builds cool stuff.</b><br>Lorem ipsum dolor sit.
+                    </h1>
+                </div>
             </div>
         </section>
         <section class="work-portfolio">

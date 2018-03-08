@@ -4,9 +4,14 @@ $work-filters-height: 4rem;
 .work {
   & &-header {
     height: 80vh;
-    margin-bottom: $work-portfolio-offset;
+    margin-bottom: 0;
     display: flex;
     flex-flow: column;
+
+    @include breakpoint(medium down) {
+      height: 70vh;
+    }
+
     &-title-container {
       padding-top: $navbar-height;
       display: flex;
@@ -16,7 +21,10 @@ $work-filters-height: 4rem;
     &-filters-container {
       flex-shrink: 0;
       flex-grow: 0;
+      margin-bottom: 5vh;
+
       @include breakpoint(large up) {
+        margin-bottom: 8vh;
         ul {
           margin-left: -$button-padding-h;
         }

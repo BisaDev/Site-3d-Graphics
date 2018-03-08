@@ -2,9 +2,8 @@
     <section class="project-gallery">
         <div class="container">
             <div class="grid">
-                <div :style="{backgroundColor: image.color}" ref="galleryImage" v-for="(image, index) in images" @click="openPhotoSwipe(index)"
+                <div :style="{backgroundColor: image.color, backgroundImage: `url(${image.image})`}" ref="galleryImage" v-for="(image, index) in images" @click="openPhotoSwipe(index)"
                      class="project-gallery-image">
-                    <img :src="image.image"/>
                 </div>
             </div>
         </div>
@@ -38,7 +37,7 @@
         data() {
             return {
                 images_obj: this.images.map(function (image) {
-                    return {src: image.image, msrc: image.image, w: 1024, h: 615}
+                    return {src: image.image, msrc: image.image, w: 1000, h: 1000}
                 }),
             }
         },
