@@ -1,7 +1,10 @@
 <template>
     <div class="container">
         <div class="grid">
-            <div class="project-copy-sticky" v-html="body"></div>
+            <div class="project-copy-sticky">
+                <h4 v-html="title" v-if="title"></h4>
+                <p v-html="body"></p>
+            </div>
             <div class="project-screenshot-long">
                 <img :src="image" />
             </div>
@@ -19,6 +22,10 @@ export default {
       image: {
           type: String,
           required: true,
+      },
+      title: {
+          type: String,
+          default: '',
       },
   },
 }
