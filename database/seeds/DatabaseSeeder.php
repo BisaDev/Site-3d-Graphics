@@ -27,6 +27,5 @@ class DatabaseSeeder extends Seeder
         $this->call(ProjectTextInformationsSeeder::class);
         $this->call(ProjectStickySeeder::class);
 
-        Artisan::call('passport:client', ['--password' => '']);
     }
 }
