@@ -16,11 +16,6 @@ class CreateProjectQuotesTable extends Migration
         Schema::create('project_quotes', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('project_id');
-            $table->foreign('project_id')->references('id')->on('projects')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
             $table->text('body');
             $table->string('author');
             $table->string('title');
