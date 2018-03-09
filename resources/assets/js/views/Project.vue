@@ -30,7 +30,7 @@
                 <h5>Client</h5>
                 <p>{{project.client.name}}</p>
                 <h5>Year</h5>
-                <p>{{project.info_year}}</p>
+                <date-range :from="project.start_date" :to="project.end_date"></date-range>
                 <h5>Country</h5>
                 <p>
                   <icon icon-class="icon-country-US" />
@@ -189,6 +189,7 @@ import ProjectQuote from '../components/project/ProjectQuote'
 import ThemedSection from '../components/ThemedSection'
 import Icon from '../components/Icon'
 import pageCommon from '../components/PageCommon'
+import DateRange from '../components/DateRange'
 
 export default {
     extends: { ...pageCommon },
@@ -211,6 +212,7 @@ export default {
         ProjectStickySection,
         ThemedSection,
         Icon,
+        DateRange,
     },
 
     data() {

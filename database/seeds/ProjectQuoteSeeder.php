@@ -15,9 +15,7 @@ class ProjectQuoteSeeder extends Seeder
     public function run()
     {
         Project::all()->each(function ($project) {
-            $quote = factory(ProjectQuote::class)->create([
-                'project_id' => $project->id,
-            ]);
+            $quote = factory(ProjectQuote::class)->create();
 
             $project->addSection(ProjectQuote::class, $quote->id);
         });
