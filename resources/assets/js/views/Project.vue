@@ -168,7 +168,7 @@
                     :image="nextProject.hero_image"
                     :color="nextProject.hero_color || 'transparent'"
                     v-if="nextProject">
-      <router-link :to="`/project/${nextProject.id}`" class="project-next-link">
+      <router-link :to="{name: 'project', params: { id: nextProject.id,  phrases: [nextProject.preloader] }}" class="project-next-link">
         <div class="container project-next-cta">
           <h3 class="no-margin">Next.</h3>
         </div>

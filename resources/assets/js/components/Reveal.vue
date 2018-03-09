@@ -18,10 +18,6 @@
 
     export default {
         props: {
-            title: {
-                type: String,
-                default: '',
-            },
             phrases: {
                 type: Array,
                 default: () => [
@@ -63,11 +59,11 @@
         },
 
         methods: {
-            reveal(phrase) {
+            reveal(phrases) {
                 if (!this.isOpened) {
                     this.isAnimating = true
                     this.$emit('revealer-animation-on')
-                    this.phrase = phrase ? phrase : this.getPhrase()
+                    this.phrase = this.getPhrase(phrases)
                     this.calculateMiddlePath()
                     this.resetPoints()
                     return this.animateLayersIn()
@@ -207,8 +203,9 @@
                 })
             },
 
-            getPhrase() {
-                return this.title ? this.title : this.phrases[Math.floor(Math.random() * this.phrases.length)]
+            getPhrase(paramPhrases) {
+                const phrases = paramPhrases || this.phrases
+                return phrases[Math.floor(Math.random() * phrases.length)]
             },
 
             animationFinished() {
@@ -216,5 +213,6 @@
                 this.$emit('revealer-animation-off')
             },
         },
+
     }
 </script>
