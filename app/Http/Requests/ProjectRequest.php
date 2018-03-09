@@ -44,8 +44,13 @@ class ProjectRequest extends FormRequest
             'is_dark' => 'boolean',
             'country_id' => 'required|exists:countries,id',
             'client_id' => 'required|exists:clients,id',
-            'sections.*.model.body' => 'required_without:sections.*.visible',
-            'sections.*.order' => 'required_without:sections.*.visible'
+            'sections.*.order' => 'required_without:sections.*.visible',
+            'sections.*.color' => 'required_without:sections.*.visible',
+            'sections.*.model.body' => 'required_if:sections.*.component,ProjectStickySection,ProjectTextInformation',
+            'sections.*.model.image' => 'required_if:sections.*.component,ProjectStickySection',
+            'sections.*.model.images.*.image' => 'required_without:sections.*.model.images.*.visible',
+            'sections.*.model.images.*.background_size' => 'required_without:sections.*.model.images.*.visible',
+            'sections.*.model.images.*.color' => 'required_without:sections.*.model.images.*.visible',
         ];
     }
 

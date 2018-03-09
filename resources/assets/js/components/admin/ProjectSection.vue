@@ -47,6 +47,7 @@
 import ProjectTextInformation from '../../components/admin/ProjectTextInformation'
 import ProjectGallery from '../../components/admin/ProjectGallery'
 import ProjectStickySection from '../../components/admin/ProjectStickySection'
+import ProjectQuote from '../../components/admin/ProjectQuote'
 
 export default {
   data() {
@@ -59,6 +60,7 @@ export default {
     ProjectTextInformation,
     ProjectGallery,
     ProjectStickySection,
+    ProjectQuote,
   },
 
   props: {

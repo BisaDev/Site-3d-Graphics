@@ -13,8 +13,8 @@
           </div>
         </div>
         <div class="grid home-featured-list">
-            <router-link :key="project.id" :to="`/project/${project.id}`" class="preview dark reveal"
-                         v-for="project in firstThreeProjects" :style="{backgroundImage: `url(../../img/featured/${project.hero_image_preview})`}">
+            <router-link :key="project.id" :to="{name: 'project', params: { id: project.id,  phrases: [project.preloader] }}" class="preview dark reveal"
+                         v-for="project in firstThreeProjects" :style="{ backgroundColor: project.hero_color, backgroundImage: `url(${project.hero_image_preview})`}">
               <div class="preview-title">
                 <h5>{{project.name}}</h5>
                 <h6>{{project.description}}</h6>

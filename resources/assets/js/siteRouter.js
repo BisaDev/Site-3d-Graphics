@@ -11,6 +11,7 @@ let routes = [
     name: 'home',
     path: '/',
     component: Home,
+    props: true,
   },
   {
     name: 'project',
@@ -22,21 +23,25 @@ let routes = [
     name: 'work',
     path: '/work',
     component: Work,
+    props: true,
   },
   {
     name: 'studio',
     path: '/studio',
     component: Studio,
+    props: true,
   },
   {
     name: 'contact',
     path: '/contact',
     component: Contact,
+    props: true,
   },
   {
     name: '404',
     path: '/notFound',
     component: NotFound,
+    props: true,
   },
 ]
 

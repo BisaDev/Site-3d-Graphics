@@ -21,10 +21,8 @@ class CreateProjectTextInformationsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            //$table->string('title', 140);
+            $table->string('title', 255);
             $table->text('body');
-
-            //$table->timestamps();
         });
     }
 

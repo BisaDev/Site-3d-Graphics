@@ -12,6 +12,7 @@
                     v-on:revealer-animation-off="revealerIsAnimating = false"
                     v-on:revealer-opened="revealerIsOpen = true"
                     v-on:revealer-closed="revealerIsOpen = false"
+                    :phrases="phrases"
                     ref="reveal"
             ></reveal>
 

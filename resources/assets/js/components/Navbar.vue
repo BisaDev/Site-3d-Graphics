@@ -90,9 +90,6 @@ export default {
     this.$on('_scroll', this.updateScrollPosition)
   },
 
-  /*mounted() {
-    this.$refs.hamburger.addEventListener('click', this.toggleMobileNav)
-  },*/
   methods: {
     updateScrollPosition() {
       this.scrollPosition = window.pageYOffset || document.documentElement.scrollTop

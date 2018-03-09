@@ -14,6 +14,11 @@ class ProjectGallery extends Model
     protected $with = ['images',];
 
     /**
+     * @var array
+     */
+    protected $fillable = ['project_id',];
+
+    /**
      * Gallery's Project.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

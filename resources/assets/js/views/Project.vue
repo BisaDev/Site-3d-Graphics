@@ -168,12 +168,14 @@
                     :image="nextProject.hero_image"
                     :color="nextProject.hero_color || 'transparent'"
                     v-if="nextProject">
-      <div class="container project-next-cta">
-        <h3 class="no-margin">Next.</h3>
-      </div>
-      <div class="container project-next-subtitle">
-        <h4 class="no-margin">{{ nextProject.preloader }}</h4>
-      </div>
+      <router-link :to="{name: 'project', params: { id: nextProject.id,  phrases: [nextProject.preloader] }}" class="project-next-link">
+        <div class="container project-next-cta">
+          <h3 class="no-margin">Next.</h3>
+        </div>
+        <div class="container project-next-subtitle">
+          <h4 class="no-margin">{{ nextProject.preloader }}</h4>
+        </div>
+      </router-link>
     </themed-section>
   </div>
 </template>
@@ -183,6 +185,7 @@ import apiManiak from '../utils/api.js'
 import ProjectStickySection from '../components/project/ProjectSticky'
 import ProjectTextInformation from '../components/project/ProjectTextInformation'
 import ProjectGallery from '../components/project/ProjectGallery'
+import ProjectQuote from '../components/project/ProjectQuote'
 import ThemedSection from '../components/ThemedSection'
 import Icon from '../components/Icon'
 import pageCommon from '../components/PageCommon'
@@ -203,6 +206,7 @@ export default {
 
     components: {
         ProjectGallery,
+        ProjectQuote,
         ProjectTextInformation,
         ProjectStickySection,
         ThemedSection,
@@ -217,21 +221,24 @@ export default {
     },
 
     mounted() {
-        apiManiak
-            .getProject(this.$props.id)
-            .then(this.updateProject)
-            .catch(() => {
-                this.$emit('not-found')
-            })
-        apiManiak
-            .getProjectNext(this.$props.id)
-            .then(this.updateNextProject)
-            .catch(() => {
-                this.$emit('not-found')
-            })
+        this.fetchData()
     },
 
     methods: {
+        fetchData() {
+            apiManiak
+                .getProject(this.$props.id)
+                .then(this.updateProject)
+                .catch(() => {
+                    this.$emit('not-found')
+                })
+            apiManiak
+                .getProjectNext(this.$props.id)
+                .then(this.updateNextProject)
+                .catch(() => {
+                    this.$emit('not-found')
+                })
+        },
         updateProject(response) {
             this.project = response.data
             this.setNavTheme(Boolean(this.project.is_dark))
@@ -243,6 +250,10 @@ export default {
         },
 
     },
+
+    watch: {
+        id:  'fetchData'
+    }
 }
 </script>
 
