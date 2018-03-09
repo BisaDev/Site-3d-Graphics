@@ -42,7 +42,7 @@ class ProjectsController extends Controller
     {
         $this->projectSections = [
             class_basename(ProjectGallery::class) => array_fill_keys(
-                Schema::getColumnListing((new ProjectGalleryImage())->getTable()),
+                array_merge(Schema::getColumnListing((new ProjectGalleryImage())->getTable()), ['images']),
                 null
             ),
             class_basename(ProjectStickySection::class) => array_fill_keys(

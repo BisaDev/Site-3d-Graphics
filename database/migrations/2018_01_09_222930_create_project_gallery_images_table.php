@@ -22,6 +22,9 @@ class CreateProjectGalleryImagesTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('image');
+            $table->string('width');
+            $table->string('height');
+            $table->string('background_size');
             $table->timestamps();
         });
     }
