@@ -185,6 +185,7 @@ import apiManiak from '../utils/api.js'
 import ProjectStickySection from '../components/project/ProjectSticky'
 import ProjectTextInformation from '../components/project/ProjectTextInformation'
 import ProjectGallery from '../components/project/ProjectGallery'
+import ProjectQuote from '../components/project/ProjectQuote'
 import ThemedSection from '../components/ThemedSection'
 import Icon from '../components/Icon'
 import pageCommon from '../components/PageCommon'
@@ -205,6 +206,7 @@ export default {
 
     components: {
         ProjectGallery,
+        ProjectQuote,
         ProjectTextInformation,
         ProjectStickySection,
         ThemedSection,

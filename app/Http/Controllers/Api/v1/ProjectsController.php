@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Project;
 use App\ProjectGallery;
 use App\ProjectGalleryImage;
+use App\ProjectQuote;
 use App\ProjectSection;
 use App\ProjectStickySection;
 use App\ProjectTextInformation;
@@ -51,6 +52,10 @@ class ProjectsController extends Controller
             ),
             class_basename(ProjectTextInformation::class) => array_fill_keys(
                 Schema::getColumnListing((new ProjectTextInformation())->getTable()),
+                null
+            ),
+            class_basename(ProjectQuote::class) => array_fill_keys(
+                Schema::getColumnListing((new ProjectQuote())->getTable()),
                 null
             ),
         ];
