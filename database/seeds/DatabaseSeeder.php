@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +12,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // delete all tables
+        Artisan::call('migrate:refresh');
+
         $this->call(UserSeeder::class);
         $this->call(ClientsSeeder::class);
         $this->call(CountriesSeeder::class);
@@ -22,5 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProjectGallerySeeder::class);
         $this->call(ProjectTextInformationsSeeder::class);
         $this->call(ProjectStickySeeder::class);
+
+        Artisan::call('passport:client', ['--password' => '']);
     }
 }
