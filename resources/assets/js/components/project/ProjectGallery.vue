@@ -2,8 +2,10 @@
     <section class="project-gallery">
         <div class="container">
             <div class="grid">
-                <div :style="{backgroundColor: image.color, backgroundImage: `url(${image.image})`}" ref="galleryImage" v-for="(image, index) in images" @click="openPhotoSwipe(index)"
+                <div :style="{backgroundColor: image.color, backgroundImage: `url(${image.image})`, backgroundSize: `url(${image.background_size})`}"
+                     ref="galleryImage" v-for="(image, index) in images" @click="openPhotoSwipe(index)"
                      class="project-gallery-image">
+                    <img :src="image.image" alt="">
                 </div>
             </div>
         </div>
@@ -17,9 +19,8 @@
         width: 500px;
     }
 
-    .gallery-image img {
-        height: 100%;
-        width: 100%;
+    .project-gallery-image img {
+        display: none;
     }
 </style>
 
@@ -37,7 +38,7 @@
         data() {
             return {
                 images_obj: this.images.map(function (image) {
-                    return {src: image.image, msrc: image.image, w: 1000, h: 1000}
+                    return {src: image.image, msrc: image.image, w: image.width, h: image.height}
                 }),
             }
         },
@@ -48,6 +49,10 @@
                     getThumbBoundsFn: this.getThumbBoundsFn,
                     history: false,
                     index: index,
+                    fullscreenEl: false,
+                    zoomEl: false,
+                    shareEl: false,
+                    counterEl: false,
                 }
 
                 const gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, this.images_obj, options)
