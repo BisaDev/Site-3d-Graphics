@@ -15,6 +15,8 @@ class ProjectGalleryImage extends Model
         'project_gallery_id',
         'color',
         'image',
+        'width',
+        'height',
     ];
 
     /**

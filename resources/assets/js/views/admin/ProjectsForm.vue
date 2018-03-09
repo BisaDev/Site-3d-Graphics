@@ -242,8 +242,12 @@ export default {
     },
 
     addSection() {
-      console.log(this.form.currentSection)
-      console.log(this.form.sections[this.form.currentSection])
+      if (!this.form.currentSection) {
+        this.messages = 'Please Select a Section'
+        this.scrollTop()
+
+        return
+      }
 
       let model = Object.assign({}, this.form.sections[this.form.currentSection])
 
