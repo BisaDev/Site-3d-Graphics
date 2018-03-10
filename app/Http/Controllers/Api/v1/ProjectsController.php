@@ -60,7 +60,7 @@ class ProjectsController extends Controller
             ),
         ];
 
-        $this->middleware('auth:api')->except(['index', 'show', 'getNextProject']);
+        $this->middleware('auth:api')->except(['index', 'show', 'getNextProject', 'showBySlug']);
     }
 
     /**
@@ -127,6 +127,25 @@ class ProjectsController extends Controller
      */
     public function show(Project $project)
     {
+        $project->load(
+            'client',
+            'services',
+            'sections'
+        );
+
+        return response()->json($project, 200);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Project $project
+     * @return \Illuminate\Http\Response
+     */
+    public function showBySlug($slug)
+    {
+        $project = Project::where('slug', $slug)->firstOrFail();
+
         $project->load(
             'client',
             'services',

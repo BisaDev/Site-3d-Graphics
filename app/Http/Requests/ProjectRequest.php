@@ -30,6 +30,7 @@ class ProjectRequest extends FormRequest
         $required = (null === $this->project) ? 'required|image64:jpeg,jpg,png' : '';
 
         return [
+            'slug' => 'nullable|max:200|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/|unique:projects,slug',
             'name' => 'required|max:50',
             'description' => 'required|max:50',
             'preloader' => 'required|max:50',
