@@ -21,7 +21,7 @@
       <div class="container">
         <div class="grid">
           <div class="project-intro-description">
-            <h4>{{project.info_title}}</h4>
+            <h4>{{project.info_subtitle}}</h4>
             <p>{{project.info_description}}</p>
           </div>
           <div class="project-intro-facts">
