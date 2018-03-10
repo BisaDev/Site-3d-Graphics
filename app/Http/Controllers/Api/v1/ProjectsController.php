@@ -200,7 +200,14 @@ class ProjectsController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $projectId = $project->id;
+        $project->delete();
+
+        //Response
+        return response()->json([
+            'success' => true,
+            'message' => 'Project (ID: '.$projectId.') deleted successfully!',
+        ], 200);
     }
 
     /**

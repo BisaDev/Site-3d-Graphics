@@ -1,5 +1,12 @@
 <template>
     <div class="project-list grid-container">
+        <!-- Messages -->
+        <div class="form-messages grid-x grid-padding-x" v-if="message">
+            <div class="small-12 large-12 large-centered small-centered cell">
+                {{message}}
+            </div>
+        </div>
+
         <div class="row">
             <h2>Projects</h2>
         </div>
@@ -45,6 +52,9 @@ export default {
   },
 
   methods: {},
+  props: {
+    message: ''
+  },
     /*
   beforeRouteUpdate (to, from, next) {
       console.log('beforeRouteUpdate')
