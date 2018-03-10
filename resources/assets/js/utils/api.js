@@ -27,6 +27,10 @@ export default {
         return axios.get(this.api + `/projects/${id}`)
     },
 
+    getProjectBySlug(slug) {
+        return axios.get(this.api + `/project/${slug}`)
+    },
+
     getProjectNext(id) {
         return axios.get(this.api + `/project/${id}/next`)
     },
