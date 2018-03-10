@@ -11,13 +11,13 @@
         </div>
       </div>
       <div class="project-header-button-container container">
-        <button class="button button-scroll"><span>Read more</span><span>Read more</span></button>
+        <scroll-button to="#main-info" text="Read more"></scroll-button>
       </div>
     </themed-section>
 
 
     <!-- Main Information -->
-    <themed-section>
+    <themed-section id="main-info">
       <div class="container">
         <div class="grid">
           <div class="project-intro-description">
@@ -190,6 +190,8 @@ import ThemedSection from '../components/ThemedSection'
 import Icon from '../components/Icon'
 import pageCommon from '../components/PageCommon'
 import DateRange from '../components/DateRange'
+import ScrollButton from '../components/ScrollButton'
+
 
 export default {
     extends: { ...pageCommon },
@@ -213,6 +215,7 @@ export default {
         ThemedSection,
         Icon,
         DateRange,
+        ScrollButton,
     },
 
     data() {
