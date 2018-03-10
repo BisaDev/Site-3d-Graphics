@@ -60,7 +60,7 @@ class ProjectsController extends Controller
             ),
         ];
 
-        $this->middleware('auth:api')->except(['index', 'show', 'getNextProject']);
+        $this->middleware('auth:api')->except(['index', 'show', 'getNextProject', 'showBySlug']);
     }
 
     /**
@@ -105,6 +105,10 @@ class ProjectsController extends Controller
         //Create Project Model
         $project = Project::create($request->all());
 
+        //Save services
+        $services_ids = array_map(function($service){return $service['id'];}, $request->get('services'));
+        $project->services()->sync($services_ids);
+
         //Process Project Sections
         $this->handleProjectSections($request, $project);
 
@@ -127,6 +131,25 @@ class ProjectsController extends Controller
      */
     public function show(Project $project)
     {
+        $project->load(
+            'client',
+            'services',
+            'sections'
+        );
+
+        return response()->json($project, 200);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Project $project
+     * @return \Illuminate\Http\Response
+     */
+    public function showBySlug($slug)
+    {
+        $project = Project::where('slug', $slug)->firstOrFail();
+
         $project->load(
             'client',
             'services',
@@ -163,6 +186,8 @@ class ProjectsController extends Controller
      */
     public function update(ProjectRequest $request, Project $project)
     {
+        $services_ids = array_map(function($service){return $service['id'];}, $request->get('services'));
+        $project->services()->sync($services_ids);
         $request->offsetUnset('areas');
         $request->offsetUnset('services');
 

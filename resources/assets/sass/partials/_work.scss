@@ -15,8 +15,12 @@ $work-filters-height: 4rem;
     &-title-container {
       padding-top: $navbar-height;
       display: flex;
-      align-items: center;
+      flex-flow: column;
+      justify-content: center;
       flex-grow: 1;
+    }
+    &-subtitle {
+      opacity: 0.5;
     }
     &-filters-container {
       flex-shrink: 0;

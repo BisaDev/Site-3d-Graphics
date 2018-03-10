@@ -15,6 +15,7 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
+        'slug',
         'name',
         'description',
         'preloader',

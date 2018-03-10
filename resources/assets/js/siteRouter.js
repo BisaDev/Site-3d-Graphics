@@ -15,7 +15,7 @@ let routes = [
   },
   {
     name: 'project',
-    path: '/project/:id',
+    path: '/project/:slug',
     component: Project,
     props: true,
   },

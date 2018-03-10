@@ -16,6 +16,7 @@ Route::name('api')->prefix('v1')->group(function () {
     Route::get('user', 'Api\v1\UserController@userInfo')->name('users.userInfo');
     Route::resource('projects', 'Api\v1\ProjectsController');
     Route::get('project/{id}/next', 'Api\v1\ProjectsController@getNextProject')->name('projects.getNextProject');
+    Route::get('project/{slug}', 'Api\v1\ProjectsController@showBySlug')->name('project.bySlug');
     Route::resource('areas', 'Api\v1\AreasController');
     Route::get('getConfigModels', 'Api\v1\ProjectsController@getConfigModels')->name('project.configModels');
 });
