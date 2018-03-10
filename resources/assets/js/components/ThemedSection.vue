@@ -1,5 +1,6 @@
 <template>
-    <parallax v-bind="$props" :style="{backgroundColor: color}" :image="bgImage" :class="{ dark: isDark }" v-if="parallax">
+    <parallax v-bind="$props" :style="{backgroundColor: color}" :image="bgImage" :class="{ dark: isDark }"
+              v-if="parallax">
         <slot></slot>
     </parallax>
     <section v-else :style="{backgroundColor: color, backgroundImage: bgImage}" :class="{ dark: isDark }">
@@ -32,11 +33,11 @@
                 default: '',
             },
         },
-        data() {
-            const bgImage = this.image ? `url(${this.image})` : 'none'
-            return {
-                bgImage
+
+        computed: {
+            bgImage() {
+                return this.image ? `url(${this.image})` : 'none'
             }
-        }
+        },
     }
 </script>
