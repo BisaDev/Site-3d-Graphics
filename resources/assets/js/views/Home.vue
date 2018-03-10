@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="grid home-featured-list">
-            <router-link :key="project.id" :to="{name: 'project', params: { id: project.id,  phrases: [project.preloader] }}" class="preview dark reveal"
+            <router-link :key="project.id" :to="{name: 'project', params: { slug: project.slug,  phrases: [project.preloader] }}" class="preview dark reveal"
                          v-for="project in firstThreeProjects" :style="{ backgroundColor: project.hero_color || 'transparent', backgroundImage: `url(${project.hero_image_preview})`}">
               <div class="preview-title">
                 <h5>{{project.name}}</h5>

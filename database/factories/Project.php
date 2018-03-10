@@ -3,8 +3,11 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\Project::class, function (Faker $faker) {
+    $name  = $faker->text(10);
+    $slug = str_slug($name);
     return [
-        'name' => $faker->text(50),
+        'name' => $name,
+        'slug' => $slug,
         'description' => $faker->text(50),
         'preloader' => $faker->text(50),
         'hero_image' => '/images/plateiq.png', // @todo: Use an appropriate image factory for transparent images
