@@ -133,8 +133,9 @@
                         <input v-model="project.is_dark" name="is_featured"
                                type="checkbox"><label>Is Dark (theme)?</label>
                     </div>
+                    <services-selection v-model="project.services" class="small-12 cell"></services-selection>
                     <div class="small-12 cell">
-                        <label for="">Section Type</label>
+                        <label>Section Type</label>
                         <select name="sections" v-model="form.currentSection">
                             <option disabled value="">Please select one</option>
                             <option v-for="(section, index) in form.sections" v-bind:value="index">
@@ -166,12 +167,14 @@
 <script>
     import apiManiak from '../../utils/api'
     import ProjectSection from '../../components/admin/ProjectSection'
+    import ServicesSelection from '../../components/admin/ServicesSelection'
 
     export default {
         props: ['id'],
 
         components: {
             ProjectSection,
+            ServicesSelection,
         },
 
         data() {
@@ -189,6 +192,7 @@
                     info_description: '',
                     start_date: '',
                     end_date: '',
+                    services: [],
                     country_id: null,
                     client_name: '',
                     client_id: null,
@@ -198,6 +202,7 @@
                 },
                 errors: false,
                 messages: false,
+                areas: [],
                 form: {
                     clients: [],
                     countries: [],
@@ -208,8 +213,6 @@
         },
 
         created() {
-            console.log('created')
-
             if (Number.isInteger(parseInt(this.$props.id, 10))) {
                 this.fetchProject(this.$props.id)
                     .then(response => {
@@ -218,7 +221,8 @@
                         this.form = {
                             clients: response.data.clients,
                             countries: response.data.countries,
-                            sections: response.data.sections
+                            sections: response.data.sections,
+                            services: response.data.services,
                         }
                     })
                     .catch(error => {
@@ -305,6 +309,7 @@
                         info_description: '',
                         start_date: '',
                         end_date: '',
+                        services: [],
                         country_id: null,
                         client_name: '',
                         client_id: null,
