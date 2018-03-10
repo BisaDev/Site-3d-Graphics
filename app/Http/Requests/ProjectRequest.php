@@ -28,9 +28,10 @@ class ProjectRequest extends FormRequest
     public function rules()
     {
         $required = (null === $this->project) ? 'required|image64:jpeg,jpg,png' : '';
+        $id = (null === $this->project) ? '' : ','.$this->project->id;
 
         return [
-            'slug' => 'nullable|max:200|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/|unique:projects,slug',
+            'slug' => 'nullable|max:200|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/|unique:projects,slug'.$id,
             'name' => 'required|max:50',
             'description' => 'required|max:50',
             'preloader' => 'required|max:50',
