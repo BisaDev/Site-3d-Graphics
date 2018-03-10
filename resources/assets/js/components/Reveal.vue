@@ -45,8 +45,8 @@
                     middle: '',
                     end: 'M 100 100 C 75 100 75 100 50 100 C 25 100 25 100 0 100 V 100 H 100',
                 },
-                phrase: this.getPhrase(),
                 numPoints: 3,
+                phrase: this.getPhrase(this.phrases),
                 layerDuration: 750,
                 titleDuration: 750,
                 delayPointsArray: [],
@@ -59,11 +59,11 @@
         },
 
         methods: {
-            reveal(phrases) {
+            reveal() {
                 if (!this.isOpened) {
                     this.isAnimating = true
+                    this.phrase = this.getPhrase(this.phrases)
                     this.$emit('revealer-animation-on')
-                    this.phrase = this.getPhrase(phrases)
                     this.calculateMiddlePath()
                     this.resetPoints()
                     return this.animateLayersIn()
@@ -203,8 +203,7 @@
                 })
             },
 
-            getPhrase(paramPhrases) {
-                const phrases = paramPhrases || this.phrases
+            getPhrase(phrases) {
                 return phrases[Math.floor(Math.random() * phrases.length)]
             },
 
@@ -214,5 +213,10 @@
             },
         },
 
+        watch: {
+            phrases() {
+                this.phrase = this.getPhrase(this.phrases)
+            },
+        }
     }
 </script>

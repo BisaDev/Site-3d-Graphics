@@ -44,7 +44,7 @@ new Vue({
         },
         openReveal(callback, phrases) {
             this.phrases = phrases.length ? phrases : this.defaultPhrases
-            this.$refs.reveal.reveal(this.phrases).then(() => {
+            this.$refs.reveal.reveal().then(() => {
                 this.$refs.navbar.closeMobileNav()
                 return callback()
             })

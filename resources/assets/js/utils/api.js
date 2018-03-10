@@ -61,4 +61,8 @@ export default {
   getConfigModels() {
     return axios.get(this.api + `/getConfigModels`, this.config)
   },
+
+  deleteProject(id) {
+    return axios.delete(this.api + `/projects/${id}`, this.config);
+  }
 }
