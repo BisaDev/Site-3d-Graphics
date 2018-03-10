@@ -35,7 +35,7 @@ class ProjectRequest extends FormRequest
             'preloader' => 'required|max:50',
             'hero_image' => $required,
             'hero_image_preview' => $required,
-            'hero_color' => 'required|max:7',
+            'hero_color' => 'nullable|max:30',
             'info_subtitle' => 'required|max:140',
             'info_description' => 'required|max:300',
             'start_date' => 'required|date',
@@ -45,12 +45,12 @@ class ProjectRequest extends FormRequest
             'country_id' => 'required|exists:countries,id',
             'client_id' => 'required|exists:clients,id',
             'sections.*.order' => 'required_without:sections.*.visible',
-            'sections.*.color' => 'required_without:sections.*.visible',
+            'sections.*.color' => 'nullable|max:30',
             'sections.*.model.body' => 'required_if:sections.*.component,ProjectStickySection,ProjectTextInformation',
             'sections.*.model.image' => 'required_if:sections.*.component,ProjectStickySection',
             'sections.*.model.images.*.image' => 'required_without:sections.*.model.images.*.visible',
             'sections.*.model.images.*.background_size' => 'required_without:sections.*.model.images.*.visible',
-            'sections.*.model.images.*.color' => 'required_without:sections.*.model.images.*.visible',
+            'sections.*.model.images.*.color' => 'nullable|max:30',
         ];
     }
 
