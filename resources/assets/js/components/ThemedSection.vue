@@ -1,9 +1,9 @@
 <template>
-    <parallax v-bind="$props" :style="{backgroundColor: color}" :image="bgImage" :class="{ dark: isDark }"
+    <parallax v-bind="$props" :style="{backgroundColor: color || 'transparent' }" :image="bgImage" :class="{ dark: isDark }"
               v-if="parallax">
         <slot></slot>
     </parallax>
-    <section v-else :style="{backgroundColor: color, backgroundImage: bgImage}" :class="{ dark: isDark }">
+    <section v-else :style="{backgroundColor: color  || 'transparent', backgroundImage: bgImage}" :class="{ dark: isDark }">
         <slot></slot>
     </section>
 </template>

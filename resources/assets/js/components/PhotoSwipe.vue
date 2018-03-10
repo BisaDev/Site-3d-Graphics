@@ -2,7 +2,7 @@
     <section class="project-gallery">
         <div class="container">
             <div class="grid">
-                <div :style="{backgroundColor: color}" ref="galleryImage" v-for="(image, index) in images" @click="openPhotoSwipe(index)"
+                <div :style="{backgroundColor: color || 'transparent'}" ref="galleryImage" v-for="(image, index) in images" @click="openPhotoSwipe(index)"
                      class="project-gallery-image">
                     <img :src="image"/>
                 </div>

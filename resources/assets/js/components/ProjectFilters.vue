@@ -5,7 +5,7 @@
                 <div class="grid">
                     <router-link v-for="(project, index) in projects" :to="{name: 'project', params: { id: project.id,  phrases: [project.preloader] }}" :key="`all-${index}`"
                                  class="preview reveal" :class="[{featured: project.is_featured, dark: project.is_dark}]"
-                                 :style="{backgroundColor: project.hero_color, backgroundImage: `url(${project.hero_image})`}">
+                                 :style="{backgroundColor: project.hero_color || 'transparent', backgroundImage: `url(${project.hero_image})`}">
                         <div class="preview-title">
                             <h5>{{ project.name }}</h5>
                             <h6>{{  project.description  }}</h6>
@@ -22,7 +22,7 @@
                 <div class="grid">
                     <router-link v-for="(project, index) in area.projects" :to="{name: 'project', params: { id: project.id,  phrases: [project.preloader] }}" :key="`${area.name}-${index}`"
                                  class="preview reveal" :class="[{featured: project.is_featured, dark: project.is_dark}]"
-                                 :style="{backgroundColor: project.hero_color, backgroundImage: `url(${project.hero_image})`}">
+                                 :style="{backgroundColor: project.hero_color || 'transparent', backgroundImage: `url(${project.hero_image})`}">
                         <div class="preview-title">
                             <h5>{{ project.name }}</h5>
                             <h6>{{  project.description  }}</h6>
