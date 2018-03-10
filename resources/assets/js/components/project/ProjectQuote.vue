@@ -1,7 +1,6 @@
 <template>
     <div class="project-quote">
         <div class="container">
-            <div class="grid">
                 <div class="project-quote-statement">
                     <h3 v-html="body"></h3>
                 </div>
@@ -9,7 +8,6 @@
                     <h5 v-html="author"></h5>
                     <h6 v-html="title" v-if="title"></h6>
                 </div>
-            </div>
         </div>
     </div>
 </template>
