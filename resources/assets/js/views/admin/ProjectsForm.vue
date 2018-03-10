@@ -33,6 +33,11 @@
 
             <div class="grid-container">
                 <div class="grid-x grid-padding-x">
+                    <div class="small-12 cell">
+                        <label>Slug (Vanity URL)
+                            <input v-model="project.slug" name="slug" type="text" pattern="^[a-z0-9]+(?:-[a-z0-9]+)*$" placeholder="Slug">
+                        </label>
+                    </div>
                     <div class="medium-6 cell">
                         <label>Name
                             <input v-model="project.name" name="name" type="text" placeholder="Name">
