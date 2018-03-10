@@ -8,11 +8,18 @@ $studio-paragraph-margin: 0 0 3.5rem;
   }
 
   //DELETE THIS
-  .image-full {
-    background-color: #005fff;
+  &-image-full-1 {
+    background-color: $stone;
     .parallax-image {
       background-size: cover;
-      background-image: url('../img/projectimages/image-full.jpg');
+      background-image: url('../img/studio/studio-woah.jpg');
+    }
+  }
+  &-image-full-2 {
+    background-color: $stone;
+    .parallax-image {
+      background-size: cover;
+      background-image: url('../img/studio/studio-hello.jpg');
     }
   }
 
@@ -24,6 +31,9 @@ $studio-paragraph-margin: 0 0 3.5rem;
       display: flex;
       flex-flow: column;
       justify-content: center;
+    }
+    &-subtitle {
+      opacity: 0.5;
     }
     &-button-container {
       position: absolute;
@@ -79,7 +89,7 @@ $studio-paragraph-margin: 0 0 3.5rem;
       width: 160vw;
       height: 125%;
       background-size: cover;
-      background-image: url('../img/about/maniak-panorama.png');
+      background-image: url('../img/studio/studio-panorama.jpg');
     }
   }
   &-values {

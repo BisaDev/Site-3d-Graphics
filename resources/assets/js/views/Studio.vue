@@ -3,15 +3,18 @@
     <section class="studio-header">
       <div class="studio-header-title-container container">
         <div class="appear-after-reveal">
-          <h1 class="studio-header-title"><b>Maniak is a creative studio in Guadalajara, Mexico. </b><br>We build websites, applications and interactive experiences.
+          <h1 class="studio-header-title">Maniak is a creative studio in Guadalajara, Mexico.<br>
           </h1>
+        </div>
+        <div class="appear-after-reveal appear-after-reveal-delay">
+          <h1 class="studio-header-subtitle">We build websites, applications and interactive experiences.</h1>
         </div>
       </div>
       <div class="studio-header-button-container container">
         <scroll-button to="#who-we-are" text="Read more"></scroll-button>
       </div>
     </section>
-    <image-full></image-full>
+    <image-full class="studio-image-full-1"></image-full>
     <section id="who-we-are" class="studio-who">
       <div class="container">
         <div class="grid">
@@ -167,7 +170,7 @@
         </div>
       </div>
     </section>
-    <image-full class="no-margin"></image-full>
+    <image-full class="studio-image-full-2 no-margin"></image-full>
   </div>
 </template>
 

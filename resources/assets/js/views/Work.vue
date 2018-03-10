@@ -3,9 +3,11 @@
         <section class="work-header">
             <div class="container work-header-title-container">
                 <div class="appear-after-reveal">
-                    <h1>
-                        <b>Maniak builds cool stuff.</b><br>Lorem ipsum dolor sit.
+                    <h1 class="work-header-title">Maniak does stuff.<br>
                     </h1>
+                </div>
+                <div class="appear-after-reveal appear-after-reveal-delay">
+                    <h1 class="work-header-subtitle">Which is good.</h1>
                 </div>
             </div>
         </section>
