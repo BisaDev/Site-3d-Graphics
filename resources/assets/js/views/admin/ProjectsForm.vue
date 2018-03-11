@@ -256,7 +256,11 @@
 
         methods: {
             deleteProject(id) {
-                return apiManiak.deleteProject(id)
+                let doDelete = confirm(
+                    'You are about to permanently delete Project: '+id+', please confirm:'
+                )
+
+                return doDelete && apiManiak.deleteProject(id)
                     .then(response => { // Success
                         if (response.data.success) {
                             this.$router.push({name: 'projects', params: {id: response.data.projectId, message: response.data.message }})
