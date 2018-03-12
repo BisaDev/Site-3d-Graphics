@@ -7,8 +7,9 @@
         beforeRouteUpdate(to, from, next) {
             if (!isEqual(to.params, from.params) || to.path !== from.path) {
                 this.onRouteLeave(to, from, next)
+            } else {
+                next()
             }
-            next()
         },
         methods: {
             setNavTheme(isDarkTheme) {
