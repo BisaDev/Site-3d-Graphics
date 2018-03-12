@@ -1,6 +1,6 @@
 <template>
     <tabs :tabs-list-classes="['work-header-filters-list']" :tabs-container-classes="['container', 'work-header-filters-container']" >
-        <tab name="All" :suffix="buildSuffix(projects.length)" :selected="true">
+        <tab name="All" :suffix="buildSuffix(projects.length)">
             <div class="container">
                 <div class="grid">
                     <router-link v-for="(project, index) in projects" :to="{name: 'project', params: { slug: project.slug,  phrases: [project.preloader] }}" :key="`all-${index}`"

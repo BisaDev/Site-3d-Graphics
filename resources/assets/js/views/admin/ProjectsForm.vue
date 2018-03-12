@@ -83,14 +83,12 @@
                     </div>
                     <div class="medium-6 cell">
                         <label>Info Subtitle
-                            <input v-model="project.info_subtitle" name="info_subtitle" type="text"
-                                   placeholder="Info Subtitle">
+                            <textarea placeholder="Info Subtitle" name="info_subtitle" cols="30" rows="10" v-model="project.info_subtitle"></textarea>
                         </label>
                     </div>
                     <div class="medium-6 cell">
                         <label>Info Description
-                            <input v-model="project.info_description" name="info_description" type="text"
-                                   placeholder="Info Description">
+                            <textarea placeholder="Info Description" name="info_description" cols="30" rows="10" v-model="project.info_description"></textarea>
                         </label>
                     </div>
                     <div class="medium-6 cell">
@@ -256,7 +254,11 @@
 
         methods: {
             deleteProject(id) {
-                return apiManiak.deleteProject(id)
+                let doDelete = confirm(
+                    'You are about to permanently delete Project: '+id+', please confirm:'
+                )
+
+                return doDelete && apiManiak.deleteProject(id)
                     .then(response => { // Success
                         if (response.data.success) {
                             this.$router.push({name: 'projects', params: {id: response.data.projectId, message: response.data.message }})

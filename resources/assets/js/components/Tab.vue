@@ -1,33 +1,37 @@
 <template>
-    <div v-show="isActive"><slot></slot></div>
+    <div v-show="isActive">
+        <slot></slot>
+    </div>
 </template>
 
 <script>
     export default {
         props: {
-            name: { required: false },
-            selected: { default: false },
-            prefix: { default: '' },
-            suffix: { default: '' },
+            name: {required: false},
+            selected: {default: false},
+            prefix: {default: ''},
+            suffix: {default: ''},
         },
 
         data() {
             return {
                 isActive: false
-            };
+            }
         },
 
         computed: {
-            href() {
-                return '#' + this.name.toLowerCase().replace(/ /g, '-');
+            hash() {
+                return '#' + this.name.toLowerCase()
+                    .replace(/ /g, '-')
+                    .replace(/\&/g, 'and')
+                    .replace(/^([0-9])/g, 'n$1')
             },
             header() {
-                return this.prefix + this.name + this.suffix;
+                return this.prefix + this.name + this.suffix
             },
         },
-
-        mounted() {
-            this.isActive = this.selected;
-        },
+        mounted(){
+            this.$parent.$emit('tab-mounted')
+        }
     }
 </script>
