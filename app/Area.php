@@ -50,6 +50,7 @@ class Area extends Model {
                     'hero_image_preview' => $project->hero_image_preview,
                     'hero_color'         => $project->hero_color,
                     'slug'               => $project->slug,
+                    'preloader'          => $project->preloader,
                     'is_dark'            => $project->is_dark,
                 ];
                 $projects[$project->id] = $currentProject;
