@@ -1,10 +1,14 @@
 <script>
+    import isEqual from 'lodash.isequal';
     export default {
         beforeRouteLeave(to, from, next) {
             this.onRouteLeave(to, from, next)
         },
         beforeRouteUpdate(to, from, next) {
-            this.onRouteLeave(to, from, next)
+            if (!isEqual(to.params, from.params) || to.path !== from.path) {
+                this.onRouteLeave(to, from, next)
+            }
+            next()
         },
         methods: {
             setNavTheme(isDarkTheme) {

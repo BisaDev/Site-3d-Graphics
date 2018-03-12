@@ -2,8 +2,8 @@
     <div>
         <div :class="tabsContainerClasses">
             <ul :class="tabsListClasses">
-                <li v-for="(tab, key) in tabs"  :key="key" :class="{ 'active': tab.isActive }">
-                    <a :href="tab.href" @click="selectTab(tab)" v-html="tab.header"></a>
+                <li v-for="(tab, key) in tabs" :key="key" :class="{ 'active': tab.isActive }">
+                    <a :href="tab.hash" @click="selectTab(tab.hash)" v-html="tab.header"></a>
                 </li>
             </ul>
         </div>
@@ -27,18 +27,45 @@
             },
         },
         data() {
-            return { tabs: [] };
+            return {
+                tabs: [],
+                activeTabHash: '',
+            }
         },
 
-        created() {
-            this.tabs = this.$children;
+        mounted() {
+            this.tabs = this.$children
+            this.$on('tab-mounted', this.selectIninitialTab)
         },
 
         methods: {
-            selectTab(selectedTab) {
+            findTab(hash) {
+                return this.tabs.find(tab => tab.hash === hash)
+            },
+
+            selectTab(selectedTabHash) {
+                const selectedTab = this.findTab(selectedTabHash)
+
+                if (!selectedTab) {
+                    return
+                }
+
                 this.tabs.forEach(tab => {
-                    tab.isActive = (tab.href == selectedTab.href);
-                });
+                    tab.isActive = (tab.hash === selectedTab.hash)
+                })
+
+                this.activeTabHash = selectedTab.hash
+            },
+
+            selectIninitialTab() {
+                if (this.findTab(window.location.hash)) {
+                    this.selectTab(window.location.hash)
+                    return
+                }
+
+                if (this.tabs.length) {
+                    this.selectTab(this.tabs[0].hash)
+                }
             }
         }
     }
