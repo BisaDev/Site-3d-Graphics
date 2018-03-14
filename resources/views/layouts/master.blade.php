@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@maniakbtl">
     <meta name="twitter:title" content="Maniak">
-    <meta name="twitter:description" content="We are Maniak. Think of us as controlled kind of crazy with a deep passion for creative disruption.">
+    <meta name="twitter:description" content="We are Maniak. Think of us as controlled kind of crazy with a deep passion for creative interactions.">
 
     <!-- Twitter Summary card images must be at least 120x120px
     <meta name="twitter:image" content="http://www.example.com/image.jpg">-->
@@ -27,7 +27,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://www.maniak.co/" />
     <!-- <meta property="og:image" content="http://example.com/image.jpg" /> -->
-    <meta property="og:description" content="We are Maniak. Think of us as controlled kind of crazy with a deep passion for creative disruption." />
+    <meta property="og:description" content="We are Maniak. Think of us as controlled kind of crazy with a deep passion for creative interactions." />
     <meta property="og:site_name" content="Maniak" />
     <meta property="fb:admins" content="123698014336102" />
 

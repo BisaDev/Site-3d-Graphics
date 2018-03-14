@@ -3,7 +3,7 @@
         <section class="studio-header">
             <div class="studio-header-title-container container">
                 <div class="appear-after-reveal">
-                    <h1 class="studio-header-title">Maniak is a creative studio in Guadalajara, Mexico.<br>
+                    <h1 class="studio-header-title">Maniak is a design and technology studio in Guadalajara, Mexico.<br>
                     </h1>
                 </div>
                 <div class="appear-after-reveal appear-after-reveal-delay">
