@@ -141,7 +141,7 @@
         </div>
         <div class="grid">
           <ul class="studio-clients-list">
-            <li class="studio-clients-link"><a href="http://attck.com/" target="_blank">ATTK</a> </li>
+            <li class="studio-clients-link"><a href="http://attck.com/" target="_blank">ATTCK</a> </li>
             <li class="studio-clients-link"><a href="https://www.butchershop.co/" target="_blank">Butchershop</a></li>
             <li class="studio-clients-link"><a href="https://ciboglobal.com" target="_blank">Cibo</a></li>
             <li class="studio-clients-link"><a href="https://www.fluid.com/" target="_blank">Fluid</a></li>
