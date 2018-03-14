@@ -8,6 +8,7 @@
     width: 100vw;
     height: 125%;
     background-position: center;
+    background-size: cover;
 
     @include breakpoint(medium down) {
       top:50%;
