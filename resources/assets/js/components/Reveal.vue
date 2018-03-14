@@ -21,10 +21,11 @@
             phrases: {
                 type: Array,
                 default: () => [
-                    'Adding Randomly Mispeled Words Into Text',
+                    'Lorem ipsum dolor sit amet',
                     'Untying developers',
                     'Tying developers',
                     'Thinking about cool transition phrases',
+                    'This is nice -_-',
                 ],
             },
         },

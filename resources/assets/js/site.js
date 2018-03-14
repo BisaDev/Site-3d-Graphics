@@ -24,10 +24,11 @@ new Vue({
             revealerIsAnimating: true,
             revealerIsOpen: true,
             defaultPhrases: [
-                'Adding Randomly Mispeled Words Into Text',
+                'Lorem ipsum dolor sit amet',
                 'Untying developers',
                 'Tying developers',
                 'Thinking about cool transition phrases',
+                'This is nice -_-',
             ],
             // initial phrase
             phrases: [''],
