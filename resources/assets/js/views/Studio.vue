@@ -73,16 +73,16 @@
                     </ul>
                     <ul class="studio-values-col-2">
                         <li>
-                            <h5>In experiences.</h5>
-                            <p>Design, websites, apps, they are all better when we aim to create an experience.</p>
-                        </li>
-                        <li>
                             <h5>In details.</h5>
                             <p>They make or break the product. </p>
                         </li>
                         <li>
                             <h5>Ease of use</h5>
                             <p>We like simple stuff, simple is hard.</p>
+                        </li>
+                        <li>
+                            <h5>In experiences.</h5>
+                            <p>Design, websites, apps, they are all better when we aim to create an experience.</p>
                         </li>
                     </ul>
                 </div>
