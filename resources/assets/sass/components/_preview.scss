@@ -1,6 +1,9 @@
 .preview {
   border-radius: $border-radius-lg;
   height: 50rem;
+  @include breakpoint(medium down) {
+    height: 25rem;
+  }
   position: relative;
   text-decoration: none;
   overflow: hidden;
@@ -13,7 +16,6 @@
   background-position: bottom right;
   background-repeat: no-repeat;
   background-color: $light-gray-dark;
-  background-image: url('../img/featured/plateiq.png');
   color: $stone;
 
   &-title {
@@ -46,12 +48,14 @@
 }
 
 .preview:hover {
-  //transform: translateY(-1rem);
-  transform: scale(1.01);
+  @include breakpoint(large up) {
+    height: 25rem;
+    transform: scale(1.01);
 
-  .preview-title {
-    .preview-title-cta {
-      height: 4rem;
+    .preview-title {
+      .preview-title-cta {
+        height: 4rem;
+      }
     }
   }
 }

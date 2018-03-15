@@ -19,9 +19,7 @@
       pointer-events: none;
       text-align: center;
       overflow: hidden;
-      @include breakpoint(medium down) {
-        text-align: left;
-      }
+
     }
     h1 {
       font-size: 4rem;

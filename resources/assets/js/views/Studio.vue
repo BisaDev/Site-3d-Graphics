@@ -42,7 +42,7 @@
                         <p>
                             We are located in Guadalajara, in a cool warehouse / office, with a lot of open space and a patio for our traditional barbecues. </p>
                     </div>
-                    <a href="mailto:hola@maniak.co" class="studio-where-callout dark">
+                    <a href="mailto:hello@maniak.co" class="studio-where-callout dark">
                         <p>Interested in working here?</p>
                         <button class="button button-arrow">Drop us a line</button>
                     </a>

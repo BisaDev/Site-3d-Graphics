@@ -84,6 +84,9 @@ $studio-paragraph-margin: 0 0 3.5rem;
     height: 50rem;
     background-color: $base-bg-color-dark;
 
+    @include breakpoint(xlarge up) {
+      height: 60rem;
+    }
     .parallax-image {
       right: -80vw;
       width: 160vw;

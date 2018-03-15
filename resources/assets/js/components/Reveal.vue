@@ -21,15 +21,15 @@
             phrases: {
                 type: Array,
                 default: () => [
-                    'Lorem ipsum dolor sit amet',
-                    'Untying developers',
-                    'Tying developers',
-                    'Thinking about cool transition phrases',
+                    'We have an insatiable curiosity for big ideas and love making them happen.',
+                    'A controlled kind of crazy with a passion for creative disruption.',
+                    'Thinking about cool transition phrases... 🤔',
                     'This is nice -_-',
                 ],
             },
         },
-        data() {
+
+      data() {
             return {
                 paths: [
                     {d: 'M 0 100 C 25 100 25 100 50 100 C 75 100 75 100 100 100 V 0 H 0'},

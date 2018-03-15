@@ -1,4 +1,6 @@
 $home-visual-size: 40rem;
+$home-mobile-visual-size: 25rem;
+
 $home-blob-length: 8;
 $home-blob-duration: 5s;
 
@@ -28,6 +30,10 @@ $home-image-max-size: 40rem;
   height: $home-visual-size;
   margin: auto;
   cursor: pointer;
+
+  @include breakpoint(medium down) {
+    transform: translate(-50%, -50%) scale(0.66);
+  }
 
   .dark & {
     opacity: 0.5;
