@@ -12,6 +12,7 @@ $factory->define(App\Project::class, function (Faker $faker) {
         'preloader' => $faker->text(50),
         'hero_image' => '/images/plateiq.png', // @todo: Use an appropriate image factory for transparent images
         'hero_image_preview' => '/images/plateiq.png', // @todo: Use an appropriate image factory for transparent images
+        'hero_image_footer' => '/images/plateiq.png', // @todo: Use an appropriate image factory for transparent images
         'hero_color' => $faker->hexColor,
         'is_dark' => $faker->boolean($chanceOfGettingTrue = 40),
         'is_featured' => $faker->boolean($chanceOfGettingTrue = 20),

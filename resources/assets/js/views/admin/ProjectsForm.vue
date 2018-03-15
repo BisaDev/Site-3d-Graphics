@@ -342,7 +342,7 @@
             submitForm() {
                 let project = Object.assign({}, this.$data.project),
                     dataImageRegExp = /^data\:image\//,
-                    images = ['hero_image', 'hero_image_preview']
+                    images = ['hero_image', 'hero_image_preview','hero_image_footer']
 
                 //This omits images already set
                 images.forEach(image => {
