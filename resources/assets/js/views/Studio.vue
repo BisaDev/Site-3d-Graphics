@@ -39,7 +39,7 @@
                     </div>
                     <div class="section-content">
                         <p>
-                            We are located in Guadalajara, in a cool warehouse like office wtih a lot of open space and a patio for our traditional barbecues. </p>
+                            We are located in Guadalajara, in a cool warehouse / office, with a lot of open space and a patio for our traditional barbecues. </p>
                     </div>
                     <a href="mailto:hola@maniak.co" class="studio-where-callout dark">
                         <p>Interested in working here?</p>
@@ -118,7 +118,6 @@
                             <li>Python / Django</li>
                             <li>React / VueJs</li>
                             <li>Wordpress / Statamic</li>
-
                         </ul>
                     </div>
                 </div>
@@ -128,7 +127,8 @@
                     </div>
                     <div class="section-content">
                         <p>
-                            We aim to deliver high quality 3D content across multiple platforms, to provide a visual aid and an experience of something that might not exist. We like games to.</p>
+                            We aim to deliver high quality 3D content across multiple platforms, to provide a visual aid and an experience of something that might not exist. We like games to.
+                        </p>
                         <ul>
                             <li>3D Modeling &amp; Rendering</li>
                             <li>Real time simulations</li>
