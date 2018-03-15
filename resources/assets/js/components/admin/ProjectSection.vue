@@ -19,6 +19,11 @@
             </label>
         </div>
         <div class="small-6 cell">
+            <label>Additional classes
+                <input type="text" name="section[][additional_classes]" placeholder="Additional classes" v-model="section.additional_classes">
+            </label>
+        </div>
+        <div class="small-6 cell">
             <label>Order
                 <input type="number" name="section[][color]" placeholder="Order" v-model="section.order">
             </label>

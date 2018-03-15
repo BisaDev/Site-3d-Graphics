@@ -49,6 +49,7 @@ class ProjectRequest extends FormRequest
             'client_id' => 'required|exists:clients,id',
             'sections.*.order' => 'required_without:sections.*.visible',
             'sections.*.color' => 'nullable|max:30',
+            'sections.*.additional_classes' => 'nullable|max:255',
             'sections.*.model.body' => 'required_if:sections.*.component,ProjectStickySection,ProjectTextInformation',
             'sections.*.model.image' => 'required_if:sections.*.component,ProjectStickySection',
             'sections.*.model.images.*.image' => 'required_without:sections.*.model.images.*.visible',
