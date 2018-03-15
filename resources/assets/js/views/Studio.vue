@@ -27,6 +27,7 @@
                         </p>
                         <p>
                             Our clients appreciate the personality and spirit of our Team as much as the work they provide.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -98,6 +99,7 @@
                     <div class="section-content">
                         <p>
                             Our design practice is oriented to solve problems in the web and technology space. We like deliver continuous and intuitive experiences across all digital mediums.
+                        </p>
                         <ul>
                             <li>UX Design</li>
                             <li>UI Design</li>
