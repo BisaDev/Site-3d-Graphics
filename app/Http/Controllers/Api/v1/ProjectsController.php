@@ -94,7 +94,7 @@ class ProjectsController extends Controller
     public function store(ProjectRequest $request)
     {
         //Upload Images
-        foreach (['hero_image', 'hero_image_preview'] as $image) {
+        foreach (['hero_image', 'hero_image_preview', 'hero_image_footer'] as $image) {
             if ($request->get($image)) {
                 $request->offsetSet($image, $this->uploadEncoded64Image($request->get($image)));
             } else {
@@ -195,7 +195,7 @@ class ProjectsController extends Controller
         $this->handleProjectSections($request, $project);
 
         //Upload Images
-        foreach (['hero_image', 'hero_image_preview'] as $image) {
+        foreach (['hero_image', 'hero_image_preview', 'hero_image_footer'] as $image) {
             if ($request->get($image)) {
                 $request->offsetSet($image, $this->uploadEncoded64Image($request->get($image)));
             } else {

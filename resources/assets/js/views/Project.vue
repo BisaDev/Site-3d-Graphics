@@ -166,7 +166,7 @@
         <!-- NEXT PROJECT -->
         <themed-section class="project-next no-padding no-margin text-center"
                         :is-dark="Boolean(nextProject.is_dark)"
-                        :image="nextProject.hero_image"
+                        :image="nextProject.hero_image_footer"
                         :color="nextProject.hero_color || 'transparent'"
                         v-if="nextProject">
             <router-link :to="{name: 'project', params: { slug: nextProject.slug,  phrases: [nextProject.preloader] }}"

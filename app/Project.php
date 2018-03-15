@@ -21,6 +21,7 @@ class Project extends Model
         'preloader',
         'hero_image',
         'hero_image_preview',
+        'hero_image_footer',
         'hero_color',
         'info_subtitle',
         'info_description',

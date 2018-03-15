@@ -37,6 +37,7 @@ class ProjectRequest extends FormRequest
             'preloader' => 'required|max:255',
             'hero_image' => $required,
             'hero_image_preview' => $required,
+            'hero_image_footer' => $required,
             'hero_color' => 'nullable|max:30',
             'info_subtitle' => 'required|max:140',
             'info_description' => 'required|max:300',
