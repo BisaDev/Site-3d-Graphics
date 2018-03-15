@@ -18,14 +18,14 @@ class ProjectSection extends Model
      *
      * @var array
      */
-    protected $visible = ['id', 'component', 'model', 'color', 'is_dark', 'background_image', 'is_parallax', 'order'];
+    protected $visible = ['id', 'component', 'model', 'color', 'is_dark', 'background_image', 'additional_classes', 'is_parallax', 'order'];
 
     /**
      * The attributes that should be available for mass assignment.
      *
      * @var array
      */
-    protected $fillable = ['model_id', 'model_class', 'color', 'is_dark', 'background_image', 'is_parallax', 'order'];
+    protected $fillable = ['model_id', 'model_class', 'color', 'is_dark', 'background_image', 'additional_classes', 'is_parallax', 'order'];
 
     /**
      * The accessors to append to the model's array form.

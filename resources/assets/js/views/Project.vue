@@ -160,7 +160,7 @@
                         :is-dark="!!section.is_dark"
                         :parallax="!!section.is_parallax"
                         :image="section.background_image"
-                        :classes="section.additional_classes ? section.additional_classes.split('') : []"
+                        :class="section.additional_classes ? section.additional_classes.split(' ') : []"
         >
             <component :is="section.component" v-bind="section.model"/>
         </themed-section>

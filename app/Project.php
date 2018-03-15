@@ -297,7 +297,7 @@ class Project extends Model
             $attrs = [
                 'color' => $section['color'],
                 'is_dark' => $section['is_dark'],
-                //'background_image' => ($section['background_image']) ? $this->uploadEncoded64Image($section['background_image']) : null,
+                'additional_classes' => $section['additional_classes'],
                 'is_parallax' => $section['is_parallax'],
                 'order' => $section['order'],
             ];
