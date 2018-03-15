@@ -34,7 +34,7 @@ class ProjectRequest extends FormRequest
             'slug' => 'nullable|max:200|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/|unique:projects,slug'.$id,
             'name' => 'required|max:50',
             'description' => 'required|max:50',
-            'preloader' => 'required|max:50',
+            'preloader' => 'required|max:255',
             'hero_image' => $required,
             'hero_image_preview' => $required,
             'hero_color' => 'nullable|max:30',
