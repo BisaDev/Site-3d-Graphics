@@ -21,6 +21,7 @@ class Project extends Model
         'preloader',
         'hero_image',
         'hero_image_preview',
+        'hero_image_footer',
         'hero_color',
         'info_subtitle',
         'info_description',
@@ -296,7 +297,7 @@ class Project extends Model
             $attrs = [
                 'color' => $section['color'],
                 'is_dark' => $section['is_dark'],
-                //'background_image' => ($section['background_image']) ? $this->uploadEncoded64Image($section['background_image']) : null,
+                'additional_classes' => $section['additional_classes'],
                 'is_parallax' => $section['is_parallax'],
                 'order' => $section['order'],
             ];

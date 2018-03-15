@@ -160,13 +160,14 @@
                         :is-dark="!!section.is_dark"
                         :parallax="!!section.is_parallax"
                         :image="section.background_image"
+                        :class="section.additional_classes ? section.additional_classes.split(' ') : []"
         >
             <component :is="section.component" v-bind="section.model"/>
         </themed-section>
         <!-- NEXT PROJECT -->
         <themed-section class="project-next no-padding no-margin text-center"
                         :is-dark="Boolean(nextProject.is_dark)"
-                        :image="nextProject.hero_image"
+                        :image="nextProject.hero_image_footer"
                         :color="nextProject.hero_color || 'transparent'"
                         v-if="nextProject">
             <router-link :to="{name: 'project', params: { slug: nextProject.slug,  phrases: [nextProject.preloader] }}"

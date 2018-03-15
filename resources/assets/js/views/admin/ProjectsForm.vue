@@ -82,6 +82,16 @@
                         </div>
                     </div>
                     <div class="medium-6 cell">
+                        <label for="">Hero Image Footer</label>
+                        <div v-if="!project.hero_image_footer">
+                            <input accept="image/*" name="hero_image_footer" type="file" @change="onFileChange">
+                        </div>
+                        <div v-else>
+                            <img :src="project.hero_image_footer" style="width:100%; height: auto;"/>
+                            <button @click.prevent="removeImage('hero_image_footer')">Remove image</button>
+                        </div>
+                    </div>
+                    <div class="medium-6 cell">
                         <label>Info Subtitle
                             <textarea placeholder="Info Subtitle" name="info_subtitle" cols="30" rows="10" v-model="project.info_subtitle"></textarea>
                         </label>
@@ -191,6 +201,7 @@
                     hero_color: '',
                     hero_image: '',
                     hero_image_preview: '',
+                    hero_image_footer: '',
                     info_subtitle: '',
                     info_description: '',
                     start_date: '',
@@ -312,6 +323,7 @@
                         hero_color: '',
                         hero_image: '',
                         hero_image_preview: '',
+                        hero_image_footer: '',
                         info_subtitle: '',
                         info_description: '',
                         start_date: '',
@@ -330,7 +342,7 @@
             submitForm() {
                 let project = Object.assign({}, this.$data.project),
                     dataImageRegExp = /^data\:image\//,
-                    images = ['hero_image', 'hero_image_preview']
+                    images = ['hero_image', 'hero_image_preview','hero_image_footer']
 
                 //This omits images already set
                 images.forEach(image => {
