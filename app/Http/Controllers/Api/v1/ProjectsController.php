@@ -70,7 +70,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::with('sections')->orderByDesc('is_featured')->get();
+        $projects = Project::with('sections', 'country')->orderByDesc('is_featured')->get();
 
         return response()->json($projects, 200);
     }
@@ -134,7 +134,8 @@ class ProjectsController extends Controller
         $project->load(
             'client',
             'services',
-            'sections'
+            'sections',
+            'country'
         );
 
         return response()->json($project, 200);
@@ -153,7 +154,8 @@ class ProjectsController extends Controller
         $project->load(
             'client',
             'services',
-            'sections'
+            'sections',
+            'country'
         );
 
         return response()->json($project, 200);

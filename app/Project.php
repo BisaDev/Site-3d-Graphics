@@ -59,6 +59,16 @@ class Project extends Model
     }
 
     /**
+     * Project's Client.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    /**
      * Project services.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

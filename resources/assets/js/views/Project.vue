@@ -34,7 +34,7 @@
                                 <date-range :from="project.start_date" :to="project.end_date"></date-range>
                                 <h5>Country</h5>
                                 <p>
-                                    <icon icon-class="icon-country-US"/>
+                                    <icon :icon-class="`icon-country-${project.country.code}`"/>
                                 </p>
                             </div>
                             <div class="project-intro-facts-right">
