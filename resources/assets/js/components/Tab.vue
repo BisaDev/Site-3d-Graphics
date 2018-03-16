@@ -40,24 +40,24 @@
 
 <style>
     .slide-fade-enter {
-        transform: translateY(100px);
+        transform: translateY(10rem);
         opacity: 0;
     }
     .slide-fade-enter-to {
 
     }
     .slide-fade-enter-active {
-        transition: all .4s ease-out;
+        transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     }
     .slide-fade-leave {
 
     }
     .slide-fade-leave-to {
-        transform: translateY(100px);
+        transform: translateY(10rem);
         opacity: 0;
 
     }
     .slide-fade-leave-active {
-        transition: all .4s ease-in;
+        transition: all .5s cubic-bezier(0.550, 0.055, 0.675, 0.190);
     }
 </style>
