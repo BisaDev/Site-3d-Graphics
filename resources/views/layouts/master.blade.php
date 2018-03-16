@@ -11,7 +11,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-    <link href="{{asset('css/site.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{mix('css/site.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary">
@@ -47,6 +47,6 @@
 
 
 
-    <script type="text/javascript" src="{{asset('js/site.js')}}"></script>
+    <script type="text/javascript" src="{{mix('js/site.js')}}"></script>
 </body>
 </html>

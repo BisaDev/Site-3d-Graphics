@@ -35,3 +35,10 @@ mix.webpackConfig(webpack => ({
         })
     ]
 }))
+
+/**
+ * Cache Busting if in production
+ */
+if (mix.inProduction()) {
+    mix.version();
+}
