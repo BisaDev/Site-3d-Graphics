@@ -21,9 +21,13 @@
       overflow: hidden;
 
     }
-    h1 {
-      font-size: 4rem;
+    @include breakpoint(large up) {
+      h1 {
+        font-size: 4rem;
+      }
     }
+
+
     &-button-container {
       position: absolute;
       text-align: center;

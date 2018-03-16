@@ -11,12 +11,19 @@
     background-position: bottom right;
     background-repeat: no-repeat;
     background-color: $stone;
-
+    @include breakpoint(medium down) {
+      background-size: cover;
+      background-position: left center;
+    }
     &-title-container {
       height: 100vh;
       display: flex;
       flex-flow: column;
       justify-content: center;
+      @include breakpoint(medium down) {
+        //color: $white;
+        //mix-blend-mode: difference;
+      }
     }
 
     &-button-container {
@@ -27,12 +34,6 @@
       bottom: 0;
       display: flex;
       flex-flow: column;
-      @include breakpoint(medium down) {
-        .button {
-          position: relative;
-          @include button-outline();
-        }
-      }
     }
     &-subtitle {
       opacity: 0.5;
@@ -40,8 +41,14 @@
     .button-scroll {
       margin-left: -$button-padding-h;
       @include breakpoint(medium down) {
+        position: relative;
         margin-left: 0;
         @include button-outline();
+      }
+    }
+    &.dark .button-scroll{
+      @include breakpoint(medium down) {
+        @include button-outline-white();
       }
     }
   }

@@ -48,15 +48,16 @@
 
 
 @mixin button-outline() {
-  border-width: 1px;
-  border-style: solid;
-  border-color: $light-gray-darker;
+  //border-width: 1px;
+  //border-style: solid;
+  //border-color: rgba($stone, 0.1);
   width: 100%;
+  background-color: rgba($stone, 0.05);
+}
 
-  .dark &,
-  &.dark {
-    border-color: rgba($light-gray, 0.5);
-  }
+@mixin button-outline-white() {
+  width: 100%;
+  background-color: rgba($light-gray, 0.05);
 }
 
 @mixin button-xl() {

@@ -10,7 +10,7 @@
     display: block;
     overflow: hidden;
     position: absolute;
-    bottom: 5rem;
+    bottom: $grid-container-padding-md;
 
     span {
       display: block;
