@@ -51,8 +51,12 @@
                 }
 
                 this.tabs.forEach(tab => {
-                    tab.isActive = (tab.hash === selectedTab.hash)
+                    tab.isActive = false
                 })
+
+                setTimeout(() => this.tabs.forEach(tab => {
+                    tab.isActive = (tab.hash === selectedTab.hash)
+                }), 400)
 
                 this.activeTabHash = selectedTab.hash
             },
