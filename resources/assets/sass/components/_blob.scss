@@ -213,7 +213,7 @@ $studio-blob-size-delta: $studio-blob-size-lg - $studio-blob-size-sm;
       width: $studio-visual-mobile-width;
     }
     &:hover {
-      color: rgba($base-font-color-light, 0.5);
+      color: rgba($base-font-color-light, 0.33);
     }
   }
 
@@ -300,7 +300,7 @@ $studio-blob-size-delta: $studio-blob-size-lg - $studio-blob-size-sm;
       }
 
       &:hover {
-        background: rgba($black, 0.15);
+        background: rgba($black, 0.4);
         color: $base-font-color-light;
         &::after {
           background-color: $light-gray;

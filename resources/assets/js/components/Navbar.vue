@@ -42,14 +42,17 @@
 <style>
 .nav-show {
   transform: translateY(0%);
+  top: 0;
 }
 
 .nav-hide {
   transform: translateY(-100%);
+  top: 0;
 }
 
 .nav-at-top {
   transform: translateY(0%);
+  top: 1.5rem;
 }
 </style>
 
