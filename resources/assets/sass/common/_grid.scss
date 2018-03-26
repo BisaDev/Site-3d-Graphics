@@ -69,11 +69,15 @@
     @include xy-gutters($gutter-position: left right top bottom);
   }
   .preview {
-    @include xy-cell(6 of 12);
+    @include xy-cell(12 of 12);
+    @include xy-gutters($gutter-position: left right top bottom);
+
+   // Use the following when there are more projects
+   /* @include xy-cell(6 of 12);
     @include xy-gutters($gutter-position: left right top bottom);
     @include breakpoint(medium down) {
       @include xy-cell(12 of 12);
-    }
+    }*/
   }
 }
 

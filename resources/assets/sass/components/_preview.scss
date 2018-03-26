@@ -19,6 +19,7 @@
   color: $stone;
 
   &-title {
+    position: relative;
     align-self: flex-end;
     padding: 3.5rem 3rem;
     width: 100%;
