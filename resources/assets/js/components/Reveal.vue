@@ -21,10 +21,10 @@
             phrases: {
                 type: Array,
                 default: () => [
-                    'We have an insatiable curiosity for big ideas and love making them happen.',
-                    'A controlled kind of crazy with a passion for creative disruption.',
-                    'Thinking about cool transition phrases... 🤔',
-                    'This is nice -_-',
+                  'We have an insatiable curiosity for big ideas and love making them happen.',
+                  'A controlled kind of crazy with a passion for creative disruption.',
+                  'Maniac, [ˈmā-nē-ˌak]: A person characterized by an unbridled enthusiasm for something.',
+                  'Thinking about cool transition phrases... 🤔',
                 ],
             },
         },
