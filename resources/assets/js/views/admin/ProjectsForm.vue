@@ -258,11 +258,6 @@
             }
         },
 
-        watch: {
-            // call again the method if the route changes
-            '$route': 'resetForm'
-        },
-
         methods: {
             deleteProject(id) {
                 let doDelete = confirm(
@@ -308,37 +303,7 @@
                     model: model
                 })
             },
-
-            resetForm() {
-                if (!this.$props.id) {
-                    this.sections = false
-                    //this.form.sections = false
-                    this.errors = false
-                    this.messages = false
-                    this.project = {
-                        id: null,
-                        name: '',
-                        description: '',
-                        preloader: '',
-                        hero_color: '',
-                        hero_image: '',
-                        hero_image_preview: '',
-                        hero_image_footer: '',
-                        info_subtitle: '',
-                        info_description: '',
-                        start_date: '',
-                        end_date: '',
-                        services: [],
-                        country_id: null,
-                        client_name: '',
-                        client_id: null,
-                        is_featured: false,
-                        is_dark: false,
-                        sections: [],
-                    }
-                }
-            },
-
+            
             submitForm() {
                 let project = Object.assign({}, this.$data.project),
                     dataImageRegExp = /^data\:image\//,
