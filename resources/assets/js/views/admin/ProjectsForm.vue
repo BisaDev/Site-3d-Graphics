@@ -303,7 +303,7 @@
                     model: model
                 })
             },
-            
+
             submitForm() {
                 let project = Object.assign({}, this.$data.project),
                     dataImageRegExp = /^data\:image\//,

@@ -68,5 +68,9 @@ export default {
 
   deleteProject(id) {
     return axios.delete(this.api + `/projects/${id}`, this.config);
+  },
+
+  getRecruitmentData() {
+    return axios.get(this.api + '/recruitment')
   }
 }

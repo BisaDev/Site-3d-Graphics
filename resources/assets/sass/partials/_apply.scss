@@ -1,0 +1,149 @@
+.apply {
+  h4 {
+    margin-bottom: 3rem;
+  }
+  p {
+    margin-bottom: 2.5rem;
+  }
+
+  & &-header {
+    margin-bottom: 0;
+    color: $black;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $stone;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 66%;
+      background: linear-gradient(to bottom, rgba($light-gray,0) 0%,rgba($light-gray,0.75) 100%);
+    }
+    &.dark::before {
+      background: linear-gradient(to bottom, rgba($stone-darker, 0) 0%, rgba($stone-darker, 0.75) 100%);
+    }
+
+    @include breakpoint(large up) {
+      background-size: contain;
+      background-position: bottom right;
+
+      &::before {
+        display: none;
+      }
+    }
+    &-title-container {
+      height: 60vh;
+      display: flex;
+      flex-flow: column;
+      text-align: center;
+      justify-content: center;
+      @include breakpoint(medium down) {
+        padding-bottom: calc(#{$grid-container-padding-md} + 4em);
+        justify-content: flex-end;
+        position: relative;
+      }
+    }
+    &-title {
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+
+    &-button-container {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      display: flex;
+      flex-flow: column;
+    }
+    &-subtitle {
+      opacity: 0.5;
+    }
+    .button-scroll {
+      align-self: center;
+      margin-left: -$button-padding-h;
+      @include breakpoint(medium down) {
+        position: relative;
+        margin-left: 0;
+        @include button-outline();
+      }
+    }
+    &.dark .button-scroll{
+      @include breakpoint(medium down) {
+        @include button-outline-white();
+      }
+    }
+
+    &-apply-button {
+      height: 32px;
+      width: 100px;
+      outline: none;
+      margin-top: 4rem;
+      font-size: 1.3rem;
+      border-radius: $border-radius-lg;
+    }
+
+    &-emoji {
+      > p {
+        font-size: 3rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &-textbox-counter {
+    float: right;
+  }
+
+  &-form {
+    label {
+      font-size: 1.5rem;
+    }
+    input, textarea {
+      border: none;
+      outline: none;
+      box-shadow: none;
+      border-radius: 2px;
+      background-color: #f4f4f4;
+      outline-color: transparent;
+
+      &:focus {
+        background-color: #f4f4f4;
+      }
+    }
+    textarea {
+      resize: none;
+      height: 20rem;
+    }
+  }
+  .limit-reach {
+    perspective: 1000px;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
