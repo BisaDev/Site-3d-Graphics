@@ -98,10 +98,5 @@ new Vue({
         }
 
         this.enableDeath && setInterval(this.killIt, 1000)
-
-        /* document.querySelector('.home-header-button-container .button').addEventListener('click', (e) => {
-             e.preventDefault();
-             scrollIt(document.querySelector(e.target.parentElement.getAttribute("href")), 1000, 'easeInOutCubic');
-         });*/
     }
 })
