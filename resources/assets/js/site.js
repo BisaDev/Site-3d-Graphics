@@ -24,14 +24,14 @@ new Vue({
             revealerIsAnimating: true,
             revealerIsOpen: true,
             defaultPhrases: [
-                'Lorem ipsum dolor sit amet',
-                'Untying developers',
-                'Tying developers',
-                'Thinking about cool transition phrases',
-                'This is nice -_-',
+              'We have an insatiable curiosity for big ideas and love making them happen.',
+              'A controlled kind of crazy with a passion for creative disruption.',
+              'Maniac, [ˈmā-nē-ˌak]: A person characterized by an unbridled enthusiasm for something.',
+              'Thinking about cool transition phrases... 🤔',
             ],
             // initial phrase
             phrases: [''],
+            consoleChecker: /./,
         }
     },
 
@@ -59,6 +59,7 @@ new Vue({
             if (!this.wantsJob && !window.foundYourSecret) {
                 this.devtoolsOpen = false
                 window.console.log(this.$refs.consoleChecker) // This only executes when devtools are open.
+                window.console.log('%c', this.consoleChecker) // This only executes when devtools are open (chrome 65+).
 
                 this.death = this.devtoolsOpen
 
@@ -91,6 +92,10 @@ new Vue({
         this.$refs.consoleChecker.__defineGetter__("id", () => {
             this.devtoolsOpen = true
         })
+        // this will only run when console is open (chrome 65+)
+        this.consoleChecker.toString = () => {
+          this.devtoolsOpen = true
+        }
 
         this.enableDeath && setInterval(this.killIt, 1000)
 
