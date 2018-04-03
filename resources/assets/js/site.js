@@ -31,6 +31,7 @@ new Vue({
             ],
             // initial phrase
             phrases: [''],
+            consoleChecker: /./,
         }
     },
 
@@ -58,6 +59,7 @@ new Vue({
             if (!this.wantsJob && !window.foundYourSecret) {
                 this.devtoolsOpen = false
                 window.console.log(this.$refs.consoleChecker) // This only executes when devtools are open.
+                window.console.log('%c', this.consoleChecker) // This only executes when devtools are open (chrome 65+).
 
                 this.death = this.devtoolsOpen
 
@@ -90,6 +92,10 @@ new Vue({
         this.$refs.consoleChecker.__defineGetter__("id", () => {
             this.devtoolsOpen = true
         })
+        // this will only run when console is open (chrome 65+)
+        this.consoleChecker.toString = () => {
+          this.devtoolsOpen = true
+        }
 
         this.enableDeath && setInterval(this.killIt, 1000)
 
