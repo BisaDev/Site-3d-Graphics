@@ -94,7 +94,9 @@ new Vue({
         })
         // this will only run when console is open (chrome 65+)
         this.consoleChecker.toString = () => {
-          this.devtoolsOpen = true
+            if(window.chrome) {
+                this.devtoolsOpen = true
+            }
         }
 
         this.enableDeath && setInterval(this.killIt, 1000)
