@@ -215,7 +215,8 @@
   /* -------------------- */
 
   & &-quote {
-    height: $section-min-height;
+    height: auto;
+    min-height: $section-min-height;
     position: relative;
     padding: 0;
     text-align: center;
