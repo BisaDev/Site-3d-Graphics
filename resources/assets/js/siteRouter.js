@@ -7,6 +7,7 @@ import Contact from './views/Contact'
 import Recruitment from './views/Recruitment'
 import ApplyForm from './views/ApplyForm'
 import NotFound from './views/NotFound'
+import Thanks from './views/Thanks.vue'
 
 let routes = [
   {
@@ -49,6 +50,12 @@ let routes = [
       name: 'apply',
       path: '/apply',
       component: ApplyForm,
+      props: true,
+  },
+  {
+      name: 'thanks',
+      path: '/thanks',
+      component: Thanks,
       props: true,
   },
   {

@@ -20,6 +20,15 @@ Route::name('api')->prefix('v1')->group(function () {
     Route::resource('areas', 'Api\v1\AreasController');
     Route::get('getConfigModels', 'Api\v1\ProjectsController@getConfigModels')->name('project.configModels');
 
+    Route::post('apply', 'Api\v1\ProfileController@store')->name('apply');
+    Route::get('thanks-gif', function () {
+        $dir = 'img/gifs';
+        $gifs = \Illuminate\Support\Facades\File::allFiles(public_path(DIRECTORY_SEPARATOR.$dir));
+        $gif = asset($dir.DIRECTORY_SEPARATOR.$gifs[array_rand($gifs, 1)]->getFilename());
+
+        return response()->json(['success' => true, 'gif' => $gif]);
+    })->name('thanks');
+
     Route::get('recruitment', function() {
         return [
             'is_dark' => true,

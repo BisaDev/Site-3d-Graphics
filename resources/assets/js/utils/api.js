@@ -72,5 +72,13 @@ export default {
 
   getRecruitmentData() {
     return axios.get(this.api + '/recruitment')
-  }
+  },
+
+    sendApplyForm(data) {
+        return axios.post(this.api + '/apply', data)
+    },
+
+    getThanksGif() {
+        return axios.get(this.api + '/thanks-gif')
+    }
 }

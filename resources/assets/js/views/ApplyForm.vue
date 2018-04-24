@@ -1,5 +1,5 @@
 <template>
-    <div class="apply" v-if="apply !== null">
+    <div class="apply">
         <!-- Hero -->
         <themed-section
             :color="'#FFF'"
@@ -22,20 +22,28 @@
 
         <!-- Apply Form -->
         <section id="apply-form" class="apply-form">
-            <div class="apply-form-msg" v-if="messages">
-                {{messages}}
+            <div class="grid-container" v-if="messages">
+                <div class="grid-x grid-margin-x">
+                    <div class="cell small-12 large-4 large-offset-4">
+                        <p class="apply-form-msg text-center">
+                            {{messages}}
+                        </p>
+                    </div>
+                </div>
             </div>
-            <form v-on:submit.prevent="sendForm">
+            <form v-on:submit.prevent="sendForm" novalidate="true">
                 <div class="grid-container">
                     <div class="grid-x grid-margin-x">
                         <div class="cell small-12 large-4 large-offset-4">
                             <label>Name *
-                                <input type="text" placeholder="Need it." v-model="form.name">
+                                <span class="apply-form-error" v-show="errors.name">{{errorMessage}}</span>
+                                <input type="text" placeholder="Need it." v-model="form.name" maxlength="191">
                             </label>
                         </div>
                         <div class="cell small-12 large-4  large-offset-4">
                             <label>Email *
-                                <input type="text" placeholder="Yup, we need it too." v-model="form.email">
+                                <span class="apply-form-error" v-show="errors.email">{{errorMessage}}</span>
+                                <input type="text" placeholder="Yup, we need it too." v-model="form.email" maxlength="191">
                             </label>
                         </div>
                         <div class="cell small-12 large-4  large-offset-4">
@@ -49,13 +57,50 @@
                         </div>
                         <div class="cell small-12 large-4  large-offset-4">
                             <label>Do you have a Github or Bitbucket profile?
-                                <input type="text" placeholder="Drop it here." v-model="form.profile">
+                                <input type="text" placeholder="Drop it here." v-model="form.profile" maxlength="191">
                             </label>
                         </div>
+
                         <div class="cell small-12 large-4  large-offset-4">
-                            <div class="recruitment-apply-now-container">
-                                <button class="recruitment-apply-now-button">
-                                    <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}}">Submit</router-link>
+                            <label>
+                                Upload your resume *
+                                <span class="apply-form-error" v-show="errors.files">{{errorMessage}}</span>
+                            </label>
+                            <div class="apply-form-upload-box">
+                                <file-upload
+                                    class="btn btn-primary"
+                                    post-action="/upload/post"
+                                    :multiple="false"
+                                    :drop="true"
+                                    :drop-directory="true"
+                                    @input-filter="inputFilter"
+                                    v-model="files"
+                                    ref="upload"
+                                >
+                                    <ul v-if="files.length">
+                                        <li v-for="(file, index) in files" :key="file.id">
+                                            <span>File name: {{file.name}}</span>
+                                            <br />
+                                            <span>Size: {{file.size | formatSize}}</span>
+                                            <span v-if="file.error">{{file.error}}</span>
+                                            <span v-else-if="file.success">success</span>
+                                            <span v-else-if="file.active">active</span>
+                                            <span v-else-if="file.active">active</span>
+                                            <span v-else></span>
+                                        </li>
+                                    </ul>
+                                    <div v-if="!files.length">
+                                        <i class="fa fa-plus"></i>Drag and drop your file here or <span class="">select from your computer</span>
+                                    </div>
+                                </file-upload>
+                            </div>
+                            <span class="apply-form-max-size">Max. file size 10mb. File types allowed: pdf, doc, jpg, jpeg, png.</span>
+                        </div>
+
+                        <div class="cell small-12 large-4  large-offset-4">
+                            <div class="apply-now-container">
+                                <button class="apply-now-button" type="submit">
+                                    Submit
                                 </button>
                             </div>
                         </div>
@@ -71,6 +116,7 @@
     import ThemedSection from '../components/ThemedSection'
     import pageCommon from '../components/PageCommon'
     import ScrollButton from '../components/ScrollButton'
+    import FileUpload from 'vue-upload-component'
 
     export default {
         extends: {...pageCommon},
@@ -85,11 +131,27 @@
         components: {
             ThemedSection,
             ScrollButton,
+            FileUpload,
+        },
+
+        filters: {
+            formatSize: size => {
+                if (size > 1024 * 1024 * 1024 * 1024) {
+                    return (size / 1024 / 1024 / 1024 / 1024).toFixed(2) + ' TB'
+                } else if (size > 1024 * 1024 * 1024) {
+                    return (size / 1024 / 1024 / 1024).toFixed(2) + ' GB'
+                } else if (size > 1024 * 1024) {
+                    return (size / 1024 / 1024).toFixed(2) + ' MB'
+                } else if (size > 1024) {
+                    return (size / 1024).toFixed(2) + ' KB'
+                }
+
+                return size.toString() + ' B'
+            }
         },
 
         data() {
             return {
-                apply: null,
                 form: {
                     name: '',
                     email: '',
@@ -98,11 +160,20 @@
                 },
                 maxChars: 500,
                 messages: '',
+                files: [],
+                errors: {
+                    name: false,
+                    email: false,
+                    files: false,
+                },
+                errorMessage: 'This field is required.',
+                isSubmitting: false,
             }
         },
 
         mounted() {
-            this.fetchData()
+            this.setNavTheme(false)
+            this.$emit('view-loaded')
         },
 
         computed: {
@@ -115,30 +186,69 @@
         },
 
         methods: {
-            fetchData() {
-                apiManiak
-                    .getRecruitmentData()
-                    .then(response => {
-                        this.fillData(response)
-                    })
-                    .catch(() => {
-                        this.$emit('not-found')
-                    })
-            },
-            fillData(response) {
-                this.apply = response.data
-                this.setNavTheme(false)
-                this.$emit('view-loaded')
+            inputFilter(newFile, oldFile, prevent) {
+                if (newFile && !oldFile) {
+
+                    // Will not be added to files
+                    if (!/\.(pdf|doc|docx|jpeg|jpg|png)$/i.test(newFile.name)) {
+                        alert('File types allowed: pdf, doc, jpg, jpeg, png.')
+                        return prevent()
+                    }
+                }
             },
             sendForm() {
+                this.messages = ''
+                this.errors.name = this.form.name.length === 0
+                this.errors.email = !this.validEmail(this.form.email)
+                this.errors.files = this.files.length === 0
+
+                if (this.errors.name || this.errors.email || this.errors.files) {
+                    this.scrollTop()
+
+                    return false;
+                }
+
+                //Avoid Multiple submissions at once
+                if (this.isSubmitting) {
+                    return false;
+                }
+
+                this.isSubmitting = true
+
+                const data = new FormData();
+
+                data.append("name", this.form.name);
+                data.append("email", this.form.email);
+                data.append("comments", this.form.message);
+                data.append("code_profile", this.form.profile);
+                data.append("file", this.files[0].file);
+
                 apiManiak
-                    .sendApplyForm()
+                    .sendApplyForm(data)
                     .then(response => {
+                        console.log(response)
+                        if (response.data.success) {
+                            this.$router.push({ name: 'thanks', params: { phrases: ['Awesome!'], loaded: true}})
+                        }
 
+                        this.isSubmitting = false
                     })
-                    .catch(() => {
+                    .catch(error => {
+                        this.messages = 'Server Error! Please Try Again Later.'
+                        this.scrollTop()
+                        this.isSubmitting = false
+                    })
+            },
+            validEmail(email) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-                    })
+                return re.test(email);
+            },
+            scrollTop() {
+                return window.scrollTo({
+                    'behavior': 'smooth',
+                    'top': this.$el.querySelector('#apply-form').offsetTop - 80
+                })
             }
         },
     }
