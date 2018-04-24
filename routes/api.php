@@ -29,6 +29,7 @@ Route::name('api')->prefix('v1')->group(function () {
         return response()->json(['success' => true, 'gif' => $gif]);
     })->name('thanks');
 
+    //@todo Create endpoint for Profiles
     Route::get('recruitment', function() {
         return [
             'is_dark' => true,
