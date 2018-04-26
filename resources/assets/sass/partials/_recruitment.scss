@@ -27,7 +27,7 @@
     }
 
     @include breakpoint(large up) {
-      background-size: contain;
+      background-size: cover;
       background-position: bottom right;
 
       &::before {

@@ -30,7 +30,7 @@
             <div class="grid-x align-center">
                 <div class="cell small-12 medium-8 large-5 large-centered small-centered">
                     <button class="thanks-homepage-button button">
-                        <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}}">Maniak's Homepage</router-link>
+                        <router-link :to="{ name: 'home' }">Maniak's Homepage</router-link>
                     </button>
                 </div>
             </div>

@@ -115,7 +115,6 @@
     import apiManiak from '../utils/api.js'
     import ThemedSection from '../components/ThemedSection'
     import pageCommon from '../components/PageCommon'
-    import ScrollButton from '../components/ScrollButton'
     import FileUpload from 'vue-upload-component'
 
     export default {
@@ -130,7 +129,6 @@
 
         components: {
             ThemedSection,
-            ScrollButton,
             FileUpload,
         },
 
@@ -187,18 +185,21 @@
 
         methods: {
             inputFilter(newFile, oldFile, prevent) {
-                if (newFile && !oldFile) {
+                console.log(newFile)
+                if (((newFile.size/1024)/1024) > 10) {
+                    alert('Max. file size 10mb.')
+                    return prevent()
+                }
 
-                    // Will not be added to files
-                    if (!/\.(pdf|doc|docx|jpeg|jpg|png)$/i.test(newFile.name)) {
-                        alert('File types allowed: pdf, doc, jpg, jpeg, png.')
-                        return prevent()
-                    }
+                // Will not be added to files
+                if (!/\.(pdf|doc|docx|jpeg|jpg|png)$/i.test(newFile.name)) {
+                    alert('File types allowed: pdf, doc, jpg, jpeg, png.')
+                    return prevent()
                 }
             },
             sendForm() {
                 this.messages = ''
-                this.errors.name = this.form.name.length === 0
+                this.errors.name = this.form.name.trim().length === 0
                 this.errors.email = !this.validEmail(this.form.email)
                 this.errors.files = this.files.length === 0
 
