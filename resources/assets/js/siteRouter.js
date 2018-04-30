@@ -50,7 +50,7 @@ let routes = [
       name: 'apply',
       path: '/apply',
       component: ApplyForm,
-      props: true,
+      props: (route) => ({ query: route.query.position })
   },
   {
       name: 'thanks',

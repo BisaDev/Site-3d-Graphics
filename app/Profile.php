@@ -11,6 +11,18 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     /**
+     * Enum values from position field
+     *
+     * @var array
+     */
+    public static $positions = [
+        '3d',
+        'backend',
+        'design',
+        'frontend',
+    ];
+
+    /**
      * @var array
      */
     protected $fillable = [
@@ -18,6 +30,7 @@ class Profile extends Model
         'email',
         'comments',
         'code_profile',
+        'position',
         'file',
     ];
 }

@@ -20,6 +20,7 @@ class CreateProfilesTable extends Migration
             $table->string('comments', 500)->nullable();
             $table->string('code_profile')->nullable();
             $table->string('file');
+            $table->enum('position', ['3d', 'backend', 'design', 'frontend',]);
             $table->timestamps();
         });
     }

@@ -11,11 +11,11 @@
                 <div class="appear-after-reveal">
                     <div class="recruitment-header-emojis"></div>
                     <h1 class="recruitment-header-title">
-                        <strong>{{recruitment.position}}</strong>, {{recruitment.phrase}}
+                        <strong>{{recruitment.position_desc}}</strong>, {{recruitment.phrase}}
                     </h1>
                 </div>
                 <div class="appear-after-reveal appear-after-reveal-delay">
-                    <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}}">
+                    <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}, query: {position: recruitment.position}}">
                         <button class="recruitment-header-apply-button">Apply Now</button>
                     </router-link>
                 </div>
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="recruitment-apply-now-container">
-                            <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}}">
+                            <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}, query: {position: recruitment.position}}">
                                 <button class="recruitment-apply-now-button">Apply Now</button>
                             </router-link>
                         </div>
@@ -113,7 +113,7 @@
                         </p>
 
                         <div class="recruitment-apply-now-container">
-                            <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}}">
+                            <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}, query: {position: recruitment.position}}">
                                 <button class="recruitment-apply-now-button">Apply Now</button>
                             </router-link>
                         </div>

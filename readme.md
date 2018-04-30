@@ -29,3 +29,11 @@ php artisan passport:keys
 ```
 
 Enjoy!
+
+
+##Maniak Recruitment
+
+- Current mail recipient: hector@maniak.com.mx (config/mail.php)
+- __resources/assets/js/views/Recruitment.vue__ is the base view for positions.
+- Route: *recruitment* outputs the data to display on the position.
+- Current Positions (on DB and validated back/front end): __['3d', 'backend', 'design', 'frontend',]__

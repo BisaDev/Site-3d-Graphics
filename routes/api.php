@@ -36,7 +36,8 @@ Route::name('api')->prefix('v1')->group(function () {
             'hero_color' => 'rgba(0,0,0,1)',
             'hero_image' => '/head_bg.png',
             'bgImage' => '/img/recruitment/maniak_bg.png',
-            'position' => 'Front-end developer',
+            'position' => 'frontend',
+            'position_desc' => 'Front-end developer',
             'phrase' => 'we\'re looking for you.',
             'subtitle' => 'Join the Maniak family! 😍',
 

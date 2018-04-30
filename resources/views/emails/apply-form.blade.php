@@ -300,6 +300,12 @@
                         <table class="full-width" width="550" align="center" cellpadding="0" cellspacing="0" border="0">
                             <tr>
                                 <td align="center" style="font-family: 'neuzeit-grotesk', Helvetica, Arial, sans-serif; font-size: 20px; color: #4A4A4A; text-align: center;">
+                                    <span style="color: black; font-style: italic; text-transform: uppercase;">Position:</span>
+                                    <span style="ctext-transform: uppercase;">{{$profile->position}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="font-family: 'neuzeit-grotesk', Helvetica, Arial, sans-serif; font-size: 20px; color: #4A4A4A; text-align: center;">
                                    <span style="color: black; font-style: italic">Name:</span> {{$profile->name}}
                                 </td>
                             </tr>
