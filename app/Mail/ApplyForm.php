@@ -36,8 +36,6 @@ class ApplyForm extends Mailable
      */
     public function build()
     {
-        $this->to(['hector@maniak.com.mx']);
-
         return $this->view('emails.apply-form');
     }
 }

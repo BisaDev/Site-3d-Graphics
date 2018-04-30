@@ -15,9 +15,9 @@
                     </h1>
                 </div>
                 <div class="appear-after-reveal appear-after-reveal-delay">
-                    <button class="recruitment-header-apply-button">
-                        <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}}">Apply Now</router-link>
-                    </button>
+                    <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}}">
+                        <button class="recruitment-header-apply-button">Apply Now</button>
+                    </router-link>
                 </div>
             </div>
 
@@ -35,7 +35,7 @@
                         <div class="recruitment-abstract" v-html="recruitment.abstract"></div>
                     </div>
                     <div class="section-title">
-                        <h2>About the job.</h2>
+                        <h3>About the job.</h3>
                         <h3 class="recruitment-salary">{{recruitment.salary}}</h3>
 
                         <div v-for="(detail, index) in recruitment.details" class="recruitment-details">
@@ -46,9 +46,9 @@
                         </div>
 
                         <div class="recruitment-apply-now-container">
-                            <button class="recruitment-apply-now-button">
-                                <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}}">Apply Now</router-link>
-                            </button>
+                            <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}}">
+                                <button class="recruitment-apply-now-button">Apply Now</button>
+                            </router-link>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
             <div class="container">
                 <div class="grid recruitment-requirement" v-for="(requirement, topic) in recruitment.requirements">
                     <div class="section-title">
-                        <h2 class="recruitment-requirement-topic">{{topic}}</h2>
+                        <h3 class="recruitment-requirement-topic">{{topic}}</h3>
                     </div>
                     <div class="grid section-content">
                         <div
@@ -102,7 +102,7 @@
         <!-- Are you ready? -->
         <!-- :image="recruitment.bgImage" class="image-full recruitment-image-full" -->
         <themed-section :parallax="false" :image="null" :style="{marginBottom: 0, color: '#000'}" :color="'#eff0f5'">
-            <div class="recruitment-quote recruitment-message">
+            <div id="recruitment-quote" class="recruitment-quote recruitment-message">
                 <div class="container">
                     <div class="recruitment-quote-statement">
                         <p>😎</p>
@@ -113,9 +113,9 @@
                         </p>
 
                         <div class="recruitment-apply-now-container">
-                            <button class="recruitment-apply-now-button">
-                                <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}}">Apply Now</router-link>
-                            </button>
+                            <router-link :to="{name: 'apply', params: { phrases: ['Are you ready to make a difference?']}}">
+                                <button class="recruitment-apply-now-button">Apply Now</button>
+                            </router-link>
                         </div>
                     </div>
                 </div>

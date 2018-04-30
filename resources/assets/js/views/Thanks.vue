@@ -91,12 +91,10 @@
                         if (response.data.success) {
                             this.gif = response.data.gif
                         } else {
-                            console.log(response)
                             this.$emit('not-found')
                         }
                     })
                     .catch(error => {
-                        console.log(error)
                         this.$emit('not-found')
                     })
             },

@@ -12,10 +12,10 @@
                     <div class="apply-header-emoji">
                         <p>😱</p>
                     </div>
-                    <h1 class="apply-header-title">
+                    <h3 class="apply-header-title">
                         You're one step closer!
-                    </h1>
-                    <h2> Let us Know you better.</h2>
+                    </h3>
+                    <p> Let us Know you better.</p>
                 </div>
             </div>
         </themed-section>
@@ -69,7 +69,6 @@
                             <div class="apply-form-upload-box">
                                 <file-upload
                                     class="btn btn-primary"
-                                    post-action="/upload/post"
                                     :multiple="false"
                                     :drop="true"
                                     :drop-directory="true"
@@ -84,7 +83,6 @@
                                             <span>Size: {{file.size | formatSize}}</span>
                                             <span v-if="file.error">{{file.error}}</span>
                                             <span v-else-if="file.success">success</span>
-                                            <span v-else-if="file.active">active</span>
                                             <span v-else-if="file.active">active</span>
                                             <span v-else></span>
                                         </li>
@@ -134,17 +132,23 @@
 
         filters: {
             formatSize: size => {
-                if (size > 1024 * 1024 * 1024 * 1024) {
-                    return (size / 1024 / 1024 / 1024 / 1024).toFixed(2) + ' TB'
-                } else if (size > 1024 * 1024 * 1024) {
-                    return (size / 1024 / 1024 / 1024).toFixed(2) + ' GB'
-                } else if (size > 1024 * 1024) {
-                    return (size / 1024 / 1024).toFixed(2) + ' MB'
-                } else if (size > 1024) {
-                    return (size / 1024).toFixed(2) + ' KB'
+                let format = ''
+
+                switch(true) {
+                    case (size < 1024):
+                        format = (size / 1024).toFixed(2) + ' B'
+                        break;
+                    case (size >= 1024 && size < (1024 * 1024)):
+                        format = (size / 1024).toFixed(2) + ' KB'
+                        break;
+                    case (size > (1024 * 1024)):
+                        format = (size / 1024 / 1024).toFixed(2) + ' MB'
+                        break;
+                    default:
+                        break;
                 }
 
-                return size.toString() + ' B'
+                return format
             }
         },
 
@@ -185,7 +189,6 @@
 
         methods: {
             inputFilter(newFile, oldFile, prevent) {
-                console.log(newFile)
                 if (((newFile.size/1024)/1024) > 10) {
                     alert('Max. file size 10mb.')
                     return prevent()
@@ -199,9 +202,9 @@
             },
             sendForm() {
                 this.messages = ''
-                this.errors.name = this.form.name.trim().length === 0
+                this.errors.name = !this.form.name.trim().length
                 this.errors.email = !this.validEmail(this.form.email)
-                this.errors.files = this.files.length === 0
+                this.errors.files = !this.files.length
 
                 if (this.errors.name || this.errors.email || this.errors.files) {
                     this.scrollTop()
@@ -227,7 +230,6 @@
                 apiManiak
                     .sendApplyForm(data)
                     .then(response => {
-                        console.log(response)
                         if (response.data.success) {
                             this.$router.push({ name: 'thanks', params: { phrases: ['Awesome!'], loaded: true}})
                         }

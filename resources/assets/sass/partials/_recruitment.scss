@@ -8,9 +8,9 @@
 
   & &-header {
     background-size: cover;
+    background-color: $stone;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: $stone;
 
     &::before {
       content: '';
@@ -40,6 +40,7 @@
       flex-flow: column;
       text-align: center;
       justify-content: center;
+
       @include breakpoint(medium down) {
         padding-bottom: calc(#{$grid-container-padding-md} + 4em);
         justify-content: flex-end;
@@ -48,13 +49,13 @@
     }
 
     &-button-container {
-      position: absolute;
-      text-align: center;
       left: 50%;
-      transform: translateX(-50%);
       bottom: 0;
       display: flex;
       flex-flow: column;
+      text-align: center;
+      position: absolute;
+      transform: translateX(-50%);
     }
     &-subtitle {
       opacity: 0.5;
@@ -75,12 +76,16 @@
     }
 
     &-apply-button {
-      height: 32px;
+      height: auto;
       width: 100px;
+      border: none;
       outline: none;
+      cursor: pointer;
       margin-top: 4rem;
       font-size: 1.3rem;
-      border-radius: $border-radius-lg;
+      padding-top: 10px;
+      border-radius: 2px;
+      padding-bottom: 10px;
     }
 
     &-emojis {
@@ -88,16 +93,16 @@
       height: 65px;
       margin: 0 auto;
       background-size: cover;
-      animation: emojis 1.5s steps(11) infinite;
+      animation: emojis 2.5s steps(11) infinite;
       background-image: url('../img/sprites/SpriteSheet.png');
     }
   }
 
   &-image-full {
-    background-color: $stone;
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
+    background-color: $stone;
 
     .parallax-image {
       background-size: cover;
@@ -106,8 +111,8 @@
   }
 
   &-salary {
-    font-size: 3.5rem;
     margin-top: 2rem;
+    font-size: 3.5rem;
     font-weight: lighter;
   }
 
@@ -132,13 +137,15 @@
 
   &-apply-now {
     &-container {
-      margin-top: 2rem;
+      margin-top: 5rem;
     }
 
     &-button {
       width: 100%;
       height: 32px;
       color: white;
+      outline: none;
+      cursor: pointer;
       font-weight: 500;
       font-size: 1.5rem;
       background-color: black;
@@ -146,15 +153,44 @@
   }
 
   &-requirement {
-    margin-bottom: 4rem;
+    margin-bottom: 10rem;
 
     &-topic {
-      font-size: 2rem;
       text-transform: capitalize;
     }
     &-detail-description {
-      font-size: 1.4rem;
+      font-size: 1.8rem;
     }
+
+    //Ideal Skills & Extras
+    &:nth-child(2), &:nth-child(3) {
+      .recruitment-requirement-detail-description {
+        opacity: 0.75;
+        font-size: 1.5rem;
+      }
+    }
+
+    //Work Environment
+    &:nth-child(4) {
+      .recruitment-requirement-detail-1-col:nth-child(2) {
+        .recruitment-requirement-detail-description {
+          opacity: 0.75;
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    &:nth-last-child(2) {
+      margin-bottom: 15rem;
+    }
+  }
+
+  #recruitment-requirements {
+    margin-bottom: -5rem;
+  }
+
+  #recruitment-quote {
+    min-height: 60rem;
   }
 
   &-requirement-detail {
@@ -206,6 +242,7 @@
       }
 
       .recruitment-apply-now-button {
+        cursor: pointer;
         padding-left: 3rem;
         padding-right: 3rem;
       }
@@ -215,18 +252,23 @@
   /* -------------------- */
 
   & &-quote {
-    height: auto;
-    min-height: $section-min-height;
-    position: relative;
     padding: 0;
+    height: auto;
+    display: flex;
     text-align: center;
+    position: relative;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    min-height: $section-min-height;
 
     .container {
       height: 100%;
-      padding: 5rem 0;
       display: flex;
-      flex-direction: column;
+      padding: 5rem 0;
       align-items: center;
+      flex-direction: column;
     }
     &-statement {
       width: 100%;
@@ -240,6 +282,7 @@
         color: white;
         font-size: 3rem;
         margin-bottom: 0;
+        line-height: 1.7;
       }
     }
     &-author {
@@ -251,7 +294,6 @@
   .image-full {
     background-color: $light-gray-darker;
     .parallax-image {
-      //background-image: url('../img/recruitment/maniak_bg.png');
       background-size: cover;
     }
   }
