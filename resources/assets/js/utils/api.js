@@ -36,11 +36,11 @@ export default {
     },
 
     login(data) {
-    return axios.post('auth/token', {
-      username: data.user,
-      password: data.password,
-    })
-  },
+        return axios.post('auth/token', {
+            username: data.user,
+            password: data.password,
+        })
+    },
 
     logout(user) {
 
@@ -58,15 +58,31 @@ export default {
         return axios.put(this.api + `/projects/${id}`, data, this.config)
     },
     
-  fetchProject(id) {
-    return axios.get(this.api + `/projects/${id}/edit`, this.config)
-  },
+    fetchProject(id) {
+        return axios.get(this.api + `/projects/${id}/edit`, this.config)
+    },
 
-  getConfigModels() {
-    return axios.get(this.api + `/getConfigModels`, this.config)
-  },
+    getConfigModels() {
+        return axios.get(this.api + `/getConfigModels`, this.config)
+    },
 
-  deleteProject(id) {
-    return axios.delete(this.api + `/projects/${id}`, this.config);
-  }
+    deleteProject(id) {
+        return axios.delete(this.api + `/projects/${id}`, this.config);
+    },
+
+    getRecruitmentData() {
+        return axios.get(this.api + '/recruitment')
+    },
+
+    sendApplyForm(data) {
+        return axios.post(this.api + '/apply', data)
+    },
+
+    getThanksGif() {
+        return axios.get(this.api + '/thanks-gif')
+    },
+
+    getPositionData(position) {
+        return axios.get(this.api + `/positions/${position}`)
+    }
 }
