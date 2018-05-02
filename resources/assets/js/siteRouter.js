@@ -47,6 +47,12 @@ let routes = [
     props: true,
   },
   {
+    name: 'position-backend',
+    path: '/positions/:position',
+    component: Recruitment,
+    props: true,
+  },
+  {
       name: 'apply',
       path: '/apply',
       component: ApplyForm,

@@ -139,6 +139,10 @@
                 default: false,
                 type: Boolean,
             },
+            position: {
+                default: false,
+                type: String,
+            },
         },
 
         components: {
@@ -160,7 +164,7 @@
         methods: {
             fetchData() {
                 apiManiak
-                    .getRecruitmentData()
+                    .getPositionData(this.position)
                     .then(response => {
                         this.fillData(response)
                     })
