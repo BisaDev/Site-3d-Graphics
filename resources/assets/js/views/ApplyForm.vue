@@ -178,10 +178,6 @@
         },
 
         mounted() {
-            if (!this.positionExists()) {
-                this.$emit('not-found')
-            }
-
             this.setNavTheme(false)
             this.$emit('view-loaded')
         },
@@ -233,7 +229,7 @@
                 data.append("email", this.form.email);
                 data.append("comments", this.form.message);
                 data.append("code_profile", this.form.profile);
-                data.append("position", this.query);
+                data.append("vacancy", this.query);
                 data.append("file", this.files[0].file);
 
                 apiManiak
@@ -262,10 +258,6 @@
                     'top': this.$el.querySelector('#apply-form').offsetTop - 80
                 })
             },
-            positionExists() {
-                //@todo change to a Api call (should return array of positions from Profile Model)
-                return (['3d', 'backend', 'design', 'frontend','fullStack'].indexOf(this.query) !== -1)
-            }
         },
     }
 </script>
