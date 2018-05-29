@@ -28,46 +28,18 @@ php artisan passport:keys
 
 ```
 
-Enjoy!
-
 
 ##Maniak Recruitment
 ###Settings
 - Current mail recipient: hector@maniak.com.mx (config/mail.php)
 - Current Positions (on DB and validated back/front end): __['3d', 'backend', 'design', 'frontend',]__
+- Important to add Mailgun as mail driver in .env file, check .env.example for reference
 
 ###Set Position
 Steps:
 
-1). Create a new Endpoint Route on backend, within "position" route group, on file: __routes/api.php__ and fulfill all the Position Data:
-
-```php
-<?php
-//..
-
-//Positions API Group
-Route::group(['prefix' => 'positions'], function() {
-    Route::get('backend', function() {
-        return [
-            'is_dark' => true,
-            'hero_color' => 'rgba(0,0,0,1)',
-            'hero_image' => '/head_bg.png',
-            'bgImage' => '/img/recruitment/maniak_bg.png',
-            'position' => 'backend',
-            'position_desc' => 'Back-end developer',
-            'phrase' => 'we\'re looking for you.',
-            'subtitle' => 'Join the Maniak family! 😍',
-        ];
-    });
-});
-
-//..
-```
-
-2). The new positions needs to exists in the DB, under the profiles table in the positions columns, that it's a JSON
-3). Important: For local development the database required to have MySQL 5.7 to support Json columns
-4). Then the positions needs to also be added to the ApplyForm.vue file under the position exists method, to make sure the apply form works
-5). Add the new position in the Profile model. FML!!!!! 
+1). Add a new file to app/Positions in json format. You can copy one already there as an example
+2). The file name defines the URL and the name the vacancy will be stored in the DB 
 
 - That's it, Position data will be display on your custom route:
     * {domain}/positions/:position:

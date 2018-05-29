@@ -12,14 +12,14 @@ class PositionsController extends Controller
     public function show($position)
     {
 
-        $positionPath = 'public/positions/' . $position . '.json';
-        $positionExists =  Storage::disk('local')->exists($positionPath);
+        $positionPath = app_path('Positions/'. $position . '.json');
+        $positionExists =  File::exists($positionPath);
 
         if (!$positionExists){
             abort(404);
         }
 
-        $position =  Storage::disk('local')->get($positionPath);
+        $position =  File::get($positionPath);
         return response()->json(json_decode($position));
     }
 
