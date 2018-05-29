@@ -229,7 +229,7 @@
                 data.append("email", this.form.email);
                 data.append("comments", this.form.message);
                 data.append("code_profile", this.form.profile);
-                data.append("position", this.query);
+                data.append("vacancy", this.query);
                 data.append("file", this.files[0].file);
 
                 apiManiak
