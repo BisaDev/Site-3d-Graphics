@@ -36,7 +36,7 @@ Route::name('api')->prefix('v1')->group(function () {
         //@todo Default 404 when no route is match
         Route::get('{position}', function() {
             abort(404);
-        })->where(['position' => '^(?!(frontend|backend)).*']);
+        })->where(['position' => '^(?!(fullStack|backend)).*']);
 
         Route::get('fullStack', function() {
             return [
