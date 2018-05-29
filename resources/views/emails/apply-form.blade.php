@@ -301,7 +301,7 @@
                             <tr>
                                 <td align="center" style="font-family: 'neuzeit-grotesk', Helvetica, Arial, sans-serif; font-size: 20px; color: #4A4A4A; text-align: center;">
                                     <span style="color: black; font-style: italic; text-transform: uppercase;">Position:</span>
-                                    <span style="ctext-transform: uppercase;">{{$profile->position}}</span>
+                                    <span style="ctext-transform: uppercase;">{{$profile->vacancy}}</span>
                                 </td>
                             </tr>
                             <tr>
