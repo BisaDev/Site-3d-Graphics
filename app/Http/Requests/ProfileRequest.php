@@ -29,7 +29,7 @@ class ProfileRequest extends FormRequest
             'email' => 'required|email',
             'comments' => 'max:500',
             'code_profile' => 'max:191',
-            'position' => 'required|in:'.implode(',', Profile::$positions),
+            'vacancy' => 'required',
             'file' => 'required|file|mimes:pdf,doc,docx,jpeg,jpg,png',
         ];
     }
