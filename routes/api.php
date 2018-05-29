@@ -38,14 +38,14 @@ Route::name('api')->prefix('v1')->group(function () {
             abort(404);
         })->where(['position' => '^(?!(frontend|backend)).*']);
 
-        Route::get('backend', function() {
+        Route::get('fullStack', function() {
             return [
                 'is_dark' => true,
                 'hero_color' => 'rgba(0,0,0,1)',
                 'hero_image' => '/head_bg.png',
                 'bgImage' => '/img/recruitment/maniak_bg.png',
-                'position' => 'backend',
-                'position_desc' => 'Back-end developer',
+                'position' => 'fullStack',
+                'position_desc' => 'Full Stack developer',
                 'phrase' => 'we\'re looking for you.',
                 'subtitle' => 'Join the Maniak family! 😍',
 
@@ -55,10 +55,10 @@ Route::name('api')->prefix('v1')->group(function () {
                     '<p>We also believe in communication both among the members of the same team and other areas. We support the feedback and strengthen the opportunity areas of each one for their professional and personal growth.'. PHP_EOL ,
 
                 //About the job
-                'salary' => '$20,000.00',
+                //'salary' => '$20,000.00',
 
                 'details' => [
-                    'jobtitle' => 'Back-end developer',
+                    'jobtitle' => 'Full stack developer',
                     'location' => 'Guadalajara, Mx.',
                     'experience' => '3+ years',
                     'required language' => 'English',
@@ -68,38 +68,36 @@ Route::name('api')->prefix('v1')->group(function () {
                 'requirements' => [
                     'responsibilities 📌.' => [
                         'items' => [
-                            'You will develop the front-end using Javascript, HTML CSS, and ideally Frameworks, such as ReactJs and Vuejs.',
-                            'You will create concepts, realization, and testing of user interface, as well as - adaptation to different devices.',
+                            'You will develop the web applications using PHP or Python as a backend language and Javascript.',
+                            'You will create concepts, realization, and testing of user features',
                             'Analyze and propose solutions for use cases (user stories).',
-                            'You will create the markup and styles of a component to a high quality standard, following strict design guidelines.',
+                            'You will design and implement the general app architecture that includes: Models / Migrations, Seeders, Routers, Authentication and Domain Logic',
                         ],
                         'columns' => 2
                     ],
 
                     'ideal skills 🔍.' => [
                         'items' => [
-                            'Elevate sense of design and user experience.',
-                            'Ability to think long term and avoid "hacky" solutions.',
-                            'Basic PHP or Python knowledge.',
-                            'Experience with responsive design.',
-                            'Experience with Js frameworks (React, Vue, Angular)',
-                            'Experience consuming a REST API.',
-                            'Experience with build tools such as webpack, grunt, gulp.',
-                            'Awareness of cross-browser compatibility issues and client-side performance considerations.',
-                            'Knows what a web worker is.',
-                            'ADA compliance knowledge.',
-                            'Experience creating the structure / organization of style files with reduced scope.',
-                            'Experience with advanced SASS / LESS control structures.',
-                            'Ability to extract variables, colors and standards from a design file and put it into code.',
-                            'Experience using ECMAScript 6.'
+                            'Experience working with relational SQL databases',
+                            'Experience with distributed caches such as Redis or Memcached.',
+                            'Experience with one of the following frameworks: Laravel, Django and/or Rails',
+                            'Experience developing Php and/or Python',
+                            'Understanding of modern web apps architecture',
+                            'Knowledge of programming principles: SOLID, DRY, decorators',
+                            'Experience LESS / SASS',
+                            'Strong experience with vanilla JS',
+                            'An agile mindset and the ability to adapt to changing priorities and requirements',
+                            'Ability to learn fas',
+                            'Experience using git in a collaborative project',
+                            'Knowledge of common git commands and the ability to manage and fix conflicts.',
                         ],
                         'columns' => 2,
                     ],
 
                     'extras 👏.' => [
                         'items' => [
-                            'Experience using Server Side Rendering.',
-                            'Experience with state management (vuex, redux).',
+                            'Startup experience',
+                            'Wordpress Development',
                         ],
                         'columns' => 2,
                     ],
