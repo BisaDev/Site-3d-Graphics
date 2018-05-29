@@ -20,6 +20,7 @@ class Profile extends Model
         'backend',
         'design',
         'frontend',
+        'fullStack',
     ];
 
     /**

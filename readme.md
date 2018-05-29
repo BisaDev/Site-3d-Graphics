@@ -67,6 +67,7 @@ Route::group(['prefix' => 'positions'], function() {
 2). The new positions needs to exists in the DB, under the profiles table in the positions columns, that it's a JSON
 3). Important: For local development the database required to have MySQL 5.7 to support Json columns
 4). Then the positions needs to also be added to the ApplyForm.vue file under the position exists method, to make sure the apply form works
+5). Add the new position in the Profile model. FML!!!!! 
 
 - That's it, Position data will be display on your custom route:
     * {domain}/positions/:position:
