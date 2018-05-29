@@ -264,7 +264,7 @@
             },
             positionExists() {
                 //@todo change to a Api call (should return array of positions from Profile Model)
-                return (['3d', 'backend', 'design', 'frontend',].indexOf(this.query) !== -1)
+                return (['3d', 'backend', 'design', 'frontend','fullStack'].indexOf(this.query) !== -1)
             }
         },
     }

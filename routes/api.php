@@ -21,24 +21,24 @@ Route::name('api')->prefix('v1')->group(function () {
     Route::get('getConfigModels', 'Api\v1\ProjectsController@getConfigModels')->name('project.configModels');
 
     Route::post('apply', 'Api\v1\ProfileController@store')->name('apply');
+
     Route::get('thanks-gif', function () {
         $dir = 'img/gifs';
-        $gifs = \Illuminate\Support\Facades\File::allFiles(public_path(DIRECTORY_SEPARATOR.$dir));
-        $gif = asset($dir.DIRECTORY_SEPARATOR.$gifs[array_rand($gifs, 1)]->getFilename());
-
+        $gifs = \Illuminate\Support\Facades\File::allFiles(public_path(DIRECTORY_SEPARATOR . $dir));
+        $gif = asset($dir . DIRECTORY_SEPARATOR . $gifs[array_rand($gifs, 1)]->getFilename());
         return response()->json(['success' => true, 'gif' => $gif]);
     })->name('thanks');
 
     //Positions API Group
     //@todo replace this with a Resource (based on Position Model)
-    Route::group(['prefix' => 'positions'], function() {
+    Route::group(['prefix' => 'positions'], function () {
 
         //@todo Default 404 when no route is match
-        Route::get('{position}', function() {
+        Route::get('{position}', function () {
             abort(404);
         })->where(['position' => '^(?!(fullStack|backend)).*']);
 
-        Route::get('fullStack', function() {
+        Route::get('fullStack', function () {
             return [
                 'is_dark' => true,
                 'hero_color' => 'rgba(0,0,0,1)',
@@ -50,9 +50,9 @@ Route::name('api')->prefix('v1')->group(function () {
                 'subtitle' => 'Join the Maniak family! 😍',
 
                 'abstract' =>
-                    '<p>Based in Guadalajara since 2010, MANIAK is a mexican company motivated to generate a change through Software Development tailored to the specific needs of our clients. Our team is composed of a mix of amazingly creative and talented people. Our strength? Being part of the growth of our customers with developments of the best quality.</p>'. PHP_EOL .
-                    '<p>In Maniak we are different. We believe in responsibility and we trust each one of our collaborators, for that reason we have a flexible schedule in which, as long as you fulfill your day/week activities, the schedules does not matter.</p>'. PHP_EOL .
-                    '<p>We also believe in communication both among the members of the same team and other areas. We support the feedback and strengthen the opportunity areas of each one for their professional and personal growth.'. PHP_EOL ,
+                    '<p>Based in Guadalajara since 2010, MANIAK is a mexican company motivated to generate a change through Software Development tailored to the specific needs of our clients. Our team is composed of a mix of amazingly creative and talented people. Our strength? Being part of the growth of our customers with developments of the best quality.</p>' . PHP_EOL .
+                    '<p>In Maniak we are different. We believe in responsibility and we trust each one of our collaborators, for that reason we have a flexible schedule in which, as long as you fulfill your day/week activities, the schedules does not matter.</p>' . PHP_EOL .
+                    '<p>We also believe in communication both among the members of the same team and other areas. We support the feedback and strengthen the opportunity areas of each one for their professional and personal growth.' . PHP_EOL,
 
                 //About the job
                 //'salary' => '$20,000.00',
@@ -139,7 +139,7 @@ Route::name('api')->prefix('v1')->group(function () {
             ];
         });
 
-        Route::get('frontend', function() {
+        Route::get('frontend', function () {
             return [
                 'is_dark' => true,
                 'hero_color' => 'rgba(0,0,0,1)',
@@ -151,9 +151,9 @@ Route::name('api')->prefix('v1')->group(function () {
                 'subtitle' => 'Join the Maniak family! 😍',
 
                 'abstract' =>
-                    '<p>Based in Guadalajara since 2010, MANIAK is a mexican company motivated to generate a change through Software Development tailored to the specific needs of our clients. Our team is composed of a mix of amazingly creative and talented people. Our strength? Being part of the growth of our customers with developments of the best quality.</p>'. PHP_EOL .
-                    '<p>In Maniak we are different. We believe in responsibility and we trust each one of our collaborators, for that reason we have a flexible schedule in which, as long as you fulfill your day/week activities, the schedules does not matter.</p>'. PHP_EOL .
-                    '<p>We also believe in communication both among the members of the same team and other areas. We support the feedback and strengthen the opportunity areas of each one for their professional and personal growth.'. PHP_EOL ,
+                    '<p>Based in Guadalajara since 2010, MANIAK is a mexican company motivated to generate a change through Software Development tailored to the specific needs of our clients. Our team is composed of a mix of amazingly creative and talented people. Our strength? Being part of the growth of our customers with developments of the best quality.</p>' . PHP_EOL .
+                    '<p>In Maniak we are different. We believe in responsibility and we trust each one of our collaborators, for that reason we have a flexible schedule in which, as long as you fulfill your day/week activities, the schedules does not matter.</p>' . PHP_EOL .
+                    '<p>We also believe in communication both among the members of the same team and other areas. We support the feedback and strengthen the opportunity areas of each one for their professional and personal growth.' . PHP_EOL,
 
                 //About the job
                 'salary' => '$20,000.00',
