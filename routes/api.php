@@ -55,7 +55,7 @@ Route::name('api')->prefix('v1')->group(function () {
                     '<p>We also believe in communication both among the members of the same team and other areas. We support the feedback and strengthen the opportunity areas of each one for their professional and personal growth.'. PHP_EOL ,
 
                 //About the job
-                'salary' => '$20,000.00',
+                //'salary' => '$20,000.00',
 
                 'details' => [
                     'jobtitle' => 'Full stack developer',
