@@ -62,36 +62,32 @@ $home-image-max-size: 40rem;
     animation: rotate 40s linear;
   }
 
-  circle {
-    stroke-width: 20px;
-    fill: none;
-    mix-blend-mode: multiply;
-  }
-
   $top-collection: [];
   $left-collection: [];
   $size-collection: [];
 
   @for $i from 1 to 20 {
-    $randWH: randomNum(140px, 150px);
+    $randWH: randomNum(140px, 160px);
     $offset: $randWH;
-    $left: randomNum(-2%, 2%);
-    $top: randomNum(-2%, 2%);
+    $left: randomNum(-5%, 5%);
+    $top: randomNum(-5%, 5%);
     $left-collection: append($left-collection, $left);
     $top-collection: append($top-collection, $top);
     $size-collection: append($size-collection, $randWH)
   }
 
-  circle:nth-of-type(1) {
-    stroke: $azure;
+  .blob:nth-of-type(1) circle {
+    fill: #40517B;
   }
-  circle:nth-of-type(2) {
-    stroke: $watermelon;
+  .blob:nth-of-type(2) circle {
+    fill: #242B48;
   }
-  circle:nth-of-type(3) {
-    stroke: $yellow;
+  .blob:nth-of-type(3) circle {
+    fill: #121722;
   }
-
+  .blob:nth-of-type(4) circle {
+    fill: $light-gray;
+  }
 
   @for $k from 1 to 6 {
     $factor: 2 / $k;
@@ -102,7 +98,7 @@ $home-image-max-size: 40rem;
         circle:nth-child(#{$i}) {
           cx: 50% + $k;
           cy: 50%;
-          r: nth($size-collection, $i);
+          r: nth($size-collection, $i) - $k * $k * 1.5px;
           animation: blob-#{$k}-circle-#{$i} $home-blob-duration ease-in-out infinite;
           animation-delay: $home-blob-duration * 0.025 * ($k - 1);
         }
