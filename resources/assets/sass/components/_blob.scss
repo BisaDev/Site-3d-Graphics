@@ -44,11 +44,16 @@ $home-image-max-size: 40rem;
     width: $home-visual-size;
     height: $home-visual-size;
     transition: all 0.5s cubic-bezier(0.3, 1.65, 0.205, 0.795);
+    animation-name: huerotate;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-play-state: paused;
   }
 
   &:hover .home-header-visual-svg-wrap {
-    //transform: scale(1.25);
-    animation: huerotate 2s linear infinite;
+    animation-play-state: running;
   }
   &.hidden .home-header-visual-svg-wrap {
     transition: all 0.15s ease-in;
@@ -68,60 +73,51 @@ $home-image-max-size: 40rem;
     mix-blend-mode: multiply;
   }
 
-  $top-collection: [];
-  $left-collection: [];
-  $size-collection: [];
+  $left-collection: 1%, -1%, -2%;
+  $top-collection: 2%, -1%, 2%;
+  $size-collection: 148px, 141px, 149px;
+  $color-collection: $azure, $watermelon, $yellow;
 
-  @for $i from 1 to 20 {
-    $randWH: randomNum(140px, 150px);
-    $offset: $randWH;
-    $left: randomNum(-2%, 2%);
-    $top: randomNum(-2%, 2%);
-    $left-collection: append($left-collection, $left);
-    $top-collection: append($top-collection, $top);
-    $size-collection: append($size-collection, $randWH)
-  }
+  /*
+    The following function creates random values for size and offset.
+    Uncomment if you want something new and crazyyyy 🤩🤩🤩
 
-  circle:nth-of-type(1) {
-    stroke: $azure;
-  }
-  circle:nth-of-type(2) {
-    stroke: $watermelon;
-  }
-  circle:nth-of-type(3) {
-    stroke: $yellow;
-  }
+    $top-collection: [];
+    $left-collection: [];
+    $size-collection: [];
 
+    @for $i from 1 to 20 {
+      $randWH: randomNum(140px, 150px);
+      $offset: $randWH;
+      $left: randomNum(-4%, 4%);
+      $top: randomNum(-4%, 4%);
+      $left-collection: append($left-collection, $left);
+      $top-collection: append($top-collection, $top);
+      $size-collection: append($size-collection, $randWH)
+    }
+  */
 
-  @for $k from 1 to 6 {
-    $factor: 2 / $k;
-    .blob:nth-child(#{$k}) {
-      @for $i from 1 to 4 {
-        $size-factor: 10px;
-
-        circle:nth-child(#{$i}) {
-          cx: 50% + $k;
-          cy: 50%;
-          r: nth($size-collection, $i);
-          animation: blob-#{$k}-circle-#{$i} $home-blob-duration ease-in-out infinite;
-          animation-delay: $home-blob-duration * 0.025 * ($k - 1);
-        }
-        @keyframes blob-#{$k}-circle-#{$i}  {
-          0% {
-            transform: translate(0, 0)
-          }
-          50% {
-            transform: translate(nth($left-collection, $i) * $factor, nth($top-collection, $i) * $factor)
-          }
-          100% {
-            transform: translate(0, 0)
-          }
-        }
+  @for $i from 1 to 4 {
+    circle:nth-child(#{$i}) {
+      cx: 51%;
+      cy: 50%;
+      r: nth($size-collection, $i);
+      stroke: nth($color-collection, $i);
+      animation: blob-circle-#{$i} $home-blob-duration ease-in-out infinite;
+    }
+    @keyframes blob-circle-#{$i}  {
+      0% {
+        transform: translate(0, 0)
+      }
+      50% {
+        transform: translate(nth($left-collection, $i), nth($top-collection, $i))
+      }
+      100% {
+        transform: translate(0, 0)
       }
     }
   }
 }
-
 
 .home-header {
   &-background {

@@ -8,12 +8,12 @@
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
           <defs>
             <filter id="goo">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur" />
+              <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
               <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 16 -6" result="goo" />
               <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
             </filter>
           </defs>
-          <g class="blob">
+          <g filter="url(#goo)" class="blob">
             <circle cx="51%" cy="50%" r="148px" />
             <circle cx="50%" cy="51%" r="140px" />
             <circle cx="51%" cy="50%" r="144px" />
