@@ -34,6 +34,7 @@ $font-size-md: 1.8rem;
 $font-size-lg: 2.4rem;
 $font-size-xl: 2.8rem;
 $font-size-xxl: 3.2rem;
+$font-size-xxxl: 4rem;
 
 $line-height-xs: 1;
 $line-height-sm: 1.25;
@@ -44,6 +45,9 @@ $line-height-xxl: 2.4;
 
 $font-weight-regular: 400;
 $font-weight-medium: 500;
+
+$letterspacing-md: -0.025em;
+
 
 //Grid
 $grid-container: 120rem;
@@ -62,7 +66,7 @@ $image-height: 30rem;
 $footer-height: 36rem;
 
 //Other
-$border-radius: 0.2rem;
+$border-radius: 0.3rem;
 $border-radius-lg: $border-radius * 2;
 
 //Button

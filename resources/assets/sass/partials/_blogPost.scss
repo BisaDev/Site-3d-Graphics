@@ -1,0 +1,208 @@
+$studio-where-callout-height: 36rem;
+$studio-where-callout-height-sm: 25rem;
+$studio-paragraph-margin: 0 0 3.5rem;
+
+.blog-post {
+  &-header {
+    @include section-align-center();
+    &-title-container {
+      padding-top: 24rem;
+      padding-bottom: 2rem;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+
+      @include breakpoint(small down) {
+        padding-top: 20rem;
+        padding-bottom: 0;
+      }
+    }
+    &-subtitle {
+      opacity: 0.5;
+    }
+  }
+
+  &-featured-image {
+    &-img {
+      width: 100%;
+    }
+  }
+
+  &-content {
+    &-section {
+      margin-bottom: 8rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &-callout {
+      margin-bottom: 2rem;
+
+      @include breakpoint(large up) {
+        padding-right: 4rem;
+      }
+
+      &-title {
+        margin-bottom: 2.5rem;
+      }
+
+      &-sticky {
+        position: sticky;
+        top: $navbar-height + 1rem;
+      }
+
+      &-schedule {
+        line-height: $line-height-lg;
+
+        @include breakpoint(medium down) {
+          display: flex;
+          margin-bottom: 3rem;
+        }
+
+        &-column {
+          flex: 1;
+
+          @include breakpoint(large up) {
+            margin-bottom: 1.5rem;
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+
+        }
+      }
+
+      &-subtitle-small {
+        color: rgba($base-font-color-dark, 0.5);
+      }
+    }
+  }
+
+  &-image-full {
+    background-color: $light-gray-dark;
+    .parallax-image {
+      background-size: cover;
+      background-image: url('../img/maniak-time/maniak-time-image-full.jpg');
+    }
+  }
+
+  &-instagram {
+    &-title {
+      margin-bottom: 6rem;
+    }
+    &-button-container {
+      text-align: center;
+
+      .button {
+        margin: 0 auto;
+
+        @include breakpoint(medium down) {
+          position: relative;
+          @include button-outline();
+        }
+      }
+    }
+
+
+    &-image {
+      height: 60rem;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: $grid-gutter;
+
+      @include breakpoint(medium down) {
+        height: 30rem;
+        flex-direction: row;
+      }
+
+      &-inner {
+        width: 100%;
+        position: relative;
+        flex: 1 1 auto;
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &:nth-child(4n - 1),
+      &:nth-child(4n - 2) {
+
+        &::after {
+          content: '';
+          flex: none;
+          width: 100%;
+          height: 50%;
+          display: block;
+          @include breakpoint(medium down) {
+            height: 100%;
+            width: 50%;
+          }
+        }
+      }
+
+      &:nth-child(8n - 1),
+      &:nth-child(8n + 2) {
+        flex-direction: column-reverse;
+        @include breakpoint(medium down) {
+          flex-direction: row-reverse;
+        }
+      }
+      &:nth-child(8n + 2)::after {
+        background-color: red;
+      }
+      &:nth-child(8n + 3)::after {
+        background-color: green;
+      }
+      &:nth-child(8n - 2)::after {
+        background-color: yellow;
+      }
+      &:nth-child(8n - 1)::after {
+        background-color: blue;
+      }
+
+      &-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: $base-font-color-light;
+        padding: 2.5rem 3rem;
+        background: linear-gradient(0deg, rgba($stone-dark,0.6) 0%, rgba($stone-dark,0.2) 50%);
+        @include transition(md);
+
+        p {
+          margin-bottom: 0.5rem;
+          line-height: $line-height-md;
+        }
+        @include breakpoint(large up) {
+          &-subtitle {
+            height: 0px;
+            overflow: hidden;
+            @include transition(md);
+          }
+        }
+      }
+
+      &-inner:hover {
+        @include breakpoint(large up) {
+          .blog-post-instagram-image-overlay {
+            &-subtitle {
+              height: 4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

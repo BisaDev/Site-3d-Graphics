@@ -33,7 +33,7 @@
         methods: {
             handleParallax() {
                 this.backgroundPositionOffsetY = this.$refs.parallax.getBoundingClientRect().top / this.speed
-                if (this.horizontal == true) {
+                if (this.horizontal === true) {
                     const offsetX =
                         this.$refs.parallax.getBoundingClientRect().bottom /
                         (window.innerHeight + this.$refs.parallax.getBoundingClientRect().height)

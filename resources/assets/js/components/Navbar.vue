@@ -17,6 +17,9 @@
         <li>
           <router-link to="/contact">Contact</router-link>
         </li>
+        <li>
+          <router-link to="/news">News</router-link>
+        </li>
       </ul>
       <div  class="hamburger" :class="{'is-opened-navi': this.hamburgerClass}" role="button" @click="toggleMobileNav">
         <div class="hamburger-line hamburger-line-01">

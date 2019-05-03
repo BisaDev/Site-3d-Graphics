@@ -80,9 +80,16 @@ p, label {
   }
 }
 
+.title--large {
+  font-size: $font-size-xxxl;
+  letter-spacing: $letterspacing-md;
+}
+
+
 @include breakpoint(medium down) {
   $mobile-font-factor: 0.9;
-  h1 {
+  h1,
+  .title--large {
     font-size: $font-size-xxl * $mobile-font-factor;
   }
   h2 {
