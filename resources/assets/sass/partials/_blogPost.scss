@@ -41,7 +41,7 @@ $studio-paragraph-margin: 0 0 3.5rem;
       margin-bottom: 2rem;
 
       @include breakpoint(large up) {
-        padding-right: 4rem;
+        padding-right: 3rem;
       }
 
       &-title {
@@ -93,6 +93,7 @@ $studio-paragraph-margin: 0 0 3.5rem;
       margin-bottom: 6rem;
     }
     &-button-container {
+      margin-top: 3rem;
       text-align: center;
 
       .button {
@@ -140,6 +141,11 @@ $studio-paragraph-margin: 0 0 3.5rem;
           width: 100%;
           height: 50%;
           display: block;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          transform: scale(0.8);
+
           @include breakpoint(medium down) {
             height: 100%;
             width: 50%;
@@ -155,16 +161,16 @@ $studio-paragraph-margin: 0 0 3.5rem;
         }
       }
       &:nth-child(8n + 2)::after {
-        background-color: red;
+        background-image: url('../img/maniak-time/maniak-time-pot-1.png');
       }
       &:nth-child(8n + 3)::after {
-        background-color: green;
+        background-image: url('../img/maniak-time/maniak-time-pot-2.png');
       }
       &:nth-child(8n - 2)::after {
-        background-color: yellow;
+        background-image: url('../img/maniak-time/maniak-time-pot-3.png');
       }
       &:nth-child(8n - 1)::after {
-        background-color: blue;
+        background-image: url('../img/maniak-time/maniak-time-pot-2.png');
       }
 
       &-overlay {
@@ -178,10 +184,11 @@ $studio-paragraph-margin: 0 0 3.5rem;
         justify-content: flex-end;
         color: $base-font-color-light;
         padding: 2.5rem 3rem;
-        background: linear-gradient(0deg, rgba($stone-dark,0.6) 0%, rgba($stone-dark,0.2) 50%);
+        background: linear-gradient(0deg, rgba($stone-dark,0.6) 0%, rgba($stone-dark,0) 50%);
         @include transition(md);
 
         p {
+          font-size: $font-size-xs;
           margin-bottom: 0.5rem;
           line-height: $line-height-md;
         }
