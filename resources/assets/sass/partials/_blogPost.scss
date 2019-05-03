@@ -98,6 +98,11 @@ $studio-paragraph-margin: 0 0 3.5rem;
 
       .button {
         margin: 0 auto;
+        height: $button-height-xl;
+        line-height: $button-height-xl;
+        border: 1px solid  rgba($stone, 0.1);
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
 
         @include breakpoint(medium down) {
           position: relative;
@@ -185,9 +190,21 @@ $studio-paragraph-margin: 0 0 3.5rem;
         color: $base-font-color-light;
         padding: 2.5rem 3rem;
         background: linear-gradient(0deg, rgba($stone-dark,0.6) 0%, rgba($stone-dark,0) 50%);
-        @include transition(md);
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba($stone-dark, 0.33);
+          opacity: 0;
+          @include transition(md);
+        }
 
         p {
+          position: relative;
           font-size: $font-size-xs;
           margin-bottom: 0.5rem;
           line-height: $line-height-md;
@@ -203,7 +220,11 @@ $studio-paragraph-margin: 0 0 3.5rem;
 
       &-inner:hover {
         @include breakpoint(large up) {
+
           .blog-post-instagram-image-overlay {
+            &::before {
+              opacity: 1;
+            }
             &-subtitle {
               height: 4rem;
             }

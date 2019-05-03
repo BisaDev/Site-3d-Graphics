@@ -120,9 +120,9 @@ export default {
         this.updateData()
         this.feed = new Instafeed({
             get: 'user',
-            userId: 600016336,
-            accessToken: '600016336.d1a3afe.2708556f92a94c7486474935232060ba', // This token expires after a while. Regenerate if it stops working.
-            resolution: 'standard_resolution',
+            userId: 600016336, // The number before the first period in your access token
+            accessToken: '600016336.d1a3afe.2708556f92a94c7486474935232060ba', // This token expires after a while. Regenerate if it stops working. See https://www.instagram.com/developer/authentication/
+            resolution: 'standard_resolution', // Alternatives are "low_resolution" and "thumbnail"
             useHttp: 'true',
             limit: 10,
             template: `<div class="blog-post-instagram-image">
@@ -140,7 +140,7 @@ export default {
             after: function() {
                 // disable button if no more results to load
                 if (!this.hasNext()) {
-                    this.$refs.buttonLoadMore.setAttribute('disabled', 'disabled')
+                    this.$root.$refs.buttonLoadMore.setAttribute('disabled', 'disabled')
                 }
             },
         })
