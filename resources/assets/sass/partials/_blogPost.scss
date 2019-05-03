@@ -89,6 +89,8 @@ $studio-paragraph-margin: 0 0 3.5rem;
   }
 
   &-instagram {
+    margin-top: 18rem;
+
     &-title {
       margin-bottom: 6rem;
     }
@@ -129,6 +131,8 @@ $studio-paragraph-margin: 0 0 3.5rem;
         flex: 1 1 auto;
         cursor: pointer;
         overflow: hidden;
+        border-radius: $border-radius;
+        @include transition(md);
       }
 
       img {
@@ -220,6 +224,7 @@ $studio-paragraph-margin: 0 0 3.5rem;
 
       &-inner:hover {
         @include breakpoint(large up) {
+          transform: scale(1.01);
 
           .blog-post-instagram-image-overlay {
             &::before {
