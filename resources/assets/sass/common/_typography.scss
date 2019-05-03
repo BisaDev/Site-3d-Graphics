@@ -32,7 +32,7 @@ p {
 }
 
 h1 {
-  font-size: $font-size-xxl;
+  font-size: $font-size-xxxl;
   line-height: $line-height-md;
   font-weight: $font-weight-regular;
   b,
@@ -42,7 +42,7 @@ h1 {
 
 }
 h2 {
-  font-size: $font-size-xl;
+  font-size: $font-size-xxl;
   line-height: $line-height-md;
   font-weight: $font-weight-regular;
   b,
@@ -51,12 +51,12 @@ h2 {
   }
 }
 h3 {
-  font-size: $font-size-lg;
+  font-size: $font-size-xl;
   line-height: $line-height-md;
   font-weight: $font-weight-medium;
 }
 h4 {
-  font-size: $font-size-lg;
+  font-size: $font-size-xl;
   line-height: $line-height-lg;
   font-weight: $font-weight-regular;
 }
@@ -81,7 +81,7 @@ p, label {
 }
 
 .title--large {
-  font-size: $font-size-xxxl;
+  font-size: $font-size-xxxxl;
   letter-spacing: $letterspacing-md;
 }
 
@@ -90,16 +90,16 @@ p, label {
   $mobile-font-factor: 0.9;
   h1,
   .title--large {
-    font-size: $font-size-xxl * $mobile-font-factor;
+    font-size: $font-size-xxxl * $mobile-font-factor;
   }
   h2 {
-    font-size: $font-size-xl * $mobile-font-factor;
+    font-size: $font-size-xxl * $mobile-font-factor;
   }
   h3 {
-    font-size: $font-size-lg * $mobile-font-factor;
+    font-size: $font-size-xl * $mobile-font-factor;
   }
   h4 {
-    font-size: $font-size-lg * $mobile-font-factor;
+    font-size: $font-size-xl * $mobile-font-factor;
   }
   h5 {
     font-size: $font-size-md * $mobile-font-factor;

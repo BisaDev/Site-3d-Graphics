@@ -1,5 +1,98 @@
 footer {
-  section {
+    .footer {
+        &-top,
+        &-bottom {
+            border-top: 1px solid $light-gray-darker;
+        }
+
+        &-top {
+            padding: 10rem 0;
+
+            @include breakpoint(medium down) {
+                padding: 8rem 0;
+            }
+        }
+
+        &-contact {
+            &-copy {
+                margin-top: 5rem;
+                max-width: 40rem;
+                font-size: $font-size-md;
+                line-height: $line-height-lg;
+
+                @include breakpoint(medium down) {
+                    margin-bottom: 5rem;
+                }
+            }
+        }
+
+        &-links {
+            li {
+                margin: 0;
+            }
+
+            a {
+                display: block;
+                padding: 0.4rem 0;
+                font-size: $font-size-xs;
+                line-height: $line-height-lg;
+            }
+        }
+
+        &-bottom {
+            &-container {
+                height: 10rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                @include breakpoint(medium down) {
+                    height: auto;
+                    padding-top: 3rem;
+                    padding-bottom: 4rem;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                    text-align: center;
+                }
+            }
+        }
+
+        &-mnk-logo {
+            width: 4.8rem;
+
+            @include breakpoint(medium down) {
+                margin-bottom: 2rem;
+            }
+            img {
+                width: 100%;
+            }
+        }
+
+        &-mnk-description {
+            font-size: $font-size-xs;
+            line-height: $line-height-lg;
+
+            @include breakpoint(medium down) {
+                a {
+                    display: block;
+                    margin-top: 2rem;
+                }
+            }
+        }
+    }
+
+    a {
+        @include transition(sm);
+        color: $stone-50;
+
+        &:hover,
+        &:focus {
+            color: $base-font-color-dark;
+        }
+    }
+
+    /*section {
     margin: 0;
   }
   a {
@@ -40,5 +133,5 @@ footer {
         transform: translateY(-100%);
       }
     }
-  }
+  }*/
 }
