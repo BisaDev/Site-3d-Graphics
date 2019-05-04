@@ -1,5 +1,5 @@
 <template>
-    <a :href="to" class="button button-scroll" @click.prevent="scroll">
+    <a :href="to" class="button button-scroll button-scroll-bottom" @click.prevent="scroll">
         <span v-for="twice in 2">{{ text }}</span>
     </a>
 </template>

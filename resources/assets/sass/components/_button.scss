@@ -9,8 +9,6 @@
     height: $button-height;
     display: block;
     overflow: hidden;
-    position: absolute;
-    bottom: 5rem;
 
     span {
       display: block;
@@ -22,8 +20,16 @@
 
     @include breakpoint(medium down) {
       height: $button-height-xl;
-      bottom: $grid-container-padding-md;
       width: 100%;
+    }
+
+    &.button-scroll-bottom {
+      position: absolute;
+      bottom: 5rem;
+
+      @include breakpoint(medium down) {
+        bottom: $grid-container-padding-md;
+      }
     }
   }
 
