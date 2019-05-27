@@ -21,7 +21,7 @@
         <div class="grid">
           <div class="blog-post-content-callout">
             <div class="blog-post-content-callout-sticky">
-              <h2 class="blog-post-content-callout-title">Let's use our time well and keep perfecting.</h2>
+              <h2 class="blog-post-content-callout-title">Becoming a Maniak it's not easy, it takes time.</h2>
               <div class="blog-post-content-callout-schedule">
                 <div class="blog-post-content-callout-schedule-column">
                   <div class="blog-post-content-callout-subtitle">Mon – Thu</div>
@@ -62,21 +62,21 @@
           </div>
         </div>
       </div>
-      <div class="blog-post-content-section container container--small">
-        <div class="grid">
-          <div class="blog-post-content-callout">
-            <h2 class="blog-post-content-callout-title">To everyone at Maniak.</h2>
-          </div>
-          <div class="blog-post-content-main">
-            <p>
-              We want to be better as a group and individuals, we want to be the best in the industry, now we have the time to improve and achieve that.
-            </p>
-            <p>
-              This new program / policy is something that if we take advantage of, will push us ahead of the competition but it’s also something that can be abused. We trust every one of you, we trust that you will use the time wisely .
-            </p>
-          </div>
-        </div>
-      </div>
+<!--      <div class="blog-post-content-section container container&#45;&#45;small">-->
+<!--        <div class="grid">-->
+<!--          <div class="blog-post-content-callout">-->
+<!--            <h2 class="blog-post-content-callout-title">To everyone at Maniak.</h2>-->
+<!--          </div>-->
+<!--          <div class="blog-post-content-main">-->
+<!--            <p>-->
+<!--              We want to be better as a group and individuals, we want to be the best in the industry, now we have the time to improve and achieve that.-->
+<!--            </p>-->
+<!--            <p>-->
+<!--              This new program / policy is something that if we take advantage of, will push us ahead of the competition but it’s also something that can be abused. We trust every one of you, we trust that you will use the time wisely .-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
     </section>
     <section class="blog-post-instagram">
       <div class="container container--small">
