@@ -21,7 +21,7 @@
         <div class="grid">
           <div class="blog-post-content-callout">
             <div class="blog-post-content-callout-sticky">
-              <h2 class="blog-post-content-callout-title">Becoming a Maniak is not easy, it takes time.</h2>
+              <h2 class="blog-post-content-callout-title">Becoming a Maniak is not easy. It takes time.</h2>
               <div class="blog-post-content-callout-schedule">
                 <div class="blog-post-content-callout-schedule-column">
                   <div class="blog-post-content-callout-subtitle">Mon – Thu</div>
@@ -36,13 +36,13 @@
           </div>
           <div class="blog-post-content-main">
             <p>
-              In an industry as competitive as the software and design industry  we need to constantly change the way we do things. The way in which we experiment with new methods, new technologies and have the willingness to invest in a path we deem will bring the best out of our work, will increase our client satisfaction and value of what we deliver as a Company.
+              In an industry as competitive as the software and design industry we need to constantly change the way we do things. The way in which we experiment with new methods, new technologies and have the willingness to invest in a path we deem will bring the best out of our work, will increase our client satisfaction and value of what we deliver as a company.
             </p>
             <p>
               However, it’s also a reality that trying to find the time to improve as individuals and as a company, is, to say the least, a struggle. Not because of a lack of motivation and discipline but because we live for our work. We are passionate and relentless in our efforts to achieve our goals and we always want to do better. This attitude sometimes takes the best out of us.
             </p>
             <p>
-              That is why we have decided to institute a new company policy called “Maniak Time” that will allow us to keep perfecting our craft with activities targeted to increase our value and improve as professionals. The rules of the game are simple: We need time and that time will be taken out of every Friday.  This means that our consulting hours will be Monday to Thursday from 9 AM to 6 PM, and Fridays from 9 AM to 12 PM.
+              That is why we have decided to institute a new company policy called “Maniak Time” that will allow us to keep perfecting our craft with activities targeted to increase our value and improve as professionals. The rules of the game are simple: We need time and that time will be taken out of every Friday. This means that our consulting hours will be Monday to Thursday from 9 AM to 6 PM, and Fridays from 9 AM to 12 PM.
             </p>
           </div>
         </div>
