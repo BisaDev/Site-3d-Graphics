@@ -43,6 +43,7 @@
             </p>
             <p>
               That is why we have decided to institute a new company policy called “Maniak Time” that will allow us to keep perfecting our craft with activities targeted to increase our value and improve as professionals. The rules of the game are simple: We need time and that time will be taken out of every Friday.  This means that our consulting hours will be Monday to Thursday from 9 AM to 6 PM, and Fridays from 9 AM to 12 PM.
+            </p>
           </div>
         </div>
       </div>
@@ -59,24 +60,11 @@
           <div class="blog-post-content-main">
             <p>
               We take this change very seriously and we firmly believe that the outcome will reap an immediate positive change in the way we do business, how we handle projects and in the quality of our work. It will force us to be more effective and punctual in all of our actions.
+            </p>
           </div>
         </div>
       </div>
-<!--      <div class="blog-post-content-section container container&#45;&#45;small">-->
-<!--        <div class="grid">-->
-<!--          <div class="blog-post-content-callout">-->
-<!--            <h2 class="blog-post-content-callout-title">To everyone at Maniak.</h2>-->
-<!--          </div>-->
-<!--          <div class="blog-post-content-main">-->
-<!--            <p>-->
-<!--              We want to be better as a group and individuals, we want to be the best in the industry, now we have the time to improve and achieve that.-->
-<!--            </p>-->
-<!--            <p>-->
-<!--              This new program / policy is something that if we take advantage of, will push us ahead of the competition but it’s also something that can be abused. We trust every one of you, we trust that you will use the time wisely .-->
-<!--            </p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+
     </section>
     <section class="blog-post-instagram">
       <div class="container container--small">
@@ -117,6 +105,7 @@ export default {
     },
 
     mounted() {
+        const $this = this
         this.updateData()
         this.feed = new Instafeed({
             get: 'user',
@@ -138,9 +127,10 @@ export default {
                 </div>`,
             target: 'blog-post-instagram-feed',
             after: function() {
+                console.log('test')
                 // disable button if no more results to load
                 if (!this.hasNext()) {
-                    this.$root.$refs.buttonLoadMore.setAttribute('disabled', 'disabled')
+                    $this.$refs.buttonLoadMore.style.display = 'none'
                 }
             },
         })
