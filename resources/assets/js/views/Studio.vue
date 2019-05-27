@@ -98,7 +98,7 @@
                     </div>
                     <div class="section-content">
                         <p>
-                            Our design practice is oriented to solve problems in the web and technology space. We like deliver continuous and intuitive experiences across all digital mediums.
+                            Our design practice is oriented to solve problems in the web and technology space. We like to deliver continuous and intuitive experiences across all digital mediums.
                         </p>
                         <ul>
                             <li>UX Design</li>
@@ -129,7 +129,7 @@
                     </div>
                     <div class="section-content">
                         <p>
-                            We aim to deliver high quality 3D content across multiple platforms, to provide a visual aid and an experience of something that might not exist. We like games to.
+                            We aim to deliver high quality 3D content across multiple platforms, to provide a visual aid and an experience of something that might not exist. We like games too.
                         </p>
                         <ul>
                             <li>3D Modeling &amp; Rendering</li>
