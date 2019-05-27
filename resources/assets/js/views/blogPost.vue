@@ -21,7 +21,7 @@
         <div class="grid">
           <div class="blog-post-content-callout">
             <div class="blog-post-content-callout-sticky">
-              <h2 class="blog-post-content-callout-title">Becoming a Maniak it's not easy, it takes time.</h2>
+              <h2 class="blog-post-content-callout-title">Becoming a Maniak is not easy, it takes time.</h2>
               <div class="blog-post-content-callout-schedule">
                 <div class="blog-post-content-callout-schedule-column">
                   <div class="blog-post-content-callout-subtitle">Mon – Thu</div>
