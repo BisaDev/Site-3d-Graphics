@@ -104,10 +104,11 @@ new Vue({
         this.consoleChecker.toString = () => {
             /*HOTFIX: This line is getting an object in newest versions of
             chrome so it always displays the error screen even when the
-            console is not open. Please check later for a better solution.*/
+            console is not open. Please check later for a better solution.
+
             if (window.chrome) {
                 this.devtoolsOpen = true
-            }
+            }*/
         }
 
         this.enableDeath && setInterval(this.killIt, 1000)
